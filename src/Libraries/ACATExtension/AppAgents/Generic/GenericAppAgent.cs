@@ -66,7 +66,7 @@ namespace ACAT.Lib.Extension.AppAgents.Generic
     /// <summary>
     /// Application agent for processes that are not natively
     /// supported by ACAT in that, they don't have dedicated
-    /// Application agents
+    /// Application agents in ACAT.
     /// </summary>
     public class GenericAppAgent : GenericAppAgentBase
     {

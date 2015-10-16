@@ -1,4 +1,4 @@
-﻿////////////////////////////////////////////////////////////////////////////
+﻿/////////////////////////////////////////////////////////////////////////////
 // <copyright file="Splash.cs" company="Intel Corporation">
 //
 // Copyright (c) 2013-2015 Intel Corporation 
@@ -168,23 +168,31 @@ namespace ACAT.Lib.Core.PanelManagement
             _backgroundWorker.WorkerReportsProgress = false;
             _backgroundWorker.RunWorkerCompleted += backgroundWorker_RunWorkerCompleted;
             _backgroundWorker.DoWork += backgroundWorker_DoWork;
+
+            _closeEvent.Reset();
             _stopWatch.Start();
+
             _backgroundWorker.RunWorkerAsync();
+
+            _closeEvent.WaitOne();
         }
 
         /// <summary>
-        /// The work handler function flr the background worker
+        /// The work handler function for the background worker
         /// </summary>
         /// <param name="sender">event sender</param>
         /// <param name="e">event args</param>
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            String appName = _line1 ?? String.Empty;
-            String appVersion = _line2 ?? String.Empty;
-            String appCopyright = _line3 ?? String.Empty;
-            _closeEvent.Reset();
+            var appName = _line1 ?? String.Empty;
+            var appVersion = _line2 ?? String.Empty;
+            var appCopyright = _line3 ?? String.Empty;
+
             _form = new SplashScreen(appName, appVersion, appCopyright, _image);
+
+            _closeEvent.Set();
             _form.ShowDialog();
+            _form.Dispose();
         }
 
         /// <summary>
@@ -196,6 +204,9 @@ namespace ACAT.Lib.Core.PanelManagement
         {
         }
 
+        /// <summary>
+        /// Waits until the minimum uptime has elapsed
+        /// </summary>
         private void waitUntilUpTime()
         {
             if (_stopWatch.IsRunning && _minUpTime > 0)
@@ -204,6 +215,7 @@ namespace ACAT.Lib.Core.PanelManagement
                 if (elapsedTime < _minUpTime)
                 {
                     long timeToSleep = _minUpTime - elapsedTime;
+
                     Thread.Sleep((int)timeToSleep);
                 }
             }

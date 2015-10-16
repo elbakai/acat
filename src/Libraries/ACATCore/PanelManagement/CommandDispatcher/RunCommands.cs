@@ -96,7 +96,7 @@ namespace ACAT.Lib.Core.PanelManagement.CommandDispatcher
         }
 
         /// <summary>
-        /// Add the indicated command to the list of commands. If a
+        /// Adds the indicated command to the list of commands. If a
         /// handler for the command already exists, it is replaced
         /// </summary>
         /// <param name="runCommandHandler">Handler to add</param>

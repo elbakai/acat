@@ -2,21 +2,21 @@
 
 <ACAT>
 	<WidgetAttributes>
-    <WidgetAttribute name="lblOK" label="OK" value="valButtonSave"  fontsize="14" mouseClickActuate="true"/>
-		<WidgetAttribute name="lblBack" label="Cancel" value="valButtonBack"  fontsize="14"  mouseClickActuate="true"/>
-    <WidgetAttribute name="lblRestoreDefaults" label="Defaults" value="valButtonRestoreDefaults" fontsize="14"  mouseClickActuate="true" />
+    <WidgetAttribute name="lblOK" label="OK" value="valButtonSave"  fontsize="14" bold="false"/>
+		<WidgetAttribute name="lblBack" label="Cancel" value="valButtonBack"  fontsize="14"  bold="false"/>
+    <WidgetAttribute name="lblRestoreDefaults" label="Defaults" value="valButtonRestoreDefaults" fontsize="14"   bold="false"/>
     
-    <WidgetAttribute name="pbScanClick" label="M" value="valCheckScanClick" fontname="ACAT Icon" fontsize="32" bold="false" />
-    <WidgetAttribute name="pbAlarmSound" label="M" value="valCheckAlarmSound" fontname="ACAT Icon" fontsize="32" bold="false" />
-    <WidgetAttribute name="pbSelectingClick" label="M" value="valCheckSelectingClick" fontname="ACAT Icon" fontsize="32" bold="false" mouseClickActuate="true"/>
+    <WidgetAttribute name="pbScanClick" label="M" value="valCheckScanClick" fontname="ACAT Icon" fontsize="32" bold="false" mouseClickActuate="false" />
+    <WidgetAttribute name="pbAlarmSound" label="M" value="valCheckAlarmSound" fontname="ACAT Icon" fontsize="32" bold="false" mouseClickActuate="false" />
+    <WidgetAttribute name="pbSelectingClick" label="M" value="valCheckSelectingClick" fontname="ACAT Icon" fontsize="32" bold="false" />
 
-    <WidgetAttribute name="pbDynamicLearning" label="M" value="valDynamicLearning" fontname="ACAT Icon" fontsize="32" bold="false" mouseClickActuate="true"/>
-    <WidgetAttribute name="lblDynamicLearning" label="Dynamic Learning" fontsize="14" value="valDynamicLearning"/>
-    <WidgetAttribute name="pbUseCorpus" label="M" value="valUseCorpus" fontname="ACAT Icon" fontsize="32" bold="false" mouseClickActuate="true"/>
-    <WidgetAttribute name="lblUseCorpus" label="Use Corpus Model" fontsize="14" value="valUseCorpus"/>
-    <WidgetAttribute name="lblWordCount" label="Word Count" fontsize="14" value="valWordCount"/>
-    <WidgetAttribute name="ltbWordCountLess" label="O" value="valButtonWordCountLess" fontname="ACAT Icon" fontsize="36"  bold="false" mouseClickActuate="true"/>
-    <WidgetAttribute name="ltbWordCountMore" label="N" value="valButtonWordCountMore" fontname="ACAT Icon" fontsize="36"  bold="false" mouseClickActuate="true"/>
+    <WidgetAttribute name="pbDynamicLearning" label="M" value="valDynamicLearning" fontname="ACAT Icon" fontsize="32" bold="false" />
+    <WidgetAttribute name="lblDynamicLearning" label="Dynamic Learning" fontsize="16" value="valDynamicLearning" mouseClickActuate="false" bold="false"/>
+    <WidgetAttribute name="pbUseCorpus" label="M" value="valUseCorpus" fontname="ACAT Icon" fontsize="32" bold="false" />
+    <WidgetAttribute name="lblUseCorpus" label="Use Corpus Model" fontsize="16" value="valUseCorpus" mouseClickActuate="false" bold="false"/>
+    <WidgetAttribute name="lblWordCount" label="Word Count" fontsize="16" value="valWordCount" mouseClickActuate="false" bold="false"/>
+    <WidgetAttribute name="ltbWordCountLess" label="O" value="valButtonWordCountLess" fontname="ACAT Icon" fontsize="36"  bold="false" />
+    <WidgetAttribute name="ltbWordCountMore" label="N" value="valButtonWordCountMore" fontname="ACAT Icon" fontsize="36"  bold="false" />
 	</WidgetAttributes>
 
   <Layout>

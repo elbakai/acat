@@ -103,6 +103,14 @@ namespace ACAT.Lib.Extension.CommandHandlers
                     Context.AppAgentMgr.Keyboard.Send(KeyStateTracker.GetExtendedKeys(), '\n');
                     KeyStateTracker.KeyTriggered('\n');
                     break;
+
+                case "CmdPeriodKey":
+                    Context.AppAgentMgr.Keyboard.Send(KeyStateTracker.GetExtendedKeys(), '.');
+                    break;
+
+                case "CmdCommaKey":
+                    Context.AppAgentMgr.Keyboard.Send(KeyStateTracker.GetExtendedKeys(), ',');
+                    break;
             }
 
             return true;

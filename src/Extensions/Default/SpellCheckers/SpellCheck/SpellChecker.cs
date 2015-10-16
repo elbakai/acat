@@ -72,10 +72,17 @@ namespace ACAT.Extensions.Default.SpellCheckers
     /// after a sentence terminator (such as '.', '!' etc).  Inserts
     /// spaces after a terminator.
     /// </summary>
-    [DescriptorAttribute("9DB43B3D-A407-4FC5-8025-89497E5B9767", "ACAT SpellChecker",
-                            "ACAT's Default Spell Checker.")]
+    [DescriptorAttribute("9DB43B3D-A407-4FC5-8025-89497E5B9767",
+                        "ACAT SpellChecker",
+                        "ACAT's Default Spell Checker.")]
     public class SpellChecker : ISpellChecker
     {
+        /// <summary>
+        /// Name of the spellcheck file that contains a mapping between
+        /// the misspelt word and its correct spelling
+        /// </summary>
+        private const string SpellCheckFileName = "SpellCheck.xml";
+
         /// <summary>
         /// Spell check dictionary.  Maps a misspelt word with the correct spelling
         /// </summary>
@@ -132,7 +139,7 @@ namespace ACAT.Extensions.Default.SpellCheckers
         {
             bool retVal = true;
 
-            var spellingFile = UserManager.GetFullPath("SpellCheck.xml");
+            var spellingFile = UserManager.GetFullPath(SpellCheckFileName);
 
             var doc = new XmlDocument();
 
@@ -169,7 +176,7 @@ namespace ACAT.Extensions.Default.SpellCheckers
         }
 
         /// <summary>
-        /// Load factory default settings.
+        /// Loads factory default settings.
         /// </summary>
         /// <returns>true always</returns>
         public bool LoadDefaultSettings()
@@ -206,7 +213,7 @@ namespace ACAT.Extensions.Default.SpellCheckers
         }
 
         /// <summary>
-        ///  Save settings into the specified directory
+        ///  Saves settings into the specified directory
         /// </summary>
         /// <param name="configFileDirectory">name of the directory</param>
         /// <returns>true always</returns>

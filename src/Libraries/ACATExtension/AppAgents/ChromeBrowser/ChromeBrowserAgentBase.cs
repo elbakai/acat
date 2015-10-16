@@ -21,8 +21,10 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Windows.Automation;
 using System.Windows.Forms;
 using ACAT.Lib.Core.AgentManagement;
+using ACAT.Lib.Core.AgentManagement.TextInterface;
 using ACAT.Lib.Core.PanelManagement;
 using ACAT.Lib.Core.Utility;
 
@@ -64,10 +66,20 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Extension.AppAgents.ChromeBrowser
 {
     /// <summary>
-    /// Base class for application agent for the Chrome browser
+    /// Base class for application agent for the Chrome browser. Enables
+    /// easy browing of web pages, page up, page down, go back, forward,
+    /// search etc.
     /// </summary>
     public class ChromeBrowserAgentBase : GenericAppAgentBase
     {
+        /// <summary>
+        /// If set to true, the agent will autoswitch the
+        /// scanners depending on which element has focus.
+        /// Eg: Alphabet scanner if an edit text window has focus,
+        /// the contextual menu if the main document has focus
+        /// </summary>
+        protected bool autoSwitchScanners = true;
+
         /// <summary>
         /// Name of the chrome browser process
         /// </summary>
@@ -139,7 +151,9 @@ namespace ACAT.Lib.Extension.AppAgents.ChromeBrowser
             if (!_scannerShown)
             {
                 base.OnFocusChanged(monitorInfo, ref handled);
-                showPanel(this, new PanelRequestEventArgs(PanelClasses.Alphabet, monitorInfo));
+
+                showPanel(this, new PanelRequestEventArgs((autoSwitchScanners) ? "ChromeBrowserContextMenu" : PanelClasses.Alphabet, "Chrome", monitorInfo));
+
                 _scannerShown = true;
             }
 
@@ -156,7 +170,7 @@ namespace ACAT.Lib.Extension.AppAgents.ChromeBrowser
         }
 
         /// <summary>
-        /// Invoked to run a command
+        /// Executes the specified command.
         /// </summary>
         /// <param name="command">The command to execute</param>
         /// <param name="commandArg">Optional arguments for the command</param>
@@ -225,6 +239,20 @@ namespace ACAT.Lib.Extension.AppAgents.ChromeBrowser
                     base.OnRunCommand(command, commandArg, ref handled);
                     break;
             }
+        }
+
+        /// <summary>
+        /// Creates the text control agent for the Chrome browser
+        /// </summary>
+        /// <param name="handle">Handle to the browser window</param>
+        /// <param name="focusedElement">currently focused element</param>
+        /// <param name="handled">set to true if handled</param>
+        /// <returns>the textcontrolagent</returns>
+        protected override TextControlAgentBase createEditControlTextInterface(IntPtr handle,
+                                                                    AutomationElement focusedElement,
+                                                                    ref bool handled)
+        {
+            return new ChromeBrowserTextControlAgent(handle, focusedElement, ref handled);
         }
     }
 }

@@ -62,7 +62,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Properties\Aster.ico</ApplicationIcon>
+    <ApplicationIcon>Properties\ACAT.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
@@ -75,9 +75,11 @@
       <HintPath>..\..\Redistributable\ACATExtension.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -113,39 +115,30 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Install\Users\Default\Abbreviations.xml">
+    <Content Include="Install\Users\ACAT\Abbreviations.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Install\Users\Default\Actuators.xml">
+    <Content Include="Install\Users\ACAT\Actuators.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Install\Users\Default\LaunchAppSettings.xml">
+    <Content Include="Install\Users\ACAT\LaunchAppSettings.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Install\Users\Default\PreferredPanelConfig.xml">
+    <Content Include="Install\Users\ACAT\PreferredPanelConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Install\Users\Default\Profiles\Talk\PreferredPanelConfig.xml">
+    <Content Include="Install\Users\ACAT\SAPIPronunciations.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Install\Users\Default\Profiles\Talk\Settings.xml">
+    <Content Include="Install\Users\ACAT\SpellCheck.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Install\Users\Default\SAPIPronunciations.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Install\Users\Default\SpellCheck.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Install\Users\Default\SwitchConfigMap.xml">
+    <Content Include="Install\Users\ACAT\SwitchConfigMap.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="CreateUser.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Install\Users\Default\WordPredictors\Presage\database.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -189,13 +182,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\Aster.ico" />
+    <EmbeddedResource Include="Properties\ACAT.ico" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\PresageService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Install\Users\ACAT\WordPredictors\Presage\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

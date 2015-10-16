@@ -58,7 +58,8 @@ using System.Diagnostics.CodeAnalysis;
 namespace ACAT.Lib.Core.TTSManagement
 {
     /// <summary>
-    /// Interface that supports a ranged Type
+    /// Interface that supports a ranged Type with a min, a max
+    /// and a value
     /// </summary>
     public interface ITTSValue<T>
     {

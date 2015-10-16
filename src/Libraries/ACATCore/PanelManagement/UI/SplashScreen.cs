@@ -69,19 +69,14 @@ namespace ACAT.Lib.Core.PanelManagement
     public partial class SplashScreen : Form
     {
         /// <summary>
-        /// Says 'Loading..."
-        /// </summary>
-        private readonly String _loadingLabel;
-
-        /// <summary>
         /// Make sure nothing overlaps this form
         /// </summary>
         private readonly WindowOverlapWatchdog _watchDog;
 
         /// <summary>
-        /// A counter
+        /// Index of the image in the image list
         /// </summary>
-        private int _periodCounter;
+        private int _imageIndex;
 
         /// <summary>
         /// Timer used to udpate info on the form
@@ -122,7 +117,7 @@ namespace ACAT.Lib.Core.PanelManagement
 
             TopMost = true;
 
-            _loadingLabel = lblLoading.Text;
+            pictureBoxStatus.BackgroundImageLayout = ImageLayout.Stretch;
 
             _watchDog = new WindowOverlapWatchdog(this);
 
@@ -137,7 +132,8 @@ namespace ACAT.Lib.Core.PanelManagement
         {
             stopTimer();
 
-            Windows.CloseForm(this);
+            //Windows.CloseForm(this);
+            DialogResult = DialogResult.Yes;
         }
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -160,14 +156,8 @@ namespace ACAT.Lib.Core.PanelManagement
         /// <param name="e">event args</param>
         private void _timer_Tick(object sender, EventArgs e)
         {
-            _periodCounter = (_periodCounter + 1) % 5;
-            var loading = _loadingLabel;
-            for (int ii = 0; ii < _periodCounter; ii++)
-            {
-                loading = loading + ". ";
-            }
-
-            Windows.SetText(lblLoading, loading);
+            pictureBoxStatus.BackgroundImage = imageList.Images[_imageIndex];
+            _imageIndex = (_imageIndex + 1) % imageList.Images.Count;
         }
 
         /// <summary>
@@ -203,7 +193,7 @@ namespace ACAT.Lib.Core.PanelManagement
         }
 
         /// <summary>
-        /// Called when the form is shown
+        /// Event handler for when the form is showns
         /// </summary>
         /// <param name="sender">event sender</param>
         /// <param name="e">event args</param>
@@ -213,21 +203,24 @@ namespace ACAT.Lib.Core.PanelManagement
         }
 
         /// <summary>
-        /// Start the timer to display the animated "Loading..." text
+        /// Starts the timer to animate the image list at the bottom of
+        /// the splash screen to indicate 'activity'
         /// </summary>
         private void startTimer()
         {
             _timer = new Timer { Interval = 250 };
             _timer.Tick += _timer_Tick;
+            _timer_Tick(null, null);
             Invoke(new MethodInvoker(() => _timer.Start()));
         }
 
+        /// <summary>
+        /// Stops the timer for animating the image list
+        /// </summary>
         private void stopTimer()
         {
             _timer.Tick -= _timer_Tick;
             _timer.Stop();
         }
-
-        // width of ellipse
     }
 }

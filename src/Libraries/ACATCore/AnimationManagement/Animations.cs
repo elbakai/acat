@@ -1,5 +1,5 @@
 ﻿////////////////////////////////////////////////////////////////////////////
-// <copyright file="Keyboard.cs" company="Intel Corporation">
+// <copyright file="Animations.cs" company="Intel Corporation">
 //
 // Copyright (c) 2013-2015 Intel Corporation 
 //
@@ -62,7 +62,7 @@ using System.Xml;
 namespace ACAT.Lib.Core.AnimationManagement
 {
     /// <summary>
-    /// Represents a collection of animations for a screen
+    /// Represents a collection of animations for a panel
     ///
     /// The hierarchy is as follows
     ///     AnimationsCollection (collection of animations indexed by animation namename)
@@ -86,6 +86,9 @@ namespace ACAT.Lib.Core.AnimationManagement
             _animationTable = new Dictionary<String, Animation>();
         }
 
+        /// <summary>
+        /// Gets or sets the name of the collection
+        /// </summary>
         public String Name { get; set; }
 
         /// <summary>

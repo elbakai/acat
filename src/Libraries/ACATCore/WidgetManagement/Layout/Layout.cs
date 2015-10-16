@@ -66,8 +66,8 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Core.WidgetManagement
 {
     /// <summary>
-    /// Reads screen layout information from the config file.  The layout
-    /// information is essentially captures the parent-child hierarchy of
+    /// Reads panel layout information from the config file of the scanner.
+    /// The layout information is essentially captures the parent-child hierarchy of
     /// controls in the UI and also contains the Widget class (.NET type)
     /// for each widget which will be used to instatiate the widget.
     /// </summary>
@@ -92,7 +92,7 @@ namespace ACAT.Lib.Core.WidgetManagement
         private String _disabledButtonColorSchemeName;
 
         /// <summary>
-        /// The screen form
+        /// The Panel form
         /// </summary>
         private Control _rootControl;
 
@@ -136,7 +136,7 @@ namespace ACAT.Lib.Core.WidgetManagement
         public ColorScheme DisabledButtonColors { get; internal set; }
 
         /// <summary>
-        /// The screen widget
+        /// The panel widget
         /// </summary>
         public Widget RootWidget { get; set; }
 
@@ -213,7 +213,7 @@ namespace ACAT.Lib.Core.WidgetManagement
         }
 
         /// <summary>
-        /// Loads the layout information for the specified screen.  The Layout
+        /// Loads the layout information for the specified panel (rootWidget).  The Layout
         /// element in the XML config file contains the parent child relationship
         /// between widgets starting with the form at the root.  Creates
         /// the root widget and all the child widgets. This gives the flexibility
@@ -221,8 +221,8 @@ namespace ACAT.Lib.Core.WidgetManagement
         /// relationship in the Form design.
         /// </summary>
         /// <param name="configFile">Full name of the xml file</param>
-        /// <param name="root">The screen control to load layout for</param>
-        /// <returns>Root widget for the screen</returns>
+        /// <param name="rootWidget">The panel to load layout for</param>
+        /// <returns>true on success</returns>
         public bool Load(String configFile, Widget rootWidget)
         {
             bool retVal = true;
@@ -255,7 +255,7 @@ namespace ACAT.Lib.Core.WidgetManagement
                 else
                 {
                     retVal = false;
-                    Log.Error("Could not find layout element in xml file " + configFile + ", screen: " + rootWidget.Name);
+                    Log.Error("Could not find layout element in xml file " + configFile + ", panel: " + rootWidget.Name);
                 }
             }
             else

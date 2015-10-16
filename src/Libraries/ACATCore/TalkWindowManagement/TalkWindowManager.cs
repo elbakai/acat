@@ -18,12 +18,14 @@
 // </copyright>
 ////////////////////////////////////////////////////////////////////////////
 
+//#define TALKWINDOW_DISPATCHER_THREAD
+
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
-using System.Threading;
 using System.Windows.Forms;
 using ACAT.Lib.Core.Audit;
+using ACAT.Lib.Core.PanelManagement;
 using ACAT.Lib.Core.TTSManagement;
 using ACAT.Lib.Core.Utility;
 
@@ -72,9 +74,26 @@ namespace ACAT.Lib.Core.TalkWindowManagement
     public class TalkWindowManager : IDisposable
     {
         /// <summary>
+        /// On Win8, having the talk window docked exactly with the scanner
+        /// causes problems of overlap where the scanner and talk window compete
+        /// to stay on top causing flicker.  Let's leave a gap between the two
+        /// </summary>
+        private const int GapFromScanner = 15;
+
+        /// <summary>
         /// Singleton instance
         /// </summary>
         private static TalkWindowManager _instance;
+
+        /// <summary>
+        /// Design time height of the talk window form
+        /// </summary>
+        private int _designHeight;
+
+        /// <summary>
+        /// Design time width of the talk window form
+        /// </summary>
+        private int _designWidth;
 
         /// <summary>
         /// Has this object been disposed
@@ -86,11 +105,12 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         /// </summary>
         private float _fontSize;
 
+#if TALKWINDOW_DISPATCHER_THREAD
         /// <summary>
         /// Is inside execution of the creation thread
         /// </summary>
         private volatile bool _inTalkWindowCreationThread;
-
+#endif
         /// <summary>
         /// Is execting the toggle talk window function
         /// </summary>
@@ -122,7 +142,7 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         private TalkWindowManager()
         {
             _fontSize = CoreGlobals.AppPreferences.TalkWindowFontSize;
-            PanelManagement.PanelManager.Instance.EvtScannerShow += Instance_EvtScannerShow;
+            PanelManager.Instance.EvtScannerShow += Instance_EvtScannerShow;
         }
 
         /// <summary>
@@ -257,7 +277,7 @@ namespace ACAT.Lib.Core.TalkWindowManagement
 
                 TTSManager.Instance.ActiveEngine.Stop();
 
-                PanelManagement.Glass.HideGlass();
+                hideGlass();
 
                 unsubscribeEvents();
 
@@ -265,6 +285,10 @@ namespace ACAT.Lib.Core.TalkWindowManagement
                 {
                     _talkWindowText = _talkWindow.TalkWindowText;
                 }
+
+                Log.Debug("Removing talkwindowagent");
+
+                Context.AppAgentMgr.RemoveAgent(_talkWindowForm.Handle);
 
                 Windows.CloseForm(_talkWindowForm);
 
@@ -276,7 +300,7 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         }
 
         /// <summary>
-        /// Copy talk window text to clipboard
+        /// Copies talk window text to clipboard
         /// </summary>
         public void Copy()
         {
@@ -287,7 +311,7 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         }
 
         /// <summary>
-        /// Create talk window.  Doesn't show the form though, just
+        /// Creates talk window.  Doesn't show the form though, just
         /// creates the object.
         /// </summary>
         /// <returns>true on success</returns>
@@ -296,12 +320,22 @@ namespace ACAT.Lib.Core.TalkWindowManagement
             if (_talkWindowForm == null)
             {
                 IsPaused = false;
-                _talkWindowForm = PanelManagement.Context.AppPanelManager.CreatePanel("TalkWindow");
+                _talkWindowForm = Context.AppPanelManager.CreatePanel("TalkWindow");
                 _talkWindow = _talkWindowForm as ITalkWindow;
                 _talkWindowForm.FormClosed += _talkWindowForm_FormClosed;
                 _talkWindow.FontSize = _fontSize;
                 _fontSize = _talkWindow.FontSize;
                 _talkWindowForm.TopMost = true;
+
+                if (_designWidth == 0)
+                {
+                    _designWidth = _talkWindowForm.Width;
+                }
+
+                if (_designHeight == 0)
+                {
+                    _designHeight = _talkWindowForm.Height;
+                }
 
                 subscribeEvents();
             }
@@ -313,8 +347,17 @@ namespace ACAT.Lib.Core.TalkWindowManagement
             return true;
         }
 
+
         /// <summary>
-        /// Cut text from the talk window
+        /// Gets the font size of the Talk window font
+        /// </summary>
+        public float FontSize
+        {
+            get { return _fontSize; }
+        }
+
+        /// <summary>
+        /// Cuts text from the talk window into the clipboard
         /// </summary>
         public void Cut()
         {
@@ -325,7 +368,7 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         }
 
         /// <summary>
-        /// Dispose resources
+        /// Disposes resources
         /// </summary>
         public void Dispose()
         {
@@ -376,7 +419,7 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         }
 
         /// <summary>
-        /// Paste clipboard into talk window
+        /// Pastes clipboard into talk window
         /// </summary>
         public void Paste()
         {
@@ -395,6 +438,7 @@ namespace ACAT.Lib.Core.TalkWindowManagement
             if (_talkWindowForm != null)
             {
                 IsPaused = true;
+                hideGlass();
                 Windows.SetVisible(_talkWindowForm, false);
             }
         }
@@ -415,16 +459,7 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         }
 
         /// <summary>
-        /// Saves talk window settings
-        /// </summary>
-        public void SaveFont()
-        {
-            CoreGlobals.AppPreferences.TalkWindowFontSize = _fontSize;
-            CoreGlobals.AppPreferences.Save();
-        }
-
-        /// <summary>
-        /// Select all text in the talk window
+        /// Selects all text in the talk window
         /// </summary>
         public void SelectAll()
         {
@@ -435,14 +470,15 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         }
 
         /// <summary>
-        /// Sets the talk window positin relative to the scanner
+        /// Sets the talk window position relative to the currently actvie
+        /// scanner
         /// </summary>
         /// <param name="scannerForm">the scanner</param>
         public void SetTalkWindowPosition(Form scannerForm)
         {
             Log.Debug("Entering...");
 
-            if (_talkWindowForm == null || !Windows.GetVisible(_talkWindowForm))
+            if (_talkWindowForm == null || !_talkWindowForm.Visible)
             {
                 return;
             }
@@ -457,10 +493,9 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         /// </summary>
         public void ToggleTalkWindow()
         {
-            Log.Debug("1 " + _inToggleTalkWindow);
+            Log.Debug("_inToggleTalkWindow: " + _inToggleTalkWindow);
             if (!_inToggleTalkWindow)
             {
-                Log.Debug("2");
                 _inToggleTalkWindow = true;
                 if (_talkWindowForm == null)
                 {
@@ -470,7 +505,7 @@ namespace ACAT.Lib.Core.TalkWindowManagement
                 }
                 else if (Windows.GetVisible(_talkWindowForm))
                 {
-                    Log.Debug("clsoing talk window");
+                    Log.Debug("closing talk window");
                     CloseTalkWindow();
                 }
                 else
@@ -481,13 +516,11 @@ namespace ACAT.Lib.Core.TalkWindowManagement
 
                     Windows.SetTopMost(_talkWindowForm);
 
-                    //notifyTalkWindowPreVisibilityChanged(_talkWindowActive);
                     _talkWindowForm.Visible = true;
                 }
 
-                Log.Debug("3");
                 notifyTalkWindowVisibilityChanged();
-                Log.Debug("4");
+
                 _inToggleTalkWindow = false;
             }
 
@@ -590,13 +623,15 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         /// <param name="e">event args</param>
         private void _talkWindowForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+#if TALKWINDOW_DISPATCHER_THREAD
+
             Log.Debug("********* Calling EXiting all frames");
             System.Windows.Threading.Dispatcher.ExitAllFrames();
             System.Windows.Threading.Dispatcher.CurrentDispatcher.BeginInvokeShutdown(System.Windows.Threading.DispatcherPriority.Background);
+#endif
+            Log.Debug("appquit: " + Context.AppQuit);
 
-            Log.Debug("appquit: " + PanelManagement.Context.AppQuit);
-
-            if (!PanelManagement.Context.AppQuit)
+            if (!Context.AppQuit)
             {
                 if (EvtTalkWindowClosed != null)
                 {
@@ -618,55 +653,63 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         /// </summary>
         private void createAndShowTalkWindow()
         {
+#if TALKWINDOW_DISPATCHER_THREAD
             var viewerThread = new Thread(delegate()
             {
                 if (!_inTalkWindowCreationThread)
                 {
                     _inTalkWindowCreationThread = true;
 
-                    IsTalkWindowActive = true;
-
                     // Create our context, and install it:
                     SynchronizationContext.SetSynchronizationContext(
                         new System.Windows.Threading.DispatcherSynchronizationContext(
                             System.Windows.Threading.Dispatcher.CurrentDispatcher));
-                    
-                    CreateTalkWindow();
-                    
-                    showGlass();
-                    
+#endif
+            IsTalkWindowActive = true;
 
-                    //notifyTalkWindowPreVisibilityChanged(true);
+            CreateTalkWindow();
 
-                    Windows.SetTopMost(_talkWindowForm);
-                    
-                    Form form = null;
-                    if (PanelManagement.PanelManager.Instance.GetCurrentForm() != null)
-                    {
-                        form = PanelManagement.PanelManager.Instance.GetCurrentForm() as Form;
-                    }
+            showGlass();
 
-                    if (form != null)
-                    {
-                        SetTalkWindowPosition(PanelManagement.PanelManager.Instance.GetCurrentForm() as Form);
-                    }
+            Windows.SetTopMost(_talkWindowForm);
 
-                    Windows.ShowForm(_talkWindowForm);
+            Form form = null;
+            if (PanelManager.Instance.GetCurrentForm() != null)
+            {
+                form = PanelManager.Instance.GetCurrentForm() as Form;
+            }
 
-                    Windows.ActivateForm(_talkWindowForm);
+            if (form != null)
+            {
+                SetTalkWindowPosition(PanelManager.Instance.GetCurrentForm() as Form);
+            }
 
-                    AuditLog.Audit(new AuditEventTalkWindow("show"));
 
-                    if (CoreGlobals.AppPreferences.RetainTalkWindowContentsOnHide)
-                    {
-                        _talkWindow.TalkWindowText = _talkWindowText;
-                    }
+            var talkWindowAgent = Context.AppAgentMgr.GetAgentByName("TalkWindow Agent");
+            Log.IsNull("Talkwindowagent", talkWindowAgent);
+            if (talkWindowAgent != null)
+            {
+                Context.AppAgentMgr.AddAgent(_talkWindowForm.Handle, talkWindowAgent);
+                Log.Debug("Added talkwindowagent");
+            }
 
-                    if (EvtTalkWindowCreated != null)
-                    {
-                        EvtTalkWindowCreated(this, new TalkWindowCreatedEventArgs(_talkWindowForm));
-                    }
+            Windows.ShowForm(_talkWindowForm);
 
+            Windows.ActivateForm(_talkWindowForm);
+
+            AuditLog.Audit(new AuditEventTalkWindow("show"));
+
+            if (CoreGlobals.AppPreferences.RetainTalkWindowContentsOnHide)
+            {
+                _talkWindow.TalkWindowText = _talkWindowText;
+            }
+
+            if (EvtTalkWindowCreated != null)
+            {
+                EvtTalkWindowCreated(this, new TalkWindowCreatedEventArgs(_talkWindowForm));
+            }
+
+#if TALKWINDOW_DISPATCHER_THREAD
                     System.Windows.Threading.Dispatcher.Run();
                     Log.Debug("Exited DISPATCHER.RUN");
                     _inTalkWindowCreationThread = false;
@@ -676,6 +719,7 @@ namespace ACAT.Lib.Core.TalkWindowManagement
             viewerThread.SetApartmentState(ApartmentState.STA);
             Log.Debug("Starting thread, _inTalkWindowCreationThread is :  " + _inTalkWindowCreationThread);
             viewerThread.Start();
+#endif
         }
 
         /// <summary>
@@ -683,26 +727,14 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         /// </summary>
         /// <param name="sender">event sender</param>
         /// <param name="e">event args</param>
-        private void Instance_EvtScannerShow(object sender, PanelManagement.ScannerShowEventArg arg)
+        private void Instance_EvtScannerShow(object sender, ScannerShowEventArg arg)
         {
             SetTalkWindowPosition(arg.Scanner.Form);
-        }
 
-        /// <summary>
-        /// Checks if the rectangle is off the bounds of the primary
-        /// display
-        /// </summary>
-        /// <param name="rect">Rectangle</param>
-        /// <returns>true if it is</returns>
-        private Boolean isOffScreen(Rectangle rect)
-        {
-            var isContained = Screen.PrimaryScreen.WorkingArea.Contains(rect);
-
-            Log.Debug("mainScreen bounds: " + Screen.PrimaryScreen.WorkingArea +
-                        ", talk window bounds: " + rect +
-                        ". isContained is " + isContained);
-
-            return !isContained;
+            if (_talkWindowForm != null)
+            {
+                Windows.SetForegroundWindow(_talkWindowForm.Handle);
+            }
         }
 
         /// <summary>
@@ -733,87 +765,58 @@ namespace ACAT.Lib.Core.TalkWindowManagement
             }
 
             var scannerPosition = Windows.GetScannerPosition(scannerForm);
+
             int spaceLeft = Screen.PrimaryScreen.Bounds.Width - scannerForm.Width;
+
+            var talkWindowRect = new Rectangle((Screen.PrimaryScreen.Bounds.Width - _designWidth) / 2,
+                                                    (Screen.PrimaryScreen.Bounds.Height - _designHeight) / 2,
+                                                    _designWidth,
+                                                    _designHeight);
+
+            var scannerRect = new Rectangle(scannerForm.Location.X,
+                                            scannerForm.Location.Y,
+                                            scannerForm.Size.Width,
+                                            scannerForm.Size.Height);
 
             switch (scannerPosition)
             {
+                case Windows.WindowPosition.BottomLeft:
+                case Windows.WindowPosition.MiddleLeft:
                 case Windows.WindowPosition.TopLeft:
-                    if (_talkWindowForm.Location.Y < scannerForm.Location.Y + scannerForm.Size.Height)
+                    int gap = 0;
+                    if (talkWindowRect.IntersectsWith(scannerRect))
                     {
-                        Windows.SetWindowPositionRelative(_talkWindowForm, scannerForm, Windows.WindowRelative.Below);
+                        gap = GapFromScanner;
+                        talkWindowRect.X = scannerRect.Right + GapFromScanner;
                     }
 
-                    if (isOffScreen(_talkWindowForm.Bounds))
+                    if (talkWindowRect.Right > Screen.PrimaryScreen.Bounds.Width)
                     {
-                        if (spaceLeft < _talkWindowForm.Width)
-                        {
-                            _talkWindowForm.Width = spaceLeft;
-                        }
-
-                        Windows.SetWindowPositionRelative(_talkWindowForm, scannerForm, Windows.WindowRelative.Right);
+                        talkWindowRect.Width = spaceLeft - gap;
                     }
 
                     break;
 
                 case Windows.WindowPosition.TopRight:
-                    if (_talkWindowForm.Location.Y < (scannerForm.Location.Y + scannerForm.Size.Height))
-                    {
-                        Windows.SetWindowPositionRelative(_talkWindowForm, scannerForm, Windows.WindowRelative.Below);
-                    }
-
-                    if (isOffScreen(_talkWindowForm.Bounds))
-                    {
-                        if (spaceLeft < _talkWindowForm.Width)
-                        {
-                            _talkWindowForm.Width = spaceLeft;
-                        }
-
-                        Windows.SetWindowPositionRelative(_talkWindowForm, scannerForm, Windows.WindowRelative.Left);
-                    }
-
-                    break;
-
-                case Windows.WindowPosition.BottomLeft:
-                    if ((_talkWindowForm.Location.Y + _talkWindowForm.Height) > scannerForm.Location.Y)
-                    {
-                        Windows.SetWindowPositionRelative(GetTalkWindow(), scannerForm, Windows.WindowRelative.Above);
-                    }
-
-                    if (isOffScreen(_talkWindowForm.Bounds))
-                    {
-                        if (spaceLeft < _talkWindowForm.Width)
-                        {
-                            _talkWindowForm.Width = spaceLeft;
-                        }
-
-                        Windows.SetWindowPositionRelative(GetTalkWindow(), scannerForm, Windows.WindowRelative.Right);
-                    }
-
-                    break;
-
+                case Windows.WindowPosition.MiddleRight:
                 case Windows.WindowPosition.BottomRight:
 
-                    if ((_talkWindowForm.Location.Y + _talkWindowForm.Height) > scannerForm.Location.Y)
+                    if (talkWindowRect.IntersectsWith(scannerRect))
                     {
-                        Windows.SetWindowPositionRelative(GetTalkWindow(), scannerForm, Windows.WindowRelative.Above);
+                        talkWindowRect.X = scannerRect.X - talkWindowRect.Width - GapFromScanner;
                     }
 
-                    if (isOffScreen(_talkWindowForm.Bounds))
+                    if (talkWindowRect.X < 0)
                     {
-                        if (spaceLeft < _talkWindowForm.Width)
-                        {
-                            _talkWindowForm.Width = spaceLeft;
-                        }
-
-                        Windows.SetWindowPositionRelative(GetTalkWindow(), scannerForm, Windows.WindowRelative.Left);
+                        talkWindowRect.X = 0;
+                        talkWindowRect.Width = spaceLeft - GapFromScanner;
                     }
 
-                    break;
-
-                default:
-                    _talkWindow.Center();
                     break;
             }
+
+            _talkWindowForm.Location = new Point(talkWindowRect.X, talkWindowRect.Y);
+            _talkWindowForm.Width = talkWindowRect.Width;
         }
 
         /// <summary>
@@ -821,8 +824,16 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         /// </summary>
         private void showGlass()
         {
-            PanelManagement.Glass.Enable = CoreGlobals.AppPreferences.EnableGlass;
-            PanelManagement.Glass.ShowGlass();
+            Glass.Enable = CoreGlobals.AppPreferences.EnableGlass;
+            Glass.ShowGlass();
+        }
+
+        /// <summary>
+        /// Hides the translucent glass
+        /// </summary>
+        private void hideGlass()
+        {
+            Glass.HideGlass();    
         }
 
         /// <summary>

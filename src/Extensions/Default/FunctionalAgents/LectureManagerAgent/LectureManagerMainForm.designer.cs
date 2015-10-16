@@ -10,7 +10,7 @@ using System.Xml.Linq;
 using System.IO;
 using System.Threading;
 
-namespace ACAT.Extensions.Hawking.FunctionalAgents.LectureManager
+namespace ACAT.Extensions.Default.FunctionalAgents.LectureManager
 {
 	public partial class LectureManagerMainForm : System.Windows.Forms.Form
 	{
@@ -50,7 +50,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LectureManager
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox1 = new ACAT.Extensions.Hawking.FunctionalAgents.LectureManager.LectureManagerMainForm.TextBoxMouseDisabled();
+            this.textBox1 = new ACAT.Extensions.Default.FunctionalAgents.LectureManager.LectureManagerMainForm.TextBoxMouseDisabled();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();

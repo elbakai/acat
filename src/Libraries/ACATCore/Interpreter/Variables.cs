@@ -75,7 +75,6 @@ namespace ACAT.Lib.Core.Interpreter
 
         public static string SelectedRow = "SelectedRow";
 
-        // set of supported variable names
         public static string SelectedWidget = "SelectedWidget";
 
         /// <summary>

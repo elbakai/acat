@@ -68,7 +68,7 @@ namespace ACAT.Lib.Core.Extensions
     public delegate void OnExtensionEvent(object sender, ExtensionEventArgs args);
 
     /// <summary>
-    /// This is a wrapper class for C# reflection which enables
+    /// This is essentially a wrapper class for C# reflection which enables
     /// the caller to easily invoke methods, properties and raise
     /// events from any class that supports the IExtension interface.
     /// This can be used for instance to invoke methods/properties in

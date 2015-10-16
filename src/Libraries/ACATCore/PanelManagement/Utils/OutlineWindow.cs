@@ -66,7 +66,7 @@ namespace ACAT.Lib.Core.PanelManagement
     /// highlight it.  Creates an invisible form and draws on
     /// it.  Exposes a Draw function that draws the rectangle
     /// </summary>
-    public class OutlineWindow : IDisposable
+    internal class OutlineWindow : IDisposable
     {
         /// <summary>
         /// Width of the pen to draw the border
@@ -77,6 +77,11 @@ namespace ACAT.Lib.Core.PanelManagement
         /// The invisible form
         /// </summary>
         private readonly Form _form;
+
+        /// <summary>
+        /// Color of the outline
+        /// </summary>
+        private readonly Color _lineColor = Color.Red;
 
         /// <summary>
         /// Disposed yet?
@@ -130,7 +135,7 @@ namespace ACAT.Lib.Core.PanelManagement
                 penWidth = PenWidth;
             }
 
-            var pen = new Pen(Color.Red, penWidth);
+            var pen = new Pen(_lineColor, penWidth);
             var formGraphics = _form.CreateGraphics();
 
             var x = (float)rectangle.X;

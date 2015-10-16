@@ -62,9 +62,10 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Core.Widgets
 {
     /// <summary>
-    /// Widget that represents the current word for instance, in
-    /// the alphabet scanner. Simulates a blinking cursor at the
-    /// end of the text in the Control.
+    /// The Alphabet scanner has a UI control to display the
+    /// current word being typed.  This widget provides
+    /// functionality to the UI control. Simulates a blinking cursor
+    /// at the end of the text in the Control.
     /// </summary>
     public class CurrentWordWidget : LabelWidget
     {
@@ -150,7 +151,7 @@ namespace ACAT.Lib.Core.Widgets
         }
 
         /// <summary>
-        /// Used to simulate a blinking cursor
+        /// Timer tick function to simulate a blinking cursor
         /// </summary>
         /// <param name="sender">event sender</param>
         /// <param name="e">event args</param>
@@ -175,7 +176,7 @@ namespace ACAT.Lib.Core.Widgets
         }
 
         /// <summary>
-        /// Release resources
+        /// Releases resources
         /// </summary>
         private void unInit()
         {

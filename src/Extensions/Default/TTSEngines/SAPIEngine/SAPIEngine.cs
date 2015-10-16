@@ -69,8 +69,9 @@ namespace ACAT.Extensions.Default.TTSEngines
     /// Converts text to speech by sending the text string to the
     /// Microsoft Speech Synthesizer
     /// </summary>
-    [DescriptorAttribute("B7AB6188-AE23-40E3-9E6A-F8AA8A81E2BF", "SAPI TTS Engine",
-                            "Text to Speech using Microsoft SAPI")]
+    [DescriptorAttribute("B7AB6188-AE23-40E3-9E6A-F8AA8A81E2BF",
+                        "SAPI TTS Engine",
+                        "Text to Speech using Microsoft SAPI")]
     public class SAPIEngine : ExtensionInvoker, ITTSEngine
     {
         /// <summary>
@@ -79,25 +80,25 @@ namespace ACAT.Extensions.Default.TTSEngines
         internal static SAPISettings SAPISettings;
 
         /// <summary>
-        /// Minimum value of rate of speech
-        /// </summary>
-        private const int MinRate = -10;
-
-        /// <summary>
         /// Max value of rate of speech
         /// </summary>
         private const int MaxRate = 10;
+
+        /// <summary>
+        /// Max value of speech volume
+        /// </summary>
+        private const int MaxVolume = 100;
+
+        /// <summary>
+        /// Minimum value of rate of speech
+        /// </summary>
+        private const int MinRate = -10;
 
         /// <summary>
         /// Minimum value of speech volume
         /// </summary>
         private const int MinVolume = 0;
 
-        /// <summary>
-        /// Max value of speech volume
-        /// </summary>
-        private const int MaxVolume = 100;
-        
         /// <summary>
         /// Name of the settings file
         /// </summary>
@@ -295,8 +296,8 @@ namespace ACAT.Extensions.Default.TTSEngines
         /// </summary>
         public TTSValue GetVolume()
         {
-            return new TTSValue(MinVolume, 
-                                MaxVolume, 
+            return new TTSValue(MinVolume,
+                                MaxVolume,
                                 IsMuted() ? _preMuteVolumeLevel : Synthesizer.Volume);
         }
 

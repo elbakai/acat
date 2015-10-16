@@ -66,7 +66,7 @@ using ACAT.Lib.Extension.CommandHandlers;
 
 #endregion SupressStyleCopWarnings
 
-namespace ACAT.Extensions.Hawking.FunctionalAgents.VolumeSettings
+namespace ACAT.Extensions.Default.FunctionalAgents.VolumeSettings
 {
     /// <summary>
     /// Form that enables the user to set the volume
@@ -74,7 +74,9 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.VolumeSettings
     /// different TTS engines have different ranges.  The value
     /// is then scaled by the TTS engine before setting it.
     /// </summary>
-    [DescriptorAttribute("48694D06-DF49-4175-ADAC-E4533EB29E17", "VolumeSettingsScanner", "Volume Settings Scanner")]
+    [DescriptorAttribute("48694D06-DF49-4175-ADAC-E4533EB29E17",
+                        "VolumeSettingsScanner",
+                        "Volume Settings Scanner")]
     public partial class VolumeSettingsScanner : Form, IScannerPanel, ISupportsStatusBar
     {
         /// <summary>
@@ -339,8 +341,31 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.VolumeSettings
         [EnvironmentPermissionAttribute(SecurityAction.LinkDemand, Unrestricted = true)]
         protected override void WndProc(ref Message m)
         {
-            _scannerCommon.HandleWndProc(m);
+            if (_scannerCommon != null)
+            {
+                if (_scannerCommon.HandleWndProc(m))
+                {
+                    return;
+                }
+            }
+
             base.WndProc(ref m);
+        }
+
+        /// <summary>
+        /// Does a volume test by converting a test string to speech
+        /// </summary>
+        private void doVolumeTest()
+        {
+            if (!Context.AppTTSManager.ActiveEngine.IsMuted())
+            {
+                var vol = Context.AppTTSManager.GetNormalizedVolume();
+
+                // send two separate commands so there is a gap in
+                // the tts conversion
+                Context.AppTTSManager.ActiveEngine.Speak("Volume ");
+                Context.AppTTSManager.ActiveEngine.Speak(vol.Value.ToString());
+            }
         }
 
         /// <summary>
@@ -486,7 +511,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.VolumeSettings
                 switch (Command)
                 {
                     case "VolumeTest":
-                        Context.AppTTSManager.ActiveEngine.Speak("Test");
+                        (Dispatcher.Scanner.Form as VolumeSettingsScanner).doVolumeTest();
                         break;
 
                     default:

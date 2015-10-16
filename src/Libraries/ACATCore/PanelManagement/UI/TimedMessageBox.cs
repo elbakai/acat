@@ -106,7 +106,7 @@ namespace ACAT.Lib.Core.PanelManagement
         }
 
         /// <summary>
-        /// Customize look and feel
+        /// Customizes look and feel
         /// </summary>
         protected override CreateParams CreateParams
         {
@@ -140,6 +140,11 @@ namespace ACAT.Lib.Core.PanelManagement
             Clipboard.SetText(_message);
         }
 
+        /// <summary>
+        /// User clicked on the OK button.  Close the form
+        /// </summary>
+        /// <param name="sender">event sender</param>
+        /// <param name="e">event args</param>
         private void buttonOK_Click(object sender, EventArgs e)
         {
             _timer.Stop();
@@ -162,7 +167,7 @@ namespace ACAT.Lib.Core.PanelManagement
         }
 
         /// <summary>
-        /// Timer tick event.  Update form
+        /// Timer tick event.  Updates form
         /// </summary>
         /// <param name="sender">event sender</param>
         /// <param name="e">event args</param>
@@ -184,11 +189,5 @@ namespace ACAT.Lib.Core.PanelManagement
                 Close();
             }
         }
-
-        /// <summary>
-        /// User clicked on the OK button.  Close the form
-        /// </summary>
-        /// <param name="sender">event sender</param>
-        /// <param name="e">event args</param>
     }
 }

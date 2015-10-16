@@ -60,7 +60,8 @@ namespace ACAT.Lib.Core.Utility
 {
     /// <summary>
     /// Contains global settings for ACAT. These are
-    /// separate from the User specific settings
+    /// separate from the User specific settings.  The settings
+    /// file is stored in the same directory as the application.
     /// </summary>
     [Serializable]
     public class GlobalPreferences
@@ -91,7 +92,7 @@ namespace ACAT.Lib.Core.Utility
         /// <summary>
         /// Default user name
         /// </summary>
-        public String CurrentUser = "Default";
+        public String CurrentUser = "ACAT";
 
         /// <summary>
         /// Read preferences from the specified file.  If the file
@@ -103,11 +104,9 @@ namespace ACAT.Lib.Core.Utility
         /// <returns>Preferences read or null</returns>
         public static GlobalPreferences Load(String prefFile, bool loadDefaultsOnFail = true)
         {
-            GlobalPreferences retVal;
-
             saveFactoryDefaultSettings();
 
-            retVal = XmlUtils.XmlFileLoad<GlobalPreferences>(prefFile);
+            var retVal = XmlUtils.XmlFileLoad<GlobalPreferences>(prefFile);
 
             if (retVal == null)
             {

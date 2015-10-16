@@ -2,18 +2,18 @@
 
 <ACAT>
   <WidgetAttributes>
-    <WidgetAttribute name="lblOK" label="OK" value="valButtonSave"  fontsize="14" mouseClickActuate="true"/>
-    <WidgetAttribute name="lblBack" label="Cancel" value="valButtonBack"  fontsize="14"  mouseClickActuate="true"/>
-    <WidgetAttribute name="lblRestoreDefaults" label="Defaults" value="valButtonRestoreDefaults" fontsize="14"  mouseClickActuate="true" />
+    <WidgetAttribute name="lblOK" label="OK" value="valButtonSave"  fontsize="14" bold="false"/>
+    <WidgetAttribute name="lblBack" label="Cancel" value="valButtonBack"  fontsize="14"  bold="false"/>
+    <WidgetAttribute name="lblRestoreDefaults" label="Defaults" value="valButtonRestoreDefaults" fontsize="14"  bold="false" />
     
-    <WidgetAttribute name="pbScannerAutoSaveLastPosition" label="M" value="valScannerAutoSaveLastPosition" fontname="ACAT Icon" bold="false" fontsize="36" mouseClickActuate="true"/>
-    <WidgetAttribute name="pbHideScannersOnIdle" label="M" value="valHideScannersOnIdle" fontname="ACAT Icon" bold="false" fontsize="36" mouseClickActuate="true"/>
-    <WidgetAttribute name="pbShowGlass" label="M" value="valShowGlass" fontname="ACAT Icon" bold="false" fontsize="36" mouseClickActuate="true"/>
-    <WidgetAttribute name="pbShowTalkWindowOnStartup" label="M" value="valShowTalkWindowOnStartup" fontname="ACAT Icon" bold="false" fontsize="36" mouseClickActuate="true"/>
-    <WidgetAttribute name="pbRetainTalkWindowText" label="M" value="valRetainTalkWindowText" fontname="ACAT Icon" bold="false" fontsize="36" mouseClickActuate="true"/>
-    <WidgetAttribute name="pbExpandAbbreviationsOnSeparator" label="M" value="valExpandAbbreviationsOnSeparator" fontname="ACAT Icon" bold="false" fontsize="36" mouseClickActuate="true"/>    
-    <WidgetAttribute name="pbEnableDebugTraceLogging" label="M" value="valEnableDebugTraceLogging" fontname="ACAT Icon" bold="false" fontsize="36" mouseClickActuate="true"/>
-    <WidgetAttribute name="pbEnableAuditLog" label="M" value="valEnableAuditLog" fontname="ACAT Icon" bold="false" fontsize="36" mouseClickActuate="true"/>
+    <WidgetAttribute name="pbScannerAutoSaveLastPosition" label="M" value="valScannerAutoSaveLastPosition" fontname="ACAT Icon" bold="false" fontsize="36" />
+    <WidgetAttribute name="pbHideScannersOnIdle" label="M" value="valHideScannersOnIdle" fontname="ACAT Icon" bold="false" fontsize="36" />
+    <WidgetAttribute name="pbShowGlass" label="M" value="valShowGlass" fontname="ACAT Icon" bold="false" fontsize="36" />
+    <WidgetAttribute name="pbShowTalkWindowOnStartup" label="M" value="valShowTalkWindowOnStartup" fontname="ACAT Icon" bold="false" fontsize="36" />
+    <WidgetAttribute name="pbRetainTalkWindowText" label="M" value="valRetainTalkWindowText" fontname="ACAT Icon" bold="false" fontsize="36" />
+    <WidgetAttribute name="pbExpandAbbreviationsOnSeparator" label="M" value="valExpandAbbreviationsOnSeparator" fontname="ACAT Icon" bold="false" fontsize="36" />    
+    <WidgetAttribute name="pbEnableDebugTraceLogging" label="M" value="valEnableDebugTraceLogging" fontname="ACAT Icon" bold="false" fontsize="36" />
+    <WidgetAttribute name="pbEnableAuditLog" label="M" value="valEnableAuditLog" fontname="ACAT Icon" bold="false" fontsize="36" />
   </WidgetAttributes>
 
   <Layout>

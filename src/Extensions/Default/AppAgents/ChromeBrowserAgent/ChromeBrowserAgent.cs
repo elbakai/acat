@@ -19,6 +19,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 using System.Diagnostics.CodeAnalysis;
+using ACAT.Lib.Core.UserManagement;
 using ACAT.Lib.Core.Utility;
 using ACAT.Lib.Extension.AppAgents.ChromeBrowser;
 
@@ -64,8 +65,30 @@ namespace ACAT.Extensions.Default.AppAgents.ChromeBrowserAgent
     /// Base class does all the heavy-lifting.  Override functions
     /// as required customize
     /// </summary>
-    [DescriptorAttribute("30FBF5BF-358B-4D88-97CE-5B40A8F2728F", "Chrome Browser Agent", "Application Agent for the Chrome Browser")]
+    [DescriptorAttribute("30FBF5BF-358B-4D88-97CE-5B40A8F2728F", 
+                            "Chrome Browser Agent", 
+                            "Application Agent for the Chrome Browser")]
     internal class ChromeBrowserAgent : ChromeBrowserAgentBase
     {
+        /// <summary>
+        /// Settings for this agent
+        /// </summary>
+        internal static ChromeBrowserAgentSettings Settings;
+
+        /// <summary>
+        /// Name of the settings file
+        /// </summary>
+        private const string SettingsFileName = "ChromeBrowserAgentSettings.xml";
+
+        /// <summary>
+        /// Initializes an instance of the class
+        /// </summary>
+        public ChromeBrowserAgent()
+        {
+            ChromeBrowserAgentSettings.PreferencesFilePath = UserManager.GetFullPath(SettingsFileName);
+            Settings = ChromeBrowserAgentSettings.Load();
+
+            autoSwitchScanners = Settings.AutoSwitchScannerEnable;
+        }
     }
 }

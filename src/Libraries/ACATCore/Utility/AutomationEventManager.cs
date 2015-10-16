@@ -21,9 +21,45 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Windows.Automation;
 using System.Windows.Forms;
+
+#region SupressStyleCopWarnings
+
+[module: SuppressMessage(
+        "StyleCop.CSharp.ReadabilityRules",
+        "SA1126:PrefixCallsCorrectly",
+        Scope = "namespace",
+        Justification = "Not needed. ACAT naming conventions takes care of this")]
+[module: SuppressMessage(
+        "StyleCop.CSharp.ReadabilityRules",
+        "SA1101:PrefixLocalCallsWithThis",
+        Scope = "namespace",
+        Justification = "Not needed. ACAT naming conventions takes care of this")]
+[module: SuppressMessage(
+        "StyleCop.CSharp.ReadabilityRules",
+        "SA1121:UseBuiltInTypeAlias",
+        Scope = "namespace",
+        Justification = "Since they are just aliases, it doesn't really matter")]
+[module: SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1200:UsingDirectivesMustBePlacedWithinNamespace",
+        Scope = "namespace",
+        Justification = "ACAT guidelines")]
+[module: SuppressMessage(
+        "StyleCop.CSharp.NamingRules",
+        "SA1309:FieldNamesMustNotBeginWithUnderscore",
+        Scope = "namespace",
+        Justification = "ACAT guidelines. Private fields begin with an underscore")]
+[module: SuppressMessage(
+        "StyleCop.CSharp.NamingRules",
+        "SA1300:ElementMustBeginWithUpperCaseLetter",
+        Scope = "namespace",
+        Justification = "ACAT guidelines. Private/Protected methods begin with lowercase")]
+
+#endregion SupressStyleCopWarnings
 
 namespace ACAT.Lib.Core.Utility
 {
@@ -503,73 +539,6 @@ namespace ACAT.Lib.Core.Utility
             public AutomationEvent AutoEvent;
             public AutomationEventHandler EventHandler;
             public WindowElement WinElement;
-        }
-
-        /// <summary>
-        /// Blocking queue on which work items can be enqueued.
-        /// Dequeue is blocking until something arrives on the queue
-        /// </summary>
-        /// <typeparam name="T">data type to enqueue</typeparam>
-        private class BlockingQueue<T> : IEnumerable<T>
-        {
-            /// <summary>
-            /// The queue to hold the items
-            /// </summary>
-            private readonly Queue<T> _queue = new Queue<T>();
-
-            /// <summary>
-            /// How many itmes are in the queue?
-            /// </summary>
-            private int _count;
-
-            /// <summary>
-            /// Removes next item. If queue is empty,
-            /// blocks
-            /// </summary>
-            /// <returns>next item</returns>
-            public T Dequeue()
-            {
-                lock (_queue)
-                {
-                    while (_count <= 0) Monitor.Wait(_queue);
-                    _count--;
-                    return _queue.Dequeue();
-                }
-            }
-
-            /// <summary>
-            /// Enqueues the item and pulses to indicate
-            /// there is something there
-            /// </summary>
-            /// <param name="data">item to enqueue</param>
-            public void Enqueue(T data)
-            {
-                if (data == null) throw new ArgumentNullException("data");
-                lock (_queue)
-                {
-                    _queue.Enqueue(data);
-                    _count++;
-                    Monitor.Pulse(_queue);
-                }
-            }
-
-            /// <summary>
-            /// Returns enumerator for the queue
-            /// </summary>
-            /// <returns></returns>
-            IEnumerator IEnumerable.GetEnumerator()
-            {
-                return ((IEnumerable<T>)this).GetEnumerator();
-            }
-
-            /// <summary>
-            /// Returns enumerator to peek into the queue
-            /// </summary>
-            /// <returns>enumerator</returns>
-            IEnumerator<T> IEnumerable<T>.GetEnumerator()
-            {
-                while (true) yield return Dequeue();
-            }
         }
 
         /// <summary>

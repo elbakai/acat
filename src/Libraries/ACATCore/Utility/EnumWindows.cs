@@ -1,5 +1,5 @@
 ﻿////////////////////////////////////////////////////////////////////////////
-// <copyright file="WindowsAccess.cs" company="Intel Corporation">
+// <copyright file="EnumWindows.cs" company="Intel Corporation">
 //
 // Copyright (c) 2013-2015 Intel Corporation 
 //
@@ -132,6 +132,9 @@ namespace ACAT.Lib.Core.Utility
             return icon;
         }
 
+        /// <summary>
+        /// Sets focus to the top window in the Z Order
+        /// </summary>
         static public void RestoreFocusToTopWindow()
         {
             var winList = Enumerate();
@@ -150,9 +153,12 @@ namespace ACAT.Lib.Core.Utility
                     break;
                 }
 
+                // we don't want to set focus to the DebugView window
+                // as it causes ACAT to freeze.  DebugVIew is a SysInternals
+                // utility used to display debug messages from ACAT
                 if (!windowInfo.Title.Contains("DebugView") &&
                     !Windows.IsMinimized(handle) &&
-                    !(control is ContextualMenuBase) &&
+                    !(control is MenuPanelBase) &&
                     !(control is IScannerPanel))
                 {
                     Log.Debug("Found top window " + windowInfo.Title);

@@ -58,30 +58,60 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace ACAT.Lib.Core.Utility
 {
+    /// <summary>
+    /// All dynamically discovered and loaded classes such as
+    /// Scanners, Dialogs, Menus, App Agents, Actuators, Word Predictors
+    /// should have a descriptor attribute that includes a unique
+    /// GUID, a friendly name and a friendly description.  This class
+    /// encapsulates all this information.
+    /// </summary>
     public class DescriptorAttribute : Attribute, IDescriptor
     {
-        private String _desc;
+        /// <summary>
+        /// Friendly description
+        /// </summary>
+        private String _description;
+
+        /// <summary>
+        /// Unique identifier
+        /// </summary>
         private Guid _guid;
+
+        /// <summary>
+        /// Friendly name
+        /// </summary>
         private String _name;
 
-        public DescriptorAttribute(String id, String name, String desc)
+        /// <summary>
+        /// Initializes an instance of the class
+        /// </summary>
+        /// <param name="id">GUID id</param>
+        /// <param name="name">friendly name</param>
+        /// <param name="description">description</param>
+        public DescriptorAttribute(String id, String name, String description)
         {
             _name = name;
-            _desc = desc;
+            _description = description;
             if (!Guid.TryParse(id, out _guid))
             {
                 _guid = Guid.Empty;
             }
         }
 
+        /// <summary>
+        /// Gets or sets the description
+        /// </summary>
         public String Description
         {
             get
             {
-                return _desc;
+                return _description;
             }
         }
 
+        /// <summary>
+        /// Gets or sets the unique id
+        /// </summary>
         public Guid Id
         {
             get
@@ -90,6 +120,9 @@ namespace ACAT.Lib.Core.Utility
             }
         }
 
+        /// <summary>
+        /// Gets or sets the name
+        /// </summary>
         public string Name
         {
             get
@@ -98,6 +131,13 @@ namespace ACAT.Lib.Core.Utility
             }
         }
 
+        /// <summary>
+        /// Regurns the descriptor object for the class bu querying
+        /// custom attributes and looking for the one that is of
+        /// type DescriptorAttribute
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static DescriptorAttribute GetDescriptor(Type type)
         {
             foreach (object attribute in type.GetCustomAttributes(true))

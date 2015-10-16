@@ -71,7 +71,9 @@ namespace ACAT.Lib.Extension.AppAgents.MSWord
     /// <summary>
     /// Text control agent class for MS word. Handles all editing
     /// functions and navigating through the document.  Uses the
-    /// Office Interop API to interface with Word.
+    /// Office Interop API to interface with Word, track the caret
+    /// position, get text from the document, navigate through the document
+    /// etc.
     /// </summary>
     public class MSWordTextControlAgent : TextControlAgentBase
     {

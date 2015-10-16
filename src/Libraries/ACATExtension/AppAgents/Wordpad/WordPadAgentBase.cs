@@ -206,13 +206,12 @@ namespace ACAT.Lib.Extension.AppAgents.Wordpad
 #pragma warning disable 4014
                             launchLectureManager();
 #pragma warning restore 4014
-
                         }
                     }
 
                     break;
 
-                case "CmdThreeFourthMaximizeWindow":
+                case "CmdParitalMaximizeWindow":
                     Windows.SetForegroundWindowSizePercent(Context.AppWindowPosition,
                                                     Common.AppPreferences.WindowMaximizeSizePercent);
                     break;
@@ -235,8 +234,8 @@ namespace ACAT.Lib.Extension.AppAgents.Wordpad
         /// Displays scanner according to the window element in the
         /// WordPad window that currently has focus
         /// </summary>
-        /// <param name="monitorInfo"></param>
-        /// <param name="handled"></param>
+        /// <param name="monitorInfo">Info about currently focused element</param>
+        /// <param name="handled">true if handled</param>
         private void displayScanner(WindowActivityMonitorInfo monitorInfo, ref bool handled)
         {
             String panel;

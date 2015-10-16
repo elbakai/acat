@@ -80,7 +80,7 @@ namespace ACAT.Lib.Core.PanelManagement.CommandDispatcher
         public String Command { get; set; }
 
         /// <summary>
-        /// Gets or sets the command to exit after the command handler
+        /// Gets or sets the command to execute after the command handler
         /// returns
         /// </summary>
         public virtual PostExitCommand Status { get; set; }

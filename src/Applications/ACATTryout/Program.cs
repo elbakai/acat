@@ -72,16 +72,29 @@ namespace ACAT.Applications.ACATApp
     internal static class Program
     {
         /// <summary>
+        /// Used for parsing the command line
+        /// </summary>
+        private enum ParseState
+        {
+            Next,
+            Form,
+        }
+
+        private static String _formName = String.Empty;
+
+        /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         public static void Main(String[] args)
         {
             //Disallow multiple instances
-            if (FileUtils.CheckAppExistingInstance("ACATMutex"))
+            if (FileUtils.IsACATRunning())
             {
                 return;
             }
+
+            Windows.TurnOffDPIAwareness();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -97,6 +110,8 @@ namespace ACAT.Applications.ACATApp
             var appCopyright = (attributes.Length != 0) ? ((AssemblyCopyrightAttribute)attributes[0]).Copyright : String.Empty;
 
             Log.Info("***** " + appName + ". " + appVersion + ". " + appCopyright + " *****");
+
+            parseCommandLine(args);
 
             CoreGlobals.AppGlobalPreferences = GlobalPreferences.Load(FileUtils.GetPreferencesFileFullPath(GlobalPreferences.FileName));
 
@@ -122,7 +137,7 @@ namespace ACAT.Applications.ACATApp
 
             try
             {
-                if (!Context.Init(Context.StartupFlags.Minimal))
+                if (!Context.Init(Context.StartupFlags.Minimal | Context.StartupFlags.TextToSpeech) )
                 {
                     MessageBox.Show("Context initialization error");
                     return;
@@ -134,13 +149,26 @@ namespace ACAT.Applications.ACATApp
                 return;
             }
 
+            if (!Context.PostInit())
+            {
+                MessageBox.Show(Context.GetInitCompletionStatus(), "Initialization Error");
+                return;
+            }
+
             Common.Init();
 
-            var form = PanelManager.Instance.CreatePanel("ACATGettingStartedForm");
+            var formName = String.IsNullOrEmpty(_formName) ? "ACATTryoutForm" : _formName;
+            var form = PanelManager.Instance.CreatePanel(formName);
             if (form != null)
             {
                 Context.AppPanelManager.Show(null, form as IPanel);
             }
+            else
+            {
+                MessageBox.Show("Invalid form name " + form, "Error");
+                return;
+            }
+
             try
             {
                 Application.Run();
@@ -278,11 +306,63 @@ namespace ACAT.Applications.ACATApp
         /// </summary>
         private static void setUserName()
         {
-            UserManager.CurrentUser = CoreGlobals.AppGlobalPreferences.CurrentUser.Trim();
+            //UserManager.CurrentUser = CoreGlobals.AppGlobalPreferences.CurrentUser.Trim();
+            UserManager.CurrentUser = "ACAT";  // hardcode for
             if (String.IsNullOrEmpty(UserManager.CurrentUser))
             {
                 UserManager.CurrentUser = UserManager.DefaultUserName;
             }
+        }
+
+        /// <summary>
+        /// Parses the command line arguments. Format of the
+        /// arguments are -option <option arg>
+        /// </summary>
+        /// <param name="args">Args to parse</param>
+        private static void parseCommandLine(string[] args)
+        {
+            var parseState = ParseState.Next;
+
+            for (int index = 0; index < args.Length; index++)
+            {
+                switch (args[index].ToLower().Trim())
+                {
+                    case "-form":
+                    case "/form":
+                    case "-f":
+                    case "/f":
+                        parseState = ParseState.Form;
+                        break;
+                }
+
+                switch (parseState)
+                {
+                    case ParseState.Form:
+                        args[index] = args[index].Trim();
+                        if (!isOption(args[index]))
+                        {
+                            _formName= args[index].Trim();
+                        }
+
+                        break;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Checks if the specified string is an option flag.
+        /// it should start with a - or a /
+        /// </summary>
+        /// <param name="arg">arg to check</param>
+        /// <returns>true if it is</returns>
+        private static bool isOption(String arg)
+        {
+            if (!String.IsNullOrEmpty(arg))
+            {
+                return (arg[0] == '/' || arg[0] == '-');
+            }
+
+            return false;
         }
     }
 }

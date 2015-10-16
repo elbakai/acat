@@ -1,24 +1,25 @@
 <?xml version="1.0" ?>
 <!DOCTYPE ACAT [
-  <!ENTITY usebold "true">
+  <!ENTITY usebold "false">
+  <!ENTITY buttonFontName "Arial">
 ]>
 
 <ACAT>
   <WidgetAttributes>
-    <WidgetAttribute name="Title" label="Volume" value="" fontsize="20" fontname="Arial" mouseClickActuate="false"/>
-    <WidgetAttribute name="B1" label="(" value="@CmdGoBack" mouseClickActuate="true" fontname="ACAT Icon" bold="&usebold;" fontsize="16" />
-    <WidgetAttribute name="B2" label="&#x0511;" value="0" fontname="ACAT Icon" fontsize="20" bold="false" mouseClickActuate="true"/>
-    <WidgetAttribute name="B3" label="1" value="1" fontname="Arial" fontsize="14" bold="&usebold;"  mouseClickActuate="true"/>
-    <WidgetAttribute name="B4" label="2" value="2" fontname="Arial" fontsize="14" bold="&usebold;"  mouseClickActuate="true"/>
-    <WidgetAttribute name="B5" label="3" value="3" fontname="Arial" fontsize="14" bold="&usebold;"  mouseClickActuate="true"/>
-    <WidgetAttribute name="B6" label="4" value="4" fontname="Arial" fontsize="14"  bold="&usebold;" mouseClickActuate="true"/>
-    <WidgetAttribute name="B7" label="" value="" fontname="Arial" fontsize="14"  bold="&usebold;" mouseClickActuate="false"/>
-    <WidgetAttribute name="B8" label="5" value="5" fontname="Arial" fontsize="14" bold="&usebold;" mouseClickActuate="true"/>
-    <WidgetAttribute name="B9" label="6" value="6" fontname="Arial" fontsize="14"  bold="&usebold;" mouseClickActuate="true"/>
-    <WidgetAttribute name="B10" label="7" value="7" fontname="Arial" fontsize="14"  bold="&usebold;" mouseClickActuate="true"/>
-    <WidgetAttribute name="B11" label="8" value="8" fontname="Arial" fontsize="14"  bold="&usebold;" mouseClickActuate="true"/>
-    <WidgetAttribute name="B12" label="9" value="9" fontname="Arial" fontsize="14"  bold="&usebold;" mouseClickActuate="true"/>
-    <WidgetAttribute name="BTest" label="Test" value="@VolumeTest" fontname="Arial" fontsize="14"  bold="&usebold;" mouseClickActuate="true"/> 
+    <WidgetAttribute name="Title" label="Volume" value="" fontsize="20" fontname="Arial" mouseClickActuate="false" bold="&usebold;"/>
+    <WidgetAttribute name="B1" label="&#x75;" value="@CmdGoBack"  fontname="ACAT Icon" bold="&usebold;" fontsize="22"  />
+    <WidgetAttribute name="B2" label="&#x0511;" value="0" fontname="ACAT Icon" fontsize="28"  bold="&usebold;"/>
+    <WidgetAttribute name="B3" label="1" value="1" fontname="Arial" fontsize="22" bold="&usebold;"  />
+    <WidgetAttribute name="B4" label="2" value="2" fontname="Arial" fontsize="22" bold="&usebold;"  />
+    <WidgetAttribute name="B5" label="3" value="3" fontname="Arial" fontsize="22" bold="&usebold;"  />
+    <WidgetAttribute name="B6" label="4" value="4" fontname="Arial" fontsize="22"  bold="&usebold;" />
+    <WidgetAttribute name="B7" label="" value="" fontname="Arial" fontsize="22"  bold="&usebold;" mouseClickActuate="false"/>
+    <WidgetAttribute name="B8" label="5" value="5" fontname="Arial" fontsize="22" bold="&usebold;" />
+    <WidgetAttribute name="B9" label="6" value="6" fontname="Arial" fontsize="22"  bold="&usebold;" />
+    <WidgetAttribute name="B10" label="7" value="7" fontname="Arial" fontsize="22"  bold="&usebold;" />
+    <WidgetAttribute name="B11" label="8" value="8" fontname="Arial" fontsize="22"  bold="&usebold;" />
+    <WidgetAttribute name="B12" label="9" value="9" fontname="Arial" fontsize="22"  bold="&usebold;" />
+    <WidgetAttribute name="BTest" label="Test" value="@VolumeTest" fontname="Arial" fontsize="22"  bold="&usebold;" /> 
   </WidgetAttributes>
 
   <Layout>

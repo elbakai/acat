@@ -191,6 +191,29 @@ namespace ACAT.Lib.Core.InputActuators
         }
 
         /// <summary>
+        /// Sends a string message to a network stream client.
+        /// </summary>
+        /// <param name="message">The message to send.</param>
+        /// <param name="count">number of bytes to send</param>
+        /// <returns>true on success</returns>
+        public bool SendToClient(byte[] message, int count)
+        {
+            NetworkStream stream = tcpClient.GetStream();
+
+            try
+            {
+                stream.Write(message, 0, count);
+                stream.Flush();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.Exception(e);
+                return false;
+            }
+        }
+
+        /// <summary>
         /// Thread method to read messages from the client and
         /// dispatch them to be parsed, processed and distributed.
         /// </summary>
@@ -268,29 +291,6 @@ namespace ACAT.Lib.Core.InputActuators
                 }
             }
             // free some native resources if applicable.
-        }
-
-        /// <summary>
-        /// Sends a string message to a network stream client.
-        /// </summary>
-        /// <param name="message">The message to send.</param>
-        /// <param name="count">number of bytes to send</param>
-        /// <returns>true on success</returns>
-        protected bool SendToClient(byte[] message, int count)
-        {
-            NetworkStream stream = tcpClient.GetStream();
-
-            try
-            {
-                stream.Write(message, 0, count);
-                stream.Flush();
-                return true;
-            }
-            catch (Exception e)
-            {
-                Log.Exception(e);
-                return false;
-            }
         }
 
         /// <summary>

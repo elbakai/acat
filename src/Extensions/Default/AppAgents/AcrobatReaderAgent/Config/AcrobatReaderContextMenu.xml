@@ -1,29 +1,33 @@
 ﻿<?xml version="1.0" ?>
+<!DOCTYPE ACAT [
+  <!ENTITY usebold "false">
+  <!ENTITY buttonFontName "Arial">
+]>
 
 <ACAT>
   <WidgetAttributes>
-    <WidgetAttribute name="ContextMenuTitle" label="" value="" fontsize="20" fontname="Arial" mouseClickActuate="false"/>
+    <WidgetAttribute name="ContextMenuTitle" label="" value="" fontsize="20" fontname="&buttonFontName;" mouseClickActuate="false" bold="&usebold;" />
 
-    <WidgetAttribute name="ItemIcon1" label=" " value="@CmdGoBack" fontsize="20" fontname="Arial" mouseClickActuate="true"/>
-    <WidgetAttribute name="ItemText1" label="(" value="@CmdGoBack" fontsize="18" fontname="ACAT Icon" mouseClickActuate="true"/>
+    <WidgetAttribute name="ItemIcon1" label=" " value="@CmdGoBack" fontsize="20" fontname="&buttonFontName;" bold="&usebold;" />
+    <WidgetAttribute name="ItemText1" label="&#x75;" value="@CmdGoBack" fontsize="18" fontname="ACAT Icon" bold="&usebold;" />
 
-    <WidgetAttribute name="ItemIcon2" label="y" value="@PageUp" fontsize="20" fontname="ACAT Alpha" mouseClickActuate="true"/>
-    <WidgetAttribute name="ItemText2" label="Page Up" value="@PageUp" fontsize="18" fontname="Arial" mouseClickActuate="true"/>
+    <WidgetAttribute name="ItemIcon2" label="y" value="@PageUp" fontsize="20" fontname="ACAT Alpha" bold="&usebold;" />
+    <WidgetAttribute name="ItemText2" label="Page Up" value="@PageUp" fontsize="18" fontname="&buttonFontName;" bold="&usebold;" />
 
-    <WidgetAttribute name="ItemIcon3" label="z" value="@PageDown" fontsize="20" fontname="ACAT Alpha" mouseClickActuate="true"/>
-    <WidgetAttribute name="ItemText3" label="Page Down" value="@PageDown" fontsize="18" fontname="Arial" mouseClickActuate="true"/>
+    <WidgetAttribute name="ItemIcon3" label="z" value="@PageDown" fontsize="20" fontname="ACAT Alpha" bold="&usebold;" />
+    <WidgetAttribute name="ItemText3" label="Page Down" value="@PageDown" fontsize="18" fontname="&buttonFontName;" bold="&usebold;" />
 
-    <WidgetAttribute name="ItemIcon4" label="$" value="@AcrobatZoomMenu" fontsize="20" fontname="ACAT Icon" mouseClickActuate="true"/>
-    <WidgetAttribute name="ItemText4" label="Zoom" value="@AcrobatZoomMenu" fontsize="18" fontname="Arial" mouseClickActuate="true"/>
+    <WidgetAttribute name="ItemIcon4" label="$" value="@AcrobatZoomMenu" fontsize="20" fontname="ACAT Icon" bold="&usebold;" />
+    <WidgetAttribute name="ItemText4" label="Zoom" value="@AcrobatZoomMenu" fontsize="18" fontname="&buttonFontName;" bold="&usebold;" />
 
-    <WidgetAttribute name="ItemIcon5" label="2" value="@CmdFind" fontsize="20" fontname="ACAT Icon" mouseClickActuate="true"/>
-    <WidgetAttribute name="ItemText5" label="Find" value="@CmdFind" fontsize="18" fontname="Arial" mouseClickActuate="true"/>
+    <WidgetAttribute name="ItemIcon5" label="2" value="@CmdFind" fontsize="20" fontname="ACAT Icon" bold="&usebold;" />
+    <WidgetAttribute name="ItemText5" label="Find" value="@CmdFind" fontsize="18" fontname="&buttonFontName;" bold="&usebold;" />
 
-    <WidgetAttribute name="ItemIcon6" label="&#x57;" value="@CmdMaximizeThreeFourthToggle" fontsize="20" fontname="ACAT Alpha" mouseClickActuate="true"/>
-    <WidgetAttribute name="ItemText6" label="Max - 3/4" value="@CmdMaximizeThreeFourthToggle" fontsize="18" fontname="Arial" mouseClickActuate="true"/>
+    <WidgetAttribute name="ItemIcon6" label="&#x161;" value="@CmdMaximizePartialMaximizeToggle" fontsize="20" fontname="ACAT Icon" bold="&usebold;" />
+    <WidgetAttribute name="ItemText6" label="Max / Snap" value="@CmdMaximizePartialMaximizeToggle" fontsize="18" fontname="&buttonFontName;" bold="&usebold;" />
 
-    <WidgetAttribute name="ItemIcon7" label="&#x4c;" value="@CmdCloseWindow" fontsize="28" fontname="ACAT Icon" mouseClickActuate="true"/>
-    <WidgetAttribute name="ItemText7" label="Close" value="@CmdCloseWindow" fontsize="18" fontname="Arial" mouseClickActuate="true"/>
+    <WidgetAttribute name="ItemIcon7" label="X" value="@CmdCloseWindow" fontsize="18" fontname="&buttonFontName;" bold="&usebold;" />
+    <WidgetAttribute name="ItemText7" label="Close" value="@CmdCloseWindow" fontsize="18" fontname="&buttonFontName;" bold="&usebold;" />
   </WidgetAttributes>
 
 

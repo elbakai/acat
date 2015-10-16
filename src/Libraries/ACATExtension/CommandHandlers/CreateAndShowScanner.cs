@@ -62,7 +62,8 @@ using ACAT.Lib.Core.PanelManagement.CommandDispatcher;
 namespace ACAT.Lib.Extension.CommandHandlers
 {
     /// <summary>
-    /// Creates a scanner based on the command and displays it.
+    /// Creates a scanner based on the requested scanner, and displays it.
+    /// Only handles the predefined scanners that ACAT supports. 
     /// </summary>
     public class CreateAndShowScanner : RunCommandHandler
     {
@@ -100,6 +101,14 @@ namespace ACAT.Lib.Extension.CommandHandlers
                     retVal = createAndShowScanner(PanelClasses.Mouse);
                     break;
 
+                case "CmdNumberScanner":
+                    retVal = createAndShowScanner(PanelClasses.Number);
+                    break;
+
+                case "CmdFunctionKeyScanner":
+                    retVal = createAndShowScanner(PanelClasses.FunctionKey);
+                    break;
+
                 default:
                     handled = false;
                     break;
@@ -121,7 +130,7 @@ namespace ACAT.Lib.Extension.CommandHandlers
 
             if (form != null)
             {
-                form.Invoke(new MethodInvoker(delegate()
+                form.Invoke(new MethodInvoker(delegate
                 {
                     IPanel panel = Context.AppPanelManager.CreatePanel(panelClass) as IPanel;
                     if (panel != null)

@@ -59,7 +59,7 @@ using ACAT.Lib.Core.WidgetManagement;
 namespace ACAT.Lib.Core.PanelManagement
 {
     /// <summary>
-    /// Interface for all the dialog panels
+    /// Interface for all ACAT Dialogs
     /// </summary>
     public interface IDialogPanel : IPanel
     {

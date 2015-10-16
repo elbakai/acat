@@ -63,8 +63,9 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Core.PanelManagement
 {
     /// <summary>
-    /// Repositions the scanner to one of the four corners
-    /// on a timer tick.  This allows the user to easily select
+    /// Repositions the scanner to one of the pre-defined spots on
+    /// the display.  The position is changed on on a timer tick.
+    /// This allows the user to easily select
     /// the preferred scanner position.  Timer stops either by
     /// a mouse click or by an actuation switch trigger
     /// </summary>
@@ -124,7 +125,7 @@ namespace ACAT.Lib.Core.PanelManagement
         }
 
         /// <summary>
-        /// Is the timer running?
+        /// Returns true if timer is running?
         /// </summary>
         /// <returns>true if it is</returns>
         public bool IsRunning()
@@ -157,7 +158,7 @@ namespace ACAT.Lib.Core.PanelManagement
         /// </summary>
         public void Stop()
         {
-            _form.Invoke(new MethodInvoker(delegate()
+            _form.Invoke(new MethodInvoker(delegate
             {
                 if (_timer.Enabled)
                 {
@@ -196,7 +197,7 @@ namespace ACAT.Lib.Core.PanelManagement
         }
 
         /// <summary>
-        /// Timer tick function. Position the scanner at
+        /// Timer tick function. Positions the scanner at
         /// the next corner
         /// </summary>
         /// <param name="sender">event sender</param>
@@ -210,19 +211,27 @@ namespace ACAT.Lib.Core.PanelManagement
                 switch (Context.AppWindowPosition)
                 {
                     case Windows.WindowPosition.TopRight:
+                        nextPosition = Windows.WindowPosition.MiddleRight;
+                        break;
+
+                    case Windows.WindowPosition.MiddleRight:
                         nextPosition = Windows.WindowPosition.BottomRight;
-                        break;
-
-                    case Windows.WindowPosition.TopLeft:
-                        nextPosition = Windows.WindowPosition.TopRight;
-                        break;
-
-                    case Windows.WindowPosition.BottomLeft:
-                        nextPosition = Windows.WindowPosition.TopLeft;
                         break;
 
                     case Windows.WindowPosition.BottomRight:
                         nextPosition = Windows.WindowPosition.BottomLeft;
+                        break;
+
+                    case Windows.WindowPosition.BottomLeft:
+                        nextPosition = Windows.WindowPosition.MiddleLeft;
+                        break;
+
+                    case Windows.WindowPosition.MiddleLeft:
+                        nextPosition = Windows.WindowPosition.TopLeft;
+                        break;
+
+                    case Windows.WindowPosition.TopLeft:
+                        nextPosition = Windows.WindowPosition.TopRight;
                         break;
                 }
 
@@ -231,7 +240,7 @@ namespace ACAT.Lib.Core.PanelManagement
         }
 
         /// <summary>
-        /// An actuator switch trigger event was detected.  Stop
+        /// An actuator switch trigger event was detected.  Stops
         /// the timer
         /// </summary>
         /// <param name="switchObj">switch that actuated</param>
@@ -251,7 +260,7 @@ namespace ACAT.Lib.Core.PanelManagement
         }
 
         /// <summary>
-        /// A mouse click was detected.  Stop the timer
+        /// A mouse click was detected.  Stops the timer
         /// </summary>
         /// <param name="sender">event sender</param>
         /// <param name="mouseEventArgs">event args</param>

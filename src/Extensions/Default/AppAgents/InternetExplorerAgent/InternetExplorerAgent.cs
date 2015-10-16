@@ -65,8 +65,8 @@ namespace ACAT.Extensions.Default.AppAgents.InternetExplorer
     /// Base class does all the heavy-lifting.  Override functions
     /// as required customize
     /// </summary>
-    [DescriptorAttribute("0B183771-C3E7-4ED2-9886-741526343140", 
-                        "Internet Explorer Agent", 
+    [DescriptorAttribute("0B183771-C3E7-4ED2-9886-741526343140",
+                        "Internet Explorer Agent",
                         "Application Agent for Internet Explorer")]
     internal class InternetExplorerAgent : InternetExplorerAgentBase
     {
@@ -80,7 +80,9 @@ namespace ACAT.Extensions.Default.AppAgents.InternetExplorer
         /// </summary>
         private const string SettingsFileName = "InternetExplorerAgentSettings.xml";
 
-        // override functions here if necessary
+        /// <summary>
+        /// Initializes an instance of the class
+        /// </summary>
         public InternetExplorerAgent()
         {
             InternetExplorerAgentSettings.PreferencesFilePath = UserManager.GetFullPath(SettingsFileName);

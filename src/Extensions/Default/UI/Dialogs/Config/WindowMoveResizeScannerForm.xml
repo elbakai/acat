@@ -2,12 +2,12 @@
 
 <ACAT>
   <WidgetAttributes>
-    <WidgetAttribute name="B1" label="(" value="goBack"  fontname="ACAT Icon" fontsize="14" mouseClickActuate="true"/>
-    <WidgetAttribute name="B2" label="&#x509;" value="Up"  fontsize="18"  fontname="ACAT Icon" mouseClickActuate="true"/>
-    <WidgetAttribute name="B3" label="&#x502;" value="Down"  fontsize="18" fontname="ACAT Icon" mouseClickActuate="true"/>
-    <WidgetAttribute name="B4" label="&#x510;" value="Left"  fontsize="18"  fontname="ACAT Icon" mouseClickActuate="true"/>
-    <WidgetAttribute name="B5" label="&#x503;" value="Right"  fontsize="18"  fontname="ACAT Icon" mouseClickActuate="true"/>
-    <WidgetAttribute name="B6" label="m" value="Done"  fontsize="14"  fontname="ACAT Icon" mouseClickActuate="true"/>
+    <WidgetAttribute name="B1" label="&#x75;" value="goBack"  fontname="ACAT Icon" fontsize="22" bold="false"/>
+    <WidgetAttribute name="B2" label="&#x509;" value="Up"  fontsize="22"  fontname="ACAT Icon" bold="false"/>
+    <WidgetAttribute name="B3" label="&#x502;" value="Down"  fontsize="22" fontname="ACAT Icon" bold="false"/>
+    <WidgetAttribute name="B4" label="&#x510;" value="Left"  fontsize="22"  fontname="ACAT Icon" bold="false"/>
+    <WidgetAttribute name="B5" label="&#x503;" value="Right"  fontsize="22"  fontname="ACAT Icon" bold="false"/>
+    <WidgetAttribute name="B6" label="m" value="Done"  fontsize="22"  fontname="ACAT Icon" bold="false"/>
   </WidgetAttributes>
 
   <Layout>

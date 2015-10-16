@@ -69,18 +69,12 @@ namespace ACAT.Lib.Core.AnimationManagement
     /// Represents a single animation sequence.
     ///
     /// The hierarchy is as follows
-    ///     AnimationsCollection (collection of animations indexed by screen name)
-    ///        Animations  (collection of animations for a screen)
+    ///     AnimationsCollection (collection of animations indexed by panel name)
+    ///        Animations  (collection of animations for a panel)
     ///           Animation  (a single animation)
     /// </summary>
     public class Animation : IDisposable
     {
-        /// <summary>
-        /// Code to execute when the user hits the back button at any
-        /// point during this animation sequence
-        /// </summary>
-        public PCode OnBack;
-
         /// <summary>
         /// Code to execute when the animation sequence ends without the
         /// user having selected anything during the sequence
@@ -113,12 +107,12 @@ namespace ACAT.Lib.Core.AnimationManagement
         /// <summary>
         /// String representation of hesitate time as read from the XML file
         /// </summary>
-        private string _hesitateTimeVariableName;
+        private string _hesitateTimeVariableName = String.Empty;
 
         /// <summary>
         /// String representation of stepping time as read from the XML file
         /// </summary>
-        private string _steppingTimeVariableName;
+        private string _steppingTimeVariableName = string.Empty;
 
         /// <summary>
         /// The xml node list from the config file that contains
@@ -137,7 +131,6 @@ namespace ACAT.Lib.Core.AnimationManagement
             Iterations = "1";
             OnEnterExecutionNotDone = false;
             AnimationWidgetList = new List<AnimationWidget>();
-            OnBack = new PCode();
             OnEnd = new PCode();
             OnSelect = new PCode();
             OnEnter = new PCode();
@@ -255,9 +248,6 @@ namespace ACAT.Lib.Core.AnimationManagement
             IsFirst = XmlUtils.GetXMLAttrBool(xmlNode, "start", false);
             AutoStart = !IsFirst || XmlUtils.GetXMLAttrBool(xmlNode, "autoStart", true);
 
-            var onBack = XmlUtils.GetXMLAttrString(xmlNode, "onBack");
-            _parser.Parse(onBack, ref OnBack);
-
             var onEnd = XmlUtils.GetXMLAttrString(xmlNode, "onEnd");
             _parser.Parse(onEnd, ref OnEnd);
 
@@ -270,9 +260,11 @@ namespace ACAT.Lib.Core.AnimationManagement
             Iterations = XmlUtils.GetXMLAttrString(xmlNode, "iterations");
 
             _hesitateTimeVariableName = XmlUtils.GetXMLAttrString(xmlNode, "hesitateTime");
+
             HesitateTime = CoreGlobals.AppPreferences.ResolveVariableInt(_hesitateTimeVariableName, 0, 0);
 
             _steppingTimeVariableName = XmlUtils.GetXMLAttrString(xmlNode, "steppingTime");
+
             SteppingTime = CoreGlobals.AppPreferences.ResolveVariableInt(_steppingTimeVariableName,
                                                                 CoreGlobals.AppPreferences.SteppingTime,
                                                                 CoreGlobals.AppPreferences.SteppingTime);

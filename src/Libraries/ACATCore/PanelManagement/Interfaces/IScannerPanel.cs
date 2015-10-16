@@ -64,7 +64,9 @@ using ACAT.Lib.Core.WidgetManagement;
 namespace ACAT.Lib.Core.PanelManagement
 {
     /// <summary>
-    /// All scanners must implement the IScannerPanel interface.
+    /// All scanners must implement the IScannerPanel interface.  Examples
+    /// of scanners are the Alphabet scanner, the Cursor navigation scanner etc.
+    /// (Dialogs and Menus are not scanners)
     /// </summary>
     public interface IScannerPanel : IPanel
     {
@@ -103,7 +105,7 @@ namespace ACAT.Lib.Core.PanelManagement
 
         /// <summary>
         /// Performs initialization.  This is invoked by
-        /// the Screen manager after instatiating the panel, but
+        /// the Panel manager after instantiating the panel, but
         /// before the panel is shown.
         /// </summary>
         /// <param name="initArg"></param>

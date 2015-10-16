@@ -59,7 +59,7 @@ using ACAT.Lib.Core.Utility;
 
 #endregion SupressStyleCopWarnings
 
-namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
+namespace ACAT.Extensions.Default.FunctionalAgents.LaunchAppAgent
 {
     /// <summary>
     /// Text control agent for the file browser.  Disable

@@ -1,5 +1,4 @@
-﻿////////////////////////////////////////////////////////////////////////////
-// <copyright file="WindowMoveResizeScannerForm.cs" company="Intel Corporation">
+﻿// <copyright file="WindowMoveResizeScannerForm.cs" company="Intel Corporation">
 //
 // Copyright (c) 2013-2015 Intel Corporation 
 //
@@ -75,7 +74,8 @@ namespace ACAT.Extensions.Default.UI.Dialogs
     /// the user to send the arrow key strokes to the
     /// application window so it can be moved or resized.
     /// </summary>
-    [DescriptorAttribute("AB688D22-7302-48C8-92A0-1F47EE38147E", "WindowMoveResizeScannerForm",
+    [DescriptorAttribute("AB688D22-7302-48C8-92A0-1F47EE38147E",
+                        "WindowMoveResizeScannerForm",
                         "Window Move/Resize Dialog")]
     public partial class WindowMoveResizeScannerForm : Form, IDialogPanel
     {
@@ -99,8 +99,8 @@ namespace ACAT.Extensions.Default.UI.Dialogs
                 Log.Debug("Initialization error");
             }
 
-            Load += ResizeScannerScreen_Load;
-            FormClosing += ResizeScannerScreen_FormClosing;
+            Load += WindowMoveResizeScannerForm_Load;
+            FormClosing += WindowMoveResizeScannerForm_FormClosing;
         }
 
         /// <summary>
@@ -244,9 +244,9 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Form is closing. Release resources
+        /// Form is closing. Releases resources
         /// </summary>
-        private void ResizeScannerScreen_FormClosing(object sender, FormClosingEventArgs e)
+        private void WindowMoveResizeScannerForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             _dialogCommon.OnClosing();
         }
@@ -254,7 +254,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         /// <summary>
         /// Form has been loaded
         /// </summary>
-        private void ResizeScannerScreen_Load(object sender, EventArgs e)
+        private void WindowMoveResizeScannerForm_Load(object sender, EventArgs e)
         {
             _dialogCommon.OnLoad();
             _dialogCommon.GetAnimationManager().Start(_dialogCommon.GetRootWidget());

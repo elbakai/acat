@@ -13,6 +13,7 @@ copy %SOURCEDIR%\*.dll %SETUPTARGETDIR%
 copy %SOURCEDIR%\*.bat %SETUPTARGETDIR%
 copy %SOURCEDIR%\*.txt %SETUPTARGETDIR%
 copy %SOURCEDIR%\*.config %SETUPTARGETDIR%
+copy %SOURCEDIR%\DashboardSettings.xml %SETUPTARGETDIR%
 del %SETUPTARGETDIR%\*vshost*
 
 @echo Copying Extensions...

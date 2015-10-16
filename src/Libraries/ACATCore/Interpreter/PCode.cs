@@ -1,5 +1,5 @@
 ﻿////////////////////////////////////////////////////////////////////////////
-// <copyright file="AuditEventAnimationEnd.cs" company="Intel Corporation">
+// <copyright file="PCode.cs" company="Intel Corporation">
 //
 // Copyright (c) 2013-2015 Intel Corporation 
 //
@@ -105,7 +105,7 @@ namespace ACAT.Lib.Core.Interpreter
         }
 
         /// <summary>
-        /// Is there an interpretation of the script?
+        /// Returns true if there is an associated script
         /// </summary>
         /// <returns>true if so, false otherwise</returns>
         public bool HasCode()

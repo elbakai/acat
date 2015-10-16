@@ -1,5 +1,5 @@
 ﻿////////////////////////////////////////////////////////////////////////////
-// <copyright file="UserManager.cs" company="Intel Corporation">
+// <copyright file="IDescriptor.cs" company="Intel Corporation">
 //
 // Copyright (c) 2013-2015 Intel Corporation 
 //
@@ -60,8 +60,9 @@ namespace ACAT.Lib.Core.Utility
 {
     /// <summary>
     /// Represents the name, a brief description and a GUID
-    /// for a class. Every class (scanner, agent, word predictor,
-    /// spellchecker etc) must derive from this
+    /// for a class. Every class that is dynamically discovered
+    /// and loaded must implement this interface.  Examples are
+    /// scanners, application agents, word predictors, actuators etc.
     /// </summary>
     public interface IDescriptor
     {

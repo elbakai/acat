@@ -63,7 +63,7 @@ namespace ACAT.Lib.Extension.CommandHandlers
 {
     /// <summary>
     /// The Command string represents which modifier key to
-    /// trigger (Shift, Ctrl, ALt or Function key)
+    /// trigger (Shift, Ctrl or Alt key)
     /// </summary>
     public class ModifierKeyTriggerHandler : RunCommandHandler
     {
@@ -97,10 +97,6 @@ namespace ACAT.Lib.Extension.CommandHandlers
 
                 case "CmdAltKey":
                     KeyStateTracker.KeyTriggered(Keys.LMenu);
-                    break;
-
-                case "CmdFunctionKey":
-                    KeyStateTracker.FuncTriggered();  // TODO: Updatestatusbar?
                     break;
 
                 default:

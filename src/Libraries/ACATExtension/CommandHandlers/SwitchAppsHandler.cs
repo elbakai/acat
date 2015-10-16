@@ -61,7 +61,7 @@ namespace ACAT.Lib.Extension.CommandHandlers
 {
     /// <summary>
     /// Activates the functional agent that allows the user
-    /// to switch the active window
+    /// to switch the active window. This is the Alt+Tab equivalent.
     /// </summary>
     public class SwitchAppsHandler : RunCommandHandler
     {

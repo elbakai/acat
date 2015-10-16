@@ -62,8 +62,10 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Core.InputActuators
 {
     /// <summary>
-    /// A helper class for winsock based actuators.  Has methods to the parse
-    /// data
+    /// A helper class for winsock based actuators.  Data
+    /// from acutators is in the form of a parameterized String which has
+    /// to be parsed to decypher what the switch action was.  This class
+    /// has functions to parse the data
     /// </summary>
     internal class WinsockCommon
     {
@@ -115,8 +117,8 @@ namespace ACAT.Lib.Core.InputActuators
         /// <param name="createSwitchDel">A delegate function that creates an actuator switch object</param>
         /// <returns>A clone of the matching switch object from the collection</returns>
         public static IActuatorSwitch parseAndGetSwitch(
-                                            String strData, 
-                                            ICollection<IActuatorSwitch> switches, 
+                                            String strData,
+                                            ICollection<IActuatorSwitch> switches,
                                             CreateSwitchDelegate createSwitchDel)
         {
             IActuatorSwitch actuatorSwitch = null;
@@ -204,8 +206,8 @@ namespace ACAT.Lib.Core.InputActuators
         /// <param name="createSwitchDel">Delegate that creates a clone of the switch</param>
         /// <returns></returns>
         private static IActuatorSwitch getSwitchForGesture(
-                                            String gesture, 
-                                            IEnumerable<IActuatorSwitch> switches, 
+                                            String gesture,
+                                            IEnumerable<IActuatorSwitch> switches,
                                             CreateSwitchDelegate createSwitchDel)
         {
             foreach (var switchObj in switches)

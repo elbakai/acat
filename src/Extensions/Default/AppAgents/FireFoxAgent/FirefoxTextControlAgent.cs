@@ -87,7 +87,8 @@ namespace ACAT.Lib.Core.Extensions.Base.AppAgents.FireFoxAgent
         }
 
         /// <summary>
-        /// Returns whether spell check is supported by this agent
+        /// Returns whether spell check is supported by this agent. Return
+        /// true so ACAT"s spellchecker doesn't kick in.
         /// </summary>
         /// <returns>always returns true</returns>
         public override bool SupportsSpellCheck()

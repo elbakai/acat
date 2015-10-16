@@ -7,10 +7,10 @@ Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 1
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://vmstfs12pda005:8080/tfs/defaultcollection
+		SccTeamFoundationServer = https://tfs-fm-05.devtools.intel.com/tfs/defaultcollection
 		SccProjectUniqueName0 = ACATCleanup.csproj
 		SccProjectName0 = .
-		SccAuxPath0 = http://vmstfs12pda005:8080/tfs/defaultcollection
+		SccAuxPath0 = https://tfs-fm-05.devtools.intel.com/tfs/defaultcollection
 		SccLocalPath0 = .
 		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 	EndGlobalSection

@@ -71,7 +71,6 @@ namespace ACAT.Lib.Core.Utility
         /// paths.
         /// </summary>
         private const string MyDocuments = "@mydocuments";
-
         private const string MyMusic = "@mymusic";
         private const string MyPictures = "@mypictures";
         private const string MyVideos = "@myvideos";

@@ -64,7 +64,9 @@ namespace ACAT.Lib.Core.Extensions.Base.AppAgents.GenericApp
     /// ACAT doesn't support.  Base class does all the heavy-lifting.
     /// Override functions as required customize
     /// </summary>
-    [DescriptorAttribute("8CFBC12A-6CC4-4751-ABB5-3A7172500569", "Unsupported App Agent", "App Agent unsupported applications")]
+    [DescriptorAttribute("8CFBC12A-6CC4-4751-ABB5-3A7172500569", 
+                            "Unsupported App Agent", 
+                            "App Agent unsupported applications")]
     internal class UnsupportedAppAgent : GenericAppAgent
     {
     }

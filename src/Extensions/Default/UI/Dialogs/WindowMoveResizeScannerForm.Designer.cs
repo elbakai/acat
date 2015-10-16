@@ -54,36 +54,36 @@ namespace ACAT.Extensions.Default.UI.Dialogs
             // 
             // B1
             // 
-            this.B1.Location = new System.Drawing.Point(12, 14);
+            this.B1.Location = new System.Drawing.Point(12, 24);
             this.B1.Name = "B1";
-            this.B1.Size = new System.Drawing.Size(40, 40);
+            this.B1.Size = new System.Drawing.Size(60, 60);
             this.B1.TabIndex = 85;
             this.B1.TabStop = false;
             this.B1.UseVisualStyleBackColor = true;
             // 
             // B2
             // 
-            this.B2.Location = new System.Drawing.Point(60, 14);
+            this.B2.Location = new System.Drawing.Point(78, 24);
             this.B2.Name = "B2";
-            this.B2.Size = new System.Drawing.Size(40, 40);
+            this.B2.Size = new System.Drawing.Size(60, 60);
             this.B2.TabIndex = 86;
             this.B2.TabStop = false;
             this.B2.UseVisualStyleBackColor = true;
             // 
             // B3
             // 
-            this.B3.Location = new System.Drawing.Point(108, 14);
+            this.B3.Location = new System.Drawing.Point(144, 24);
             this.B3.Name = "B3";
-            this.B3.Size = new System.Drawing.Size(40, 40);
+            this.B3.Size = new System.Drawing.Size(60, 60);
             this.B3.TabIndex = 87;
             this.B3.TabStop = false;
             this.B3.UseVisualStyleBackColor = true;
             // 
             // B4
             // 
-            this.B4.Location = new System.Drawing.Point(156, 14);
+            this.B4.Location = new System.Drawing.Point(210, 24);
             this.B4.Name = "B4";
-            this.B4.Size = new System.Drawing.Size(40, 40);
+            this.B4.Size = new System.Drawing.Size(60, 60);
             this.B4.TabIndex = 88;
             this.B4.TabStop = false;
             this.B4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -92,18 +92,18 @@ namespace ACAT.Extensions.Default.UI.Dialogs
             // B6
             // 
             this.B6.Font = new System.Drawing.Font("Wingdings", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.B6.Location = new System.Drawing.Point(252, 14);
+            this.B6.Location = new System.Drawing.Point(342, 25);
             this.B6.Name = "B6";
-            this.B6.Size = new System.Drawing.Size(40, 40);
+            this.B6.Size = new System.Drawing.Size(60, 60);
             this.B6.TabIndex = 89;
             this.B6.TabStop = false;
             this.B6.UseVisualStyleBackColor = true;
             // 
             // B5
             // 
-            this.B5.Location = new System.Drawing.Point(204, 14);
+            this.B5.Location = new System.Drawing.Point(276, 25);
             this.B5.Name = "B5";
-            this.B5.Size = new System.Drawing.Size(40, 40);
+            this.B5.Size = new System.Drawing.Size(60, 60);
             this.B5.TabIndex = 90;
             this.B5.TabStop = false;
             this.B5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -113,7 +113,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 68);
+            this.ClientSize = new System.Drawing.Size(415, 122);
             this.Controls.Add(this.B5);
             this.Controls.Add(this.B6);
             this.Controls.Add(this.B4);

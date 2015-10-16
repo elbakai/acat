@@ -169,9 +169,9 @@ namespace ACAT.Lib.Extension.AppAgents.MSWord
         }
 
         /// <summary>
-        /// Invoked when the foreground window focus changes. Display the
+        /// Invoked when the foreground window focus changes. Displays the
         /// scanner depending on the context. Also, if this is a new window that has
-        /// come into focus, add its contents to the word prediction temporary batch model for more
+        /// come into focus, adds its contents to the word prediction temporary batch model for more
         /// contextual prediction of words
         /// </summary>
         /// <param name="monitorInfo">Foreground window info</param>
@@ -229,7 +229,7 @@ namespace ACAT.Lib.Extension.AppAgents.MSWord
         }
 
         /// <summary>
-        /// Invoked to run a command
+        /// Executes the specified command
         /// </summary>
         /// <param name="command">The command to execute</param>
         /// <param name="commandArg">Optional arguments for the command</param>
@@ -420,8 +420,7 @@ namespace ACAT.Lib.Extension.AppAgents.MSWord
         /// </summary>
         private void unloadWordPredictionContext()
         {
-            Context.AppWordPredictionManager.ActiveWordPredictor.UnloadContext(_wordPredictionContext);           
+            Context.AppWordPredictionManager.ActiveWordPredictor.UnloadContext(_wordPredictionContext);
         }
-
     }
 }

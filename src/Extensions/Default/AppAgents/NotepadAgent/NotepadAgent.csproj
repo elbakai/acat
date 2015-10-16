@@ -91,9 +91,6 @@
     <Content Include="Config\NotepadContextMenu.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Config\NotepadContextMenuIconsOnly.xml">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Config\PanelConfigMap.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

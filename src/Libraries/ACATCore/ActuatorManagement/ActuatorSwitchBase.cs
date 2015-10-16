@@ -26,6 +26,7 @@ using System.Xml;
 using ACAT.Lib.Core.Utility;
 
 #region SupressStyleCopWarnings
+
 [module: SuppressMessage(
         "StyleCop.CSharp.ReadabilityRules",
         "SA1126:PrefixCallsCorrectly",
@@ -56,7 +57,8 @@ using ACAT.Lib.Core.Utility;
         "SA1300:ElementMustBeginWithUpperCaseLetter",
         Scope = "namespace",
         Justification = "ACAT guidelines. Private/Protected methods begin with lowercase")]
-#endregion
+
+#endregion SupressStyleCopWarnings
 
 namespace ACAT.Lib.Core.ActuatorManagement
 {
@@ -74,14 +76,11 @@ namespace ACAT.Lib.Core.ActuatorManagement
         private readonly Object _lockObj = new object();
 
         /// <summary>
-        /// Timer to track switch trigger timings
+        /// Timer to track the accept time.  If the switch
+        /// stays engaged for less then AcceptTime, the
+        /// switch is ignored.
         /// </summary>
-        private TimerQueue _timer;
-
-        /// <summary>
-        /// Has this object been disposed
-        /// </summary>
-        private bool _disposed;
+        private Stopwatch _acceptTimer;
 
         /// <summary>
         /// Play beep when switch is triggered
@@ -89,16 +88,19 @@ namespace ACAT.Lib.Core.ActuatorManagement
         private SoundPlayer _audio;
 
         /// <summary>
-        /// Timer to track the accept time.  If the switch
-        /// stays engaged for less then AcceptTime, the 
-        /// switch is ignored.
+        /// Has this object been disposed
         /// </summary>
-        private Stopwatch _acceptTimer;
+        private bool _disposed;
 
         /// <summary>
         /// Is this enabled or not
         /// </summary>
         private Boolean _isActive;
+
+        /// <summary>
+        /// Timer to track switch trigger timings
+        /// </summary>
+        private TimerQueue _timer;
 
         /// <summary>
         /// Initializes the Switch object
@@ -133,6 +135,12 @@ namespace ACAT.Lib.Core.ActuatorManagement
             Tag = switchObj.Tag;
         }
 
+        /// <summary>
+        /// Gets or sets the length of time (msecs) the switch to stay
+        /// engaged for it to be recognized as a trigger.
+        /// </summary>
+        public int AcceptTime { get; set; }
+
         public Stopwatch AcceptTimer
         {
             get
@@ -142,46 +150,35 @@ namespace ACAT.Lib.Core.ActuatorManagement
         }
 
         /// <summary>
-        /// Gets or sets the name of the switch
-        /// </summary>
-        public String Name 
-        { 
-            get; 
-            internal set; 
-        }
-
-        /// <summary>
-        /// Gets or sets the source of the switch tht caused the trigger.  
-        /// Depends on the type of the switch.  For instance, for 
-        /// a keyboard switch, source would be "F5" for the F5 function key.
-        /// </summary>
-        public String Source { get; set; }
-
-        /// <summary>
-        /// Whether to actuate the switch or not
-        /// </summary>
-        public bool Actuate { get; set; }
-
-        /// <summary>
-        /// Gets or sets the length of time (msecs) the switch to stay engaged for it to be 
-        /// recognized as a trigger. 
-        /// </summary>
-        public int AcceptTime { get; set; }
-
-        /// <summary>
         /// Gets or sets the Switch action
         /// </summary>
         public SwitchAction Action { get; set; }
 
         /// <summary>
-        /// Gets or sets the time when the switch was triggered.
+        /// Gets or sets whether to actuate the switch or not
         /// </summary>
-        public long Timestamp { get; set; }
+        public bool Actuate { get; set; }
 
         /// <summary>
-        /// Gets or sets the confidence level (unused now)
+        /// Gets or sets the parent Actuator of this switch
         /// </summary>
-        public int Confidence { get; set; }
+        public IActuator Actuator { get; set; }
+
+        /// <summary>
+        /// Gets the audio player to play the beep
+        /// </summary>
+        public SoundPlayer Audio
+        {
+            get
+            {
+                return _audio;
+            }
+
+            private set
+            {
+                _audio = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets name of the beep file associated wit this switch
@@ -189,20 +186,9 @@ namespace ACAT.Lib.Core.ActuatorManagement
         public String BeepFile { get; set; }
 
         /// <summary>
-        /// Gets the audio player to play the beep
+        /// Gets or sets the confidence level (unused now)
         /// </summary>
-        public SoundPlayer Audio
-        {
-            get 
-            { 
-                return _audio; 
-            }
-           
-            private set 
-            { 
-                _audio = value; 
-            }
-        }
+        public int Confidence { get; set; }
 
         /// <summary>
         /// Gets or sets the active state of the switch.
@@ -227,9 +213,20 @@ namespace ACAT.Lib.Core.ActuatorManagement
         }
 
         /// <summary>
-        /// Gets or sets the parent Actuator of this switch
+        /// Gets or sets the name of the switch
         /// </summary>
-        public IActuator Actuator { get; set; }
+        public String Name
+        {
+            get;
+            internal set;
+        }
+
+        /// <summary>
+        /// Gets or sets the source of the switch tht caused the trigger.
+        /// Depends on the type of the switch.  For instance, for
+        /// a keyboard switch, source would be "F5" for the F5 function key.
+        /// </summary>
+        public String Source { get; set; }
 
         /// <summary>
         /// Gets or sets opaque tag
@@ -237,7 +234,33 @@ namespace ACAT.Lib.Core.ActuatorManagement
         public String Tag { get; set; }
 
         /// <summary>
-        /// Reads switch attributes from the XML file. 
+        /// Gets or sets the time when the switch was triggered.
+        /// </summary>
+        public long Timestamp { get; set; }
+
+        /// <summary>
+        /// Disposes resources
+        /// </summary>
+        public void Dispose()
+        {
+            Dispose(true);
+
+            // Prevent finalization code for this object
+            // from executing a second time.
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Override this to do init for derived classes
+        /// </summary>
+        /// <returns>true on success</returns>
+        public virtual bool Init()
+        {
+            return true;
+        }
+
+        /// <summary>
+        /// Reads switch attributes from the XML file.
         /// </summary>
         /// <param name="xmlNode">The XML node that contains the Switch attributes</param>
         /// <returns>True on successful parse, false otherwise</returns>
@@ -257,7 +280,7 @@ namespace ACAT.Lib.Core.ActuatorManagement
 
             Source = XmlUtils.GetXMLAttrString(xmlNode, "source");
 
-            String value = XmlUtils.GetXMLAttrString(xmlNode, "acceptTime");
+            String value = XmlUtils.GetXMLAttrString(xmlNode, "minHoldTime");
             AcceptTime = CoreGlobals.AppPreferences.ResolveVariableInt(value, CoreGlobals.AppPreferences.AcceptTime, 0);
 
             BeepFile = XmlUtils.GetXMLAttrString(xmlNode, "beepFile");
@@ -269,27 +292,6 @@ namespace ACAT.Lib.Core.ActuatorManagement
             return true;
         }
 
-        /// <summary>
-        /// Override this to do init for derived classes
-        /// </summary>
-        /// <returns>true on success</returns>
-        public virtual bool Init()
-        {
-            return true;
-        }
-
-        /// <summary>
-        /// Disposes resources
-        /// </summary>
-        public void Dispose()
-        {
-            Dispose(true);
-
-            // Prevent finalization code for this object
-            // from executing a second time.
-            GC.SuppressFinalize(this);
-        }
-        
         /// <summary>
         /// Records the fact that a switch down was detected.  Starts
         /// a timer to track the AcceptTime
@@ -332,7 +334,7 @@ namespace ACAT.Lib.Core.ActuatorManagement
                         _acceptTimer.Stop();
                         _acceptTimer = null;
                     }
-                    
+
                     if (_audio != null)
                     {
                         _audio.Dispose();
@@ -340,7 +342,7 @@ namespace ACAT.Lib.Core.ActuatorManagement
                     }
                 }
 
-                // Release unmanaged resources. 
+                // Release unmanaged resources.
             }
 
             _disposed = true;

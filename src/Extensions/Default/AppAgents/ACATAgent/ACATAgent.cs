@@ -62,9 +62,10 @@ namespace ACAT.Extensions.Default.AppAgents.ACATApp
     /// <summary>
     /// Application agent for the ACAT application.
     /// </summary>
-    [DescriptorAttribute("066A06E9-7178-4058-A6BC-CFA803A67088", "ACAT Agent", "Application Agent for the ACAT Application")]
+    [DescriptorAttribute("066A06E9-7178-4058-A6BC-CFA803A67088", 
+                            "ACAT Agent", 
+                            "Application Agent for the executing assembly")]
     internal class ACATAgent : ACATAgentBase
     {
-        //override functions here if necessary
     }
 }

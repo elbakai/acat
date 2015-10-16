@@ -71,8 +71,9 @@ namespace ACAT.Extensions.Default.UI.Dialogs
     /// includes the speed of the grid, the speed
     /// of mouse movement, the number of cycles
     /// </summary>
-    [DescriptorAttribute("71049A94-0435-4739-AE2C-77E2BD3CB0F0", "MouseGridSettingsForm",
-                            "Mouse Grid Settings Scanner")]
+    [DescriptorAttribute("71049A94-0435-4739-AE2C-77E2BD3CB0F0", 
+                        "MouseGridSettingsForm",
+                        "Mouse Grid Settings Dialog")]
     public partial class MouseGridSettingsForm : Form, IDialogPanel
     {
         /// <summary>
@@ -83,7 +84,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         /// <summary>
         /// Were any of the settings changed?
         /// </summary>
-        private bool isDirty;
+        private bool _isDirty;
 
         /// <summary>
         /// Initializes a new instance of the class.
@@ -164,7 +165,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Pause the scanner
+        /// Pauses the scanner
         /// </summary>
         public void OnPause()
         {
@@ -172,7 +173,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Resume paused scanner
+        /// Resumes paused scanner
         /// </summary>
         public void OnResume()
         {
@@ -216,52 +217,54 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Update settings based on the values set by the
-        /// user in the form
+        /// Updates settings based on the values set by the
+        /// user in the form.  Returns a ACATPreferences object
+        /// with the new values.
         /// </summary>
+        /// <returns>ACATPreferences object</returns>
         private ACATPreferences getSettingsFromUI()
         {
-            Widget rootWidget = _dialogCommon.GetRootWidget();
+            var rootWidget = _dialogCommon.GetRootWidget();
             var prefs = ACATPreferences.Load();
 
-            prefs.MouseGridVerticalSpeed = Common.AppPreferences.MouseGridVerticalSpeed = WidgetUtils.GetSliderState(rootWidget, tbVerticalSpeed.Name, WidgetUtils.SliderUnitsOnes);
-            prefs.MouseGridVerticalSweeps = Common.AppPreferences.MouseGridVerticalSweeps = WidgetUtils.GetSliderState(rootWidget, tbVerticalSweeps.Name, WidgetUtils.SliderUnitsOnes);
-            prefs.MouseGridHorizontalSpeed = Common.AppPreferences.MouseGridHorizontalSpeed = WidgetUtils.GetSliderState(rootWidget, tbHorizontalSpeed.Name, WidgetUtils.SliderUnitsOnes);
-            prefs.MouseGridHorizontalSweeps = Common.AppPreferences.MouseGridHorizontalSweeps = WidgetUtils.GetSliderState(rootWidget, tbHorizontalSweeps.Name, WidgetUtils.SliderUnitsOnes);
-            prefs.MouseGridLineWidth = Common.AppPreferences.MouseGridLineWidth = WidgetUtils.GetSliderState(rootWidget, tbLineWidth.Name, WidgetUtils.SliderUnitsOnes);
+            prefs.MouseGridRectangleSpeed = Common.AppPreferences.MouseGridRectangleSpeed = (rootWidget.Finder.FindChild(tbRectangleSpeed.Name) as SliderWidget).GetState(SliderWidget.SliderUnitsOnes);
+            prefs.MouseGridRectangleCycles = Common.AppPreferences.MouseGridRectangleCycles = (rootWidget.Finder.FindChild(tbRectangleCycles.Name) as SliderWidget).GetState(SliderWidget.SliderUnitsOnes);
+            prefs.MouseGridLineSpeed = Common.AppPreferences.MouseGridLineSpeed = (rootWidget.Finder.FindChild(tbLineSpeed.Name) as SliderWidget).GetState(SliderWidget.SliderUnitsOnes);
+            prefs.MouseGridLineCycles = Common.AppPreferences.MouseGridLineCycles = (rootWidget.Finder.FindChild(tbLineCycles.Name) as SliderWidget).GetState(SliderWidget.SliderUnitsOnes);
+            prefs.MouseGridLineThickness = Common.AppPreferences.MouseGridLineThickness = (rootWidget.Finder.FindChild(tbLineThickness.Name) as SliderWidget).GetState(SliderWidget.SliderUnitsOnes);
 
-            prefs.MouseGridStartFromLastCursorPos = Common.AppPreferences.MouseGridStartFromLastCursorPos = WidgetUtils.GetCheckBoxWidgetState(rootWidget, pbStartFromLastCursorPos.Name);
+            prefs.MouseGridEnableVerticalRectangleScan = Common.AppPreferences.MouseGridEnableVerticalRectangleScan = (rootWidget.Finder.FindChild(pbEnableVerticalRectScan.Name) as CheckBoxWidget).GetState();
 
             return prefs;
         }
 
         /// <summary>
-        /// Set the state of all the controls based on the
-        /// settings
+        /// Sets the state of all the controls based on the
+        /// settings in the prefs parameter
         /// </summary>
-        /// <param name="prefs">ACAT settings</param>
+        /// <param name="prefs">ACAT settings object</param>
         private void initWidgetSettings(ACATPreferences prefs)
         {
-            Widget rootWidget = _dialogCommon.GetRootWidget();
+            var rootWidget = _dialogCommon.GetRootWidget();
 
-            WidgetUtils.SetSliderState(rootWidget, tbVerticalSpeed.Name, prefs.MouseGridVerticalSpeed, WidgetUtils.SliderUnitsOnes);
-            WidgetUtils.SetSliderState(rootWidget, tbVerticalSweeps.Name, prefs.MouseGridVerticalSweeps, WidgetUtils.SliderUnitsOnes);
-            WidgetUtils.SetSliderState(rootWidget, tbHorizontalSpeed.Name, prefs.MouseGridHorizontalSpeed, WidgetUtils.SliderUnitsOnes);
-            WidgetUtils.SetSliderState(rootWidget, tbHorizontalSweeps.Name, prefs.MouseGridHorizontalSweeps, WidgetUtils.SliderUnitsOnes);
-            WidgetUtils.SetSliderState(rootWidget, tbLineWidth.Name, prefs.MouseGridLineWidth, WidgetUtils.SliderUnitsOnes);
+            (rootWidget.Finder.FindChild(tbRectangleSpeed.Name) as SliderWidget).SetState(prefs.MouseGridRectangleSpeed, SliderWidget.SliderUnitsOnes);
+            (rootWidget.Finder.FindChild(tbRectangleCycles.Name) as SliderWidget).SetState(prefs.MouseGridRectangleCycles, SliderWidget.SliderUnitsOnes);
+            (rootWidget.Finder.FindChild(tbLineSpeed.Name) as SliderWidget).SetState(prefs.MouseGridLineSpeed, SliderWidget.SliderUnitsOnes);
+            (rootWidget.Finder.FindChild(tbLineCycles.Name) as SliderWidget).SetState(prefs.MouseGridLineCycles, SliderWidget.SliderUnitsOnes);
+            (rootWidget.Finder.FindChild(tbLineThickness.Name) as SliderWidget).SetState(prefs.MouseGridLineThickness, SliderWidget.SliderUnitsOnes);
 
-            WidgetUtils.SetCheckBoxWidgetState(rootWidget, pbStartFromLastCursorPos.Name, prefs.MouseGridStartFromLastCursorPos);
+            (rootWidget.Finder.FindChild(pbEnableVerticalRectScan.Name) as CheckBoxWidget).SetState(prefs.MouseGridEnableVerticalRectangleScan);
         }
 
         /// <summary>
-        /// Restore default settings from the preferences file
+        /// Restores default settings from the preferences file
         /// </summary>
         private void loadDefaultSettings()
         {
             if (DialogUtils.Confirm(this, "Restore default settings?"))
             {
                 initWidgetSettings(ACATPreferences.LoadDefaultSettings());
-                isDirty = true;
+                _isDirty = true;
             }
         }
 
@@ -274,7 +277,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Form has been loaded. Initiialize
+        /// Form has been loaded. Initialize
         /// </summary>
         private void MouseGridSettingsForm_Load(object sender, EventArgs e)
         {
@@ -292,7 +295,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         {
             bool quit = true;
 
-            if (isDirty)
+            if (_isDirty)
             {
                 if (!DialogUtils.Confirm(this, "Changes not saved. Quit?"))
                 {
@@ -307,15 +310,15 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Save settings and close the dialog. Confirm with the user first
+        /// Saves settings and close the dialog. Confirms with the user first
         /// </summary>
         private void saveSettingsAndQuit()
         {
-            if (isDirty && DialogUtils.Confirm(this, "Save settings?"))
+            if (_isDirty && DialogUtils.Confirm(this, "Save settings?"))
             {
                 getSettingsFromUI().Save();
 
-                isDirty = false;
+                _isDirty = false;
                 Common.AppPreferences.NotifyPreferencesChanged();
             }
 
@@ -346,13 +349,13 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// User changed something on the form. Set the dirty flag
+        /// User changed something on the form. Sets the dirty flag
         /// </summary>
         /// <param name="sender">event sender</param>
         /// <param name="e">event args</param>
         private void widget_EvtValueChanged(object sender, WidgetEventArgs e)
         {
-            isDirty = true;
+            _isDirty = true;
         }
     }
 }

@@ -59,7 +59,7 @@ using ACAT.Lib.Core.Utility;
 
 #endregion SupressStyleCopWarnings
 
-namespace ACAT.Extensions.Hawking.FunctionalAgents.NewFile
+namespace ACAT.Extensions.Default.FunctionalAgents.NewFile
 {
     /// <summary>
     /// Text control agent for the new file agent. Disable

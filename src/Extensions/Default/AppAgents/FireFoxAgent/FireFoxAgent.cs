@@ -19,6 +19,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 using System.Diagnostics.CodeAnalysis;
+using ACAT.Lib.Core.UserManagement;
 using ACAT.Lib.Core.Utility;
 using ACAT.Lib.Extension.AppAgents.Firefox;
 
@@ -64,8 +65,30 @@ namespace ACAT.Extensions.Default.AppAgents.FireFox
     /// Base class does all the heavy-lifting.  Override functions
     /// as required customize
     /// </summary>
-    [DescriptorAttribute("F59BDA2F-A0A7-4AFE-B546-7EF3B6F8A1D0", "Firefox Agent", "Application Agent for Firefox")]
+    [DescriptorAttribute("F59BDA2F-A0A7-4AFE-B546-7EF3B6F8A1D0", 
+                            "Firefox Agent", 
+                            "Application Agent for Firefox")]
     internal class FireFoxAgent : FireFoxAgentBase
     {
+        /// <summary>
+        /// Settings for this agent
+        /// </summary>
+        internal static FireFoxAgentSettings Settings;
+
+        /// <summary>
+        /// Name of the settings file
+        /// </summary>
+        private const string SettingsFileName = "FireFoxAgentSettings.xml";
+
+        /// <summary>
+        /// Initializes an instance of the class
+        /// </summary>
+        public FireFoxAgent()
+        {
+            FireFoxAgentSettings.PreferencesFilePath = UserManager.GetFullPath(SettingsFileName);
+            Settings = FireFoxAgentSettings.Load();
+
+            autoSwitchScanners = Settings.AutoSwitchScannerEnable;
+        }
     }
 }

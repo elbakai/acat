@@ -96,14 +96,6 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Config\AcrobatReaderContextMenuIconsOnly.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Config\AcrobatReaderZoomMenuIconsOnly.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Config\PanelConfigMap.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

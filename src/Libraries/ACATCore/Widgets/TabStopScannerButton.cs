@@ -63,7 +63,8 @@ namespace ACAT.Lib.Core.Widgets
 {
     /// <summary>
     /// A ScannerButton that sets tab stops for the text. This is useful
-    /// if you want to display fields in the button separated by tabs.
+    /// if you want to display fields in the button separated by tabs. For
+    /// instance, a filename, date, filesize etc.
     /// </summary>
     public class TabStopScannerButton : ScannerButtonBase
     {
@@ -105,6 +106,19 @@ namespace ACAT.Lib.Core.Widgets
             : base(uiControl)
         {
             _text = String.Empty;
+        }
+
+        /// <summary>
+        /// Check if this needs to be added to the animation
+        /// sequence.  If there is no text, no need to animate
+        /// this widget
+        /// </summary>
+        /// <returns>True if it's ok</returns>
+        public override bool CanAddForAnimation()
+        {
+            String text = GetText().Trim();
+            AddForAnimation = !String.IsNullOrEmpty(text);
+            return AddForAnimation;
         }
 
         /// <summary>
@@ -158,7 +172,7 @@ namespace ACAT.Lib.Core.Widgets
         }
 
         /// <summary>
-        /// Paint handler. Calculate the scaled tabstops based
+        /// Paint handler. Calculates the scaled tabstops based
         /// on the scale factor. Displays text. The base class
         /// scales the size of the font
         /// </summary>

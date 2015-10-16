@@ -62,7 +62,11 @@ namespace ACAT.Lib.Core.TTSManagement
     /// <summary>
     /// Represents a single pronunciation.  A pronunciation
     /// contains the original word and a phonetic spelling that
-    /// tells the speech engine how to pronounce it
+    /// tells the speech engine how to pronounce it. This is useful
+    /// where the TTS engine may not pronounce words correctly (eg
+    /// proper nouns). This object maps the actual spelling with
+    /// the phonetic spelling. The phonetically spelt word is the
+    /// one sent to the TTS engine to convert to speech.
     /// </summary>
     public class Pronunciation : IDisposable
     {
@@ -72,7 +76,7 @@ namespace ACAT.Lib.Core.TTSManagement
         private bool _disposed;
 
         /// <summary>
-        /// Initializes the abbreviation object
+        /// Initializes an instance of this class
         /// </summary>
         /// <param name="word">original word</param>
         /// <param name="altPronunciation">phonetic spelling</param>

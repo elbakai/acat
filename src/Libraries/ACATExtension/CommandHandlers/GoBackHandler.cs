@@ -63,7 +63,10 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Extension.CommandHandlers
 {
     /// <summary>
-    /// Handler for closing the currently active scanner.
+    /// Handler for closing the currently active scanner.  Typically
+    /// invoked when the user presses the "Back" button on the scanner.
+    /// Closing the scanner will automatically display the parent scanner.
+    /// If the scanner doesn't have a parent, displays the alphabet scanner
     /// </summary>
     public class GoBackHandler : RunCommandHandler
     {
@@ -90,19 +93,16 @@ namespace ACAT.Lib.Extension.CommandHandlers
             // close the form.  If the form doesn't have
             // a parent, just activate the default scanner
 
-            form.Invoke(new MethodInvoker(delegate()
+            bool hasParent = form.Owner != null;
+
+            Log.Debug("form: " + form.Name + ", hasParent: " + hasParent);
+
+            Windows.CloseForm(form);
+            if (!hasParent)
             {
-                bool hasParent = form.Owner != null;
-
-                Log.Debug("form: " + form.Name + ", hasParent: " + hasParent);
-
-                Windows.CloseForm(form);
-                if (!hasParent)
-                {
-                    IPanel panel = Context.AppPanelManager.CreatePanel(PanelClasses.Alphabet) as IPanel;
-                    Context.AppPanelManager.Show(panel);
-                }
-            }));
+                IPanel panel = Context.AppPanelManager.CreatePanel(PanelClasses.Alphabet) as IPanel;
+                Context.AppPanelManager.Show(panel);
+            }
 
             return true;
         }

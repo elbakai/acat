@@ -124,8 +124,8 @@ namespace ACAT.Lib.Extension.AppAgents.Notepad
         }
 
         /// <summary>
-        /// Invoked when the foreground window focus changes. Display the alphabet
-        /// scanner. Also, if this is a new window that has come into focus, add
+        /// Invoked when the foreground window focus changes. Displays the alphabet
+        /// scanner. Also, if this is a new window that has come into focus, adds
         /// its contents to the word prediction temporary batch model for more
         /// contextual prediction of words
         /// </summary>

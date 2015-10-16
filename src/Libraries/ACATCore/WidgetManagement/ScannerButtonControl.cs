@@ -58,6 +58,9 @@ using System.Windows.Forms;
 
 namespace ACAT.Lib.Core.WidgetManagement
 {
+    /// <summary>
+    /// Usercontrol that represents a button widget.
+    /// </summary>
     public partial class ScannerButtonControl : Button
     {
         public ScannerButtonControl()

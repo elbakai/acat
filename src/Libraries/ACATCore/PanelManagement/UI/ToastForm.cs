@@ -142,6 +142,11 @@ namespace ACAT.Lib.Core.PanelManagement
             }
         }
 
+        /// <summary>
+        /// Called when the form is closing
+        /// </summary>
+        /// <param name="sender">event sender</param>
+        /// <param name="cancelEventArgs">event args</param>
         private void OnClosing(object sender, CancelEventArgs cancelEventArgs)
         {
             _quit = true;

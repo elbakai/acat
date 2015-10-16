@@ -21,7 +21,6 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
-using System.Windows.Forms;
 
 #region SupressStyleCopWarnings
 
@@ -61,10 +60,8 @@ using System.Windows.Forms;
 namespace ACAT.Lib.Core.Utility
 {
     /// <summary>
-    /// Useful text functions.  The SwiftKeys prediction engine needs the
-    /// previous words in the current sentence PLUS the current word to
-    /// make the current word and the next word prediction.  This class
-    /// contains functions to get the current sentence, current word etc.
+    /// Useful text functions.  This class contains functions to get the current sentence,
+    /// current word, current paragraph, words preceding the caret, preceding spaces etc etc.
     /// </summary>
     public class TextUtils
     {
@@ -533,7 +530,6 @@ namespace ACAT.Lib.Core.Utility
                 if (index < 0)
                 {
                     index = 0;
-                    count = endPos + 1;
                 }
                 else
                 {
@@ -624,6 +620,14 @@ namespace ACAT.Lib.Core.Utility
             }
         }
 
+        /// <summary>
+        /// Gets the word at the caret position. Empty string if there
+        /// is no word there
+        /// </summary>
+        /// <param name="inputString">Input text</param>
+        /// <param name="caretPos">Postion of the caret in the string</param>
+        /// <param name="wordAtCaret">returns the word at the caret position</param>
+        /// <returns>starting index of the word</returns>
         public static int GetWordAtCaret(String inputString, int caretPos, out String wordAtCaret)
         {
             try
@@ -840,7 +844,6 @@ namespace ACAT.Lib.Core.Utility
         /// <param name="caretPos">Where is the caret positioned at?</param>
         /// <param name="wordAtCaret">Returns word at caret (can be "")</param>
         /// <returns>0-based index where the word begins</returns>
-        ///
         private static int getWordToReplace(String inputString, int caretPos, out String wordAtCaret)
         {
             int startPos = caretPos;

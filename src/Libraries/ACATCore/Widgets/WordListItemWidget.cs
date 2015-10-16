@@ -62,7 +62,8 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Core.Widgets
 {
     /// <summary>
-    /// Represents a single word list item in the prediction word list box
+    /// Represents a single word list item in the word prediction box 
+    /// typically used in the Alphabet scanners.
     /// </summary>
     public class WordListItemWidget : ScannerButtonBase
     {
@@ -83,8 +84,8 @@ namespace ACAT.Lib.Core.Widgets
 
         /// <summary>
         /// Check if this needs to be added to the animation
-        /// sequence.  If there is no text, no need to animate
-        /// this widget
+        /// sequence.  If there is no text, no need include this
+        /// widget in the scanning sequence.
         /// </summary>
         /// <returns>True if it's ok</returns>
         public override bool CanAddForAnimation()

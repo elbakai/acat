@@ -21,10 +21,12 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Windows.Forms;
 using System.Xml;
 using ACAT.Lib.Core.Utility;
 
 #region SupressStyleCopWarnings
+
 [module: SuppressMessage(
         "StyleCop.CSharp.ReadabilityRules",
         "SA1126:PrefixCallsCorrectly",
@@ -55,22 +57,23 @@ using ACAT.Lib.Core.Utility;
         "SA1300:ElementMustBeginWithUpperCaseLetter",
         Scope = "namespace",
         Justification = "ACAT guidelines. Private/Protected methods begin with lowercase")]
-#endregion
+
+#endregion SupressStyleCopWarnings
 
 namespace ACAT.Lib.Core.ActuatorManagement
 {
     /// <summary>
     /// Base class for all the actuators.  Actuators are input mechanisms
-    /// to the application.  An actuator contains a list 
+    /// to the application.  An actuator contains a list
     /// of switches, each of which act as a trigger to drive the UI. For
-    /// instance, a keyboard actuator will use input from the keyboard as 
+    /// instance, a keyboard actuator will use input from the keyboard as
     /// triggers.  Soft actuators can also be implemented that use sockets
     /// to send triggers to the UI.
     /// </summary>
     public abstract class ActuatorBase : IActuator
     {
         /// <summary>
-        /// A list of switches defined for this actuator.  Each switch has a 
+        /// A list of switches defined for this actuator.  Each switch has a
         /// name that is unique to the actuator
         /// </summary>
         private readonly Dictionary<String, IActuatorSwitch> _switches;
@@ -79,7 +82,7 @@ namespace ACAT.Lib.Core.ActuatorManagement
         /// Has this object been disposed
         /// </summary>
         private bool _disposed;
-        
+
         /// <summary>
         /// Initializes a new instance of the ActuatorBase class
         /// </summary>
@@ -115,14 +118,22 @@ namespace ACAT.Lib.Core.ActuatorManagement
         }
 
         /// <summary>
+        /// Gets or sets a value indicating whether the actuator is enabled or not.
+        /// </summary>
+        public bool Enabled { get; set; }
+
+        /// <summary>
         /// Gets or sets the name of the actuator
         /// </summary>
         public String Name { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the actuator is enabled or not.
+        /// Does this actuator support a settings dialog?
         /// </summary>
-        public bool Enabled { get; set; }
+        public bool SupportsSettingsDialog
+        {
+            get { return false; }
+        }
 
         /// <summary>
         /// Gets the list of switches that are a part of this actuator
@@ -138,6 +149,14 @@ namespace ACAT.Lib.Core.ActuatorManagement
         protected State actuatorState { get; set; }
 
         /// <summary>
+        /// Class factory to create a switch.  Override this in the
+        /// derived classes to enable creating switches that are specific to the
+        /// actuator
+        /// </summary>
+        /// <returns>Switch object</returns>
+        public abstract IActuatorSwitch CreateSwitch();
+
+        /// <summary>
         /// Disposes resources
         /// </summary>
         public void Dispose()
@@ -150,12 +169,22 @@ namespace ACAT.Lib.Core.ActuatorManagement
         }
 
         /// <summary>
-        /// Class factory to create a switch.  Override this in the 
-        /// derived classes to enable creating switches that are specific to the
-        /// actuator
+        /// Returns the form that is the settings dialog for the actuator
         /// </summary>
-        /// <returns>Switch object</returns>
-        public abstract IActuatorSwitch CreateSwitch();
+        /// <returns>the form</returns>
+        public Form GetSettingsDialog()
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// Allow derived classes to allocate resources
+        /// </summary>
+        /// <returns>true on success</returns>
+        public virtual bool Init()
+        {
+            return true;
+        }
 
         /// <summary>
         /// Parses the XML node that contains all the info for this actuator
@@ -202,12 +231,19 @@ namespace ACAT.Lib.Core.ActuatorManagement
         }
 
         /// <summary>
-        /// Allow derived classes to allocate resources
+        /// Invoked if the calibration is canceled before the time period
+        /// expires
         /// </summary>
-        /// <returns>true on success</returns>
-        public virtual bool Init()
+        public virtual void OnCalibrationCanceled()
         {
-            return true;
+        }
+
+        /// <summary>
+        /// If the calibration is required to complete in a specific time,
+        /// this function is invoked when the timer expires
+        /// </summary>
+        public virtual void OnCalibrationPeriodExpired()
+        {
         }
 
         /// <summary>
@@ -223,6 +259,51 @@ namespace ACAT.Lib.Core.ActuatorManagement
         /// </summary>
         public virtual void Resume()
         {
+        }
+
+        /// <summary>
+        /// Starts calibration of the actuator
+        /// </summary>
+        public virtual void StartCalibration()
+        {
+        }
+
+        /// <summary>
+        /// Disposer. Release resources and cleanup.
+        /// </summary>
+        /// <param name="disposing">true to dispose managed resources</param>
+        protected virtual void Dispose(bool disposing)
+        {
+            // Check to see if Dispose has already been called.
+            if (!_disposed)
+            {
+                Log.Debug();
+
+                if (disposing)
+                {
+                    // dispose all managed resources.
+                }
+
+                // Release unmanaged resources.
+            }
+
+            _disposed = true;
+        }
+
+        /// <summary>
+        /// The actuator should invoke this function to indicate end of calibration
+        /// </summary>
+        protected void OnEndCalibration()
+        {
+            ActuatorManager.Instance.OnEndCalibration(this);
+        }
+
+        /// <summary>
+        /// Raise event that initialization completed
+        /// </summary>
+        protected void OnInitDone()
+        {
+            ActuatorManager.Instance.OnInitDone(this);
         }
 
         /// <summary>
@@ -259,25 +340,26 @@ namespace ACAT.Lib.Core.ActuatorManagement
         }
 
         /// <summary>
-        /// Disposer. Release resources and cleanup.
+        /// The Actuator should call this function to request that it
+        /// wants calibration done.
         /// </summary>
-        /// <param name="disposing">true to dispose managed resources</param>
-        protected virtual void Dispose(bool disposing)
+        protected void RequestCalibration()
         {
-            // Check to see if Dispose has already been called.
-            if (!_disposed)
-            {
-                Log.Debug();
+            ActuatorManager.Instance.RequestCalibration(this);
+        }
 
-                if (disposing)
-                {
-                    // dispose all managed resources.
-                }
-
-                // Release unmanaged resources. 
-            }
-
-            _disposed = true;
+        /// <summary>
+        /// Updates the calibration form with the prompt, caption and timeout.  If timeout
+        /// is > 0, it is the time period for calibration.  If timeout is -1, it counts the
+        /// elapsed time in seconds and if timeout is 0, the timer is not used
+        /// </summary>
+        /// <param name="caption">caption to display on the calibration form</param>
+        /// <param name="prompt">any message to display</param>
+        /// <param name="timeout">calibration timeout</param>
+        /// <param name="enableConfigure">should the configure button b e enabled</param>
+        protected void UpdateCalibrationStatus(String caption, String prompt, int timeout = 0, bool enableConfigure = true)
+        {
+            ActuatorManager.Instance.UpdateCalibrationStatus(this, caption, prompt, timeout, enableConfigure);
         }
     }
 }

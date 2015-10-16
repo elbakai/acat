@@ -2,13 +2,17 @@
 
 <ACAT>
   <WidgetAttributes>
-    <WidgetAttribute name="Button1" label="Yes" fontsize="18" bold="true" value="@button1" mouseClickActuate="true"/>
-    <WidgetAttribute name="Button2" label="Yes" fontsize="18" bold="true" value="@button2" mouseClickActuate="true"/>
+    <WidgetAttribute name="Button1" label="No" fontsize="18" value="@CmdNo" bold="false"/>
+    <WidgetAttribute name="Button1Blank" label="" fontsize="18" value="" mouseClickActuate="false" bold="false"/>
+    <WidgetAttribute name="Button2" label="Yes" fontsize="18" bold="true" value="@CmdYes" />
+    <WidgetAttribute name="Button2Blank" label="" fontsize="18" bold="false" value="" mouseClickActuate="false"/>
   </WidgetAttributes>
 
   <Layout>
     <Widget class="LabelWidget" name="Button1"  roundedCorners="false"/>
+    <Widget class="LabelWidget" name="Button1Blank"  roundedCorners="false"/>
     <Widget class="LabelWidget" name="Button2"  roundedCorners="false"/>
+    <Widget class="LabelWidget" name="Button2Blank"  roundedCorners="false"/>
   </Layout>
 
   <Animations>
@@ -17,8 +21,10 @@
                steppingTime="@TabScanTime"
                onEnter=""
                iterations="-1">
-      <Widget name="Button2" onSelect="actuate(@SelectedWidget)"/>
+      <Widget name="Button1Blank"/>
       <Widget name="Button1" onSelect="actuate(@SelectedWidget)"/>
+      <Widget name="Button2Blank"/>
+      <Widget name="Button2" onSelect="actuate(@SelectedWidget)"/>
     </Animation>
   </Animations>
 </ACAT>

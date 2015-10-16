@@ -341,141 +341,148 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
-		<row><td>ACATAgent.dll</td><td>{7586BB79-CAF2-4C03-8D9C-B24FD270F257}</td><td>ACATAGENT</td><td>2</td><td/><td>acatagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ACATApp.exe</td><td>{468EC8D1-F256-4D21-993F-F69343485879}</td><td>INSTALLDIR</td><td>2</td><td/><td>acatapp.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ACATCleanup.exe</td><td>{C9451967-F476-4EA8-ABCD-443BEFA7E8B1}</td><td>INSTALL</td><td>2</td><td/><td>acatcleanup.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ACATCore.dll</td><td>{BBAA9EBC-BBB8-438B-B01D-A9698430BACA}</td><td>INSTALLDIR</td><td>2</td><td/><td>acatcore.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ACATExtension.dll</td><td>{797190D2-60C3-4125-8A44-6078875AC3F0}</td><td>INSTALLDIR</td><td>2</td><td/><td>acatextension.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ACATTryout.exe</td><td>{D9C016D9-2154-4A43-B0D4-4D24B020975F}</td><td>INSTALLDIR</td><td>2</td><td/><td>acattryout.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>AbbreviationsAgent.dll</td><td>{5BBEF6E2-37A0-4543-A055-7D3B483596F9}</td><td>ABBREVIATIONSAGENT</td><td>2</td><td/><td>abbreviationsagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>AcrobatReaderAgent.dll</td><td>{0C691431-53ED-4D46-90FE-62D0222DCB10}</td><td>ACROBATREADERAGENT</td><td>2</td><td/><td>acrobatreaderagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>CameraActuator.dll</td><td>{D339AEEF-2307-45C9-9BE2-D7AC2030AF5B}</td><td>CAMERAACTUATOR</td><td>2</td><td/><td>cameraactuator.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ChromeBrowserAgent.dll</td><td>{99E654F5-D97A-4A18-8292-B52CA619989B}</td><td>CHROMEBROWSERAGENT</td><td>2</td><td/><td>chromebrowseragent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ContextMenus.dll</td><td>{F333E0B6-EC12-4E83-A80E-F57B86133789}</td><td>CONTEXTMENUS</td><td>2</td><td/><td>contextmenus.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DLLHostAgent.dll</td><td>{CA0EEF53-D920-4828-95E7-02A3F973C20F}</td><td>DLLHOSTAGENT</td><td>2</td><td/><td>dllhostagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>DialogControlAgent.dll</td><td>{B2AD762B-DF09-466E-8612-0EBBEE896FB9}</td><td>DIALOGCONTROLAGENT</td><td>2</td><td/><td>dialogcontrolagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Dialogs.dll</td><td>{9EC6D0B6-75FD-4EC0-B56A-B2D916A99B76}</td><td>DIALOGS</td><td>2</td><td/><td>dialogs.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>EudoraAgent.dll</td><td>{54E35215-7044-4BAD-9D02-BD28521AACC5}</td><td>EUDORAAGENT</td><td>2</td><td/><td>eudoraagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>FileBrowserAgent.dll</td><td>{B9C3AA31-447A-48B0-A808-6ED626534B11}</td><td>FILEBROWSERAGENT</td><td>2</td><td/><td>filebrowseragent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>FireFoxAgent.dll</td><td>{A11B076B-6801-4F08-A7F0-0D3DC60BFDE2}</td><td>FIREFOXAGENT</td><td>2</td><td/><td>firefoxagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ACATAgent.dll</td><td>{86AECE03-6B1C-4E63-8562-C979599E5930}</td><td>ACATAGENT</td><td>2</td><td/><td>acatagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ACATApp.exe</td><td>{7A6CCC2C-86D8-4936-9FC5-FED5053C38D4}</td><td>INSTALLDIR</td><td>2</td><td/><td>acatapp.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ACATCleanup.exe</td><td>{EA6F24E5-88CC-4378-BEBB-BAB010ECAE76}</td><td>INSTALL</td><td>2</td><td/><td>acatcleanup.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ACATCore.dll</td><td>{9E87B545-296D-4BAD-9A3F-43567A86EC4F}</td><td>INSTALLDIR</td><td>2</td><td/><td>acatcore.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ACATExtension.dll</td><td>{F17B6499-20CA-430A-B48E-9F6E8BDD7B6C}</td><td>INSTALLDIR</td><td>2</td><td/><td>acatextension.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ACATTalk.exe</td><td>{E791AAAF-5D24-4A32-B673-EB17D715AC81}</td><td>INSTALLDIR</td><td>2</td><td/><td>acattalk.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ACATTryout.exe</td><td>{111F91CA-75CD-4B02-A2AC-37A547B42868}</td><td>INSTALLDIR</td><td>2</td><td/><td>acattryout.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>AbbreviationsAgent.dll</td><td>{B85BFBEE-297F-4E83-8CAA-16F2FFB9C7DF}</td><td>ABBREVIATIONSAGENT</td><td>2</td><td/><td>abbreviationsagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>AcrobatReaderAgent.dll</td><td>{EB39FA76-EE53-406F-9AB0-7E0E5444CF05}</td><td>ACROBATREADERAGENT</td><td>2</td><td/><td>acrobatreaderagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>CameraActuator.dll</td><td>{8CFCDDD0-A53C-45CF-9232-B610436A5368}</td><td>CAMERAACTUATOR</td><td>2</td><td/><td>cameraactuator.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ChromeBrowserAgent.dll</td><td>{D155FE4A-376B-4FA7-A288-3F11C6C31531}</td><td>CHROMEBROWSERAGENT</td><td>2</td><td/><td>chromebrowseragent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>DLLHostAgent.dll</td><td>{4D260E06-0AF5-4451-AD3E-611E17C8EAFA}</td><td>DLLHOSTAGENT</td><td>2</td><td/><td>dllhostagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>DialogControlAgent.dll</td><td>{1F14D77F-2F58-4DD6-8A1B-2AAEDC6D18ED}</td><td>DIALOGCONTROLAGENT</td><td>2</td><td/><td>dialogcontrolagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Dialogs.dll</td><td>{98997986-8F28-4EE7-AEA9-C5D96B8C4F3E}</td><td>DIALOGS</td><td>2</td><td/><td>dialogs.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>FileBrowserAgent.dll</td><td>{C861AB09-C4FB-40C6-8EE6-8AA5853C58C7}</td><td>FILEBROWSERAGENT</td><td>2</td><td/><td>filebrowseragent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>FireFoxAgent.dll</td><td>{39C644B0-336C-440E-9CDD-1BDBAEAF6179}</td><td>FIREFOXAGENT</td><td>2</td><td/><td>firefoxagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>FoxitReaderAgent.dll</td><td>{B7C49151-6C94-416B-9B4D-431173ABCC3A}</td><td>FOXITREADERAGENT</td><td>2</td><td/><td>foxitreaderagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{9072ADBF-60BC-4F73-AB41-F76D815AA4DB}</td><td>AppDataFolder</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{9791FC41-408F-4C3D-B569-CBAF7561EB99}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT10</td><td>{E7E5271A-614C-40C9-9933-0245E1D4B71D}</td><td>PURPLEWHITE</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT11</td><td>{D2C17C4C-F753-4D1A-B555-EAB46CB733DF}</td><td>SOUNDS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT12</td><td>{1AA16B16-4504-4EA1-B8D0-21057D739BD7}</td><td>EXTENSIONS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT13</td><td>{C4472B62-F352-45E5-8F40-5EF3D76DA6FB}</td><td>DEFAULT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT14</td><td>{3CE1DA0C-FA46-46CC-81E1-C91989435604}</td><td>ACTUATORS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT15</td><td>{4836CABE-7885-433B-A2FF-2DC722A351FC}</td><td>CAMERAACTUATOR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT16</td><td>{C7DDC60E-1133-48F6-AAD1-E9849E99CBE6}</td><td>WORDSPLUSACTUATOR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT17</td><td>{4F17D811-0119-4C6A-8937-654F63AF88AD}</td><td>APPAGENTS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT18</td><td>{846F4701-ADB2-40DB-92A1-0865D91D1DFE}</td><td>ACATAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT19</td><td>{80115AB5-BF70-4115-B2BB-C18A74813F5F}</td><td>ACROBATREADERAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT10</td><td>{3394E638-1BB1-40CA-AFCB-AC432BD22037}</td><td>EXTENSIONS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT11</td><td>{275A5AD0-23EE-4164-A756-FEF8B79DD8FD}</td><td>DEFAULT1</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT12</td><td>{FB4A9566-F4F0-4C10-9573-A527BA6AA601}</td><td>ACTUATORS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT13</td><td>{12F29270-22A8-48B7-BD7E-DED40E9C3084}</td><td>CAMERAACTUATOR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT14</td><td>{B25514DF-5FED-45F5-A51F-B8E348EA0BC2}</td><td>APPAGENTS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT15</td><td>{2ECB9716-E1A2-43EB-B8DC-6378345A69A3}</td><td>ACATAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT16</td><td>{F72CA6A4-DC23-4289-95AB-9C6FFA6179C8}</td><td>ACROBATREADERAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT17</td><td>{FDE4447A-29FA-4DB6-9AFA-01216DEC6FC3}</td><td>CHROMEBROWSERAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT18</td><td>{7793EF6D-1DE2-4F90-AF7A-DF0A4391EFAC}</td><td>DIALOGCONTROLAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT19</td><td>{24162E22-3D81-42E6-893D-2122ACD1EBF8}</td><td>DLLHOSTAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{871BFD35-0A84-496F-A428-C02BD80D6C91}</td><td>DATABASEDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT20</td><td>{B3A77751-499F-4C4F-9662-78CBB0396C48}</td><td>CHROMEBROWSERAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT21</td><td>{77E4E3A0-CA94-4DB3-8AD2-533E3117814A}</td><td>DIALOGCONTROLAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT22</td><td>{73A919A3-111C-4CA1-BA9E-59968DD3E75F}</td><td>DLLHOSTAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT23</td><td>{7248EECE-B36C-463B-9F5B-833EB312B79F}</td><td>EUDORAAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT24</td><td>{7804F196-C431-4293-94D5-3D33B15FA213}</td><td>FIREFOXAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT25</td><td>{BC9E3013-1E05-4137-9260-89D13C0292A5}</td><td>INTERNETEXPLORERAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT26</td><td>{6FDF1603-2D0C-4D24-96F9-38AD7E922A17}</td><td>MENUCONTROLAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT27</td><td>{87AAB3D0-ECD8-442C-AB3D-5C14CAD120D4}</td><td>MSWORDAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT28</td><td>{514534AF-AF3B-48F9-8B9E-0AC8AD60DA60}</td><td>NOTEPADAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT29</td><td>{BDA52FAF-7214-4CC7-9D2C-148298EAF864}</td><td>UNSUPPORTEDAPPAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT3</td><td>{DD3C5D8F-E83B-4B9B-979D-6F09618547FE}</td><td>ASSETS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT30</td><td>{959B5C29-82F9-4E6F-A096-12B66208239A}</td><td>WORDPADAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT31</td><td>{4A59EDE8-FF7A-4061-962C-5C33682BE07F}</td><td>FUNCTIONALAGENTS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT32</td><td>{004624E1-62AB-46CA-BFA7-2EAB4576142F}</td><td>ABBREVIATIONSAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT33</td><td>{E985AFA0-CC3D-4E2C-9FC3-2D5CE89E7F00}</td><td>FILEBROWSERAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT34</td><td>{6489A948-B10B-4E7F-8711-5EE936D47A66}</td><td>LAUNCHAPPAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT35</td><td>{A4C40E2A-4230-4931-B703-5876C213D468}</td><td>LECTUREMANAGERAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT36</td><td>{319271FF-4422-4AEB-906A-D6563B9F815E}</td><td>NEWFILEAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT37</td><td>{B6462F69-C647-4E0F-98AD-5190051E8CFA}</td><td>SWITCHWINDOWSAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT38</td><td>{8C784FC1-995B-4F33-AD50-753AA24B3926}</td><td>VOLUMESETTINGSAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT39</td><td>{9276AC7D-E2CB-44F3-8A1C-B1208947B98F}</td><td>SPELLCHECKERS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT4</td><td>{FD98A277-6E6D-4A2A-8515-D3D3CEE9559B}</td><td>FONTS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT40</td><td>{7A21C8EA-A0F6-461C-87CA-0518D696A0E5}</td><td>SPELLCHECK</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT41</td><td>{D4FFAD0F-10D4-4FEA-A01D-EDED7D0254AF}</td><td>TTSENGINES</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT42</td><td>{7F368A77-259B-4811-910C-84187C534C8C}</td><td>SAPIENGINE</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT43</td><td>{39B8911E-3A10-4CB5-A11D-81B5701B9C04}</td><td>UI</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT44</td><td>{8A0EC317-D413-4000-B20B-F00153ED4050}</td><td>CONTEXTMENUS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT45</td><td>{FEA6891C-BEAF-43ED-9613-3E72E2B65A92}</td><td>DIALOGS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT46</td><td>{79D01392-E64E-4387-902C-A3AC2E3EF0D1}</td><td>SCANNERS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT47</td><td>{1CA0AB69-D514-4900-A273-2E46B6A2AEDA}</td><td>WORDPREDICTORS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT48</td><td>{745EE2A5-F0AD-4426-ABBD-40928AF97DE3}</td><td>PRESAGE</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT49</td><td>{2B2E916B-ACDC-4A77-ABE3-80BC27205ECF}</td><td>INSTALL</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT5</td><td>{1AD0EE4A-0D2C-4F57-9F5D-016AD83EC299}</td><td>IMAGES</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT50</td><td>{6113251C-8ABF-435E-BA81-96ED476B7C55}</td><td>USERS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT51</td><td>{813EEBB0-80CD-4E82-955C-BF1299720673}</td><td>DEFAULT1</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT52</td><td>{95C9FF7F-5C8D-49C1-9F43-12E9C5695D6D}</td><td>PROFILES</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT53</td><td>{02699EB7-F0AE-4D1F-B18C-CAB4323A04A5}</td><td>TALK</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT54</td><td>{FC6F3621-E900-4EB7-AD18-42B52C1B4B76}</td><td>WORDPREDICTORS1</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT55</td><td>{08B583CE-16F9-4CBB-A5C6-87B2D7C532B7}</td><td>PRESAGE1</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT56</td><td>{A3F504F0-AECE-45B8-B91D-B4EDB2A1CC8A}</td><td>VISION</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT6</td><td>{EF2DFE63-C058-47C8-B985-98CF9E6B1E5E}</td><td>SKINS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT7</td><td>{A114F6BA-50B4-429A-AAD4-4DA7ADAC2969}</td><td>BLACKWHITE</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT8</td><td>{ED22BC8C-8BDD-401F-8988-24ABF5E2FE8F}</td><td>BLACKYELLOW</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT9</td><td>{196C1D9B-25F9-4D52-9977-CFF0F91CF79D}</td><td>GREENWHITE</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>InternetExplorerAgent.dll</td><td>{5A8425F9-E693-4BBF-A5DC-BEEB2D185074}</td><td>INTERNETEXPLORERAGENT</td><td>2</td><td/><td>internetexploreragent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>LaunchAppAgent.dll</td><td>{7D360A69-52C6-4967-8F27-37BD0F4E3979}</td><td>LAUNCHAPPAGENT</td><td>2</td><td/><td>launchappagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>LectureManagerAgent.dll</td><td>{DD46E67F-B97C-445F-A4E8-35B80DC7D3DE}</td><td>LECTUREMANAGERAGENT</td><td>2</td><td/><td>lecturemanageragent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>MSWordAgent.dll</td><td>{8844C94F-2F1F-4A64-8083-F8A8A5E4472F}</td><td>MSWORDAGENT</td><td>2</td><td/><td>mswordagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>MenuControlAgent.dll</td><td>{DE134816-E58D-4833-8F22-B0D9B2663C46}</td><td>MENUCONTROLAGENT</td><td>2</td><td/><td>menucontrolagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>NewFileAgent.dll</td><td>{6138C335-994B-4032-A6F1-EDCDBD1A89FB}</td><td>NEWFILEAGENT</td><td>2</td><td/><td>newfileagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>NotepadAgent.dll</td><td>{A5953926-1DAB-4197-BFF2-FB0BE7F4C7A4}</td><td>NOTEPADAGENT</td><td>2</td><td/><td>notepadagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>PresageWordPredictor.dll</td><td>{F2C96BBD-7B92-473D-AC31-7DDC58808D96}</td><td>PRESAGE</td><td>2</td><td/><td>presagewordpredictor.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>SAPIEngine.dll</td><td>{5E058E8D-307C-4453-A0AB-0D9C0B88F33B}</td><td>SAPIENGINE</td><td>2</td><td/><td>sapiengine.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Scanners.dll</td><td>{6853CB7B-AAAB-42B0-A04B-32F680688DAA}</td><td>SCANNERS</td><td>2</td><td/><td>scanners.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>SpellCheck.dll</td><td>{363B2415-6AF3-43A7-ADEE-B8A800A51A5B}</td><td>SPELLCHECK</td><td>2</td><td/><td>spellcheck.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>SwitchWindowsAgent.dll</td><td>{D04070B2-69D8-4AFB-8181-A877B5DBD759}</td><td>SWITCHWINDOWSAGENT</td><td>2</td><td/><td>switchwindowsagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>UnsupportedAppAgent.dll</td><td>{1FA87822-A70B-4710-BAEA-A981BE278814}</td><td>UNSUPPORTEDAPPAGENT</td><td>2</td><td/><td>unsupportedappagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>VolumeSettingsAgent.dll</td><td>{461B85B7-FCDE-4474-93AD-CE9EB0D57D37}</td><td>VOLUMESETTINGSAGENT</td><td>2</td><td/><td>volumesettingsagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>WordpadAgent.dll</td><td>{0A2C86AF-6AEC-4CFD-BC6E-6A388BBF93BB}</td><td>WORDPADAGENT</td><td>2</td><td/><td>wordpadagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>WordsPlusActuator.dll</td><td>{B1912A74-7E71-4289-AEB5-0E851C38C423}</td><td>WORDSPLUSACTUATOR</td><td>2</td><td/><td>wordsplusactuator.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>acat_gestures.exe</td><td>{E8D24D8F-A4DC-40E4-BF4D-FAE8A3676EFC}</td><td>VISION</td><td>2</td><td/><td>acat_gestures.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>libinfra.dll</td><td>{B348DC10-C177-4851-96F9-C762A37F8E56}</td><td>VISION</td><td>2</td><td/><td>libinfra.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>libinfra_d.dll</td><td>{29FE32EE-FAA0-4F4D-BA51-E39F79FB5648}</td><td>VISION</td><td>2</td><td/><td>libinfra_d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>libivcp.dll</td><td>{A336A1C1-9D66-4654-80CF-9C742BBADC28}</td><td>VISION</td><td>2</td><td/><td>libivcp.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>libivcp_d.dll</td><td>{827C4D47-CC1B-40FD-9B45-34DD83E2EF86}</td><td>VISION</td><td>2</td><td/><td>libivcp_d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>libpipeline.dll</td><td>{3A7F72E2-376A-4BC6-ACE9-67BE14E6E6D6}</td><td>VISION</td><td>2</td><td/><td>libpipeline.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>libpipeline_d.dll</td><td>{29B624DC-6EF2-444A-9A00-24B17F0FF04C}</td><td>VISION</td><td>2</td><td/><td>libpipeline_d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_calib3d249.dll</td><td>{9DD523D2-78DF-48BF-84D5-F510006D0CA5}</td><td>VISION</td><td>2</td><td/><td>opencv_calib3d249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_calib3d249d.dll</td><td>{40748EDB-D0A7-4A5B-8159-177A395071E2}</td><td>VISION</td><td>2</td><td/><td>opencv_calib3d249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_contrib249.dll</td><td>{0D704D75-91AF-4FD9-B008-C1D9A50B03C5}</td><td>VISION</td><td>2</td><td/><td>opencv_contrib249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_contrib249d.dll</td><td>{8CED8EE5-D41E-4092-BB21-35AEF8F90BDC}</td><td>VISION</td><td>2</td><td/><td>opencv_contrib249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_core249.dll</td><td>{EE357CC7-D5D0-4552-A937-1BCFF652FCE0}</td><td>VISION</td><td>2</td><td/><td>opencv_core249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_core249d.dll</td><td>{7722F11B-27CD-4CB6-A111-C0A787910DB8}</td><td>VISION</td><td>2</td><td/><td>opencv_core249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_features2d249.dll</td><td>{32A95AF1-F2D3-47BD-A2CF-C78849074DF6}</td><td>VISION</td><td>2</td><td/><td>opencv_features2d249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_features2d249d.dll</td><td>{80F0125A-5823-41DA-BA2E-E75D933A3CF3}</td><td>VISION</td><td>2</td><td/><td>opencv_features2d249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_ffmpeg249_64.dll</td><td>{45361541-5E93-48A3-9CB2-2A836C8187A4}</td><td>VISION</td><td>2</td><td/><td>opencv_ffmpeg249_64.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_flann249.dll</td><td>{8080833C-F725-4D8A-B781-53836F735A5F}</td><td>VISION</td><td>2</td><td/><td>opencv_flann249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_flann249d.dll</td><td>{8B08AB93-A7DD-47FC-AA0D-B0E46E01661C}</td><td>VISION</td><td>2</td><td/><td>opencv_flann249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_gpu249.dll</td><td>{34979D6F-7EBA-40FE-9CDA-B804AC054691}</td><td>VISION</td><td>2</td><td/><td>opencv_gpu249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_gpu249d.dll</td><td>{4A03556D-92A1-4384-BF17-ADE23AE0E1BE}</td><td>VISION</td><td>2</td><td/><td>opencv_gpu249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_highgui249.dll</td><td>{7FD60D4B-E5CF-4639-8E69-C910B47E17D6}</td><td>VISION</td><td>2</td><td/><td>opencv_highgui249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_highgui249d.dll</td><td>{3276287D-2DA1-49E7-87A5-32F68177CA36}</td><td>VISION</td><td>2</td><td/><td>opencv_highgui249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_imgproc249.dll</td><td>{C3C96295-A3E8-405E-82AD-3091962C2CD7}</td><td>VISION</td><td>2</td><td/><td>opencv_imgproc249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_imgproc249d.dll</td><td>{A3ED4C42-8DAF-434E-AF67-962C6AA6BC48}</td><td>VISION</td><td>2</td><td/><td>opencv_imgproc249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_legacy249.dll</td><td>{6D9F3EC4-2265-4D20-A4FC-0D682FB3E636}</td><td>VISION</td><td>2</td><td/><td>opencv_legacy249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_legacy249d.dll</td><td>{760F4850-83FE-45BD-A1F8-BFC36D0DE13B}</td><td>VISION</td><td>2</td><td/><td>opencv_legacy249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_ml249.dll</td><td>{BB74EB9A-15EA-4028-84FD-EBCC05897BFF}</td><td>VISION</td><td>2</td><td/><td>opencv_ml249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_ml249d.dll</td><td>{FC29459C-B6F2-4681-8663-71D86C299DA4}</td><td>VISION</td><td>2</td><td/><td>opencv_ml249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_nonfree249.dll</td><td>{F7770241-7557-418C-AC4D-3FEE9514A844}</td><td>VISION</td><td>2</td><td/><td>opencv_nonfree249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_nonfree249d.dll</td><td>{78AE19CF-B76F-4532-82C8-FE15BF631720}</td><td>VISION</td><td>2</td><td/><td>opencv_nonfree249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_objdetect249.dll</td><td>{C012BFB9-D894-4B72-927C-54F33B5E87EF}</td><td>VISION</td><td>2</td><td/><td>opencv_objdetect249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_objdetect249d.dll</td><td>{F4144323-E2C7-46DF-91F2-1A9A5FB54F86}</td><td>VISION</td><td>2</td><td/><td>opencv_objdetect249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_ocl249.dll</td><td>{E0BC7112-D06F-4E2B-8838-C29DC315ABC0}</td><td>VISION</td><td>2</td><td/><td>opencv_ocl249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_ocl249d.dll</td><td>{281EA093-B0A2-4E72-8C0E-F5363ED8B118}</td><td>VISION</td><td>2</td><td/><td>opencv_ocl249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_photo249.dll</td><td>{8E53BC52-EF9E-470F-8BC5-932B7A6565FE}</td><td>VISION</td><td>2</td><td/><td>opencv_photo249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_photo249d.dll</td><td>{5B48EBF0-B090-4332-8BDF-D36DEDC2B69B}</td><td>VISION</td><td>2</td><td/><td>opencv_photo249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_stitching249.dll</td><td>{2C385B4C-9E03-4021-A29C-EE66B1E76FE2}</td><td>VISION</td><td>2</td><td/><td>opencv_stitching249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_stitching249d.dll</td><td>{43D44479-5BA2-41B9-86D3-B93031F52BA1}</td><td>VISION</td><td>2</td><td/><td>opencv_stitching249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_superres249.dll</td><td>{0572EA5F-2CA7-4BC1-A1F9-42206EBDD99E}</td><td>VISION</td><td>2</td><td/><td>opencv_superres249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_superres249d.dll</td><td>{E61B85A5-F883-4CC9-A824-3183D95E66FC}</td><td>VISION</td><td>2</td><td/><td>opencv_superres249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_video249.dll</td><td>{A405A7F6-735D-4961-BA97-D3D20D79498B}</td><td>VISION</td><td>2</td><td/><td>opencv_video249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_video249d.dll</td><td>{E6CCCEFD-B9F5-4262-9422-A2C7529BE09D}</td><td>VISION</td><td>2</td><td/><td>opencv_video249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_videostab249.dll</td><td>{8552A721-7C02-4CCC-96D0-2F5B604B5A81}</td><td>VISION</td><td>2</td><td/><td>opencv_videostab249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>opencv_videostab249d.dll</td><td>{824FF103-B3C1-49F6-9A9D-2C75C9A6F11F}</td><td>VISION</td><td>2</td><td/><td>opencv_videostab249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>presage_0.9.1_32bit_setup.exe</td><td>{706CB0FA-13AC-4C7A-9DCC-CC7D00353B2A}</td><td>INSTALL</td><td>2</td><td/><td>presage_0.9.1_32bit_setup.ex</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT20</td><td>{6DDC89AB-243E-4F6A-A92B-450416775612}</td><td>FIREFOXAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT21</td><td>{A7CA5ED1-D659-4A8F-A5B0-F69890CD1900}</td><td>FOXITREADERAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT22</td><td>{0737EA47-0441-402E-9680-6A37A159ED5D}</td><td>INTERNETEXPLORERAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT23</td><td>{0A0D431E-D303-45D9-9BDB-C5496941CC49}</td><td>MEDIAPLAYERAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT24</td><td>{BF8E13FA-457A-43FE-A368-B7FC420A2632}</td><td>MENUCONTROLAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT25</td><td>{1FCA4021-6120-45B9-9FB8-E4AFEFF1DFA9}</td><td>MSWORDAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT26</td><td>{1829EE5E-F202-4461-A501-D635FBF08AC4}</td><td>NOTEPADAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT27</td><td>{2689AA42-1A08-41BA-8817-4708BF33E221}</td><td>OUTLOOKAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT28</td><td>{CD91C68D-B0AF-480C-AEEE-DF9E9F73F548}</td><td>TALKWINDOWAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT29</td><td>{1D874E83-8C87-43E8-A4D5-F8397C5A000E}</td><td>UNSUPPORTEDAPPAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT3</td><td>{AEE5C336-E647-44BD-B076-C28E559CB70D}</td><td>INTEL1</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT30</td><td>{57FA2537-F9A7-4984-89A0-D28ADC216C0E}</td><td>WINDOWSEXPLORERAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT31</td><td>{E7865638-1BC7-4B40-9841-92CC432EAE0B}</td><td>WORDPADAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT32</td><td>{F55486F7-1A16-42CE-A1E1-8C68DBF3310E}</td><td>FUNCTIONALAGENTS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT33</td><td>{8F38D29D-6C1E-4805-AC17-AFA7B9031022}</td><td>ABBREVIATIONSAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT34</td><td>{F49C18AD-9CBF-4CFB-A14A-520E62F8AEBD}</td><td>FILEBROWSERAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT35</td><td>{686BC15F-9FE3-4416-9006-5FD55B8BAB11}</td><td>LAUNCHAPPAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT36</td><td>{A3536BE4-FA61-4F50-8EC9-61789FA113E8}</td><td>LECTUREMANAGERAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT37</td><td>{8759C3CA-3BFC-4CD1-8FD3-38579DFE0DBD}</td><td>NEWFILEAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT38</td><td>{0A14A7FB-8010-4229-A951-EAC9C4F2BB7A}</td><td>PHRASESPEAKAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT39</td><td>{D020BBFF-8D9E-46C2-BF7F-207D4B6581B7}</td><td>SWITCHWINDOWSAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT4</td><td>{B4EE6E3D-5183-4A81-9A1A-732A60309ED6}</td><td>ASSETS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT40</td><td>{DFCF142F-F796-41F2-8452-87D89559D584}</td><td>VOLUMESETTINGSAGENT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT41</td><td>{D711620B-4487-4C2C-847C-29C14637E7D9}</td><td>SPELLCHECKERS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT42</td><td>{61489621-63B8-4B26-A889-32FB03F26A99}</td><td>SPELLCHECK</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT43</td><td>{90C493C0-6321-41FA-A8EA-6DC19492FC27}</td><td>TTSENGINES</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT44</td><td>{36D7C9C2-1C73-4BCB-9E32-586C8F47E5A0}</td><td>SAPIENGINE</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT45</td><td>{27D53906-F7AD-4950-8984-3252234118A6}</td><td>UI</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT46</td><td>{0C4179EA-AE36-4322-AAC1-1A0701D339DF}</td><td>DIALOGS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT47</td><td>{F3CFE936-035C-4A81-B4D1-18B79E997E96}</td><td>MENUS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT48</td><td>{6595580D-FF4F-44E2-B66E-E800ED83688D}</td><td>SCANNERS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT49</td><td>{8E6A2CC7-D33C-44DE-9233-B04857778885}</td><td>WORDPREDICTORS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT5</td><td>{332AD102-1BCF-4AB5-9DFF-A4BE23A36C26}</td><td>FONTS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT50</td><td>{2BC9B58A-8F03-4627-B4A3-C18C229D122B}</td><td>PRESAGE</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT51</td><td>{703119C4-501C-4135-AE57-2F5490A7C449}</td><td>INSTALL</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT52</td><td>{3C74502D-DBB8-49D6-8D75-076EC95E9432}</td><td>USERS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT53</td><td>{8F44DD8B-B798-4B8F-BB05-AEA4A31BBD0E}</td><td>ACAT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT54</td><td>{28DB281F-1DC6-40D2-AE93-E65333077F08}</td><td>WORDPREDICTORS1</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT55</td><td>{3B6651F2-DF51-43BB-A2A2-4131A3C0AE9F}</td><td>PRESAGE1</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT56</td><td>{A567663B-3C10-4BFF-981C-2374D9303F6E}</td><td>VISION</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT6</td><td>{3EC41781-DF8C-461C-8EA9-AB09653C9BE4}</td><td>IMAGES</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT7</td><td>{697171E3-EC7C-4437-B511-1B9F4ADFCE9F}</td><td>SKINS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT8</td><td>{AB76D3D1-13FC-4020-9A64-19D64B883DC8}</td><td>DEFAULT</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT9</td><td>{D6A186FB-36F3-4235-9A1F-6F3F8E932554}</td><td>SOUNDS</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>InternetExplorerAgent.dll</td><td>{396C6415-2082-4B82-8DDD-9FF2CA05DD07}</td><td>INTERNETEXPLORERAGENT</td><td>2</td><td/><td>internetexploreragent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>LaunchAppAgent.dll</td><td>{09813D95-0418-4EB1-94AF-38BE397AA16A}</td><td>LAUNCHAPPAGENT</td><td>2</td><td/><td>launchappagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>LectureManagerAgent.dll</td><td>{12CC545A-A7EC-436A-8048-BFD98BEE1E29}</td><td>LECTUREMANAGERAGENT</td><td>2</td><td/><td>lecturemanageragent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>MSWordAgent.dll</td><td>{798201C3-CF98-4CED-B5C3-137F42FAB84D}</td><td>MSWORDAGENT</td><td>2</td><td/><td>mswordagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>MediaPlayerAgent.dll</td><td>{E057C0D9-F5A9-4C62-AFDE-3FD507B9CF3D}</td><td>MEDIAPLAYERAGENT</td><td>2</td><td/><td>mediaplayeragent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>MenuControlAgent.dll</td><td>{DDA0CA7E-84BF-49D6-9AA7-03F0DCB1846B}</td><td>MENUCONTROLAGENT</td><td>2</td><td/><td>menucontrolagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Menus.dll</td><td>{88DD60CE-7935-4768-9AD0-DCC7F417A8F3}</td><td>MENUS</td><td>2</td><td/><td>menus.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>NewFileAgent.dll</td><td>{B3316579-EB1D-4CE9-A449-D20F85E796A9}</td><td>NEWFILEAGENT</td><td>2</td><td/><td>newfileagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>NotepadAgent.dll</td><td>{969C289E-7B6B-4E96-88EC-7A78F524D894}</td><td>NOTEPADAGENT</td><td>2</td><td/><td>notepadagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>OutlookAgent.dll</td><td>{81637F4D-C1E5-498B-A78A-07519EEF0A13}</td><td>OUTLOOKAGENT</td><td>2</td><td/><td>outlookagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>PhraseSpeakAgent.dll</td><td>{3E2628F0-66A4-464E-8AEE-894B6FFAEAD2}</td><td>PHRASESPEAKAGENT</td><td>2</td><td/><td>phrasespeakagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>PresageInstaller.exe</td><td>{90DC1B11-D79E-427F-B028-25DB549FD9B5}</td><td>INSTALL</td><td>2</td><td/><td>presageinstaller.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>PresageWordPredictor.dll</td><td>{0628B894-D3AA-4AF6-A396-9092DD08BC9A}</td><td>PRESAGE</td><td>2</td><td/><td>presagewordpredictor.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>SAPIEngine.dll</td><td>{8B8370F1-1759-4158-B110-6530D8E9EFA8}</td><td>SAPIENGINE</td><td>2</td><td/><td>sapiengine.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Scanners.dll</td><td>{F77390DF-E74A-47BF-AE2F-764BF16E6DC6}</td><td>SCANNERS</td><td>2</td><td/><td>scanners.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>SpellCheck.dll</td><td>{9AD2DC9A-3345-408D-A237-31AA2D3E7E95}</td><td>SPELLCHECK</td><td>2</td><td/><td>spellcheck.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>SwitchWindowsAgent.dll</td><td>{C01ACC48-CD88-4EA0-ACA5-2FF94E86AE52}</td><td>SWITCHWINDOWSAGENT</td><td>2</td><td/><td>switchwindowsagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>TalkWindowAgent.dll</td><td>{5EFCB5FD-FFA3-47AE-84FD-A57F91915205}</td><td>TALKWINDOWAGENT</td><td>2</td><td/><td>talkwindowagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>UnsupportedAppAgent.dll</td><td>{29887B3C-7690-43DB-8C4B-7561F3C76F74}</td><td>UNSUPPORTEDAPPAGENT</td><td>2</td><td/><td>unsupportedappagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>VolumeSettingsAgent.dll</td><td>{A2E8D3BE-D2B9-4A03-9B63-5D369EFC64EE}</td><td>VOLUMESETTINGSAGENT</td><td>2</td><td/><td>volumesettingsagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>WindowsExplorerAgent.dll</td><td>{8EFDB083-7B1A-4DE9-AC96-9E4E21F4608F}</td><td>WINDOWSEXPLORERAGENT</td><td>2</td><td/><td>windowsexploreragent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>WordpadAgent.dll</td><td>{5F029531-A1E8-4170-A2DA-B5D6885B49C3}</td><td>WORDPADAGENT</td><td>2</td><td/><td>wordpadagent.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>acat_gestures.exe</td><td>{00AFF35B-D9E6-44C8-84B6-DEB3541C8F98}</td><td>VISION</td><td>2</td><td/><td>acat_gestures.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ivcp_demo_dlib.exe</td><td>{6CC20D25-D703-4046-A7DC-0EB73EB3AD22}</td><td>VISION</td><td>2</td><td/><td>ivcp_demo_dlib.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>libinfra.dll</td><td>{12ED43DD-3B09-4CF6-A2CB-D6F882FFF0B0}</td><td>VISION</td><td>2</td><td/><td>libinfra.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>libinfra_d.dll</td><td>{BC3D68D5-FDA8-46EC-A241-1D5510795641}</td><td>VISION</td><td>2</td><td/><td>libinfra_d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>libivcp.dll</td><td>{6EF392FF-8C5E-4561-9246-8B436A0851B5}</td><td>VISION</td><td>2</td><td/><td>libivcp.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>libivcp_d.dll</td><td>{561A84B4-F018-4D68-A05D-645385BBDAD1}</td><td>VISION</td><td>2</td><td/><td>libivcp_d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>libpipeline.dll</td><td>{9251FDBD-F1F5-4886-9EAF-B2E66F92D9AA}</td><td>VISION</td><td>2</td><td/><td>libpipeline.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>libpipeline_d.dll</td><td>{6A11B54D-07B1-43EE-AC21-BB363E223A6A}</td><td>VISION</td><td>2</td><td/><td>libpipeline_d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_calib3d249.dll</td><td>{A76EAD31-C2CC-4115-A123-EF96A37CE207}</td><td>VISION</td><td>2</td><td/><td>opencv_calib3d249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_calib3d249d.dll</td><td>{8D7182C6-7667-4D59-A42F-E7CA1164F24F}</td><td>VISION</td><td>2</td><td/><td>opencv_calib3d249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_contrib249.dll</td><td>{2449F3EB-A161-4401-A98C-0BE4ECB562CF}</td><td>VISION</td><td>2</td><td/><td>opencv_contrib249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_contrib249d.dll</td><td>{E9D1154D-409E-4971-B52E-CFE9D531C57C}</td><td>VISION</td><td>2</td><td/><td>opencv_contrib249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_core249.dll</td><td>{A206D584-05D9-426A-A9F3-9AFE994B0F85}</td><td>VISION</td><td>2</td><td/><td>opencv_core249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_core249d.dll</td><td>{D6FF3C62-39C9-42DE-9D46-F410F00D366C}</td><td>VISION</td><td>2</td><td/><td>opencv_core249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_features2d249.dll</td><td>{EEDFC4D3-94AB-4D10-8903-3D1FAB74255F}</td><td>VISION</td><td>2</td><td/><td>opencv_features2d249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_features2d249d.dll</td><td>{47A56005-1A22-4AAD-9FEF-91E884EBB564}</td><td>VISION</td><td>2</td><td/><td>opencv_features2d249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_ffmpeg249_64.dll</td><td>{753B11CE-A5E9-456D-BDE4-F4561AB9E50B}</td><td>VISION</td><td>2</td><td/><td>opencv_ffmpeg249_64.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_flann249.dll</td><td>{D450845C-EF1F-4B2A-94D0-AF7D6FCE463E}</td><td>VISION</td><td>2</td><td/><td>opencv_flann249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_flann249d.dll</td><td>{6CE17F62-CC48-456E-9EE7-5095CC9F4732}</td><td>VISION</td><td>2</td><td/><td>opencv_flann249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_gpu249.dll</td><td>{7BBF58C8-BADD-4BBD-98ED-C6F844A77524}</td><td>VISION</td><td>2</td><td/><td>opencv_gpu249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_gpu249d.dll</td><td>{45B6D0DA-C808-4EF9-8CF8-86C1B3F9ADBE}</td><td>VISION</td><td>2</td><td/><td>opencv_gpu249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_highgui249.dll</td><td>{7323C465-5C3A-48B6-BEE3-A552856002C8}</td><td>VISION</td><td>2</td><td/><td>opencv_highgui249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_highgui249d.dll</td><td>{A3614922-3C60-4F09-B17B-FFFCE9204752}</td><td>VISION</td><td>2</td><td/><td>opencv_highgui249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_imgproc249.dll</td><td>{4C5B9419-A02A-4513-94F2-D3EA44E2D071}</td><td>VISION</td><td>2</td><td/><td>opencv_imgproc249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_imgproc249d.dll</td><td>{B58CBFB5-81C8-481F-BEEE-0113D0F01218}</td><td>VISION</td><td>2</td><td/><td>opencv_imgproc249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_legacy249.dll</td><td>{9ED8D0F1-8768-4742-A2E3-611852CF01DB}</td><td>VISION</td><td>2</td><td/><td>opencv_legacy249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_legacy249d.dll</td><td>{1C28FF4A-8B71-4721-8CEA-DEE9F52E7F9D}</td><td>VISION</td><td>2</td><td/><td>opencv_legacy249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_ml249.dll</td><td>{0CF220F1-BFFB-44BC-9D1B-85D1F0EFA9BD}</td><td>VISION</td><td>2</td><td/><td>opencv_ml249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_ml249d.dll</td><td>{DD0AFCDD-12B5-4AFD-82CA-7A4B8A1D2D8B}</td><td>VISION</td><td>2</td><td/><td>opencv_ml249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_nonfree249.dll</td><td>{BE8467B4-9767-41A2-9BBC-219A16353835}</td><td>VISION</td><td>2</td><td/><td>opencv_nonfree249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_nonfree249d.dll</td><td>{668FDA30-5473-4574-9002-8074129BE4B7}</td><td>VISION</td><td>2</td><td/><td>opencv_nonfree249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_objdetect249.dll</td><td>{02F4E3CE-DFD7-41D2-8BE7-EC6DC7B31600}</td><td>VISION</td><td>2</td><td/><td>opencv_objdetect249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_objdetect249d.dll</td><td>{63B2F4D2-D059-4568-BD74-733808238135}</td><td>VISION</td><td>2</td><td/><td>opencv_objdetect249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_ocl249.dll</td><td>{72E9B43B-6DDA-49B5-8254-A8057B8A1A5F}</td><td>VISION</td><td>2</td><td/><td>opencv_ocl249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_ocl249d.dll</td><td>{614B42D7-093E-4327-A84B-241C35FD34A8}</td><td>VISION</td><td>2</td><td/><td>opencv_ocl249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_photo249.dll</td><td>{27B499AA-0A8E-497B-9149-4BA2CDF0B38A}</td><td>VISION</td><td>2</td><td/><td>opencv_photo249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_photo249d.dll</td><td>{D03F2E05-877B-4C13-AA93-E6C3BE922C11}</td><td>VISION</td><td>2</td><td/><td>opencv_photo249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_stitching249.dll</td><td>{84E54EC4-B27A-4034-8BC7-72D4DF5F72FE}</td><td>VISION</td><td>2</td><td/><td>opencv_stitching249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_stitching249d.dll</td><td>{803EC872-4D29-4519-B150-6AE098B0E8FD}</td><td>VISION</td><td>2</td><td/><td>opencv_stitching249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_superres249.dll</td><td>{B307AD32-EA1E-4A2E-9A07-CA2FDF87F5C2}</td><td>VISION</td><td>2</td><td/><td>opencv_superres249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_superres249d.dll</td><td>{439F79AB-E379-4637-B0B1-AB0537768270}</td><td>VISION</td><td>2</td><td/><td>opencv_superres249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_video249.dll</td><td>{B9EF732B-11A3-4F98-BC56-05F4B1751CB7}</td><td>VISION</td><td>2</td><td/><td>opencv_video249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_video249d.dll</td><td>{39E397EB-C0AF-4429-9F0F-764B62E73F51}</td><td>VISION</td><td>2</td><td/><td>opencv_video249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_videostab249.dll</td><td>{452B4C7A-2DFC-4706-80F6-48CD6C746695}</td><td>VISION</td><td>2</td><td/><td>opencv_videostab249.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_videostab249d.dll</td><td>{AD369109-78AA-4FDC-8EC0-0878A0BE2919}</td><td>VISION</td><td>2</td><td/><td>opencv_videostab249d.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>presage_0.9.1_32bit_setup.exe</td><td>{91DF62FF-E1BB-4792-B2F1-CCCA7E748761}</td><td>INSTALL</td><td>2</td><td/><td>presage_0.9.1_32bit_setup.ex</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1188,28 +1195,27 @@
 	<table name="CreateFolder">
 		<col key="yes" def="s72">Directory_</col>
 		<col key="yes" def="s72">Component_</col>
-		<row><td>ACTUATORS</td><td>ISX_DEFAULTCOMPONENT14</td></row>
-		<row><td>APPAGENTS</td><td>ISX_DEFAULTCOMPONENT17</td></row>
-		<row><td>ASSETS</td><td>ISX_DEFAULTCOMPONENT3</td></row>
+		<row><td>ACATAGENT</td><td>ISX_DEFAULTCOMPONENT15</td></row>
+		<row><td>ACTUATORS</td><td>ISX_DEFAULTCOMPONENT12</td></row>
+		<row><td>APPAGENTS</td><td>ISX_DEFAULTCOMPONENT14</td></row>
+		<row><td>ASSETS</td><td>ISX_DEFAULTCOMPONENT4</td></row>
 		<row><td>AppDataFolder</td><td>ISX_DEFAULTCOMPONENT</td></row>
-		<row><td>CAMERAACTUATOR</td><td>ISX_DEFAULTCOMPONENT15</td></row>
+		<row><td>CAMERAACTUATOR</td><td>ISX_DEFAULTCOMPONENT13</td></row>
 		<row><td>DATABASEDIR</td><td>ISX_DEFAULTCOMPONENT2</td></row>
-		<row><td>DEFAULT</td><td>ISX_DEFAULTCOMPONENT13</td></row>
-		<row><td>EXTENSIONS</td><td>ISX_DEFAULTCOMPONENT12</td></row>
-		<row><td>FUNCTIONALAGENTS</td><td>ISX_DEFAULTCOMPONENT31</td></row>
-		<row><td>PRESAGE</td><td>ISX_DEFAULTCOMPONENT48</td></row>
-		<row><td>PROFILES</td><td>ISX_DEFAULTCOMPONENT52</td></row>
-		<row><td>SAPIENGINE</td><td>ISX_DEFAULTCOMPONENT42</td></row>
-		<row><td>SKINS</td><td>ISX_DEFAULTCOMPONENT6</td></row>
-		<row><td>SPELLCHECK</td><td>ISX_DEFAULTCOMPONENT40</td></row>
-		<row><td>SPELLCHECKERS</td><td>ISX_DEFAULTCOMPONENT39</td></row>
-		<row><td>TTSENGINES</td><td>ISX_DEFAULTCOMPONENT41</td></row>
-		<row><td>UI</td><td>ISX_DEFAULTCOMPONENT43</td></row>
-		<row><td>USERS</td><td>ISX_DEFAULTCOMPONENT50</td></row>
-		<row><td>VISION</td><td>ISX_DEFAULTCOMPONENT56</td></row>
-		<row><td>WORDPREDICTORS</td><td>ISX_DEFAULTCOMPONENT47</td></row>
+		<row><td>DEFAULT1</td><td>ISX_DEFAULTCOMPONENT11</td></row>
+		<row><td>EXTENSIONS</td><td>ISX_DEFAULTCOMPONENT10</td></row>
+		<row><td>FUNCTIONALAGENTS</td><td>ISX_DEFAULTCOMPONENT32</td></row>
+		<row><td>INTEL1</td><td>ISX_DEFAULTCOMPONENT3</td></row>
+		<row><td>PRESAGE</td><td>ISX_DEFAULTCOMPONENT50</td></row>
+		<row><td>SAPIENGINE</td><td>ISX_DEFAULTCOMPONENT44</td></row>
+		<row><td>SKINS</td><td>ISX_DEFAULTCOMPONENT7</td></row>
+		<row><td>SPELLCHECK</td><td>ISX_DEFAULTCOMPONENT42</td></row>
+		<row><td>SPELLCHECKERS</td><td>ISX_DEFAULTCOMPONENT41</td></row>
+		<row><td>TTSENGINES</td><td>ISX_DEFAULTCOMPONENT43</td></row>
+		<row><td>UI</td><td>ISX_DEFAULTCOMPONENT45</td></row>
+		<row><td>USERS</td><td>ISX_DEFAULTCOMPONENT52</td></row>
+		<row><td>WORDPREDICTORS</td><td>ISX_DEFAULTCOMPONENT49</td></row>
 		<row><td>WORDPREDICTORS1</td><td>ISX_DEFAULTCOMPONENT54</td></row>
-		<row><td>WORDSPLUSACTUATOR</td><td>ISX_DEFAULTCOMPONENT16</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1227,7 +1233,7 @@
 		<row><td>ISSelfRegisterFinalize</td><td>1</td><td>ISSELFREG.DLL</td><td>ISSelfRegisterFinalize</td><td/><td/></row>
 		<row><td>ISSetAllUsers</td><td>257</td><td>SetAllUsers.dll</td><td>SetAllUsers</td><td/><td/></row>
 		<row><td>ISUnSelfRegisterFiles</td><td>3073</td><td>ISSELFREG.DLL</td><td>ISUnSelfRegisterFiles</td><td/><td/></row>
-		<row><td>InstallPresage</td><td>98</td><td>INSTALL</td><td>[INSTALL]presage-0.9.1-32bit-setup.exe /S /NoNpp</td><td/><td/></row>
+		<row><td>InstallPresage</td><td>98</td><td>INSTALL</td><td>[INSTALL]PresageInstaller.exe</td><td/><td/></row>
 		<row><td>NewCustomAction1</td><td>34</td><td>INSTALL</td><td>[INSTALL]copycleanup.bat</td><td/><td/></row>
 		<row><td>NewCustomAction2</td><td>1122</td><td>INSTALLDIR</td><td>[INSTALLDIR]ACATCleanup.exe blah123</td><td/><td/></row>
 		<row><td>SetARPINSTALLLOCATION</td><td>51</td><td>ARPINSTALLLOCATION</td><td>[INSTALLDIR]</td><td/><td/></row>
@@ -1293,27 +1299,25 @@
 		<col def="I4">ISAttributes</col>
 		<col def="S255">ISFolderName</col>
 		<row><td>ABBREVIATIONSAGENT</td><td>FUNCTIONALAGENTS</td><td>ABBREV~1|AbbreviationsAgent</td><td/><td>0</td><td/></row>
+		<row><td>ACAT</td><td>USERS</td><td>ACAT</td><td/><td>0</td><td/></row>
 		<row><td>ACATAGENT</td><td>APPAGENTS</td><td>ACATAG~1|ACATAgent</td><td/><td>0</td><td/></row>
 		<row><td>ACROBATREADERAGENT</td><td>APPAGENTS</td><td>ACROBA~1|AcrobatReaderAgent</td><td/><td>0</td><td/></row>
-		<row><td>ACTUATORS</td><td>DEFAULT</td><td>ACTUAT~1|Actuators</td><td/><td>0</td><td/></row>
+		<row><td>ACTUATORS</td><td>DEFAULT1</td><td>ACTUAT~1|Actuators</td><td/><td>0</td><td/></row>
 		<row><td>ALLUSERSPROFILE</td><td>TARGETDIR</td><td>.:ALLUSE~1|All Users</td><td/><td>0</td><td/></row>
-		<row><td>APPAGENTS</td><td>DEFAULT</td><td>APPAGE~1|AppAgents</td><td/><td>0</td><td/></row>
+		<row><td>APPAGENTS</td><td>DEFAULT1</td><td>APPAGE~1|AppAgents</td><td/><td>0</td><td/></row>
 		<row><td>ASSETS</td><td>INSTALLDIR</td><td>Assets</td><td/><td>0</td><td/></row>
 		<row><td>ASTER</td><td>INTEL_CORPORATION</td><td>Aster</td><td/><td>0</td><td/></row>
 		<row><td>ASTERNEW1</td><td>INTEL1</td><td>ACAT</td><td/><td>0</td><td/></row>
 		<row><td>AdminToolsFolder</td><td>TARGETDIR</td><td>.:Admint~1|AdminTools</td><td/><td>0</td><td/></row>
 		<row><td>AppDataFolder</td><td>TARGETDIR</td><td>.:APPLIC~1|Application Data</td><td/><td>0</td><td/></row>
-		<row><td>BLACKWHITE</td><td>SKINS</td><td>BLACKW~1|BlackWhite</td><td/><td>0</td><td/></row>
-		<row><td>BLACKYELLOW</td><td>SKINS</td><td>BLACKY~1|BlackYellow</td><td/><td>0</td><td/></row>
 		<row><td>CAMERAACTUATOR</td><td>ACTUATORS</td><td>CAMERA~1|CameraActuator</td><td/><td>0</td><td/></row>
 		<row><td>CHROMEBROWSERAGENT</td><td>APPAGENTS</td><td>CHROME~1|ChromeBrowserAgent</td><td/><td>0</td><td/></row>
-		<row><td>CONTEXTMENUS</td><td>UI</td><td>CONTEX~1|ContextMenus</td><td/><td>0</td><td/></row>
 		<row><td>CommonAppDataFolder</td><td>TARGETDIR</td><td>.:Common~1|CommonAppData</td><td/><td>0</td><td/></row>
 		<row><td>CommonFiles64Folder</td><td>TARGETDIR</td><td>.:Common64</td><td/><td>0</td><td/></row>
 		<row><td>CommonFilesFolder</td><td>TARGETDIR</td><td>.:Common</td><td/><td>0</td><td/></row>
 		<row><td>DATABASEDIR</td><td>ISYourDataBaseDir</td><td>.</td><td/><td>0</td><td/></row>
-		<row><td>DEFAULT</td><td>EXTENSIONS</td><td>Default</td><td/><td>0</td><td/></row>
-		<row><td>DEFAULT1</td><td>USERS</td><td>Default</td><td/><td>0</td><td/></row>
+		<row><td>DEFAULT</td><td>SKINS</td><td>Default</td><td/><td>0</td><td/></row>
+		<row><td>DEFAULT1</td><td>EXTENSIONS</td><td>Default</td><td/><td>0</td><td/></row>
 		<row><td>DIALOGCONTROLAGENT</td><td>APPAGENTS</td><td>DIALOG~1|DialogControlAgent</td><td/><td>0</td><td/></row>
 		<row><td>DIALOGS</td><td>UI</td><td>Dialogs</td><td/><td>0</td><td/></row>
 		<row><td>DIRPROPERTY1</td><td>TARGETDIR</td><td>.</td><td/><td>0</td><td/></row>
@@ -1321,15 +1325,14 @@
 		<row><td>DIRPROPERTY3</td><td>TARGETDIR</td><td>.</td><td/><td>0</td><td/></row>
 		<row><td>DLLHOSTAGENT</td><td>APPAGENTS</td><td>DLLHOS~1|DLLHostAgent</td><td/><td>0</td><td/></row>
 		<row><td>DesktopFolder</td><td>TARGETDIR</td><td>.:Desktop</td><td/><td>3</td><td/></row>
-		<row><td>EUDORAAGENT</td><td>APPAGENTS</td><td>EUDORA~1|EudoraAgent</td><td/><td>0</td><td/></row>
 		<row><td>EXTENSIONS</td><td>INSTALLDIR</td><td>EXTENS~1|Extensions</td><td/><td>0</td><td/></row>
 		<row><td>FILEBROWSERAGENT</td><td>FUNCTIONALAGENTS</td><td>FILEBR~1|FileBrowserAgent</td><td/><td>0</td><td/></row>
 		<row><td>FIREFOXAGENT</td><td>APPAGENTS</td><td>FIREFO~1|FireFoxAgent</td><td/><td>0</td><td/></row>
 		<row><td>FONTS</td><td>ASSETS</td><td>Fonts</td><td/><td>0</td><td/></row>
-		<row><td>FUNCTIONALAGENTS</td><td>DEFAULT</td><td>FUNCTI~1|FunctionalAgents</td><td/><td>0</td><td/></row>
+		<row><td>FOXITREADERAGENT</td><td>APPAGENTS</td><td>FOXITR~1|FoxitReaderAgent</td><td/><td>0</td><td/></row>
+		<row><td>FUNCTIONALAGENTS</td><td>DEFAULT1</td><td>FUNCTI~1|FunctionalAgents</td><td/><td>0</td><td/></row>
 		<row><td>FavoritesFolder</td><td>TARGETDIR</td><td>.:FAVORI~1|Favorites</td><td/><td>0</td><td/></row>
 		<row><td>FontsFolder</td><td>TARGETDIR</td><td>.:Fonts</td><td/><td>0</td><td/></row>
-		<row><td>GREENWHITE</td><td>SKINS</td><td>GREENW~1|GreenWhite</td><td/><td>0</td><td/></row>
 		<row><td>GlobalAssemblyCache</td><td>TARGETDIR</td><td>.:Global~1|GlobalAssemblyCache</td><td/><td>0</td><td/></row>
 		<row><td>IMAGES</td><td>ASSETS</td><td>Images</td><td/><td>0</td><td/></row>
 		<row><td>INSTALL</td><td>INSTALLDIR</td><td>Install</td><td/><td>0</td><td/></row>
@@ -1344,7 +1347,9 @@
 		<row><td>LAUNCHAPPAGENT</td><td>FUNCTIONALAGENTS</td><td>LAUNCH~1|LaunchAppAgent</td><td/><td>0</td><td/></row>
 		<row><td>LECTUREMANAGERAGENT</td><td>FUNCTIONALAGENTS</td><td>LECTUR~1|LectureManagerAgent</td><td/><td>0</td><td/></row>
 		<row><td>LocalAppDataFolder</td><td>TARGETDIR</td><td>.:LocalA~1|LocalAppData</td><td/><td>0</td><td/></row>
+		<row><td>MEDIAPLAYERAGENT</td><td>APPAGENTS</td><td>MEDIAP~1|MediaPlayerAgent</td><td/><td>0</td><td/></row>
 		<row><td>MENUCONTROLAGENT</td><td>APPAGENTS</td><td>MENUCO~1|MenuControlAgent</td><td/><td>0</td><td/></row>
+		<row><td>MENUS</td><td>UI</td><td>Menus</td><td/><td>0</td><td/></row>
 		<row><td>MSWORDAGENT</td><td>APPAGENTS</td><td>MSWORD~1|MSWordAgent</td><td/><td>0</td><td/></row>
 		<row><td>MY_PRODUCT_NAME</td><td>INTEL_CORPORATION</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
 		<row><td>MyPicturesFolder</td><td>TARGETDIR</td><td>.:MyPict~1|MyPictures</td><td/><td>0</td><td/></row>
@@ -1358,10 +1363,10 @@
 		<row><td>NEW_DIRECTORY7</td><td>TARGETDIR</td><td>NEW_DIRECTORY7</td><td/><td>0</td><td/></row>
 		<row><td>NOTEPADAGENT</td><td>APPAGENTS</td><td>NOTEPA~1|NotepadAgent</td><td/><td>0</td><td/></row>
 		<row><td>NetHoodFolder</td><td>TARGETDIR</td><td>.:NetHood</td><td/><td>0</td><td/></row>
+		<row><td>OUTLOOKAGENT</td><td>APPAGENTS</td><td>OUTLOO~1|OutlookAgent</td><td/><td>0</td><td/></row>
+		<row><td>PHRASESPEAKAGENT</td><td>FUNCTIONALAGENTS</td><td>PHRASE~1|PhraseSpeakAgent</td><td/><td>0</td><td/></row>
 		<row><td>PRESAGE</td><td>WORDPREDICTORS</td><td>Presage</td><td/><td>0</td><td/></row>
 		<row><td>PRESAGE1</td><td>WORDPREDICTORS1</td><td>Presage</td><td/><td>0</td><td/></row>
-		<row><td>PROFILES</td><td>DEFAULT1</td><td>Profiles</td><td/><td>0</td><td/></row>
-		<row><td>PURPLEWHITE</td><td>SKINS</td><td>PURPLE~1|PurpleWhite</td><td/><td>0</td><td/></row>
 		<row><td>PersonalFolder</td><td>TARGETDIR</td><td>.:Personal</td><td/><td>0</td><td/></row>
 		<row><td>PrimaryVolumePath</td><td>TARGETDIR</td><td>.:Primar~1|PrimaryVolumePath</td><td/><td>0</td><td/></row>
 		<row><td>PrintHoodFolder</td><td>TARGETDIR</td><td>.:PRINTH~1|PrintHood</td><td/><td>0</td><td/></row>
@@ -1374,7 +1379,7 @@
 		<row><td>SKINS</td><td>ASSETS</td><td>Skins</td><td/><td>0</td><td/></row>
 		<row><td>SOUNDS</td><td>ASSETS</td><td>Sounds</td><td/><td>0</td><td/></row>
 		<row><td>SPELLCHECK</td><td>SPELLCHECKERS</td><td>SPELLC~1|SpellCheck</td><td/><td>0</td><td/></row>
-		<row><td>SPELLCHECKERS</td><td>DEFAULT</td><td>SPELLC~1|SpellCheckers</td><td/><td>0</td><td/></row>
+		<row><td>SPELLCHECKERS</td><td>DEFAULT1</td><td>SPELLC~1|SpellCheckers</td><td/><td>0</td><td/></row>
 		<row><td>SWITCHWINDOWSAGENT</td><td>FUNCTIONALAGENTS</td><td>SWITCH~1|SwitchWindowsAgent</td><td/><td>0</td><td/></row>
 		<row><td>SendToFolder</td><td>TARGETDIR</td><td>.:SendTo</td><td/><td>3</td><td/></row>
 		<row><td>StartMenuFolder</td><td>TARGETDIR</td><td>.:STARTM~1|Start Menu</td><td/><td>3</td><td/></row>
@@ -1382,21 +1387,21 @@
 		<row><td>System16Folder</td><td>TARGETDIR</td><td>.:System</td><td/><td>0</td><td/></row>
 		<row><td>System64Folder</td><td>TARGETDIR</td><td>.:System64</td><td/><td>0</td><td/></row>
 		<row><td>SystemFolder</td><td>TARGETDIR</td><td>.:System32</td><td/><td>0</td><td/></row>
-		<row><td>TALK</td><td>PROFILES</td><td>Talk</td><td/><td>0</td><td/></row>
+		<row><td>TALKWINDOWAGENT</td><td>APPAGENTS</td><td>TALKWI~1|TalkWindowAgent</td><td/><td>0</td><td/></row>
 		<row><td>TARGETDIR</td><td/><td>SourceDir</td><td/><td>0</td><td/></row>
-		<row><td>TTSENGINES</td><td>DEFAULT</td><td>TTSENG~1|TTSEngines</td><td/><td>0</td><td/></row>
+		<row><td>TTSENGINES</td><td>DEFAULT1</td><td>TTSENG~1|TTSEngines</td><td/><td>0</td><td/></row>
 		<row><td>TempFolder</td><td>TARGETDIR</td><td>.:Temp</td><td/><td>0</td><td/></row>
 		<row><td>TemplateFolder</td><td>TARGETDIR</td><td>.:ShellNew</td><td/><td>0</td><td/></row>
-		<row><td>UI</td><td>DEFAULT</td><td>UI</td><td/><td>0</td><td/></row>
+		<row><td>UI</td><td>DEFAULT1</td><td>UI</td><td/><td>0</td><td/></row>
 		<row><td>UNSUPPORTEDAPPAGENT</td><td>APPAGENTS</td><td>UNSUPP~1|UnsupportedAppAgent</td><td/><td>0</td><td/></row>
 		<row><td>USERPROFILE</td><td>TARGETDIR</td><td>.:USERPR~1|UserProfile</td><td/><td>0</td><td/></row>
 		<row><td>USERS</td><td>INSTALL</td><td>Users</td><td/><td>0</td><td/></row>
 		<row><td>VISION</td><td>INSTALLDIR</td><td>Vision</td><td/><td>0</td><td/></row>
 		<row><td>VOLUMESETTINGSAGENT</td><td>FUNCTIONALAGENTS</td><td>VOLUME~1|VolumeSettingsAgent</td><td/><td>0</td><td/></row>
+		<row><td>WINDOWSEXPLORERAGENT</td><td>APPAGENTS</td><td>WINDOW~1|WindowsExplorerAgent</td><td/><td>0</td><td/></row>
 		<row><td>WORDPADAGENT</td><td>APPAGENTS</td><td>WORDPA~1|WordpadAgent</td><td/><td>0</td><td/></row>
-		<row><td>WORDPREDICTORS</td><td>DEFAULT</td><td>WORDPR~1|WordPredictors</td><td/><td>0</td><td/></row>
-		<row><td>WORDPREDICTORS1</td><td>DEFAULT1</td><td>WORDPR~1|WordPredictors</td><td/><td>0</td><td/></row>
-		<row><td>WORDSPLUSACTUATOR</td><td>ACTUATORS</td><td>WORDSP~1|WordsPlusActuator</td><td/><td>0</td><td/></row>
+		<row><td>WORDPREDICTORS</td><td>DEFAULT1</td><td>WORDPR~1|WordPredictors</td><td/><td>0</td><td/></row>
+		<row><td>WORDPREDICTORS1</td><td>ACAT</td><td>WORDPR~1|WordPredictors</td><td/><td>0</td><td/></row>
 		<row><td>WindowsFolder</td><td>TARGETDIR</td><td>.:Windows</td><td/><td>0</td><td/></row>
 		<row><td>WindowsVolume</td><td>TARGETDIR</td><td>.:WinRoot</td><td/><td>0</td><td/></row>
 		<row><td>newfolder1</td><td>ProgramMenuFolder</td><td>##ID_STRING309##</td><td/><td>1</td><td/></row>
@@ -2096,18 +2101,18 @@
 		<row><td>AlwaysInstall</td><td>ACATCleanup.exe</td></row>
 		<row><td>AlwaysInstall</td><td>ACATCore.dll</td></row>
 		<row><td>AlwaysInstall</td><td>ACATExtension.dll</td></row>
+		<row><td>AlwaysInstall</td><td>ACATTalk.exe</td></row>
 		<row><td>AlwaysInstall</td><td>ACATTryout.exe</td></row>
 		<row><td>AlwaysInstall</td><td>AbbreviationsAgent.dll</td></row>
 		<row><td>AlwaysInstall</td><td>AcrobatReaderAgent.dll</td></row>
 		<row><td>AlwaysInstall</td><td>CameraActuator.dll</td></row>
 		<row><td>AlwaysInstall</td><td>ChromeBrowserAgent.dll</td></row>
-		<row><td>AlwaysInstall</td><td>ContextMenus.dll</td></row>
 		<row><td>AlwaysInstall</td><td>DLLHostAgent.dll</td></row>
 		<row><td>AlwaysInstall</td><td>DialogControlAgent.dll</td></row>
 		<row><td>AlwaysInstall</td><td>Dialogs.dll</td></row>
-		<row><td>AlwaysInstall</td><td>EudoraAgent.dll</td></row>
 		<row><td>AlwaysInstall</td><td>FileBrowserAgent.dll</td></row>
 		<row><td>AlwaysInstall</td><td>FireFoxAgent.dll</td></row>
+		<row><td>AlwaysInstall</td><td>FoxitReaderAgent.dll</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT10</td></row>
@@ -2169,19 +2174,26 @@
 		<row><td>AlwaysInstall</td><td>LaunchAppAgent.dll</td></row>
 		<row><td>AlwaysInstall</td><td>LectureManagerAgent.dll</td></row>
 		<row><td>AlwaysInstall</td><td>MSWordAgent.dll</td></row>
+		<row><td>AlwaysInstall</td><td>MediaPlayerAgent.dll</td></row>
 		<row><td>AlwaysInstall</td><td>MenuControlAgent.dll</td></row>
+		<row><td>AlwaysInstall</td><td>Menus.dll</td></row>
 		<row><td>AlwaysInstall</td><td>NewFileAgent.dll</td></row>
 		<row><td>AlwaysInstall</td><td>NotepadAgent.dll</td></row>
+		<row><td>AlwaysInstall</td><td>OutlookAgent.dll</td></row>
+		<row><td>AlwaysInstall</td><td>PhraseSpeakAgent.dll</td></row>
+		<row><td>AlwaysInstall</td><td>PresageInstaller.exe</td></row>
 		<row><td>AlwaysInstall</td><td>PresageWordPredictor.dll</td></row>
 		<row><td>AlwaysInstall</td><td>SAPIEngine.dll</td></row>
 		<row><td>AlwaysInstall</td><td>Scanners.dll</td></row>
 		<row><td>AlwaysInstall</td><td>SpellCheck.dll</td></row>
 		<row><td>AlwaysInstall</td><td>SwitchWindowsAgent.dll</td></row>
+		<row><td>AlwaysInstall</td><td>TalkWindowAgent.dll</td></row>
 		<row><td>AlwaysInstall</td><td>UnsupportedAppAgent.dll</td></row>
 		<row><td>AlwaysInstall</td><td>VolumeSettingsAgent.dll</td></row>
+		<row><td>AlwaysInstall</td><td>WindowsExplorerAgent.dll</td></row>
 		<row><td>AlwaysInstall</td><td>WordpadAgent.dll</td></row>
-		<row><td>AlwaysInstall</td><td>WordsPlusActuator.dll</td></row>
 		<row><td>AlwaysInstall</td><td>acat_gestures.exe</td></row>
+		<row><td>AlwaysInstall</td><td>ivcp_demo_dlib.exe</td></row>
 		<row><td>AlwaysInstall</td><td>libinfra.dll</td></row>
 		<row><td>AlwaysInstall</td><td>libinfra_d.dll</td></row>
 		<row><td>AlwaysInstall</td><td>libivcp.dll</td></row>
@@ -2240,128 +2252,107 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
-		<row><td>abbreviationeditdeleteconfir</td><td>ISX_DEFAULTCOMPONENT32</td><td>AbbreviationEditDeleteConfirm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\AbbreviationsAgent\AbbreviationEditDeleteConfirm.xml</td><td>1</td><td/></row>
-		<row><td>abbreviationeditorform.xml</td><td>ISX_DEFAULTCOMPONENT32</td><td>AbbreviationEditorForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\AbbreviationsAgent\AbbreviationEditorForm.xml</td><td>1</td><td/></row>
-		<row><td>abbreviations.xml</td><td>ISX_DEFAULTCOMPONENT51</td><td>Abbreviations.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\Users\Default\Abbreviations.xml</td><td>1</td><td/></row>
+		<row><td>abbreviationeditdeleteconfir</td><td>ISX_DEFAULTCOMPONENT33</td><td>AbbreviationEditDeleteConfirm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\AbbreviationsAgent\AbbreviationEditDeleteConfirm.xml</td><td>1</td><td/></row>
+		<row><td>abbreviationeditorform.xml</td><td>ISX_DEFAULTCOMPONENT33</td><td>AbbreviationEditorForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\AbbreviationsAgent\AbbreviationEditorForm.xml</td><td>1</td><td/></row>
+		<row><td>abbreviations.xml</td><td>ISX_DEFAULTCOMPONENT53</td><td>Abbreviations.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\Users\ACAT\Abbreviations.xml</td><td>1</td><td/></row>
 		<row><td>abbreviationsagent.dll</td><td>AbbreviationsAgent.dll</td><td>AbbreviationsAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\AbbreviationsAgent\AbbreviationsAgent.dll</td><td>1</td><td/></row>
-		<row><td>abbreviationsscanner.xml</td><td>ISX_DEFAULTCOMPONENT32</td><td>AbbreviationsScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\AbbreviationsAgent\AbbreviationsScanner.xml</td><td>1</td><td/></row>
-		<row><td>aboutboxform.xml</td><td>ISX_DEFAULTCOMPONENT45</td><td>AboutBoxForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\AboutBoxForm.xml</td><td>1</td><td/></row>
-		<row><td>aboutboxlogo.png</td><td>ISX_DEFAULTCOMPONENT5</td><td>AboutBoxLogo.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Images\AboutBoxLogo.png</td><td>1</td><td/></row>
-		<row><td>acat_alpha.ttf</td><td>ISX_DEFAULTCOMPONENT4</td><td>ACAT ALPHA.ttf</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Fonts\ACAT ALPHA.ttf</td><td>1</td><td/></row>
+		<row><td>abbreviationsscanner.xml</td><td>ISX_DEFAULTCOMPONENT33</td><td>AbbreviationsScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\AbbreviationsAgent\AbbreviationsScanner.xml</td><td>1</td><td/></row>
+		<row><td>aboutboxform.xml</td><td>ISX_DEFAULTCOMPONENT46</td><td>AboutBoxForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\AboutBoxForm.xml</td><td>1</td><td/></row>
+		<row><td>aboutboxlogo.png</td><td>ISX_DEFAULTCOMPONENT6</td><td>AboutBoxLogo.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Images\AboutBoxLogo.png</td><td>1</td><td/></row>
+		<row><td>acat_alpha.ttf</td><td>ISX_DEFAULTCOMPONENT5</td><td>ACAT ALPHA.ttf</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Fonts\ACAT ALPHA.ttf</td><td>1</td><td/></row>
 		<row><td>acat_gestures.exe</td><td>acat_gestures.exe</td><td>acat_gestures.exe</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>1</td><td/></row>
-		<row><td>acat_icon.ttf</td><td>ISX_DEFAULTCOMPONENT4</td><td>ACAT ICON.ttf</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Fonts\ACAT ICON.ttf</td><td>1</td><td/></row>
+		<row><td>acat_icon.ttf</td><td>ISX_DEFAULTCOMPONENT5</td><td>ACAT ICON.ttf</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Fonts\ACAT ICON.ttf</td><td>1</td><td/></row>
 		<row><td>acatagent.dll</td><td>ACATAgent.dll</td><td>ACATAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\ACATAgent\ACATAgent.dll</td><td>1</td><td/></row>
 		<row><td>acatapp.exe</td><td>ACATApp.exe</td><td>ACATApp.exe</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>1</td><td/></row>
 		<row><td>acatapp.exe.config</td><td>ISX_DEFAULTCOMPONENT1</td><td>ACATApp.exe.config</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe.config</td><td>1</td><td/></row>
 		<row><td>acatcleanup.exe</td><td>ACATCleanup.exe</td><td>ACATCleanup.exe</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\ACATCleanup.exe</td><td>1</td><td/></row>
 		<row><td>acatcore.dll</td><td>ACATCore.dll</td><td>ACATCore.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATCore.dll</td><td>1</td><td/></row>
 		<row><td>acatextension.dll</td><td>ACATExtension.dll</td><td>ACATExtension.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATExtension.dll</td><td>1</td><td/></row>
-		<row><td>acatgettingstartedform.xml</td><td>ISX_DEFAULTCOMPONENT45</td><td>ACATGettingStartedForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\ACATGettingStartedForm.xml</td><td>1</td><td/></row>
-		<row><td>acatmuteform.xml</td><td>ISX_DEFAULTCOMPONENT45</td><td>ACATMuteForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\ACATMuteForm.xml</td><td>1</td><td/></row>
+		<row><td>acattalk.exe</td><td>ACATTalk.exe</td><td>ACATTalk.exe</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>1</td><td/></row>
+		<row><td>acattalk.exe.config</td><td>ISX_DEFAULTCOMPONENT1</td><td>ACATTalk.exe.config</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe.config</td><td>1</td><td/></row>
 		<row><td>acattryout.exe</td><td>ACATTryout.exe</td><td>ACATTryout.exe</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>1</td><td/></row>
 		<row><td>acattryout.exe.config</td><td>ISX_DEFAULTCOMPONENT1</td><td>ACATTryout.exe.config</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe.config</td><td>1</td><td/></row>
+		<row><td>acattryoutform.xml</td><td>ISX_DEFAULTCOMPONENT46</td><td>ACATTryoutForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\ACATTryoutForm.xml</td><td>1</td><td/></row>
 		<row><td>acrobatreaderagent.dll</td><td>AcrobatReaderAgent.dll</td><td>AcrobatReaderAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\AcrobatReaderAgent\AcrobatReaderAgent.dll</td><td>1</td><td/></row>
-		<row><td>acrobatreadercontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT19</td><td>AcrobatReaderContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\AcrobatReaderAgent\AcrobatReaderContextMenu.xml</td><td>1</td><td/></row>
-		<row><td>acrobatreadercontextmenuicon</td><td>ISX_DEFAULTCOMPONENT19</td><td>AcrobatReaderContextMenuIconsOnly.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\AcrobatReaderAgent\AcrobatReaderContextMenuIconsOnly.xml</td><td>1</td><td/></row>
-		<row><td>acrobatreaderzoommenu.xml</td><td>ISX_DEFAULTCOMPONENT19</td><td>AcrobatReaderZoomMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\AcrobatReaderAgent\AcrobatReaderZoomMenu.xml</td><td>1</td><td/></row>
-		<row><td>acrobatreaderzoommenuiconson</td><td>ISX_DEFAULTCOMPONENT19</td><td>AcrobatReaderZoomMenuIconsOnly.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\AcrobatReaderAgent\AcrobatReaderZoomMenuIconsOnly.xml</td><td>1</td><td/></row>
-		<row><td>actuators.xml</td><td>ISX_DEFAULTCOMPONENT51</td><td>Actuators.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\Users\Default\Actuators.xml</td><td>1</td><td/></row>
-		<row><td>alphabetscanner.xml</td><td>ISX_DEFAULTCOMPONENT46</td><td>AlphabetScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\AlphabetScanner.xml</td><td>1</td><td/></row>
-		<row><td>alphabetscannerabc.xml</td><td>ISX_DEFAULTCOMPONENT46</td><td>AlphabetScannerABC.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\AlphabetScannerABC.xml</td><td>1</td><td/></row>
-		<row><td>alphabetscannerabcminimal.xm</td><td>ISX_DEFAULTCOMPONENT46</td><td>AlphabetScannerABCMinimal.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\AlphabetScannerABCMinimal.xml</td><td>1</td><td/></row>
-		<row><td>alphabetscannerminimal.xml</td><td>ISX_DEFAULTCOMPONENT46</td><td>AlphabetScannerMinimal.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\AlphabetScannerMinimal.xml</td><td>1</td><td/></row>
-		<row><td>alphabetscannertalkwindowonl</td><td>ISX_DEFAULTCOMPONENT46</td><td>AlphabetScannerTalkWindowOnly.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\AlphabetScannerTalkWindowOnly.xml</td><td>1</td><td/></row>
-		<row><td>beep.wav</td><td>ISX_DEFAULTCOMPONENT11</td><td>beep.wav</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Sounds\beep.wav</td><td>1</td><td/></row>
-		<row><td>beephigh.wav</td><td>ISX_DEFAULTCOMPONENT11</td><td>beepHigh.wav</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Sounds\beepHigh.wav</td><td>1</td><td/></row>
+		<row><td>acrobatreadercontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT16</td><td>AcrobatReaderContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\AcrobatReaderAgent\AcrobatReaderContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>acrobatreaderzoommenu.xml</td><td>ISX_DEFAULTCOMPONENT16</td><td>AcrobatReaderZoomMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\AcrobatReaderAgent\AcrobatReaderZoomMenu.xml</td><td>1</td><td/></row>
+		<row><td>actuators.xml</td><td>ISX_DEFAULTCOMPONENT53</td><td>Actuators.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\Users\ACAT\Actuators.xml</td><td>1</td><td/></row>
+		<row><td>alphabetscannerabc.xml</td><td>ISX_DEFAULTCOMPONENT48</td><td>AlphabetScannerAbc.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\AlphabetScannerAbc.xml</td><td>1</td><td/></row>
+		<row><td>alphabetscannerabcminimal.xm</td><td>ISX_DEFAULTCOMPONENT48</td><td>AlphabetScannerAbcMinimal.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\AlphabetScannerAbcMinimal.xml</td><td>1</td><td/></row>
+		<row><td>alphabetscannerqwerty.xml</td><td>ISX_DEFAULTCOMPONENT48</td><td>AlphabetScannerQwerty.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\AlphabetScannerQwerty.xml</td><td>1</td><td/></row>
+		<row><td>alphabetscannerqwertyminimal</td><td>ISX_DEFAULTCOMPONENT48</td><td>AlphabetScannerQwertyMinimal.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\AlphabetScannerQwertyMinimal.xml</td><td>1</td><td/></row>
+		<row><td>beep.wav</td><td>ISX_DEFAULTCOMPONENT9</td><td>beep.wav</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Sounds\beep.wav</td><td>1</td><td/></row>
+		<row><td>beep_animation_no.wav</td><td>ISX_DEFAULTCOMPONENT9</td><td>beep_animation_no.wav</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Sounds\beep_animation_no.wav</td><td>1</td><td/></row>
+		<row><td>beep_animation_yes.wav</td><td>ISX_DEFAULTCOMPONENT9</td><td>beep_animation_yes.wav</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Sounds\beep_animation_yes.wav</td><td>1</td><td/></row>
+		<row><td>beephigh.wav</td><td>ISX_DEFAULTCOMPONENT9</td><td>beepHigh.wav</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Sounds\beepHigh.wav</td><td>1</td><td/></row>
 		<row><td>cameraactuator.dll</td><td>CameraActuator.dll</td><td>CameraActuator.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\Actuators\CameraActuator\CameraActuator.dll</td><td>1</td><td/></row>
 		<row><td>chromebrowseragent.dll</td><td>ChromeBrowserAgent.dll</td><td>ChromeBrowserAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\ChromeBrowserAgent\ChromeBrowserAgent.dll</td><td>1</td><td/></row>
-		<row><td>chromebrowsercontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT20</td><td>ChromeBrowserContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\ChromeBrowserAgent\ChromeBrowserContextMenu.xml</td><td>1</td><td/></row>
-		<row><td>chromebrowsercontextmenuicon</td><td>ISX_DEFAULTCOMPONENT20</td><td>ChromeBrowserContextMenuIconsOnly.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\ChromeBrowserAgent\ChromeBrowserContextMenuIconsOnly.xml</td><td>1</td><td/></row>
-		<row><td>chromebrowserzoommenu.xml</td><td>ISX_DEFAULTCOMPONENT20</td><td>ChromeBrowserZoomMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\ChromeBrowserAgent\ChromeBrowserZoomMenu.xml</td><td>1</td><td/></row>
-		<row><td>chromebrowserzoommenuiconson</td><td>ISX_DEFAULTCOMPONENT20</td><td>ChromeBrowserZoomMenuIconsOnly.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\ChromeBrowserAgent\ChromeBrowserZoomMenuIconsOnly.xml</td><td>1</td><td/></row>
-		<row><td>contexticonhighlight.png</td><td>ISX_DEFAULTCOMPONENT7</td><td>contextIconHighlight.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\BlackWhite\contextIconHighlight.png</td><td>1</td><td/></row>
-		<row><td>contexticonhighlight.png1</td><td>ISX_DEFAULTCOMPONENT8</td><td>contextIconHighlight.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\BlackYellow\contextIconHighlight.png</td><td>1</td><td/></row>
-		<row><td>contexticonnormal.png</td><td>ISX_DEFAULTCOMPONENT7</td><td>contextIconNormal.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\BlackWhite\contextIconNormal.png</td><td>1</td><td/></row>
-		<row><td>contexticonnormal.png1</td><td>ISX_DEFAULTCOMPONENT8</td><td>contextIconNormal.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\BlackYellow\contextIconNormal.png</td><td>1</td><td/></row>
-		<row><td>contextmenus.dll</td><td>ContextMenus.dll</td><td>ContextMenus.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\ContextMenus\ContextMenus.dll</td><td>1</td><td/></row>
-		<row><td>contextmenutitle.png</td><td>ISX_DEFAULTCOMPONENT7</td><td>contextMenuTitle.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\BlackWhite\contextMenuTitle.png</td><td>1</td><td/></row>
-		<row><td>contextmenutitle.png1</td><td>ISX_DEFAULTCOMPONENT8</td><td>contextMenuTitle.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\BlackYellow\contextMenuTitle.png</td><td>1</td><td/></row>
-		<row><td>contextmenutitle.png2</td><td>ISX_DEFAULTCOMPONENT9</td><td>contextMenuTitle.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\GreenWhite\contextMenuTitle.png</td><td>1</td><td/></row>
-		<row><td>contextmenutitle.png3</td><td>ISX_DEFAULTCOMPONENT10</td><td>contextMenuTitle.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\PurpleWhite\contextMenuTitle.png</td><td>1</td><td/></row>
-		<row><td>contexttexthighlight.png</td><td>ISX_DEFAULTCOMPONENT7</td><td>contextTextHighlight.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\BlackWhite\contextTextHighlight.png</td><td>1</td><td/></row>
-		<row><td>contexttexthighlight.png1</td><td>ISX_DEFAULTCOMPONENT8</td><td>contextTextHighlight.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\BlackYellow\contextTextHighlight.png</td><td>1</td><td/></row>
-		<row><td>contexttextnormal.png</td><td>ISX_DEFAULTCOMPONENT7</td><td>contextTextNormal.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\BlackWhite\contextTextNormal.png</td><td>1</td><td/></row>
-		<row><td>contexttextnormal.png1</td><td>ISX_DEFAULTCOMPONENT8</td><td>contextTextNormal.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\BlackYellow\contextTextNormal.png</td><td>1</td><td/></row>
-		<row><td>copycleanup.bat</td><td>ISX_DEFAULTCOMPONENT49</td><td>copycleanup.bat</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\copycleanup.bat</td><td>1</td><td/></row>
+		<row><td>chromebrowsercontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT17</td><td>ChromeBrowserContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\ChromeBrowserAgent\ChromeBrowserContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>chromebrowserzoommenu.xml</td><td>ISX_DEFAULTCOMPONENT17</td><td>ChromeBrowserZoomMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\ChromeBrowserAgent\ChromeBrowserZoomMenu.xml</td><td>1</td><td/></row>
+		<row><td>contexticonhighlight.png</td><td>ISX_DEFAULTCOMPONENT8</td><td>contextIconHighlight.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\Default\contextIconHighlight.png</td><td>1</td><td/></row>
+		<row><td>contexticonnormal.png</td><td>ISX_DEFAULTCOMPONENT8</td><td>contextIconNormal.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\Default\contextIconNormal.png</td><td>1</td><td/></row>
+		<row><td>contextmenutitle.png</td><td>ISX_DEFAULTCOMPONENT8</td><td>contextMenuTitle.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\Default\contextMenuTitle.png</td><td>1</td><td/></row>
+		<row><td>contexttexthighlight.png</td><td>ISX_DEFAULTCOMPONENT8</td><td>contextTextHighlight.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\Default\contextTextHighlight.png</td><td>1</td><td/></row>
+		<row><td>contexttextnormal.png</td><td>ISX_DEFAULTCOMPONENT8</td><td>contextTextNormal.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\Default\contextTextNormal.png</td><td>1</td><td/></row>
+		<row><td>copycleanup.bat</td><td>ISX_DEFAULTCOMPONENT51</td><td>copycleanup.bat</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\copycleanup.bat</td><td>1</td><td/></row>
 		<row><td>createuser.bat</td><td>ISX_DEFAULTCOMPONENT1</td><td>CreateUser.bat</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\CreateUser.bat</td><td>1</td><td/></row>
-		<row><td>cursornavigationscanner.xml</td><td>ISX_DEFAULTCOMPONENT46</td><td>CursorNavigationScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\CursorNavigationScanner.xml</td><td>1</td><td/></row>
-		<row><td>database.db</td><td>ISX_DEFAULTCOMPONENT55</td><td>database.db</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\Users\Default\WordPredictors\Presage\database.db</td><td>1</td><td/></row>
-		<row><td>dialogcontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT21</td><td>DialogContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\DialogControlAgent\DialogContextMenu.xml</td><td>1</td><td/></row>
-		<row><td>dialogcontextmenuiconsonly.x</td><td>ISX_DEFAULTCOMPONENT21</td><td>DialogContextMenuIconsOnly.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\DialogControlAgent\DialogContextMenuIconsOnly.xml</td><td>1</td><td/></row>
+		<row><td>cursornavigationscanner.xml</td><td>ISX_DEFAULTCOMPONENT48</td><td>CursorNavigationScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\CursorNavigationScanner.xml</td><td>1</td><td/></row>
+		<row><td>database.db</td><td>ISX_DEFAULTCOMPONENT55</td><td>database.db</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\Users\ACAT\WordPredictors\Presage\database.db</td><td>1</td><td/></row>
+		<row><td>dialogcontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT18</td><td>DialogContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\DialogControlAgent\DialogContextMenu.xml</td><td>1</td><td/></row>
 		<row><td>dialogcontrolagent.dll</td><td>DialogControlAgent.dll</td><td>DialogControlAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\DialogControlAgent\DialogControlAgent.dll</td><td>1</td><td/></row>
 		<row><td>dialogs.dll</td><td>Dialogs.dll</td><td>Dialogs.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\Dialogs.dll</td><td>1</td><td/></row>
 		<row><td>dllhostagent.dll</td><td>DLLHostAgent.dll</td><td>DLLHostAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\DLLHostAgent\DLLHostAgent.dll</td><td>1</td><td/></row>
-		<row><td>eudoraagent.dll</td><td>EudoraAgent.dll</td><td>EudoraAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\EudoraAgent\EudoraAgent.dll</td><td>1</td><td/></row>
-		<row><td>eudorabrowsemailcontextmenu.</td><td>ISX_DEFAULTCOMPONENT23</td><td>EudoraBrowseMailContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\EudoraAgent\EudoraBrowseMailContextMenu.xml</td><td>1</td><td/></row>
-		<row><td>eudoracontextmenusimple.xml</td><td>ISX_DEFAULTCOMPONENT23</td><td>EudoraContextMenuSimple.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\EudoraAgent\EudoraContextMenuSimple.xml</td><td>1</td><td/></row>
-		<row><td>eudorainboxcontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT23</td><td>EudoraInboxContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\EudoraAgent\EudoraInboxContextMenu.xml</td><td>1</td><td/></row>
-		<row><td>eudoramailaction.xml</td><td>ISX_DEFAULTCOMPONENT23</td><td>EudoraMailAction.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\EudoraAgent\EudoraMailAction.xml</td><td>1</td><td/></row>
-		<row><td>eudoramailboxescontextmenu.x</td><td>ISX_DEFAULTCOMPONENT23</td><td>EudoraMailBoxesContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\EudoraAgent\EudoraMailBoxesContextMenu.xml</td><td>1</td><td/></row>
-		<row><td>eudoramailcomposecontextmenu</td><td>ISX_DEFAULTCOMPONENT23</td><td>EudoraMailComposeContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\EudoraAgent\EudoraMailComposeContextMenu.xml</td><td>1</td><td/></row>
 		<row><td>filebrowseragent.dll</td><td>FileBrowserAgent.dll</td><td>FileBrowserAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\FileBrowserAgent\FileBrowserAgent.dll</td><td>1</td><td/></row>
-		<row><td>filebrowserscanner.xml</td><td>ISX_DEFAULTCOMPONENT33</td><td>FileBrowserScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\FileBrowserAgent\FileBrowserScanner.xml</td><td>1</td><td/></row>
-		<row><td>filemenu.xml</td><td>ISX_DEFAULTCOMPONENT44</td><td>FileMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\ContextMenus\FileMenu.xml</td><td>1</td><td/></row>
-		<row><td>fileoperationconfirmscanner.</td><td>ISX_DEFAULTCOMPONENT33</td><td>FileOperationConfirmScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\FileBrowserAgent\FileOperationConfirmScanner.xml</td><td>1</td><td/></row>
+		<row><td>filebrowserscanner.xml</td><td>ISX_DEFAULTCOMPONENT34</td><td>FileBrowserScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\FileBrowserAgent\FileBrowserScanner.xml</td><td>1</td><td/></row>
+		<row><td>filechoicemenu.xml</td><td>ISX_DEFAULTCOMPONENT37</td><td>FileChoiceMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\NewFileAgent\FileChoiceMenu.xml</td><td>1</td><td/></row>
+		<row><td>fileoperationconfirmscanner.</td><td>ISX_DEFAULTCOMPONENT34</td><td>FileOperationConfirmScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\FileBrowserAgent\FileOperationConfirmScanner.xml</td><td>1</td><td/></row>
 		<row><td>firefoxagent.dll</td><td>FireFoxAgent.dll</td><td>FireFoxAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\FireFoxAgent\FireFoxAgent.dll</td><td>1</td><td/></row>
-		<row><td>firefoxbrowsercontextmenu.xm</td><td>ISX_DEFAULTCOMPONENT24</td><td>FireFoxBrowserContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\FireFoxAgent\FireFoxBrowserContextMenu.xml</td><td>1</td><td/></row>
-		<row><td>firefoxbrowsercontextmenuico</td><td>ISX_DEFAULTCOMPONENT24</td><td>FireFoxBrowserContextMenuIconsOnly.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\FireFoxAgent\FireFoxBrowserContextMenuIconsOnly.xml</td><td>1</td><td/></row>
-		<row><td>firefoxbrowserzoommenu.xml</td><td>ISX_DEFAULTCOMPONENT24</td><td>FireFoxBrowserZoomMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\FireFoxAgent\FireFoxBrowserZoomMenu.xml</td><td>1</td><td/></row>
-		<row><td>generalsettingsform.xml</td><td>ISX_DEFAULTCOMPONENT45</td><td>GeneralSettingsForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\GeneralSettingsForm.xml</td><td>1</td><td/></row>
-		<row><td>intel_logo.png</td><td>ISX_DEFAULTCOMPONENT5</td><td>Intel-logo.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Images\Intel-logo.png</td><td>1</td><td/></row>
+		<row><td>firefoxbrowsercontextmenu.xm</td><td>ISX_DEFAULTCOMPONENT20</td><td>FireFoxBrowserContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\FireFoxAgent\FireFoxBrowserContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>firefoxbrowserzoommenu.xml</td><td>ISX_DEFAULTCOMPONENT20</td><td>FireFoxBrowserZoomMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\FireFoxAgent\FireFoxBrowserZoomMenu.xml</td><td>1</td><td/></row>
+		<row><td>foxitreaderagent.dll</td><td>FoxitReaderAgent.dll</td><td>FoxitReaderAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\FoxitReaderAgent\FoxitReaderAgent.dll</td><td>1</td><td/></row>
+		<row><td>foxitreadercontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT21</td><td>FoxitReaderContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\FoxitReaderAgent\FoxitReaderContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>foxitreaderzoommenu.xml</td><td>ISX_DEFAULTCOMPONENT21</td><td>FoxitReaderZoomMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\FoxitReaderAgent\FoxitReaderZoomMenu.xml</td><td>1</td><td/></row>
+		<row><td>functionkeyscanner.xml</td><td>ISX_DEFAULTCOMPONENT48</td><td>FunctionKeyScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\FunctionKeyScanner.xml</td><td>1</td><td/></row>
+		<row><td>generalsettingsform.xml</td><td>ISX_DEFAULTCOMPONENT46</td><td>GeneralSettingsForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\GeneralSettingsForm.xml</td><td>1</td><td/></row>
+		<row><td>intel_logo.png</td><td>ISX_DEFAULTCOMPONENT6</td><td>Intel-logo.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Images\Intel-logo.png</td><td>1</td><td/></row>
 		<row><td>internetexploreragent.dll</td><td>InternetExplorerAgent.dll</td><td>InternetExplorerAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\InternetExplorerAgent\InternetExplorerAgent.dll</td><td>1</td><td/></row>
-		<row><td>internetexplorerbrowsermenu.</td><td>ISX_DEFAULTCOMPONENT25</td><td>InternetExplorerBrowserMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\InternetExplorerAgent\InternetExplorerBrowserMenu.xml</td><td>1</td><td/></row>
-		<row><td>internetexplorercontextmenu.</td><td>ISX_DEFAULTCOMPONENT25</td><td>InternetExplorerContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\InternetExplorerAgent\InternetExplorerContextMenu.xml</td><td>1</td><td/></row>
-		<row><td>internetexplorercontextmenui</td><td>ISX_DEFAULTCOMPONENT25</td><td>InternetExplorerContextMenuIconsOnly.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\InternetExplorerAgent\InternetExplorerContextMenuIconsOnly.xml</td><td>1</td><td/></row>
-		<row><td>internetexplorerzoommenu.xml</td><td>ISX_DEFAULTCOMPONENT25</td><td>InternetExplorerZoomMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\InternetExplorerAgent\InternetExplorerZoomMenu.xml</td><td>1</td><td/></row>
-		<row><td>internetexplorerzoommenuicon</td><td>ISX_DEFAULTCOMPONENT25</td><td>InternetExplorerZoomMenuIconsOnly.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\InternetExplorerAgent\InternetExplorerZoomMenuIconsOnly.xml</td><td>1</td><td/></row>
+		<row><td>internetexplorerbrowsermenu.</td><td>ISX_DEFAULTCOMPONENT22</td><td>InternetExplorerBrowserMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\InternetExplorerAgent\InternetExplorerBrowserMenu.xml</td><td>1</td><td/></row>
+		<row><td>internetexplorercontextmenu.</td><td>ISX_DEFAULTCOMPONENT22</td><td>InternetExplorerContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\InternetExplorerAgent\InternetExplorerContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>internetexplorerzoommenu.xml</td><td>ISX_DEFAULTCOMPONENT22</td><td>InternetExplorerZoomMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\InternetExplorerAgent\InternetExplorerZoomMenu.xml</td><td>1</td><td/></row>
+		<row><td>ivcp_demo_dlib.exe</td><td>ivcp_demo_dlib.exe</td><td>ivcp_demo_dlib.exe</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\ivcp_demo_dlib.exe</td><td>1</td><td/></row>
 		<row><td>launchappagent.dll</td><td>LaunchAppAgent.dll</td><td>LaunchAppAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LaunchAppAgent\LaunchAppAgent.dll</td><td>1</td><td/></row>
-		<row><td>launchappscanner.xml</td><td>ISX_DEFAULTCOMPONENT34</td><td>LaunchAppScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LaunchAppAgent\LaunchAppScanner.xml</td><td>1</td><td/></row>
-		<row><td>launchappsettings.xml</td><td>ISX_DEFAULTCOMPONENT51</td><td>LaunchAppSettings.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\Users\Default\LaunchAppSettings.xml</td><td>1</td><td/></row>
+		<row><td>launchappscanner.xml</td><td>ISX_DEFAULTCOMPONENT35</td><td>LaunchAppScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LaunchAppAgent\LaunchAppScanner.xml</td><td>1</td><td/></row>
+		<row><td>launchappsettings.xml</td><td>ISX_DEFAULTCOMPONENT53</td><td>LaunchAppSettings.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\Users\ACAT\LaunchAppSettings.xml</td><td>1</td><td/></row>
 		<row><td>lecturemanageragent.dll</td><td>LectureManagerAgent.dll</td><td>LectureManagerAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerAgent.dll</td><td>1</td><td/></row>
-		<row><td>lecturemanagercontextmenu.xm</td><td>ISX_DEFAULTCOMPONENT35</td><td>LectureManagerContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerContextMenu.xml</td><td>1</td><td/></row>
-		<row><td>lecturemanagercontextmenusim</td><td>ISX_DEFAULTCOMPONENT35</td><td>LectureManagerContextMenuSimple.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerContextMenuSimple.xml</td><td>1</td><td/></row>
-		<row><td>lecturemanagermainform.xml</td><td>ISX_DEFAULTCOMPONENT35</td><td>LectureManagerMainForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerMainForm.xml</td><td>1</td><td/></row>
-		<row><td>lecturemanagernavigationmenu</td><td>ISX_DEFAULTCOMPONENT35</td><td>LectureManagerNavigationMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerNavigationMenu.xml</td><td>1</td><td/></row>
-		<row><td>lecturemanageropenfileform.x</td><td>ISX_DEFAULTCOMPONENT35</td><td>LectureManagerOpenFileForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerOpenFileForm.xml</td><td>1</td><td/></row>
-		<row><td>lecturemanagerspeakallmenu.x</td><td>ISX_DEFAULTCOMPONENT35</td><td>LectureManagerSpeakAllMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerSpeakAllMenu.xml</td><td>1</td><td/></row>
-		<row><td>lecturemanagerspeakmenu.xml</td><td>ISX_DEFAULTCOMPONENT35</td><td>LectureManagerSpeakMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerSpeakMenu.xml</td><td>1</td><td/></row>
-		<row><td>lecturemanagerspeakmenu2.xml</td><td>ISX_DEFAULTCOMPONENT35</td><td>LectureManagerSpeakMenu2.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerSpeakMenu2.xml</td><td>1</td><td/></row>
-		<row><td>lecturemanagerspeakselectmen</td><td>ISX_DEFAULTCOMPONENT35</td><td>LectureManagerSpeakSelectMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerSpeakSelectMenu.xml</td><td>1</td><td/></row>
-		<row><td>lecturemanagertogglemodemenu</td><td>ISX_DEFAULTCOMPONENT35</td><td>LectureManagerToggleModeMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerToggleModeMenu.xml</td><td>1</td><td/></row>
+		<row><td>lecturemanagercontextmenu.xm</td><td>ISX_DEFAULTCOMPONENT36</td><td>LectureManagerContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>lecturemanagercontextmenusim</td><td>ISX_DEFAULTCOMPONENT36</td><td>LectureManagerContextMenuSimple.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerContextMenuSimple.xml</td><td>1</td><td/></row>
+		<row><td>lecturemanagermainform.xml</td><td>ISX_DEFAULTCOMPONENT36</td><td>LectureManagerMainForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerMainForm.xml</td><td>1</td><td/></row>
+		<row><td>lecturemanagernavigationmenu</td><td>ISX_DEFAULTCOMPONENT36</td><td>LectureManagerNavigationMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerNavigationMenu.xml</td><td>1</td><td/></row>
+		<row><td>lecturemanageropenfileform.x</td><td>ISX_DEFAULTCOMPONENT36</td><td>LectureManagerOpenFileForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerOpenFileForm.xml</td><td>1</td><td/></row>
+		<row><td>lecturemanagerspeakallmenu.x</td><td>ISX_DEFAULTCOMPONENT36</td><td>LectureManagerSpeakAllMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerSpeakAllMenu.xml</td><td>1</td><td/></row>
+		<row><td>lecturemanagerspeakmenu.xml</td><td>ISX_DEFAULTCOMPONENT36</td><td>LectureManagerSpeakMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerSpeakMenu.xml</td><td>1</td><td/></row>
+		<row><td>lecturemanagerspeakselectmen</td><td>ISX_DEFAULTCOMPONENT36</td><td>LectureManagerSpeakSelectMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerSpeakSelectMenu.xml</td><td>1</td><td/></row>
+		<row><td>lecturemanagertogglemodemenu</td><td>ISX_DEFAULTCOMPONENT36</td><td>LectureManagerToggleModeMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\LectureManagerToggleModeMenu.xml</td><td>1</td><td/></row>
 		<row><td>libinfra.dll</td><td>libinfra.dll</td><td>libinfra.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\libinfra.dll</td><td>1</td><td/></row>
 		<row><td>libinfra_d.dll</td><td>libinfra_d.dll</td><td>libinfra_d.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\libinfra_d.dll</td><td>1</td><td/></row>
 		<row><td>libivcp.dll</td><td>libivcp.dll</td><td>libivcp.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\libivcp.dll</td><td>1</td><td/></row>
 		<row><td>libivcp_d.dll</td><td>libivcp_d.dll</td><td>libivcp_d.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\libivcp_d.dll</td><td>1</td><td/></row>
 		<row><td>libpipeline.dll</td><td>libpipeline.dll</td><td>libpipeline.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\libpipeline.dll</td><td>1</td><td/></row>
 		<row><td>libpipeline_d.dll</td><td>libpipeline_d.dll</td><td>libpipeline_d.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\libpipeline_d.dll</td><td>1</td><td/></row>
-		<row><td>mainmenu.xml</td><td>ISX_DEFAULTCOMPONENT44</td><td>MainMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\ContextMenus\MainMenu.xml</td><td>1</td><td/></row>
-		<row><td>menucontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT26</td><td>MenuContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\MenuControlAgent\MenuContextMenu.xml</td><td>1</td><td/></row>
-		<row><td>menucontextmenuiconsonly.xml</td><td>ISX_DEFAULTCOMPONENT26</td><td>MenuContextMenuIconsOnly.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\MenuControlAgent\MenuContextMenuIconsOnly.xml</td><td>1</td><td/></row>
+		<row><td>mainmenu.xml</td><td>ISX_DEFAULTCOMPONENT47</td><td>MainMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Menus\MainMenu.xml</td><td>1</td><td/></row>
+		<row><td>mediaplayeragent.dll</td><td>MediaPlayerAgent.dll</td><td>MediaPlayerAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\MediaPlayerAgent\MediaPlayerAgent.dll</td><td>1</td><td/></row>
+		<row><td>mediaplayercontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT23</td><td>MediaPlayerContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\MediaPlayerAgent\MediaPlayerContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>menucontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT24</td><td>MenuContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\MenuControlAgent\MenuContextMenu.xml</td><td>1</td><td/></row>
 		<row><td>menucontrolagent.dll</td><td>MenuControlAgent.dll</td><td>MenuControlAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\MenuControlAgent\MenuControlAgent.dll</td><td>1</td><td/></row>
-		<row><td>mousegridsettingsform.xml</td><td>ISX_DEFAULTCOMPONENT45</td><td>MouseGridSettingsForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\MouseGridSettingsForm.xml</td><td>1</td><td/></row>
-		<row><td>mouseradarsettingsform.xml</td><td>ISX_DEFAULTCOMPONENT45</td><td>MouseRadarSettingsForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\MouseRadarSettingsForm.xml</td><td>1</td><td/></row>
-		<row><td>mousescanner.xml</td><td>ISX_DEFAULTCOMPONENT46</td><td>MouseScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\MouseScanner.xml</td><td>1</td><td/></row>
-		<row><td>mousescanner2.xml</td><td>ISX_DEFAULTCOMPONENT46</td><td>MouseScanner2.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\MouseScanner2.xml</td><td>1</td><td/></row>
+		<row><td>menus.dll</td><td>Menus.dll</td><td>Menus.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Menus\Menus.dll</td><td>1</td><td/></row>
+		<row><td>mousegridsettingsform.xml</td><td>ISX_DEFAULTCOMPONENT46</td><td>MouseGridSettingsForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\MouseGridSettingsForm.xml</td><td>1</td><td/></row>
+		<row><td>mousescanner.xml</td><td>ISX_DEFAULTCOMPONENT48</td><td>MouseScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\MouseScanner.xml</td><td>1</td><td/></row>
 		<row><td>mswordagent.dll</td><td>MSWordAgent.dll</td><td>MSWordAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\MSWordAgent\MSWordAgent.dll</td><td>1</td><td/></row>
-		<row><td>mswordcontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT27</td><td>MSWordContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\MSWordAgent\MSWordContextMenu.xml</td><td>1</td><td/></row>
-		<row><td>mswordcontextmenuiconsonly.x</td><td>ISX_DEFAULTCOMPONENT27</td><td>MSWordContextMenuIconsOnly.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\MSWordAgent\MSWordContextMenuIconsOnly.xml</td><td>1</td><td/></row>
-		<row><td>mutescreensettingsform.xml</td><td>ISX_DEFAULTCOMPONENT45</td><td>MuteScreenSettingsForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\MuteScreenSettingsForm.xml</td><td>1</td><td/></row>
+		<row><td>mswordcontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT25</td><td>MSWordContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\MSWordAgent\MSWordContextMenu.xml</td><td>1</td><td/></row>
 		<row><td>newfileagent.dll</td><td>NewFileAgent.dll</td><td>NewFileAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\NewFileAgent\NewFileAgent.dll</td><td>1</td><td/></row>
-		<row><td>newfilecontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT36</td><td>NewFileContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\NewFileAgent\NewFileContextMenu.xml</td><td>1</td><td/></row>
 		<row><td>notepadagent.dll</td><td>NotepadAgent.dll</td><td>NotepadAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\NotepadAgent\NotepadAgent.dll</td><td>1</td><td/></row>
-		<row><td>notepadcontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT28</td><td>NotepadContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\NotepadAgent\NotepadContextMenu.xml</td><td>1</td><td/></row>
-		<row><td>notepadcontextmenuiconsonly.</td><td>ISX_DEFAULTCOMPONENT28</td><td>NotepadContextMenuIconsOnly.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\NotepadAgent\NotepadContextMenuIconsOnly.xml</td><td>1</td><td/></row>
-		<row><td>numbersscanner.xml</td><td>ISX_DEFAULTCOMPONENT46</td><td>NumbersScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\NumbersScanner.xml</td><td>1</td><td/></row>
+		<row><td>notepadcontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT26</td><td>NotepadContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\NotepadAgent\NotepadContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>numbersscanner.xml</td><td>ISX_DEFAULTCOMPONENT48</td><td>NumbersScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\NumbersScanner.xml</td><td>1</td><td/></row>
 		<row><td>opencv_calib3d249.dll</td><td>opencv_calib3d249.dll</td><td>opencv_calib3d249.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\opencv_calib3d249.dll</td><td>1</td><td/></row>
 		<row><td>opencv_calib3d249d.dll</td><td>opencv_calib3d249d.dll</td><td>opencv_calib3d249d.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\opencv_calib3d249d.dll</td><td>1</td><td/></row>
 		<row><td>opencv_contrib249.dll</td><td>opencv_contrib249.dll</td><td>opencv_contrib249.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\opencv_contrib249.dll</td><td>1</td><td/></row>
@@ -2399,91 +2390,100 @@
 		<row><td>opencv_video249d.dll</td><td>opencv_video249d.dll</td><td>opencv_video249d.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\opencv_video249d.dll</td><td>1</td><td/></row>
 		<row><td>opencv_videostab249.dll</td><td>opencv_videostab249.dll</td><td>opencv_videostab249.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\opencv_videostab249.dll</td><td>1</td><td/></row>
 		<row><td>opencv_videostab249d.dll</td><td>opencv_videostab249d.dll</td><td>opencv_videostab249d.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\opencv_videostab249d.dll</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml</td><td>ISX_DEFAULTCOMPONENT18</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\ACATAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml1</td><td>ISX_DEFAULTCOMPONENT19</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\AcrobatReaderAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml10</td><td>ISX_DEFAULTCOMPONENT28</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\NotepadAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml11</td><td>ISX_DEFAULTCOMPONENT29</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\UnsupportedAppAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml12</td><td>ISX_DEFAULTCOMPONENT30</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\WordpadAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml13</td><td>ISX_DEFAULTCOMPONENT32</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\AbbreviationsAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml14</td><td>ISX_DEFAULTCOMPONENT33</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\FileBrowserAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml15</td><td>ISX_DEFAULTCOMPONENT34</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LaunchAppAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml16</td><td>ISX_DEFAULTCOMPONENT35</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml17</td><td>ISX_DEFAULTCOMPONENT36</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\NewFileAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml18</td><td>ISX_DEFAULTCOMPONENT37</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\SwitchWindowsAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml19</td><td>ISX_DEFAULTCOMPONENT38</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\VolumeSettingsAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml2</td><td>ISX_DEFAULTCOMPONENT20</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\ChromeBrowserAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml20</td><td>ISX_DEFAULTCOMPONENT44</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\ContextMenus\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml21</td><td>ISX_DEFAULTCOMPONENT45</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml22</td><td>ISX_DEFAULTCOMPONENT46</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml3</td><td>ISX_DEFAULTCOMPONENT21</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\DialogControlAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml4</td><td>ISX_DEFAULTCOMPONENT22</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\DLLHostAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml5</td><td>ISX_DEFAULTCOMPONENT23</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\EudoraAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml6</td><td>ISX_DEFAULTCOMPONENT24</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\FireFoxAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml7</td><td>ISX_DEFAULTCOMPONENT25</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\InternetExplorerAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml8</td><td>ISX_DEFAULTCOMPONENT26</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\MenuControlAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>panelconfigmap.xml9</td><td>ISX_DEFAULTCOMPONENT27</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\MSWordAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
-		<row><td>photoviewerrotatemenu.xml</td><td>ISX_DEFAULTCOMPONENT22</td><td>PhotoViewerRotateMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\DLLHostAgent\PhotoViewerRotateMenu.xml</td><td>1</td><td/></row>
-		<row><td>photoviewerrotatemenuiconson</td><td>ISX_DEFAULTCOMPONENT22</td><td>PhotoViewerRotateMenuIconsOnly.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\DLLHostAgent\PhotoViewerRotateMenuIconsOnly.xml</td><td>1</td><td/></row>
-		<row><td>photoviewerzoommenu.xml</td><td>ISX_DEFAULTCOMPONENT22</td><td>PhotoViewerZoomMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\DLLHostAgent\PhotoViewerZoomMenu.xml</td><td>1</td><td/></row>
-		<row><td>photoviewerzoommenuiconsonly</td><td>ISX_DEFAULTCOMPONENT22</td><td>PhotoViewerZoomMenuIconsOnly.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\DLLHostAgent\PhotoViewerZoomMenuIconsOnly.xml</td><td>1</td><td/></row>
-		<row><td>preferredpanelconfig.xml</td><td>ISX_DEFAULTCOMPONENT51</td><td>PreferredPanelConfig.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\Users\Default\PreferredPanelConfig.xml</td><td>1</td><td/></row>
-		<row><td>preferredpanelconfig.xml1</td><td>ISX_DEFAULTCOMPONENT53</td><td>PreferredPanelConfig.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\Users\Default\Profiles\Talk\PreferredPanelConfig.xml</td><td>1</td><td/></row>
+		<row><td>outlookaddressbookcontextmen</td><td>ISX_DEFAULTCOMPONENT27</td><td>OutlookAddressBookContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\OutlookAgent\OutlookAddressBookContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>outlookagent.dll</td><td>OutlookAgent.dll</td><td>OutlookAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\OutlookAgent\OutlookAgent.dll</td><td>1</td><td/></row>
+		<row><td>outlookbrowseemailcontextmen</td><td>ISX_DEFAULTCOMPONENT27</td><td>OutlookBrowseEmailContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\OutlookAgent\OutlookBrowseEmailContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>outlookcontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT27</td><td>OutlookContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\OutlookAgent\OutlookContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>outlookemailactioncontextmen</td><td>ISX_DEFAULTCOMPONENT27</td><td>OutlookEmailActionContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\OutlookAgent\OutlookEmailActionContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>outlookmailboxescontextmenu.</td><td>ISX_DEFAULTCOMPONENT27</td><td>OutlookMailBoxesContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\OutlookAgent\OutlookMailBoxesContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>outlooknewemailcontextmenu.x</td><td>ISX_DEFAULTCOMPONENT27</td><td>OutlookNewEmailContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\OutlookAgent\OutlookNewEmailContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>outlookopenappointmentcontex</td><td>ISX_DEFAULTCOMPONENT27</td><td>OutlookOpenAppointmentContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\OutlookAgent\OutlookOpenAppointmentContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>outlookopencontactcontextmen</td><td>ISX_DEFAULTCOMPONENT27</td><td>OutlookOpenContactContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\OutlookAgent\OutlookOpenContactContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>outlookopennotecontextmenu.x</td><td>ISX_DEFAULTCOMPONENT27</td><td>OutlookOpenNoteContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\OutlookAgent\OutlookOpenNoteContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>outlookopentaskcontextmenu.x</td><td>ISX_DEFAULTCOMPONENT27</td><td>OutlookOpenTaskContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\OutlookAgent\OutlookOpenTaskContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml</td><td>ISX_DEFAULTCOMPONENT16</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\AcrobatReaderAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml1</td><td>ISX_DEFAULTCOMPONENT17</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\ChromeBrowserAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml10</td><td>ISX_DEFAULTCOMPONENT26</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\NotepadAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml11</td><td>ISX_DEFAULTCOMPONENT27</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\OutlookAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml12</td><td>ISX_DEFAULTCOMPONENT28</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\TalkWindowAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml13</td><td>ISX_DEFAULTCOMPONENT29</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\UnsupportedAppAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml14</td><td>ISX_DEFAULTCOMPONENT30</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\WindowsExplorerAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml15</td><td>ISX_DEFAULTCOMPONENT31</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\WordpadAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml16</td><td>ISX_DEFAULTCOMPONENT33</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\AbbreviationsAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml17</td><td>ISX_DEFAULTCOMPONENT34</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\FileBrowserAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml18</td><td>ISX_DEFAULTCOMPONENT35</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LaunchAppAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml19</td><td>ISX_DEFAULTCOMPONENT36</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\LectureManagerAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml2</td><td>ISX_DEFAULTCOMPONENT18</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\DialogControlAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml20</td><td>ISX_DEFAULTCOMPONENT37</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\NewFileAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml21</td><td>ISX_DEFAULTCOMPONENT38</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\PhraseSpeakAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml22</td><td>ISX_DEFAULTCOMPONENT39</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\SwitchWindowsAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml23</td><td>ISX_DEFAULTCOMPONENT40</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\VolumeSettingsAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml24</td><td>ISX_DEFAULTCOMPONENT46</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml25</td><td>ISX_DEFAULTCOMPONENT47</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Menus\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml26</td><td>ISX_DEFAULTCOMPONENT48</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml3</td><td>ISX_DEFAULTCOMPONENT19</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\DLLHostAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml4</td><td>ISX_DEFAULTCOMPONENT20</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\FireFoxAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml5</td><td>ISX_DEFAULTCOMPONENT21</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\FoxitReaderAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml6</td><td>ISX_DEFAULTCOMPONENT22</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\InternetExplorerAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml7</td><td>ISX_DEFAULTCOMPONENT23</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\MediaPlayerAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml8</td><td>ISX_DEFAULTCOMPONENT24</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\MenuControlAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>panelconfigmap.xml9</td><td>ISX_DEFAULTCOMPONENT25</td><td>PanelConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\MSWordAgent\PanelConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>photoviewerrotatemenu.xml</td><td>ISX_DEFAULTCOMPONENT19</td><td>PhotoViewerRotateMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\DLLHostAgent\PhotoViewerRotateMenu.xml</td><td>1</td><td/></row>
+		<row><td>photoviewerzoommenu.xml</td><td>ISX_DEFAULTCOMPONENT19</td><td>PhotoViewerZoomMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\DLLHostAgent\PhotoViewerZoomMenu.xml</td><td>1</td><td/></row>
+		<row><td>phrasespeakagent.dll</td><td>PhraseSpeakAgent.dll</td><td>PhraseSpeakAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\PhraseSpeakAgent\PhraseSpeakAgent.dll</td><td>1</td><td/></row>
+		<row><td>phrasespeakscanner.xml</td><td>ISX_DEFAULTCOMPONENT38</td><td>PhraseSpeakScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\PhraseSpeakAgent\PhraseSpeakScanner.xml</td><td>1</td><td/></row>
+		<row><td>preferredpanelconfig.xml</td><td>ISX_DEFAULTCOMPONENT53</td><td>PreferredPanelConfig.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\Users\ACAT\PreferredPanelConfig.xml</td><td>1</td><td/></row>
 		<row><td>presage_0.9.1_32bit_setup.ex</td><td>presage_0.9.1_32bit_setup.exe</td><td>presage-0.9.1-32bit-setup.exe</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\presage-0.9.1-32bit-setup.exe</td><td>1</td><td/></row>
+		<row><td>presageinstaller.exe</td><td>PresageInstaller.exe</td><td>PresageInstaller.exe</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\PresageInstaller.exe</td><td>1</td><td/></row>
 		<row><td>presagewordpredictor.dll</td><td>PresageWordPredictor.dll</td><td>PresageWordPredictor.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\WordPredictors\Presage\PresageWordPredictor.dll</td><td>1</td><td/></row>
-		<row><td>punctuationsscanner.xml</td><td>ISX_DEFAULTCOMPONENT46</td><td>PunctuationsScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\PunctuationsScanner.xml</td><td>1</td><td/></row>
-		<row><td>resizescannerform.xml</td><td>ISX_DEFAULTCOMPONENT45</td><td>ResizeScannerForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\ResizeScannerForm.xml</td><td>1</td><td/></row>
+		<row><td>punctuationsscanner.xml</td><td>ISX_DEFAULTCOMPONENT48</td><td>PunctuationsScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\PunctuationsScanner.xml</td><td>1</td><td/></row>
+		<row><td>resizescannerform.xml</td><td>ISX_DEFAULTCOMPONENT46</td><td>ResizeScannerForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\ResizeScannerForm.xml</td><td>1</td><td/></row>
 		<row><td>sapiengine.dll</td><td>SAPIEngine.dll</td><td>SAPIEngine.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\TTSEngines\SAPIEngine\SAPIEngine.dll</td><td>1</td><td/></row>
-		<row><td>sapipronunciations.xml</td><td>ISX_DEFAULTCOMPONENT51</td><td>SAPIPronunciations.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\Users\Default\SAPIPronunciations.xml</td><td>1</td><td/></row>
+		<row><td>sapipronunciations.xml</td><td>ISX_DEFAULTCOMPONENT53</td><td>SAPIPronunciations.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\Users\ACAT\SAPIPronunciations.xml</td><td>1</td><td/></row>
+		<row><td>scannerbutton.png</td><td>ISX_DEFAULTCOMPONENT8</td><td>Scannerbutton.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\Default\Scannerbutton.png</td><td>1</td><td/></row>
+		<row><td>scannerbuttoncolorcoded.png</td><td>ISX_DEFAULTCOMPONENT8</td><td>ScannerButtonColorCoded.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\Default\ScannerButtonColorCoded.png</td><td>1</td><td/></row>
+		<row><td>scannerbuttoncolorcoded1.png</td><td>ISX_DEFAULTCOMPONENT8</td><td>ScannerButtonColorCoded1.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\Default\ScannerButtonColorCoded1.png</td><td>1</td><td/></row>
+		<row><td>scannerbuttoncolorcoded2.png</td><td>ISX_DEFAULTCOMPONENT8</td><td>ScannerButtonColorCoded2.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\Default\ScannerButtonColorCoded2.png</td><td>1</td><td/></row>
 		<row><td>scanners.dll</td><td>Scanners.dll</td><td>Scanners.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\Scanners.dll</td><td>1</td><td/></row>
-		<row><td>scannersettingsform.xml</td><td>ISX_DEFAULTCOMPONENT45</td><td>ScannerSettingsForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\ScannerSettingsForm.xml</td><td>1</td><td/></row>
-		<row><td>settings.xml</td><td>ISX_DEFAULTCOMPONENT53</td><td>Settings.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\Users\Default\Profiles\Talk\Settings.xml</td><td>1</td><td/></row>
-		<row><td>settingsmenu.xml</td><td>ISX_DEFAULTCOMPONENT44</td><td>SettingsMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\ContextMenus\SettingsMenu.xml</td><td>1</td><td/></row>
-		<row><td>simplecontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT44</td><td>SimpleContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\ContextMenus\SimpleContextMenu.xml</td><td>1</td><td/></row>
-		<row><td>simplecontextmenu2.xml</td><td>ISX_DEFAULTCOMPONENT44</td><td>SimpleContextMenu2.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\ContextMenus\SimpleContextMenu2.xml</td><td>1</td><td/></row>
-		<row><td>simplecontextmenuiconsonly.x</td><td>ISX_DEFAULTCOMPONENT44</td><td>SimpleContextMenuIconsOnly.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\ContextMenus\SimpleContextMenuIconsOnly.xml</td><td>1</td><td/></row>
-		<row><td>simplecontextmenuiconsonly2.</td><td>ISX_DEFAULTCOMPONENT44</td><td>SimpleContextMenuIconsOnly2.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\ContextMenus\SimpleContextMenuIconsOnly2.xml</td><td>1</td><td/></row>
-		<row><td>skin.xml</td><td>ISX_DEFAULTCOMPONENT7</td><td>Skin.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\BlackWhite\Skin.xml</td><td>1</td><td/></row>
-		<row><td>skin.xml1</td><td>ISX_DEFAULTCOMPONENT8</td><td>Skin.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\BlackYellow\Skin.xml</td><td>1</td><td/></row>
-		<row><td>skin.xml2</td><td>ISX_DEFAULTCOMPONENT9</td><td>Skin.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\GreenWhite\Skin.xml</td><td>1</td><td/></row>
-		<row><td>skin.xml3</td><td>ISX_DEFAULTCOMPONENT10</td><td>Skin.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\PurpleWhite\Skin.xml</td><td>1</td><td/></row>
+		<row><td>scannersettingsform.xml</td><td>ISX_DEFAULTCOMPONENT46</td><td>ScannerSettingsForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\ScannerSettingsForm.xml</td><td>1</td><td/></row>
+		<row><td>screenlockform.xml</td><td>ISX_DEFAULTCOMPONENT46</td><td>ScreenLockForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\ScreenLockForm.xml</td><td>1</td><td/></row>
+		<row><td>screenlocksettingsform.xml</td><td>ISX_DEFAULTCOMPONENT46</td><td>ScreenLockSettingsForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\ScreenLockSettingsForm.xml</td><td>1</td><td/></row>
+		<row><td>settingsmenu.xml</td><td>ISX_DEFAULTCOMPONENT47</td><td>SettingsMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Menus\SettingsMenu.xml</td><td>1</td><td/></row>
+		<row><td>shape_predictor_68_face_land</td><td>ISX_DEFAULTCOMPONENT56</td><td>shape_predictor_68_face_landmarks.dat</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\shape_predictor_68_face_landmarks.dat</td><td>1</td><td/></row>
+		<row><td>skin.xml</td><td>ISX_DEFAULTCOMPONENT8</td><td>Skin.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\Default\Skin.xml</td><td>1</td><td/></row>
 		<row><td>spellcheck.dll</td><td>SpellCheck.dll</td><td>SpellCheck.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\SpellCheckers\SpellCheck\SpellCheck.dll</td><td>1</td><td/></row>
-		<row><td>spellcheck.xml</td><td>ISX_DEFAULTCOMPONENT51</td><td>SpellCheck.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\Users\Default\SpellCheck.xml</td><td>1</td><td/></row>
-		<row><td>splashscreenimage.png</td><td>ISX_DEFAULTCOMPONENT5</td><td>SplashScreenImage.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Images\SplashScreenImage.png</td><td>1</td><td/></row>
-		<row><td>switchconfigmap.xml</td><td>ISX_DEFAULTCOMPONENT51</td><td>SwitchConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\Users\Default\SwitchConfigMap.xml</td><td>1</td><td/></row>
+		<row><td>spellcheck.xml</td><td>ISX_DEFAULTCOMPONENT53</td><td>SpellCheck.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\Users\ACAT\SpellCheck.xml</td><td>1</td><td/></row>
+		<row><td>splashscreenimage.png</td><td>ISX_DEFAULTCOMPONENT6</td><td>SplashScreenImage.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Images\SplashScreenImage.png</td><td>1</td><td/></row>
+		<row><td>switchconfigmap.xml</td><td>ISX_DEFAULTCOMPONENT53</td><td>SwitchConfigMap.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Install\Users\ACAT\SwitchConfigMap.xml</td><td>1</td><td/></row>
 		<row><td>switchwindowsagent.dll</td><td>SwitchWindowsAgent.dll</td><td>SwitchWindowsAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\SwitchWindowsAgent\SwitchWindowsAgent.dll</td><td>1</td><td/></row>
-		<row><td>switchwindowsscanner.xml</td><td>ISX_DEFAULTCOMPONENT37</td><td>SwitchWindowsScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\SwitchWindowsAgent\SwitchWindowsScanner.xml</td><td>1</td><td/></row>
-		<row><td>talkwindowcontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT18</td><td>TalkWindowContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\ACATAgent\TalkWindowContextMenu.xml</td><td>1</td><td/></row>
-		<row><td>talkwindowform.xml</td><td>ISX_DEFAULTCOMPONENT45</td><td>TalkWindowForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\TalkWindowForm.xml</td><td>1</td><td/></row>
-		<row><td>talkwindowzoommenu.xml</td><td>ISX_DEFAULTCOMPONENT18</td><td>TalkWindowZoomMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\ACATAgent\TalkWindowZoomMenu.xml</td><td>1</td><td/></row>
-		<row><td>taskswitchdefaulticon.bmp</td><td>ISX_DEFAULTCOMPONENT5</td><td>taskSwitchdefaultIcon.bmp</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Images\taskSwitchdefaultIcon.bmp</td><td>1</td><td/></row>
-		<row><td>taskswitcherform.xml</td><td>ISX_DEFAULTCOMPONENT45</td><td>TaskSwitcherForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\TaskSwitcherForm.xml</td><td>1</td><td/></row>
-		<row><td>timeddialogform.xml</td><td>ISX_DEFAULTCOMPONENT45</td><td>TimedDialogForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\TimedDialogForm.xml</td><td>1</td><td/></row>
+		<row><td>switchwindowsscanner.xml</td><td>ISX_DEFAULTCOMPONENT39</td><td>SwitchWindowsScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\SwitchWindowsAgent\SwitchWindowsScanner.xml</td><td>1</td><td/></row>
+		<row><td>talkapplicationscanneralphab</td><td>ISX_DEFAULTCOMPONENT48</td><td>TalkApplicationScannerAlphabetical.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\TalkApplicationScannerAlphabetical.xml</td><td>1</td><td/></row>
+		<row><td>talkapplicationscannerqwerty</td><td>ISX_DEFAULTCOMPONENT48</td><td>TalkApplicationScannerQwerty.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\TalkApplicationScannerQwerty.xml</td><td>1</td><td/></row>
+		<row><td>talkwindowagent.dll</td><td>TalkWindowAgent.dll</td><td>TalkWindowAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\TalkWindowAgent\TalkWindowAgent.dll</td><td>1</td><td/></row>
+		<row><td>talkwindowcontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT28</td><td>TalkWindowContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\TalkWindowAgent\TalkWindowContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>talkwindowform.xml</td><td>ISX_DEFAULTCOMPONENT46</td><td>TalkWindowForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\TalkWindowForm.xml</td><td>1</td><td/></row>
+		<row><td>talkwindowzoommenu.xml</td><td>ISX_DEFAULTCOMPONENT28</td><td>TalkWindowZoomMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\TalkWindowAgent\TalkWindowZoomMenu.xml</td><td>1</td><td/></row>
+		<row><td>taskswitchdefaulticon.bmp</td><td>ISX_DEFAULTCOMPONENT6</td><td>taskSwitchdefaultIcon.bmp</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Images\taskSwitchdefaultIcon.bmp</td><td>1</td><td/></row>
+		<row><td>texttospeechsettingsform.xml</td><td>ISX_DEFAULTCOMPONENT46</td><td>TextToSpeechSettingsForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\TextToSpeechSettingsForm.xml</td><td>1</td><td/></row>
+		<row><td>timeddialogform.xml</td><td>ISX_DEFAULTCOMPONENT46</td><td>TimedDialogForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\TimedDialogForm.xml</td><td>1</td><td/></row>
+		<row><td>toolsmenu.xml</td><td>ISX_DEFAULTCOMPONENT47</td><td>ToolsMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Menus\ToolsMenu.xml</td><td>1</td><td/></row>
 		<row><td>unsupportedappagent.dll</td><td>UnsupportedAppAgent.dll</td><td>UnsupportedAppAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\UnsupportedAppAgent\UnsupportedAppAgent.dll</td><td>1</td><td/></row>
 		<row><td>unsupportedappcontextmenu.xm</td><td>ISX_DEFAULTCOMPONENT29</td><td>UnsupportedAppContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\UnsupportedAppAgent\UnsupportedAppContextMenu.xml</td><td>1</td><td/></row>
-		<row><td>voicesettingsform.xml</td><td>ISX_DEFAULTCOMPONENT45</td><td>VoiceSettingsForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\VoiceSettingsForm.xml</td><td>1</td><td/></row>
 		<row><td>volumesettingsagent.dll</td><td>VolumeSettingsAgent.dll</td><td>VolumeSettingsAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\VolumeSettingsAgent\VolumeSettingsAgent.dll</td><td>1</td><td/></row>
-		<row><td>volumesettingsscanner.xml</td><td>ISX_DEFAULTCOMPONENT38</td><td>VolumeSettingsScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\VolumeSettingsAgent\VolumeSettingsScanner.xml</td><td>1</td><td/></row>
-		<row><td>windowmoveresizescannerform.</td><td>ISX_DEFAULTCOMPONENT45</td><td>WindowMoveResizeScannerForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\WindowMoveResizeScannerForm.xml</td><td>1</td><td/></row>
-		<row><td>windowpossizecontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT44</td><td>WindowPosSizeContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\ContextMenus\WindowPosSizeContextMenu.xml</td><td>1</td><td/></row>
-		<row><td>windowsphotoviewercontextmen</td><td>ISX_DEFAULTCOMPONENT22</td><td>WindowsPhotoViewerContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\DLLHostAgent\WindowsPhotoViewerContextMenu.xml</td><td>1</td><td/></row>
-		<row><td>windowsphotoviewercontextmen1</td><td>ISX_DEFAULTCOMPONENT22</td><td>WindowsPhotoViewerContextMenuIconsOnly.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\DLLHostAgent\WindowsPhotoViewerContextMenuIconsOnly.xml</td><td>1</td><td/></row>
-		<row><td>wordlisthighlight.png</td><td>ISX_DEFAULTCOMPONENT7</td><td>wordlistHighlight.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\BlackWhite\wordlistHighlight.png</td><td>1</td><td/></row>
-		<row><td>wordlisthighlight.png1</td><td>ISX_DEFAULTCOMPONENT8</td><td>wordlistHighlight.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\BlackYellow\wordlistHighlight.png</td><td>1</td><td/></row>
-		<row><td>wordlisthighlight.png2</td><td>ISX_DEFAULTCOMPONENT9</td><td>wordlistHighlight.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\GreenWhite\wordlistHighlight.png</td><td>1</td><td/></row>
-		<row><td>wordlisthighlight.png3</td><td>ISX_DEFAULTCOMPONENT10</td><td>wordlistHighlight.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\PurpleWhite\wordlistHighlight.png</td><td>1</td><td/></row>
-		<row><td>wordlistnormal.png</td><td>ISX_DEFAULTCOMPONENT7</td><td>wordlistNormal.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\BlackWhite\wordlistNormal.png</td><td>1</td><td/></row>
-		<row><td>wordlistnormal.png1</td><td>ISX_DEFAULTCOMPONENT8</td><td>wordlistNormal.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\BlackYellow\wordlistNormal.png</td><td>1</td><td/></row>
-		<row><td>wordlistnormal.png2</td><td>ISX_DEFAULTCOMPONENT9</td><td>wordListNormal.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\GreenWhite\wordListNormal.png</td><td>1</td><td/></row>
-		<row><td>wordlistnormal.png3</td><td>ISX_DEFAULTCOMPONENT10</td><td>wordListNormal.png</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Assets\Skins\PurpleWhite\wordListNormal.png</td><td>1</td><td/></row>
+		<row><td>volumesettingsscanner.xml</td><td>ISX_DEFAULTCOMPONENT40</td><td>VolumeSettingsScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\FunctionalAgents\VolumeSettingsAgent\VolumeSettingsScanner.xml</td><td>1</td><td/></row>
+		<row><td>windowmoveresizescannerform.</td><td>ISX_DEFAULTCOMPONENT46</td><td>WindowMoveResizeScannerForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\WindowMoveResizeScannerForm.xml</td><td>1</td><td/></row>
+		<row><td>windowpossizemenu.xml</td><td>ISX_DEFAULTCOMPONENT47</td><td>WindowPosSizeMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Menus\WindowPosSizeMenu.xml</td><td>1</td><td/></row>
+		<row><td>windowsexploreragent.dll</td><td>WindowsExplorerAgent.dll</td><td>WindowsExplorerAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\WindowsExplorerAgent\WindowsExplorerAgent.dll</td><td>1</td><td/></row>
+		<row><td>windowsexplorerclipboardmenu</td><td>ISX_DEFAULTCOMPONENT30</td><td>WindowsExplorerClipboardMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\WindowsExplorerAgent\WindowsExplorerClipboardMenu.xml</td><td>1</td><td/></row>
+		<row><td>windowsexplorercontextmenu.x</td><td>ISX_DEFAULTCOMPONENT30</td><td>WindowsExplorerContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\WindowsExplorerAgent\WindowsExplorerContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>windowsexplorerfileopsmenu.x</td><td>ISX_DEFAULTCOMPONENT30</td><td>WindowsExplorerFileOpsMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\WindowsExplorerAgent\WindowsExplorerFileOpsMenu.xml</td><td>1</td><td/></row>
+		<row><td>windowsexplorernavigatemenu.</td><td>ISX_DEFAULTCOMPONENT30</td><td>WindowsExplorerNavigateMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\WindowsExplorerAgent\WindowsExplorerNavigateMenu.xml</td><td>1</td><td/></row>
+		<row><td>windowsphotoviewercontextmen</td><td>ISX_DEFAULTCOMPONENT19</td><td>WindowsPhotoViewerContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\DLLHostAgent\WindowsPhotoViewerContextMenu.xml</td><td>1</td><td/></row>
 		<row><td>wordpadagent.dll</td><td>WordpadAgent.dll</td><td>WordpadAgent.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\WordpadAgent\WordpadAgent.dll</td><td>1</td><td/></row>
-		<row><td>wordpadcontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT30</td><td>WordPadContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\WordpadAgent\WordPadContextMenu.xml</td><td>1</td><td/></row>
-		<row><td>wordpadcontextmenuiconsonly.</td><td>ISX_DEFAULTCOMPONENT30</td><td>WordPadContextMenuIconsOnly.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\WordpadAgent\WordPadContextMenuIconsOnly.xml</td><td>1</td><td/></row>
-		<row><td>wordpredictionsettingsform.x</td><td>ISX_DEFAULTCOMPONENT45</td><td>WordPredictionSettingsForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\WordPredictionSettingsForm.xml</td><td>1</td><td/></row>
-		<row><td>wordsplusactuator.dll</td><td>WordsPlusActuator.dll</td><td>WordsPlusActuator.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\Actuators\WordsPlusActuator\WordsPlusActuator.dll</td><td>1</td><td/></row>
-		<row><td>yesnodialogform.xml</td><td>ISX_DEFAULTCOMPONENT45</td><td>YesNoDialogForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\YesNoDialogForm.xml</td><td>1</td><td/></row>
-		<row><td>yesnodialogform2.xml</td><td>ISX_DEFAULTCOMPONENT45</td><td>YesNoDialogForm2.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\YesNoDialogForm2.xml</td><td>1</td><td/></row>
-		<row><td>yesnoscanner.xml</td><td>ISX_DEFAULTCOMPONENT44</td><td>YesNoScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\ContextMenus\YesNoScanner.xml</td><td>1</td><td/></row>
-		<row><td>yesnoscanner2.xml</td><td>ISX_DEFAULTCOMPONENT44</td><td>YesNoScanner2.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\ContextMenus\YesNoScanner2.xml</td><td>1</td><td/></row>
+		<row><td>wordpadcontextmenu.xml</td><td>ISX_DEFAULTCOMPONENT31</td><td>WordPadContextMenu.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\AppAgents\WordpadAgent\WordPadContextMenu.xml</td><td>1</td><td/></row>
+		<row><td>wordpredictionsettingsform.x</td><td>ISX_DEFAULTCOMPONENT46</td><td>WordPredictionSettingsForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\WordPredictionSettingsForm.xml</td><td>1</td><td/></row>
+		<row><td>yesnodialogform.xml</td><td>ISX_DEFAULTCOMPONENT46</td><td>YesNoDialogForm.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Dialogs\YesNoDialogForm.xml</td><td>1</td><td/></row>
+		<row><td>yesnoscanner.xml</td><td>ISX_DEFAULTCOMPONENT48</td><td>YesNoScanner.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Extensions\Default\UI\Scanners\YesNoScanner.xml</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2629,141 +2629,148 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
-		<row><td>ACATAgent.dll</td><td/><td/><td>_61C1DB3C_4C21_4636_91F3_1815D6CA94B5_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ACATApp.exe</td><td/><td/><td>_E11D3C5C_5678_431D_9339_75596E1832B3_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ACATCleanup.exe</td><td/><td/><td>_F13175DE_B49B_4228_81CB_D6308CA4E2E5_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ACATCore.dll</td><td/><td/><td>_9DD5905E_A3E7_41DC_958C_096259B1BCF8_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ACATExtension.dll</td><td/><td/><td>_6B97F24B_8BA8_4A20_8E6E_6E731F339990_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ACATTryout.exe</td><td/><td/><td>_C054E50A_122A_4985_9FD4_6371674833B8_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>AbbreviationsAgent.dll</td><td/><td/><td>_73C25A9A_58D5_4416_83DB_D46538226FB2_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>AcrobatReaderAgent.dll</td><td/><td/><td>_20064277_CA47_4448_9278_DB75FB3D6802_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>CameraActuator.dll</td><td/><td/><td>_140E42E5_6481_430E_985B_CA710C8FB77F_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ChromeBrowserAgent.dll</td><td/><td/><td>_948BAFD7_7B1D_4BF3_BE2C_3DB8650EDBE1_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ContextMenus.dll</td><td/><td/><td>_7CFED167_BDA0_458B_B0BC_5A535359E33C_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DLLHostAgent.dll</td><td/><td/><td>_8AAD3C13_9C77_41E2_ADD8_165921F907B5_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>DialogControlAgent.dll</td><td/><td/><td>_16B3FC36_4B37_4D3B_80C2_7D6637DCE72D_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Dialogs.dll</td><td/><td/><td>_210DDE8B_1397_4CE6_8D02_6A534CEC4988_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>EudoraAgent.dll</td><td/><td/><td>_71FCDB25_A00E_4B1D_968B_AB38D73BFA5E_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>FileBrowserAgent.dll</td><td/><td/><td>_D42D6646_9FF3_4883_B588_9A05244644EE_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>FireFoxAgent.dll</td><td/><td/><td>_644A427C_D8B0_4B98_AF85_8561E798B1D1_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ACATAgent.dll</td><td/><td/><td>_91CA6A8D_504E_49DD_AD00_85967DB7098E_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ACATApp.exe</td><td/><td/><td>_CE2BB3C8_90AE_469B_BC53_C63FE6E189EB_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ACATCleanup.exe</td><td/><td/><td>_E4CB0C01_D738_46E8_93E0_48B0F914227F_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ACATCore.dll</td><td/><td/><td>_EFDE3EFD_009D_4BD6_BB1F_AC8C3D043AF7_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ACATExtension.dll</td><td/><td/><td>_D4A9D598_4679_4CC8_A93E_E8335891D999_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ACATTalk.exe</td><td/><td/><td>_486B6A23_8B7E_49FB_9D73_154F6E6A4D68_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ACATTryout.exe</td><td/><td/><td>_16A258CD_E042_457F_BEC6_52DF11D180D7_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>AbbreviationsAgent.dll</td><td/><td/><td>_867A5DC5_40FF_422A_ABAF_FB4226C7C3CB_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>AcrobatReaderAgent.dll</td><td/><td/><td>_8A4826CF_3016_427B_AF5E_65E8B3657775_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>CameraActuator.dll</td><td/><td/><td>_292076BA_8ECE_4381_A019_7FE0281D1EC5_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ChromeBrowserAgent.dll</td><td/><td/><td>_4380007B_A190_4C0F_B67D_28B60F683867_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>DLLHostAgent.dll</td><td/><td/><td>_9D648199_2533_448B_AD4B_EFA871A5DF70_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>DialogControlAgent.dll</td><td/><td/><td>_FC09EC66_5536_4F25_9EBF_F9368CC0918C_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Dialogs.dll</td><td/><td/><td>_73931620_0F20_46B5_B344_B5C214EAD56C_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>FileBrowserAgent.dll</td><td/><td/><td>_52294612_1D7F_47F4_B6A1_AD31095DA6FE_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>FireFoxAgent.dll</td><td/><td/><td>_FC2E24BA_6394_49B4_ACE0_D8367A302C34_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>FoxitReaderAgent.dll</td><td/><td/><td>_BF45F7F4_8F9F_424D_B79E_D9EF3FDD82F5_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_46703E99_A08A_45A8_BCCC_0D6F69B50867_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_D83E5B41_98FE_4700_898E_3267E419CCC4_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT10</td><td/><td/><td>_E970B433_7E28_460D_87BD_2ED510A6B749_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT11</td><td/><td/><td>_A51C01C6_5497_416F_AE61_6F1A0C4A0729_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT12</td><td/><td/><td>_FCDE8C31_FAC6_4C9D_BE22_18D6AA40BEB1_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT13</td><td/><td/><td>_F7B05DCF_4128_40D3_B4DF_2076BACA163A_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT14</td><td/><td/><td>_415F8283_E0EB_44D5_8030_E2BC9002E314_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT15</td><td/><td/><td>_E6259E82_F5C9_4152_9D55_1702240534AC_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT16</td><td/><td/><td>_029997C8_44F6_4E05_B864_57EFD76E6A31_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT17</td><td/><td/><td>_9941275D_D163_4EB5_BD65_66D2F0A9C350_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT18</td><td/><td/><td>_8D1C8722_7DAC_4AC4_B9ED_D5B87F309D53_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT19</td><td/><td/><td>_96A864E7_F33F_4F22_A58C_21A515500D74_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT10</td><td/><td/><td>_74FD387C_957F_4F94_AEC3_7852744066E5_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT11</td><td/><td/><td>_AEFA1DF6_B4AA_4778_9BBE_4200FA9CD670_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT12</td><td/><td/><td>_24049224_8291_41D5_9743_B3BABD1CA8B8_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT13</td><td/><td/><td>_680935BF_D35F_449F_B9A7_783ED73167A3_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT14</td><td/><td/><td>_57F63F76_6ED6_4357_B1CE_A364407DB9E3_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT15</td><td/><td/><td>_A63C4765_4FF5_4EFB_A24F_D4DBACBD2C3E_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT16</td><td/><td/><td>_EAE066BA_84FA_4BD9_BC80_A35C22555C98_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT17</td><td/><td/><td>_6E42A0A6_F828_419F_8742_289789AA2BAE_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT18</td><td/><td/><td>_2A4CD465_5F77_4356_ABE7_3B48A1BBA717_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT19</td><td/><td/><td>_CF0F1B97_1507_42FB_8DF2_F11C95FAC182_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_35004063_DD31_475A_9EB1_971BD400D01F_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT20</td><td/><td/><td>_FDA9DF92_71D5_4EA7_B3C2_2BBC39AFF381_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT21</td><td/><td/><td>_F51E9B6C_4843_4D2E_A804_1F6BF4564582_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT22</td><td/><td/><td>_23D14464_962F_4D01_9E1D_16957E43CBDC_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT23</td><td/><td/><td>_E7420F00_98AF_4764_9D7C_557BE92CED33_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT24</td><td/><td/><td>_30E42F00_FA96_48E6_B277_D8B2841EBD7D_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT25</td><td/><td/><td>_80614595_D142_404A_B911_CD583C33A9B4_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT26</td><td/><td/><td>_5FD7134E_A339_4CDF_BB7C_6F7F4651439A_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT27</td><td/><td/><td>_82E9A48B_1330_4640_9EB1_017F5980C3BB_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT28</td><td/><td/><td>_AC797288_7225_4FF3_8194_5F0D694B3AAA_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT29</td><td/><td/><td>_294259A5_DB47_4953_975A_603CD1548EB8_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT3</td><td/><td/><td>_09D90E64_CB7D_4008_B0E0_AB7AD90C1A66_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT30</td><td/><td/><td>_43161C2F_0168_41FC_BEEC_18602493A013_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT31</td><td/><td/><td>_9B96DC3B_A4E7_43B8_A517_3C494DA402AD_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT32</td><td/><td/><td>_2D71F375_7571_43A0_8C91_3065D54BC31C_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT33</td><td/><td/><td>_337EC22C_D441_49F9_8B07_62E31893A8EC_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT34</td><td/><td/><td>_E5487270_0F14_4C2B_B660_3956EB9BF28F_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT35</td><td/><td/><td>_F09B3084_A50F_4F1A_8653_CC73D8F896DD_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT36</td><td/><td/><td>_CED256B4_F614_49E5_A0F3_F1A94DCDA640_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT37</td><td/><td/><td>_81FB0B5C_E766_441C_AB3A_4A63DB26B8BA_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT38</td><td/><td/><td>_94271DD1_8B49_495E_9F6D_A348DDA9080F_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT39</td><td/><td/><td>_47524748_475A_4FEF_B050_43ECCF6FCC6A_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT4</td><td/><td/><td>_662D3FBC_5924_4E14_BC65_070EC7D9AE36_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT40</td><td/><td/><td>_EDDAE544_D8D1_4F49_A517_5E3DAA20BEF8_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT41</td><td/><td/><td>_4CC07B7F_EA09_4D9B_ABD5_783C42BED05B_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT42</td><td/><td/><td>_5189FB74_42F8_4E85_9C80_12AC2D88CD7B_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT43</td><td/><td/><td>_3BD2B56F_6EC3_429A_8E7E_CDD06A8D1702_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT44</td><td/><td/><td>_A38E5716_E9EE_44B5_9D4B_99DDE1DE1E02_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT45</td><td/><td/><td>_F0A931E3_69FC_49E8_B97E_688FE779D2C3_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT46</td><td/><td/><td>_807B6D7F_BA2E_4B33_B65D_0B2EFA393505_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT47</td><td/><td/><td>_8551B7FB_7A22_4340_99F7_FC6D901E823F_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT48</td><td/><td/><td>_76C2F9CF_B294_401E_8527_C1657CBEFBA6_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT49</td><td/><td/><td>_81C745F2_5BA8_4071_A74E_F14DB1397AF9_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT5</td><td/><td/><td>_D3FFB1F1_C5A7_4C9F_B255_A8FFE42294D0_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT50</td><td/><td/><td>_78BF8E57_28DA_43AA_97A9_6666C9019B06_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT51</td><td/><td/><td>_E6BD157A_1DDE_4CFE_BF21_31C5F687086A_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT52</td><td/><td/><td>_E9F67B4C_8431_4556_A65D_948994558362_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT53</td><td/><td/><td>_53315987_D470_4A05_B097_5C8B67618215_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT54</td><td/><td/><td>_FBD7F081_C3BA_4669_A875_3CE655A38D6F_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT55</td><td/><td/><td>_90CAF9D7_4DA4_40B7_BA3A_480542A86FDD_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT56</td><td/><td/><td>_C73F52BB_A8AF_4435_82DF_1CF181253005_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT6</td><td/><td/><td>_AF5AEC45_1A21_444C_88A7_EF4F157768B4_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT7</td><td/><td/><td>_14C1DE18_5FDF_4B32_A261_9357659B2A17_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT8</td><td/><td/><td>_A4CBA904_6C3E_4B04_A886_97312D959B83_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT9</td><td/><td/><td>_0D7672E0_C9CB_4E56_96DA_F604283F7BC2_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>InternetExplorerAgent.dll</td><td/><td/><td>_ECC2E08E_FFAA_4B67_95B7_D91BB74E411E_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>LaunchAppAgent.dll</td><td/><td/><td>_7E126F1F_62A7_4E4A_8D2B_385644FC9F4F_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>LectureManagerAgent.dll</td><td/><td/><td>_6CD8C9C7_7C8F_49F0_A7B3_E27728558664_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>MSWordAgent.dll</td><td/><td/><td>_16DF04D7_E35A_491A_878F_34E3E3798820_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>MenuControlAgent.dll</td><td/><td/><td>_3EA1B828_5A8E_4734_964E_3B47C4078BB3_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>NewFileAgent.dll</td><td/><td/><td>_6B1E4CBE_A8B3_49A2_B668_76A9D9F1E7E2_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>NotepadAgent.dll</td><td/><td/><td>_53091A30_74A8_4E22_B708_5C9F37A722FA_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>PresageWordPredictor.dll</td><td/><td/><td>_0F8B286B_C15E_41F1_B36D_1412BDBD22B4_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>SAPIEngine.dll</td><td/><td/><td>_62EA7D2F_AABC_47C7_A369_1CCDE2A94BA5_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Scanners.dll</td><td/><td/><td>_ED0563DD_2806_4040_A8A7_3D839425571F_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>SpellCheck.dll</td><td/><td/><td>_1702562E_8F0C_4692_B4A8_3AC432FC4171_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>SwitchWindowsAgent.dll</td><td/><td/><td>_5F53E577_020E_4D25_99AF_F461712FB3F3_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>UnsupportedAppAgent.dll</td><td/><td/><td>_F6C548CB_0D27_4444_A20C_D2E5D0FC9222_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>VolumeSettingsAgent.dll</td><td/><td/><td>_D2BA7A4C_55DC_4B0D_9BF3_6654D1142337_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>WordpadAgent.dll</td><td/><td/><td>_3DB417F3_66C2_4F97_8286_34F812D2EBC4_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>WordsPlusActuator.dll</td><td/><td/><td>_7404DE3C_370C_444D_9110_F88334C70415_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>acat_gestures.exe</td><td/><td/><td>_C7C08271_16A1_4045_BAE8_0CFA2062B7B6_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>libinfra.dll</td><td/><td/><td>_B5D37EEF_8B8B_4EF2_83FE_B3F81CDF3B3A_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>libinfra_d.dll</td><td/><td/><td>_7E639D4E_9CE8_4CBA_A8E6_63725ED4F74B_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>libivcp.dll</td><td/><td/><td>_0100673D_4232_4099_8476_F267F174996C_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>libivcp_d.dll</td><td/><td/><td>_CBBB0C1B_A036_444D_A37E_278FC466DF65_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>libpipeline.dll</td><td/><td/><td>_54A70AC0_6847_4393_A224_D1D23744853B_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>libpipeline_d.dll</td><td/><td/><td>_C3F7B82D_90CA_4E90_8386_29FFDD4C4E5C_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_calib3d249.dll</td><td/><td/><td>_9DA3E366_9C4E_49D5_B728_7F9F88DE5BD5_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_calib3d249d.dll</td><td/><td/><td>_32A218AE_E299_4828_8260_C8B00FB555DF_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_contrib249.dll</td><td/><td/><td>_09999C37_1F99_40B4_AFA9_AAD065495577_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_contrib249d.dll</td><td/><td/><td>_1AA3869B_E529_46D6_B92E_90CE35D0D94B_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_core249.dll</td><td/><td/><td>_52348741_C334_4F64_BE5E_22C73C758CFD_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_core249d.dll</td><td/><td/><td>_3D37B2B6_E253_4AAB_87A0_15515ACBBFBF_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_features2d249.dll</td><td/><td/><td>_38BC5B8A_61C8_4236_8174_7BCC01F81DF9_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_features2d249d.dll</td><td/><td/><td>_2E0049C9_EF60_4F19_BD4B_9202BA0F3F98_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_ffmpeg249_64.dll</td><td/><td/><td>_35CE3468_3259_4B9B_848C_D37B88D50F8B_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_flann249.dll</td><td/><td/><td>_F5241639_D342_4BEB_A2F0_00725B7D1635_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_flann249d.dll</td><td/><td/><td>_31ADBCB5_0734_4A92_8108_A9EBBBF211EB_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_gpu249.dll</td><td/><td/><td>_223B46FD_2B3F_4E70_B72C_5F8B39FA2291_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_gpu249d.dll</td><td/><td/><td>_5DBFFEEF_2A2A_4FF1_B2F6_8D4DBACC0FB6_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_highgui249.dll</td><td/><td/><td>_DF3BB2AA_54EC_4151_B6C4_A8EF5B37529E_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_highgui249d.dll</td><td/><td/><td>_3A844BB1_6E6D_4DB8_9C2D_59B3902F6725_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_imgproc249.dll</td><td/><td/><td>_8AEDD779_35F7_4AF2_9DF6_B3109B4C7CF5_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_imgproc249d.dll</td><td/><td/><td>_0239D9EE_CAC2_4537_A223_08E9283F31F1_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_legacy249.dll</td><td/><td/><td>_8C7252DF_38C1_471D_B6C6_5EB43DFF471B_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_legacy249d.dll</td><td/><td/><td>_47EA5A9E_3E25_4769_9858_F30F1889683E_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_ml249.dll</td><td/><td/><td>_91A92852_7989_4001_A3CA_3C79BF3F8281_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_ml249d.dll</td><td/><td/><td>_3B7B973F_08EE_4A7C_B1F6_CBA59B136EF3_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_nonfree249.dll</td><td/><td/><td>_BD554148_B16B_4D5A_85F9_A5BAD99D3039_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_nonfree249d.dll</td><td/><td/><td>_F129D048_C990_4726_96F8_633D4162EB43_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_objdetect249.dll</td><td/><td/><td>_037812B4_678A_41DA_ACE3_6AA4E2890B5C_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_objdetect249d.dll</td><td/><td/><td>_3FDE664A_5ADC_4D48_B0EC_BCD3514F34DA_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_ocl249.dll</td><td/><td/><td>_BEEF0923_F78F_4B2D_97E2_41600BA96A65_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_ocl249d.dll</td><td/><td/><td>_6B0B64D5_6A3E_4B35_A321_BCCBF126ED3C_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_photo249.dll</td><td/><td/><td>_40A275D8_4B55_43E0_B3AB_38493C06A3D8_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_photo249d.dll</td><td/><td/><td>_9000F916_79CB_4A99_9044_2B9078140AE7_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_stitching249.dll</td><td/><td/><td>_8A7FBB33_8EAF_43D4_B5D1_01BA2583121A_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_stitching249d.dll</td><td/><td/><td>_7D7294A9_A209_463F_BA4A_A70F82E09FAD_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_superres249.dll</td><td/><td/><td>_874D1F1D_71C0_4929_B997_65F3D173F502_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_superres249d.dll</td><td/><td/><td>_7D26BA69_6DB4_4223_BF73_96D3492976C1_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_video249.dll</td><td/><td/><td>_E14DD431_ABA2_427E_8558_3BEC38635529_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_video249d.dll</td><td/><td/><td>_ED0FA31E_45C1_4333_BF92_BDF910454536_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_videostab249.dll</td><td/><td/><td>_C4E5331D_CE5B_4882_9060_6D3F51294B48_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>opencv_videostab249d.dll</td><td/><td/><td>_4886A659_03A0_496A_BA0D_70B0212BD358_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>presage_0.9.1_32bit_setup.exe</td><td/><td/><td>_F023A02C_9F08_45A7_9297_30393C394005_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT20</td><td/><td/><td>_C3B63C8B_AE71_4787_BED4_BEDD2D19F5F7_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT21</td><td/><td/><td>_B27234B8_97F9_48E8_9066_E1FAF11F1DC5_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT22</td><td/><td/><td>_45E2EFBF_55FB_4536_9B4C_FBD4B8DFF732_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT23</td><td/><td/><td>_21AA1E6D_6CC1_4B56_AFCB_F8DAED23EA9A_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT24</td><td/><td/><td>_9AA3956B_CC5D_4A85_B17B_5F86BDB5D085_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT25</td><td/><td/><td>_79B6453C_1669_40D3_82ED_B53078ED8AD5_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT26</td><td/><td/><td>_A441E440_D07D_4984_B484_11E65FA842AC_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT27</td><td/><td/><td>_32FD8BA5_730B_4356_9832_28965521C934_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT28</td><td/><td/><td>_E5D25D40_83B9_47F7_A307_D950C3AD262A_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT29</td><td/><td/><td>_368BE885_6E21_4AEC_A10D_7E94A24B595B_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT3</td><td/><td/><td>_A9C4DB51_B355_4EB7_8489_605742C1D353_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT30</td><td/><td/><td>_80B42DD4_2313_47EA_8982_35B6565C8E5B_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT31</td><td/><td/><td>_321D4974_B562_4C14_959B_2B97CCBCE72E_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT32</td><td/><td/><td>_6B0E869E_FABF_4B2D_8BF9_9AE255258B09_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT33</td><td/><td/><td>_3CE52E8B_4C55_459A_B55B_7E826E9ACDA9_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT34</td><td/><td/><td>_59C92753_E034_4810_BC32_009E048CB7C2_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT35</td><td/><td/><td>_D760F0FB_03E3_41CF_A12A_455B0571FF69_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT36</td><td/><td/><td>_DCB6D913_957B_4388_86D4_B8A723F64F74_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT37</td><td/><td/><td>_7E81FBA0_3C99_4D24_9961_59A1B6846103_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT38</td><td/><td/><td>_7D3AEE79_7471_4776_958D_2E6E458E5C02_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT39</td><td/><td/><td>_EACEFFAC_2F29_4027_B011_30A9FE2ADFE7_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT4</td><td/><td/><td>_BF890577_B306_4286_9A53_ACEAC2A1348D_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT40</td><td/><td/><td>_3D44CC40_33D4_4245_8F33_D1E9A6A9F734_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT41</td><td/><td/><td>_B7474E99_29C7_479D_AF71_D92CF668915F_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT42</td><td/><td/><td>_759C819A_8E30_48F4_B06B_E5F4A0052A49_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT43</td><td/><td/><td>_96F78EF9_2B7F_439A_9AD6_B7710F6911F8_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT44</td><td/><td/><td>_91A229C7_3985_44B2_AD7E_B4A63DD9E25A_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT45</td><td/><td/><td>_A38975F0_6066_4EFF_968A_FB67417D7C3F_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT46</td><td/><td/><td>_9E110085_ABC3_44FD_8D80_8987226D967B_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT47</td><td/><td/><td>_69A62967_A9CA_43CC_A319_7DCD8E212644_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT48</td><td/><td/><td>_F0FD4D97_0F71_4C88_8F22_4A2A30C83D1F_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT49</td><td/><td/><td>_2909CBC6_23AD_46DF_95A4_6A2CCEF67F79_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT5</td><td/><td/><td>_70E23BC7_90B6_4AE7_B995_037E887CA401_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT50</td><td/><td/><td>_5D84A7AA_D56D_4EEC_852F_600757ACB641_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT51</td><td/><td/><td>_DFA8B433_D86D_45EC_BB23_17F0BBDB3CEB_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT52</td><td/><td/><td>_6BDDA836_3B53_407C_8968_82DD6A7CF8B9_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT53</td><td/><td/><td>_096887B3_A9A4_4684_B077_651BD87FF0B8_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT54</td><td/><td/><td>_89713F4D_677F_4F3B_B2CC_5A19AEC90078_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT55</td><td/><td/><td>_A6D754F1_C535_4F1D_AAA1_FCB4DEC88E8F_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT56</td><td/><td/><td>_1579402E_3FCA_4BA2_A7E7_3771A55F7E88_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT6</td><td/><td/><td>_78642075_0A0E_4D31_99DC_E3681D115B0B_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT7</td><td/><td/><td>_43188734_72BC_4829_A5E0_386A8F21A97F_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT8</td><td/><td/><td>_CDE957C2_4877_4FCF_864B_3F6E586DDBA8_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT9</td><td/><td/><td>_6D24AA89_D2DF_4152_9BAA_39C11CF2A4FC_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>InternetExplorerAgent.dll</td><td/><td/><td>_03040ED1_9686_40F4_89E9_BB65ADA4831B_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>LaunchAppAgent.dll</td><td/><td/><td>_ACD22635_A5C3_4F42_B9C0_31A07288C3A5_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>LectureManagerAgent.dll</td><td/><td/><td>_78A8581D_02A2_4036_819E_D9444EE75B57_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>MSWordAgent.dll</td><td/><td/><td>_CCF40ABE_B50C_4D3B_9E6E_718DAABA1A0A_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>MediaPlayerAgent.dll</td><td/><td/><td>_7660F4D7_EFC7_4B98_8E9A_BC5DEE2E29EA_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>MenuControlAgent.dll</td><td/><td/><td>_4736569C_712B_4CD7_94B6_53B348B9FD80_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Menus.dll</td><td/><td/><td>_B42CF8B8_2823_4105_AF24_A295FA810F91_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>NewFileAgent.dll</td><td/><td/><td>_BB63D2AE_0249_4D5E_90EC_485DA7536428_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>NotepadAgent.dll</td><td/><td/><td>_149E28C6_B403_4ED4_8463_AF43D24775DB_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>OutlookAgent.dll</td><td/><td/><td>_8B69F506_D1FB_41C4_9061_43BD912A5B49_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>PhraseSpeakAgent.dll</td><td/><td/><td>_C677919D_2FAC_4469_A96F_F8476478E928_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>PresageInstaller.exe</td><td/><td/><td>_B6E7B82B_7763_4CE9_9911_D9A67CF77090_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>PresageWordPredictor.dll</td><td/><td/><td>_CDA708E2_4F05_4676_A5F0_FF70F1D44531_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>SAPIEngine.dll</td><td/><td/><td>_590DE551_378B_430E_90F7_7FE4B9958672_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Scanners.dll</td><td/><td/><td>_20497C0D_406C_4AE5_932E_AECD9137E5DE_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>SpellCheck.dll</td><td/><td/><td>_15EE2EFF_5A44_4694_AC76_A7BD76516F59_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>SwitchWindowsAgent.dll</td><td/><td/><td>_8CCD76AB_690F_4DA9_B600_70DEAB755974_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>TalkWindowAgent.dll</td><td/><td/><td>_0221B623_4D26_4A78_86B2_C96487610D17_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>UnsupportedAppAgent.dll</td><td/><td/><td>_A546C9A5_D52B_42E3_A405_0543F3D24B2F_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>VolumeSettingsAgent.dll</td><td/><td/><td>_36BED7C2_F146_492B_9E78_0EA73CAE4A2D_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>WindowsExplorerAgent.dll</td><td/><td/><td>_262E0865_625E_4D50_8B1D_BC68E698330C_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>WordpadAgent.dll</td><td/><td/><td>_91086FB5_856D_4923_8D57_4EEF48645618_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>acat_gestures.exe</td><td/><td/><td>_B75698EB_BBFC_4619_8366_BF02D3AECCF1_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ivcp_demo_dlib.exe</td><td/><td/><td>_C13EFE73_56DA_403F_B12D_0C3CC0FD7B68_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>libinfra.dll</td><td/><td/><td>_CF4955E4_18C8_4DE5_A7F5_45CD06D98FBD_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>libinfra_d.dll</td><td/><td/><td>_2318E1F7_B404_44FF_9CE5_2EC410A5C255_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>libivcp.dll</td><td/><td/><td>_448432EB_951A_4A73_B848_1D27F2BE69BC_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>libivcp_d.dll</td><td/><td/><td>_1E42837E_B493_4A09_8D21_12A771AEE4B4_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>libpipeline.dll</td><td/><td/><td>_B92EEB3B_3BF9_4E06_9BE2_FCFA76BD09DE_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>libpipeline_d.dll</td><td/><td/><td>_D4D94CC7_63FF_4D87_AC14_EED5D9080D4E_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_calib3d249.dll</td><td/><td/><td>_C8F3347C_6DBC_4CB9_A69D_0C58702D404C_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_calib3d249d.dll</td><td/><td/><td>_72B7447C_519C_454D_A12D_A1F5D14CF123_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_contrib249.dll</td><td/><td/><td>_2BCD61C7_E3AF_4A0A_9739_EEC581E917D5_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_contrib249d.dll</td><td/><td/><td>_182E0821_6C5B_481D_9173_0C910B86373D_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_core249.dll</td><td/><td/><td>_D2ECFA26_830A_4E98_943B_F46B7EC29C75_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_core249d.dll</td><td/><td/><td>_6722A6AC_1DD8_48C5_85CA_431CC0939D5B_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_features2d249.dll</td><td/><td/><td>_CA4A251F_F320_4920_8456_80AA198B830F_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_features2d249d.dll</td><td/><td/><td>_0949327B_4E01_4EE8_82F6_29D3F19C4D90_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_ffmpeg249_64.dll</td><td/><td/><td>_FF65B6DC_E412_43E8_8A20_092AA6F90646_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_flann249.dll</td><td/><td/><td>_2724BFEA_A6FD_4BE9_A1D8_B0454DBED65D_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_flann249d.dll</td><td/><td/><td>_B3061825_D4EE_4BE1_B55C_5679CE37C1A1_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_gpu249.dll</td><td/><td/><td>_E874ABB6_E4A9_4D66_B9F5_4AC091A9D392_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_gpu249d.dll</td><td/><td/><td>_CEDC8425_1CE6_44DF_8704_F2BD7563AFD9_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_highgui249.dll</td><td/><td/><td>_D5FD63B8_2A77_47B8_983A_6C5DCA661E69_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_highgui249d.dll</td><td/><td/><td>_ED704D22_A1A5_4218_91F8_0EDA29698F2E_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_imgproc249.dll</td><td/><td/><td>_FF9AB865_8419_4A87_BB5C_124F6DC672FF_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_imgproc249d.dll</td><td/><td/><td>_2525AF2D_767E_42E0_972C_9A1FAB19E022_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_legacy249.dll</td><td/><td/><td>_3001A207_AED4_4F0B_AF76_7421ECE43640_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_legacy249d.dll</td><td/><td/><td>_FE4BFDDE_DF67_48F5_B7D7_24CB2FADBE99_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_ml249.dll</td><td/><td/><td>_659D871C_A3C0_4FCB_9455_5E87182870E2_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_ml249d.dll</td><td/><td/><td>_2EADE651_8111_4BDA_A923_5925F0741305_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_nonfree249.dll</td><td/><td/><td>_2A06D05A_DF4F_4083_8B71_C14E1FD683D0_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_nonfree249d.dll</td><td/><td/><td>_9FB4E70F_3710_4ACC_B4FD_B05D68766034_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_objdetect249.dll</td><td/><td/><td>_63829CFF_9BB8_47BB_B3BD_56A05A6C26A7_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_objdetect249d.dll</td><td/><td/><td>_5CFB7C54_34C7_4C86_9FD1_998B836093D5_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_ocl249.dll</td><td/><td/><td>_E0D47D81_F50E_4D61_9253_4E7276EDC01A_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_ocl249d.dll</td><td/><td/><td>_BCABC884_33FB_44EF_9FCF_C16B6D96E591_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_photo249.dll</td><td/><td/><td>_72BFA564_94FD_42BA_BCF7_B88873460552_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_photo249d.dll</td><td/><td/><td>_1737E586_A057_4173_9351_0E9F66F32AB0_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_stitching249.dll</td><td/><td/><td>_37B716CF_2866_49B0_82C6_91380B1BE43B_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_stitching249d.dll</td><td/><td/><td>_B1BFAA34_275C_4C35_BAC9_7362D87D5110_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_superres249.dll</td><td/><td/><td>_96D830B9_8645_49B9_81B5_4E3C84BB8FCB_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_superres249d.dll</td><td/><td/><td>_711023A0_18E4_46A8_933B_BA534DB71CF6_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_video249.dll</td><td/><td/><td>_D1F21728_5891_42C0_A045_AAB04D9AC4AE_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_video249d.dll</td><td/><td/><td>_1FB9F120_F185_4F2F_BA88_E4E80593CABF_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_videostab249.dll</td><td/><td/><td>_76C4C8D2_6A87_464A_9AC1_5F2EADEAD8CA_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_videostab249d.dll</td><td/><td/><td>_2BDBEF48_92E6_40DE_AE46_F7CE99A7D573_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>presage_0.9.1_32bit_setup.exe</td><td/><td/><td>_28BC4959_CD66_471D_9E17_62F88BA555F8_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -4831,25 +4838,212 @@
 		<row><td>ID_STRING41</td><td>1033</td><td>Aster</td><td>0</td><td/><td>882987767</td></row>
 		<row><td>ID_STRING410</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-1306322449</td></row>
 		<row><td>ID_STRING411</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-1306310161</td></row>
+		<row><td>ID_STRING412</td><td>1033</td><td>ACAT App</td><td>0</td><td/><td>-1306319372</td></row>
+		<row><td>ID_STRING413</td><td>1033</td><td>ACAT Talk</td><td>0</td><td/><td>-1306311180</td></row>
+		<row><td>ID_STRING414</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-1306292748</td></row>
+		<row><td>ID_STRING415</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-1306280460</td></row>
+		<row><td>ID_STRING416</td><td>1033</td><td>ACAT App</td><td>0</td><td/><td>-1306270220</td></row>
+		<row><td>ID_STRING417</td><td>1033</td><td>ACAT Talk</td><td>0</td><td/><td>-1306325484</td></row>
+		<row><td>ID_STRING418</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-1306305004</td></row>
+		<row><td>ID_STRING419</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-1306292716</td></row>
 		<row><td>ID_STRING42</td><td>1033</td><td>Aster Launchpad</td><td>0</td><td/><td>883002103</td></row>
+		<row><td>ID_STRING420</td><td>1033</td><td>ACAT App</td><td>0</td><td/><td>-492581312</td></row>
+		<row><td>ID_STRING421</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-492632480</td></row>
+		<row><td>ID_STRING422</td><td>1033</td><td>ACAT Talk</td><td>0</td><td/><td>-492620192</td></row>
+		<row><td>ID_STRING423</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-492601760</td></row>
+		<row><td>ID_STRING424</td><td>1033</td><td>ACAT App</td><td>0</td><td/><td>-492591520</td></row>
+		<row><td>ID_STRING425</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-492583328</td></row>
+		<row><td>ID_STRING426</td><td>1033</td><td>ACAT Talk</td><td>0</td><td/><td>-492632448</td></row>
+		<row><td>ID_STRING427</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-492614016</td></row>
+		<row><td>ID_STRING428</td><td>1033</td><td>ACAT App</td><td>0</td><td/><td>-492590800</td></row>
+		<row><td>ID_STRING429</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-492580560</td></row>
 		<row><td>ID_STRING43</td><td>1033</td><td>Aster</td><td>0</td><td/><td>1017203009</td></row>
+		<row><td>ID_STRING430</td><td>1033</td><td>ACAT Talk</td><td>0</td><td/><td>-492629680</td></row>
+		<row><td>ID_STRING431</td><td>1033</td><td>ACAT App</td><td>0</td><td/><td>-492621424</td></row>
+		<row><td>ID_STRING432</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-492613232</td></row>
+		<row><td>ID_STRING433</td><td>1033</td><td>ACAT Talk</td><td>0</td><td/><td>-492602992</td></row>
+		<row><td>ID_STRING434</td><td>1033</td><td>ACAT App</td><td>0</td><td/><td>1663287659</td></row>
+		<row><td>ID_STRING435</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>1663295851</td></row>
+		<row><td>ID_STRING436</td><td>1033</td><td>ACAT App</td><td>0</td><td/><td>2065908207</td></row>
+		<row><td>ID_STRING437</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>2065916399</td></row>
+		<row><td>ID_STRING438</td><td>1033</td><td>ACAT Talk</td><td>0</td><td/><td>2065936879</td></row>
+		<row><td>ID_STRING439</td><td>1033</td><td>ACAT App</td><td>0</td><td/><td>-2094842581</td></row>
 		<row><td>ID_STRING44</td><td>1033</td><td>Aster Launchpad</td><td>0</td><td/><td>1017215297</td></row>
+		<row><td>ID_STRING440</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-2094830293</td></row>
+		<row><td>ID_STRING441</td><td>1033</td><td>ACAT Talk</td><td>0</td><td/><td>-2094818005</td></row>
+		<row><td>ID_STRING442</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-2094852789</td></row>
+		<row><td>ID_STRING443</td><td>1033</td><td>ACAT App</td><td>0</td><td/><td>-2094856789</td></row>
+		<row><td>ID_STRING444</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-2094846549</td></row>
+		<row><td>ID_STRING445</td><td>1033</td><td>ACAT Talk</td><td>0</td><td/><td>-2094838357</td></row>
+		<row><td>ID_STRING446</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-2094809685</td></row>
+		<row><td>ID_STRING447</td><td>1033</td><td>ACAT App</td><td>0</td><td/><td>-886837919</td></row>
+		<row><td>ID_STRING448</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-886887039</td></row>
+		<row><td>ID_STRING449</td><td>1033</td><td>ACAT Talk</td><td>0</td><td/><td>-886878847</td></row>
 		<row><td>ID_STRING45</td><td>1033</td><td>Aster</td><td>0</td><td/><td>1017209409</td></row>
+		<row><td>ID_STRING450</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-886856319</td></row>
+		<row><td>ID_STRING451</td><td>1033</td><td>ACAT App</td><td>0</td><td/><td>-886846079</td></row>
+		<row><td>ID_STRING452</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-886891103</td></row>
+		<row><td>ID_STRING453</td><td>1033</td><td>ACAT Talk</td><td>0</td><td/><td>-886880863</td></row>
+		<row><td>ID_STRING454</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-886856287</td></row>
+		<row><td>ID_STRING455</td><td>1033</td><td>ACATApp</td><td>0</td><td/><td>-886887115</td></row>
+		<row><td>ID_STRING456</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-886878923</td></row>
+		<row><td>ID_STRING457</td><td>1033</td><td>ACAT Talk</td><td>0</td><td/><td>-886864587</td></row>
+		<row><td>ID_STRING458</td><td>1033</td><td>ACAT Vison</td><td>0</td><td/><td>-886842059</td></row>
+		<row><td>ID_STRING459</td><td>1033</td><td>ACAT App</td><td>0</td><td/><td>-886887083</td></row>
 		<row><td>ID_STRING46</td><td>1033</td><td>Aster Launchpad</td><td>0</td><td/><td>1017223745</td></row>
+		<row><td>ID_STRING460</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-886872747</td></row>
+		<row><td>ID_STRING461</td><td>1033</td><td>ACAT Talk</td><td>0</td><td/><td>-886864555</td></row>
+		<row><td>ID_STRING462</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-886837931</td></row>
+		<row><td>ID_STRING463</td><td>1033</td><td>ACAT App</td><td>0</td><td/><td>-484205527</td></row>
+		<row><td>ID_STRING464</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-484195287</td></row>
+		<row><td>ID_STRING465</td><td>1033</td><td>ACAT Talk</td><td>0</td><td/><td>-484185047</td></row>
+		<row><td>ID_STRING466</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-484221879</td></row>
+		<row><td>ID_STRING467</td><td>1033</td><td>ACAT App</td><td>0</td><td/><td>-484215735</td></row>
+		<row><td>ID_STRING468</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-484209591</td></row>
+		<row><td>ID_STRING469</td><td>1033</td><td>ACAT Talk</td><td>0</td><td/><td>-484207543</td></row>
 		<row><td>ID_STRING47</td><td>1033</td><td>Aster</td><td>0</td><td/><td>1285678922</td></row>
+		<row><td>ID_STRING470</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-484203447</td></row>
+		<row><td>ID_STRING471</td><td>1033</td><td>ACAT App</td><td>0</td><td/><td>-484208823</td></row>
+		<row><td>ID_STRING472</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-484200631</td></row>
+		<row><td>ID_STRING473</td><td>1033</td><td>ACAT Talk</td><td>0</td><td/><td>-484188343</td></row>
+		<row><td>ID_STRING474</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-484227223</td></row>
+		<row><td>ID_STRING475</td><td>1033</td><td>ACAT App</td><td>0</td><td/><td>-484200599</td></row>
+		<row><td>ID_STRING476</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-484196503</td></row>
+		<row><td>ID_STRING477</td><td>1033</td><td>ACAT Talk</td><td>0</td><td/><td>-484194455</td></row>
+		<row><td>ID_STRING478</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-484192407</td></row>
+		<row><td>ID_STRING479</td><td>1033</td><td>ACAT App</td><td>0</td><td/><td>-1012688497</td></row>
 		<row><td>ID_STRING48</td><td>1033</td><td>Aster Launchpad</td><td>0</td><td/><td>1285631850</td></row>
+		<row><td>ID_STRING480</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-1012678257</td></row>
+		<row><td>ID_STRING481</td><td>1033</td><td>ACAT Talk</td><td>0</td><td/><td>-1012670065</td></row>
+		<row><td>ID_STRING482</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-1012702801</td></row>
+		<row><td>ID_STRING483</td><td>1033</td><td>ACAT Dashboard</td><td>0</td><td/><td>1545849774</td></row>
+		<row><td>ID_STRING484</td><td>1033</td><td>ACAT Dashboard</td><td>0</td><td/><td>1545855918</td></row>
+		<row><td>ID_STRING485</td><td>1033</td><td>ACAT Dashboard</td><td>0</td><td/><td>1545798511</td></row>
+		<row><td>ID_STRING486</td><td>1033</td><td>ACAT Dashboard</td><td>0</td><td/><td>1545821039</td></row>
+		<row><td>ID_STRING487</td><td>1033</td><td>ACAT Dashboard</td><td>0</td><td/><td>1680064279</td></row>
+		<row><td>ID_STRING488</td><td>1033</td><td>ACAT Dashboard</td><td>0</td><td/><td>1680019255</td></row>
+		<row><td>ID_STRING489</td><td>1033</td><td>ACAT Dashboard</td><td>0</td><td/><td>1814245920</td></row>
 		<row><td>ID_STRING49</td><td>1033</td><td>Aster</td><td>0</td><td/><td>1688273003</td></row>
+		<row><td>ID_STRING490</td><td>1033</td><td>ACAT Dashboard</td><td>0</td><td/><td>1814262304</td></row>
+		<row><td>ID_STRING491</td><td>1033</td><td>ACAT (Qwerty)</td><td>0</td><td/><td>-467421138</td></row>
+		<row><td>ID_STRING492</td><td>1033</td><td>ACAT (Abc)</td><td>0</td><td/><td>-467455890</td></row>
+		<row><td>ID_STRING493</td><td>1033</td><td>ACAT Talk (Qwerty)</td><td>0</td><td/><td>-467453810</td></row>
+		<row><td>ID_STRING494</td><td>1033</td><td>ACAT Talk (Abc)</td><td>0</td><td/><td>-467457874</td></row>
+		<row><td>ID_STRING495</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-467423058</td></row>
+		<row><td>ID_STRING496</td><td>1033</td><td/><td>0</td><td/><td>-467410642</td></row>
+		<row><td>ID_STRING497</td><td>1033</td><td>ACAT (Qwerty)</td><td>0</td><td/><td>-467428946</td></row>
+		<row><td>ID_STRING498</td><td>1033</td><td>ACAT (Abc)</td><td>0</td><td/><td>-467420754</td></row>
+		<row><td>ID_STRING499</td><td>1033</td><td>Talk (Qwerty)</td><td>0</td><td/><td>-467426802</td></row>
 		<row><td>ID_STRING5</td><td>1033</td><td>Aster</td><td>0</td><td/><td>-618576689</td></row>
 		<row><td>ID_STRING50</td><td>1033</td><td>Aster Launchpad</td><td>0</td><td/><td>1688287339</td></row>
+		<row><td>ID_STRING500</td><td>1033</td><td>Talk (Abc)</td><td>0</td><td/><td>-467416562</td></row>
+		<row><td>ID_STRING501</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-467439090</td></row>
+		<row><td>ID_STRING502</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-467455442</td></row>
+		<row><td>ID_STRING503</td><td>1033</td><td>ACAT (Qwerty)</td><td>0</td><td/><td>-467449298</td></row>
+		<row><td>ID_STRING504</td><td>1033</td><td>ACAT (Abc)</td><td>0</td><td/><td>-467447250</td></row>
+		<row><td>ID_STRING505</td><td>1033</td><td>Talk (Qwerty)</td><td>0</td><td/><td>-467445202</td></row>
+		<row><td>ID_STRING506</td><td>1033</td><td>Talk (Abc)</td><td>0</td><td/><td>-467441106</td></row>
+		<row><td>ID_STRING507</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-467432914</td></row>
+		<row><td>ID_STRING508</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-467426770</td></row>
+		<row><td>ID_STRING509</td><td>1033</td><td>ACAT (Qwerty)</td><td>0</td><td/><td>-467464848</td></row>
 		<row><td>ID_STRING51</td><td>1033</td><td>Aster</td><td>0</td><td/><td>1688295157</td></row>
+		<row><td>ID_STRING510</td><td>1033</td><td>ACAT (Abc)</td><td>0</td><td/><td>-467438224</td></row>
+		<row><td>ID_STRING511</td><td>1033</td><td>Talk (Qwerty)</td><td>0</td><td/><td>-467411600</td></row>
+		<row><td>ID_STRING512</td><td>1033</td><td>Talk (Abc)</td><td>0</td><td/><td>-467446384</td></row>
+		<row><td>ID_STRING513</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-467419760</td></row>
+		<row><td>ID_STRING514</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-467460688</td></row>
+		<row><td>ID_STRING515</td><td>1033</td><td>ACAT (Qwerty)</td><td>0</td><td/><td>-467434064</td></row>
+		<row><td>ID_STRING516</td><td>1033</td><td>ACAT (Abc)</td><td>0</td><td/><td>-467429968</td></row>
+		<row><td>ID_STRING517</td><td>1033</td><td>Talk (Qwerty)</td><td>0</td><td/><td>-467427920</td></row>
+		<row><td>ID_STRING518</td><td>1033</td><td>Talk (Abc)</td><td>0</td><td/><td>-467417680</td></row>
+		<row><td>ID_STRING519</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-467409488</td></row>
 		<row><td>ID_STRING52</td><td>1033</td><td>Aster Launchpad</td><td>0</td><td/><td>1688309493</td></row>
+		<row><td>ID_STRING520</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-467407440</td></row>
+		<row><td>ID_STRING521</td><td>1033</td><td>ACAT (Qwerty)</td><td>0</td><td/><td>212050891</td></row>
+		<row><td>ID_STRING522</td><td>1033</td><td>ACAT (Abc)</td><td>0</td><td/><td>212065227</td></row>
+		<row><td>ID_STRING523</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>212044779</td></row>
+		<row><td>ID_STRING524</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>212067307</td></row>
+		<row><td>ID_STRING525</td><td>1033</td><td>Talk (Qwerty)</td><td>0</td><td/><td>212048939</td></row>
+		<row><td>ID_STRING526</td><td>1033</td><td>Talk (Abc)</td><td>0</td><td/><td>212059179</td></row>
+		<row><td>ID_STRING527</td><td>1033</td><td>ACAT (Qwerty)</td><td>0</td><td/><td>212010059</td></row>
+		<row><td>ID_STRING528</td><td>1033</td><td>ACAT (Abc)</td><td>0</td><td/><td>212012107</td></row>
+		<row><td>ID_STRING529</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>212018251</td></row>
 		<row><td>ID_STRING53</td><td>1033</td><td>Aster</td><td>0</td><td/><td>2090963991</td></row>
+		<row><td>ID_STRING530</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>212022347</td></row>
+		<row><td>ID_STRING531</td><td>1033</td><td>Talk (Qwerty)</td><td>0</td><td/><td>212026443</td></row>
+		<row><td>ID_STRING532</td><td>1033</td><td>Talk (Abc)</td><td>0</td><td/><td>212030539</td></row>
+		<row><td>ID_STRING533</td><td>1033</td><td>ACAT (Qwerty)</td><td>0</td><td/><td>346257604</td></row>
+		<row><td>ID_STRING534</td><td>1033</td><td>ACAT (Abc)</td><td>0</td><td/><td>346228964</td></row>
+		<row><td>ID_STRING535</td><td>1033</td><td>Talk (Qwerty)</td><td>0</td><td/><td>346269924</td></row>
+		<row><td>ID_STRING536</td><td>1033</td><td>Talk (Abc)</td><td>0</td><td/><td>346226948</td></row>
+		<row><td>ID_STRING537</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>346253572</td></row>
+		<row><td>ID_STRING538</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>346267908</td></row>
+		<row><td>ID_STRING539</td><td>1033</td><td>ACAT (Qwerty)</td><td>0</td><td/><td>346229028</td></row>
 		<row><td>ID_STRING54</td><td>1033</td><td>Aster Launchpad</td><td>0</td><td/><td>2090974231</td></row>
+		<row><td>ID_STRING540</td><td>1033</td><td>ACAT (Abc)</td><td>0</td><td/><td>346233124</td></row>
+		<row><td>ID_STRING541</td><td>1033</td><td>Talk (Qwerty)</td><td>0</td><td/><td>346237220</td></row>
+		<row><td>ID_STRING542</td><td>1033</td><td>Talk (Abc)</td><td>0</td><td/><td>346239268</td></row>
+		<row><td>ID_STRING543</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>346243364</td></row>
+		<row><td>ID_STRING544</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>346247460</td></row>
+		<row><td>ID_STRING545</td><td>1033</td><td>ACAT (Qwerty)</td><td>0</td><td/><td>346287346</td></row>
+		<row><td>ID_STRING546</td><td>1033</td><td>ACAT (Abc)</td><td>0</td><td/><td>346234130</td></row>
+		<row><td>ID_STRING547</td><td>1033</td><td>Talk (Qwerty)</td><td>0</td><td/><td>346242354</td></row>
+		<row><td>ID_STRING548</td><td>1033</td><td>Talk (Abc)</td><td>0</td><td/><td>346268978</td></row>
+		<row><td>ID_STRING549</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>346240338</td></row>
 		<row><td>ID_STRING55</td><td>1033</td><td>Aster</td><td>0</td><td/><td>-1935588233</td></row>
+		<row><td>ID_STRING550</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>346252626</td></row>
+		<row><td>ID_STRING551</td><td>1033</td><td>ACAT (Qwerty)</td><td>0</td><td/><td>346273106</td></row>
+		<row><td>ID_STRING552</td><td>1033</td><td>ACAT (Abc)</td><td>0</td><td/><td>346277202</td></row>
+		<row><td>ID_STRING553</td><td>1033</td><td>Talk (Qwerty)</td><td>0</td><td/><td>346281298</td></row>
+		<row><td>ID_STRING554</td><td>1033</td><td>Talk (Abc)</td><td>0</td><td/><td>346285394</td></row>
+		<row><td>ID_STRING555</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>346287442</td></row>
+		<row><td>ID_STRING556</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>346230130</td></row>
+		<row><td>ID_STRING557</td><td>1033</td><td>ACAT (Qwerty)</td><td>0</td><td/><td>480489856</td></row>
+		<row><td>ID_STRING558</td><td>1033</td><td>ACAT (Abc)</td><td>0</td><td/><td>480498048</td></row>
+		<row><td>ID_STRING559</td><td>1033</td><td>Talk (Qwerty)</td><td>0</td><td/><td>480469408</td></row>
 		<row><td>ID_STRING56</td><td>1033</td><td>Aster Launchpad</td><td>0</td><td/><td>-1935577993</td></row>
+		<row><td>ID_STRING560</td><td>1033</td><td>Talk (Abc)</td><td>0</td><td/><td>480479648</td></row>
+		<row><td>ID_STRING561</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>480446912</td></row>
+		<row><td>ID_STRING562</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>480465344</td></row>
+		<row><td>ID_STRING563</td><td>1033</td><td>ACAT (Qwerty)</td><td>0</td><td/><td>480483776</td></row>
+		<row><td>ID_STRING564</td><td>1033</td><td>ACAT (Abc)</td><td>0</td><td/><td>480485824</td></row>
+		<row><td>ID_STRING565</td><td>1033</td><td>Talk (Qwerty)</td><td>0</td><td/><td>480487872</td></row>
+		<row><td>ID_STRING566</td><td>1033</td><td>Talk (Abc)</td><td>0</td><td/><td>480491968</td></row>
+		<row><td>ID_STRING567</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>480496064</td></row>
+		<row><td>ID_STRING568</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>480498112</td></row>
+		<row><td>ID_STRING569</td><td>1033</td><td>ACAT (Qwerty)</td><td>0</td><td/><td>1151562880</td></row>
 		<row><td>ID_STRING57</td><td>1033</td><td>Aster</td><td>0</td><td/><td>-1398682261</td></row>
+		<row><td>ID_STRING570</td><td>1033</td><td>ACAT (Abc)</td><td>0</td><td/><td>1151589504</td></row>
+		<row><td>ID_STRING571</td><td>1033</td><td>Talk (Qwerty)</td><td>0</td><td/><td>1151548576</td></row>
+		<row><td>ID_STRING572</td><td>1033</td><td>Talk (Abc)</td><td>0</td><td/><td>1151575200</td></row>
+		<row><td>ID_STRING573</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>1151593632</td></row>
+		<row><td>ID_STRING574</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>1151550656</td></row>
+		<row><td>ID_STRING575</td><td>1033</td><td>ACAT (Qwerty)</td><td>0</td><td/><td>-459078752</td></row>
+		<row><td>ID_STRING576</td><td>1033</td><td>ACAT (Abc)</td><td>0</td><td/><td>-459068512</td></row>
+		<row><td>ID_STRING577</td><td>1033</td><td>Talk (Qwerty)</td><td>0</td><td/><td>-459043936</td></row>
+		<row><td>ID_STRING578</td><td>1033</td><td>Talk (Abc)</td><td>0</td><td/><td>-459025504</td></row>
+		<row><td>ID_STRING579</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-459062336</td></row>
 		<row><td>ID_STRING58</td><td>1033</td><td>Aster Launchpad</td><td>0</td><td/><td>-1398729333</td></row>
+		<row><td>ID_STRING580</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-459045952</td></row>
+		<row><td>ID_STRING581</td><td>1033</td><td>ACAT (Qwerty)</td><td>0</td><td/><td>-459025472</td></row>
+		<row><td>ID_STRING582</td><td>1033</td><td>ACAT (Abc)</td><td>0</td><td/><td>-459023424</td></row>
+		<row><td>ID_STRING583</td><td>1033</td><td>Talk (Qwerty)</td><td>0</td><td/><td>-459019328</td></row>
+		<row><td>ID_STRING584</td><td>1033</td><td>Talk (Abc)</td><td>0</td><td/><td>-459078688</td></row>
+		<row><td>ID_STRING585</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-459074592</td></row>
+		<row><td>ID_STRING586</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-459072544</td></row>
+		<row><td>ID_STRING587</td><td>1033</td><td>ACAT (Qwerty)</td><td>0</td><td/><td>-190641778</td></row>
+		<row><td>ID_STRING588</td><td>1033</td><td>ACAT (Abc)</td><td>0</td><td/><td>-190631538</td></row>
+		<row><td>ID_STRING589</td><td>1033</td><td>Talk (Qwerty)</td><td>0</td><td/><td>-190584434</td></row>
 		<row><td>ID_STRING59</td><td>1033</td><td>Aster</td><td>0</td><td/><td>-1264471913</td></row>
+		<row><td>ID_STRING590</td><td>1033</td><td>Talk (Abc)</td><td>0</td><td/><td>-190635602</td></row>
+		<row><td>ID_STRING591</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-190608978</td></row>
+		<row><td>ID_STRING592</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-190592594</td></row>
+		<row><td>ID_STRING593</td><td>1033</td><td>ACAT (Qwerty)</td><td>0</td><td/><td>-190623282</td></row>
+		<row><td>ID_STRING594</td><td>1033</td><td>ACAT (Abc)</td><td>0</td><td/><td>-190619186</td></row>
+		<row><td>ID_STRING595</td><td>1033</td><td>Talk (Qwerty)</td><td>0</td><td/><td>-190617138</td></row>
+		<row><td>ID_STRING596</td><td>1033</td><td>Talk (Abc)</td><td>0</td><td/><td>-190613042</td></row>
+		<row><td>ID_STRING597</td><td>1033</td><td>ACAT Tryout</td><td>0</td><td/><td>-190610994</td></row>
+		<row><td>ID_STRING598</td><td>1033</td><td>ACAT Vision</td><td>0</td><td/><td>-190608946</td></row>
 		<row><td>ID_STRING6</td><td>1033</td><td>Aster Launchpad</td><td>0</td><td/><td>-618560305</td></row>
 		<row><td>ID_STRING60</td><td>1033</td><td>Aster Launchpad</td><td>0</td><td/><td>-1264457577</td></row>
 		<row><td>ID_STRING61</td><td>1033</td><td>Aster</td><td>0</td><td/><td>-1264477225</td></row>
@@ -5002,8 +5196,25 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
+		<row><td>NewShortcut11_0337FFB84A61429E8EDF9ED7FD3BFA22.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut11_12F01DBFBC0345ECA3FA4C109CE59E00.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATDashboard.exe</td><td>0</td></row>
+		<row><td>NewShortcut11_2FDB69740F574B059DD62613C1E18845.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut11_4A96EC1056364D76A4014A94916B7F95.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut11_626A3753BF5B4F8E880EEC2105B46952.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut11_62FD2A99B8234FDBBA898275DA17802F.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut11_6DEB46F616614B0C93BD577311D3F4D1.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATDashboard.exe</td><td>0</td></row>
+		<row><td>NewShortcut11_7EBD74FEFAF94FE28B4ABA04ED0CBF4D.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut11_891E74E320A840BC9E8A30058356A9CC.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut11_A3228186578B4F458DD67B2064BDD6F2.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATDashboard.exe</td><td>0</td></row>
+		<row><td>NewShortcut11_AEB1AD71B5DA49CA88FD8EB2C31BDC0E.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut11_BBBB759BB3674517A446F87A29CC8063.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut11_E441C40A90BC454595C84E857362E9E5.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATDashboard.exe</td><td>0</td></row>
+		<row><td>NewShortcut11_ED2BD13F86F942DD88DFA0564C82590F.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_0090328092B443FA8D2C5FFBB25C0951.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_01E8C4DEA4EB4F999EA529B57D3C86F3.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_01F4661AAA4149CE87FA2A6B6460933A.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_04BC4BD9B86E41F581501880181DEF8B.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_0790CB3075EB435D8D41341C9AC45A80.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_07E6A8C51BAC4559B5ABEA8C71388ED2.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_08C64625D39444439F9AE185AE4CE541.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_0A28F7F0AF6E45559246AD60C7CCB09F.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
@@ -5012,9 +5223,11 @@
 		<row><td>NewShortcut1_0C0F1B074CF841A0A060CF00261B1D14.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_0C70FD54CB95429E853B592F6DFAF9B9.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_0F7C9D381634410AB3CC2A4F6660E1EF.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_1101331BF5804ED7A2A50953FDC0BE32.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_13570D717F054E1B94BB55D32A36099E.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_1575F4CD623E47039EFC7C7D1484D454.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_15A61D0B3583421BAF5A21F441535A97.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_1C4138584ABB4D7BBE3B4A51C31111A4.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_1D4583FF9A6342ED995315CDF14819FC.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_1D4819A9BABD49929151CC01CE4CEE46.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_1E4E0C29F5984DA9A28F08C8A4D18260.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
@@ -5053,6 +5266,9 @@
 		<row><td>NewShortcut1_489F21348CB74646A88475B25AA2993C.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_4D0888C2924249A0B8D55205A4D2D068.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_4D6171380554489B973B3B914E5EDE3E.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_4E0F699CCE42413EB5FEEB685CE6A267.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_4F2E568249694B0AB6F7C3CF06D011DD.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATDashboard.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_4F35290D24A74889835E050CE7166924.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_50041D5D6F9148B6A1BA8D85C2FE53B4.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_5180BFFFECC24037B50D03E1BF471A46.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_54D6174ECA4B407EBA8E0267D4694D40.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
@@ -5061,17 +5277,23 @@
 		<row><td>NewShortcut1_56BAE9EF878B4B1E8A26D21BBF77250D.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_5873D8D73A2543FFAF2A34C96D7391F6.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_5883F435F3B64457A31FE4E494B30E1D.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_5911C497E12E4B0DA4173C41C2427E41.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_5D0D9521756549E9AA7F118138729990.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_62D928D9CB51474C883467F2894392AE.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_633D829C9DE94ECF9EA0F4E1C78093C7.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_63A5D9DE5565450AA4FC9D1766DA0B4C.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_64662E0B3C91449E9175253D0FC7043F.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_66F0D2040F6A42D68480F93087FD0E18.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_68197D17CFB34B95B0632D0C2C526091.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_68AC0971C4B24520A2E69F61A6E83F1B.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_693C7B1A675943FC9C6FB6BC12144EF2.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_69CA8DE8368D466699A716A09F7BDF55.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_6A1BAE84D4504C03B53A3DD0E615FC77.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_6BA8970F21384C348D6155017A4E4851.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_6BC07B3C7F914B11ABE5D7E3B6E4C5A8.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATDashboard.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_6C651B8D4B934E95A3E065709E32E0AC.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_6E23E3B7EDE34B5382649824C9272092.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_73C59B2EDC564849A5DC6CE877E3DC4C.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATDashboard.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_744C62A273654E1497385AFB76895DEE.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_7452AFDD00954E74950CC788D9E539B8.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_776AD77B4B2A413A89905A0EA86A8EDD.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
@@ -5082,6 +5304,7 @@
 		<row><td>NewShortcut1_7A044269298C456389C75CF9890408A8.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_7A427BFA45AB411CBD61E02415A9F5BC.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_7EC7370035EA4E10A3C93A49D7C5C396.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_809040626D5F4F8FA825DF4783A6DF28.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_810E625FF15244D485DA0F9CD811CD0D.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_819DC7DF8F3742079850C0D7EFCC8781.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_82F94FFC3F9F41F0805952C292746EEA.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
@@ -5098,9 +5321,11 @@
 		<row><td>NewShortcut1_90E5AEEA4C1A497A95A890628A8B766C.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_9520960970F940AE9DF9EFECD19D6299.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_95719B9F487348EEB229784CC8A5E4C9.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_95BFC8806FB54875B545171FFE9EC419.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_95D21D7B2C7944FB9E86B28D6591820A.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_95DB9428051546E4AF299DACBCA69EC0.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_95E01169AE864CD0A1D29DDBE3E78563.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_9817C75264E24359882E53EA57A1D1F9.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_986B688970C746A8828D6D97BF4F730D.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_9AFDE2447A2F44E59C6E62D36DFB774E.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_9B550B812E1A492AB6C4F068697B04A1.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
@@ -5108,11 +5333,14 @@
 		<row><td>NewShortcut1_9B959E20FE1F4F8AADC310C8AA967109.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_9CE90B8E6C764DAF91C4E726B0BBD0D0.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_9F62F98ED25A47769D67C015B0C15570.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_A1091850104D409DAEF616019685BB14.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_A1CF8AF67FED448BAF7F898215A305D9.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_A2E88E94303246AF8C5143B3E0757E4D.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_A342E756498B44A59323DD5A50F4218C.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_A678002FDF504174A4AA69E868568F21.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_A7231F371CD64D7DA27F5070791AD761.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_A7D102715F7D454FB65CFF94FF32301D.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_AAA5AC27903C438AB34A8FE2D186146D.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_AC3E6E3E239C4FE0AF5F564E901C4D5E.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_ACBE9076AAE34754BABD908DC7D4EB16.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_ADE03B9444B94D9C9E18C6247BF31F7A.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
@@ -5120,6 +5348,7 @@
 		<row><td>NewShortcut1_B06B486F2ED7499FA782FE6248CF79F6.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_B0988F417BF44EBF9EA0F8F4D0BA6E1C.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_B2C54480D4F644D2A94EAAA81F463716.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_B3E1E75EDCAF49C8B247907AA5E7D5D4.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_B4FF0D3A571A419682A1C155BE4EDED9.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_B867C9C4710147818EF03216E1823175.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_BBFBF623D410482C8F17E13A7C078C32.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
@@ -5131,6 +5360,7 @@
 		<row><td>NewShortcut1_C38D8793628C48428E7E170C23FA6062.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_C39A3F37F5AF4801B687E993E3DA891A.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_C434601287994BA1BD3DE877E069196A.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_C53B29E82FB641BEB826F47D28645728.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_C5BE21B8CF4740F1BD42BB9BDC1F8B93.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_C6695EBC57544E80A7207888BC251996.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_C691C4F89198472CB48A4D221286B85D.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
@@ -5142,6 +5372,7 @@
 		<row><td>NewShortcut1_CF8C3A05DB614953835D610919DCF6E4.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_CFE4A0427E3840248847BA855AACC32A.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_D218ABBA246746578B5B836A2EED4138.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_D2CAA9D13C434CA68C5765BC7CFE6376.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_D3315FE761BC449A8803B1162D264752.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_D45E867F8E83487394F516A9B40CD54D.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_D502A2B049834362AD101397B93EDE43.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
@@ -5157,6 +5388,7 @@
 		<row><td>NewShortcut1_EBD2DF31791F48AC94429F8F200ACE03.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_EC66C77DB1DC41C2996720DFA58A0638.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_EE617132AB0F4548BF62CE8EBF444A98.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_EFAC817E75BD4A4387BA83DDA1C6C078.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATDashboard.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_F0223243773D47AC99DE50F64934CDD6.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_F08990D0069F44B0A25E0E8D4D9A48E2.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_F3F091BDCAEA4910A644243A62C4386F.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
@@ -5167,20 +5399,35 @@
 		<row><td>NewShortcut1_FCB34AF56170489781B65F6D6FE5B345.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_FDA2533452D44A02BD3A9C5A482950D0.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_FDB9A557239A47E4BE9839FEFEFCDFA4.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_FEF54FD25AE24EF388823211F26361B9.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_FF6E749F85DD497CBBD6D4E498020A1A.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut1_FF74768F26ED40C2A6DF8518D9A80A2B.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut21_0D53A8A6843D4CE196ED31D6735DDD10.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut21_0F12F8CE5C144523B183E97073ADEEEB.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut21_13F67F3A78FD44E6B1CCC6C9B3670CD7.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut21_1865F475FCBA4114A11A77BE941A6A1E.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut21_2A30E134A9E342AD953CB90F05B1C11E.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut21_513E6F7AB654467CA72B3C96FDCD942F.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut21_A4FE79EEF81D4C2A9A73CC2A45535C42.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut21_C6CCD54DBABC4A2690E369BFA4C3096F.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut21_DE144862D10E49658663E5D4D94A2041.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut21_EA131837448040C7B43A4AAA6C9577C6.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_030F5C6114CF4801B80ACE007FA69CE6.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_037F425675474979BD9CA7BF35D1C96F.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_0532D6A0D7604F6282AFE1A8C75E7F0E.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_06F94F529B4C479FAA2F9710F1B79DD5.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_082BF5D1B3D54514AB131847A4D0D225.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_08E106C0DD404B549F4F96F3E47638DC.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_09174D2EDE894793AF5AB49CE1D30992.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_093EA227013B43C29797AD19FEF31898.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_0A2FCCF3FC7F400EA4CB8C3B410923C4.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn-Temp\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_0C82FEB0BF284C6DBA2ABF5FB1AEDA3D.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_0DFFE8F313804C0892E82E0ECA30A54E.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-4\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_0FF88A042A3D46FDAA2A21802A5AF8D3.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_100769AD1D234E3F91A4A450C0E60FAB.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_12E19F14E3364D058466A4056EA01DEE.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_14B38CEDBB7846CDA05982C506FA2B4B.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_14DA766E43AC49CAB20DC3AF7AE658BE.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_15F76940075B4D44AC1F7F1DF8EA357C.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_171FCA3FE088495F96C14E86B47FD976.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_18C33C41D4714970B5C0AA8EEADC134D.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
@@ -5190,8 +5437,10 @@
 		<row><td>NewShortcut2_1CC8C6C21A374B4986F012DF61178068.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_1CD7D33171B64973809C8C0EC9D07B3C.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_1DDD70A989824EA297C0EE76F237E8A8.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_1E3E879C4D2B4F0AA88AE96D24BC9F95.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_1F1AD9DCE0D842619B980C5B7547041E.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_1F640B136FA54A90965A18F81BEAA635.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_20460783D2304BBDADA31C524821E8C0.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_20A09019FBAC4C288E35A83F0E61B08D.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_23842A4342944CA48A71199AE5C03275.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_24BADEF8351A478AA06493260111F019.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
@@ -5200,13 +5449,16 @@
 		<row><td>NewShortcut2_276F76A107164CE9AAB8ED2CEB34BE63.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_27EEB7797AD4415E81F3B2A010B1D3D8.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_282949E9EC4549B1B7064B3F22A37E82.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_284E3B6B67D042B6A636A7C1CF201AED.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_2B6394B2088643AE9DC74EE1BE1A1DAA.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_2B6FF8D090AE4217B8DC741CD9EF8794.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_2D53FF30FD364336827474A1C80FAA74.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_2E8D896C25DE4726A83F3105A55FD519.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_2F131DC129BC4B13B598890E9CEDF501.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_2F6F2A7DFF6541F3B17184D1504680A7.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_2FB13157F38640378E8CA5982EBED5D0.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_30FFA31F01154EF3A8D056A094D85388.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_313517A19E854FFEB8430FED02FBC4E6.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_33441FE2C12341AFA7546FDD7762AC66.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_35AD2BB89E84400F9DC5A8AA0A6D1ECC.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_35E7B19560494D9DAB94C0642E695D4A.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
@@ -5222,8 +5474,10 @@
 		<row><td>NewShortcut2_476C46ADB24E4FAFAF677CB5582B4A5E.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_477031ACADB2437DA6AEC60168FD9DB8.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_488691DADE694331B64F21DF63A9D054.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_4BC8F91DB8E2460CABF06E68856B661F.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_4D5D43ECF04F4A409A42C92F0248CEB2.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_506E58E8D9274AA5A19D15969106C1B6.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_53762B243C524F969435BDED64C31521.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_5398F8F167594C1590B94339E25662EB.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_5408E17929E94C6C90804B0FDD9AB793.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_57E7602BFD124C019FE9B41296DE7651.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
@@ -5233,6 +5487,7 @@
 		<row><td>NewShortcut2_5A05F9B6D00A49FE8C908DB10F62E097.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_5BA840EC84544F95AF0622AE72DE8AAA.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_60ECA643AADF45358A3A480A54A2437F.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_615E1E7185334DB8AC6E13C5410F9215.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_64318CB030A641D2AFBA30529CD4908F.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_64AED8195A224EFB9D77E4A69A147F63.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_661CC45ADF9C480B9B5E986AFDAEAE67.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
@@ -5251,6 +5506,7 @@
 		<row><td>NewShortcut2_7DC0697CD4FC4CCEA17AA877349EAC5F.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_7ED32823BB7D4331B9806FE8E0419D01.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn-Temp\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_80960319B40F4EA682E88949F64D2D6C.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_815D034153B54EADA42EB3E0C566F4DC.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_817CA8AF814048538251754836578940.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_83457D61461C42329B772601C398BFB7.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_854AD5548FF44666BDD2A3DD4E64F5B1.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
@@ -5259,6 +5515,7 @@
 		<row><td>NewShortcut2_8CA9D3A0BA8C4D25A624E47FF642FF4E.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn-Temp\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_8E5F31480EC841E1A71219E01AB66391.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_8E9276332AB9463A8E01A2AE32082B13.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_915E1C7670834188BECA540D929DD793.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_9187133E5A784F6FA6C691FA2E8D53E3.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_933F8BA246134299A11B733F72184B44.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn-Temp\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_9633B8CBD56040BEB43B69B59395A82C.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
@@ -5270,8 +5527,10 @@
 		<row><td>NewShortcut2_9EAE72BFAF474AE69F9529CE2C87B484.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_A19C580482EE4CB7ADA8B96BB198D5A5.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_A5268313F18E4D548CB3636BAB2AA8C6.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_A6816F44D2164D95939E969FF492F4D8.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_A729722FD99F404FB8CD6A09E4ABEB9F.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_AA6C4CE05B86458EA781E9B8AC538A02.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_AB66F489550D4BFE8C616B9273CD5A03.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_AC7A7B8116E04BC989E38AEE97B779FF.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_AFA97991A0B24842A995F7C92723BAD2.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_B5A40BF59389489EA7831DE90F8ECA4F.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
@@ -5309,9 +5568,12 @@
 		<row><td>NewShortcut2_D48BCFC87D8D4D628B0C20F38920F301.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_D65044CAA2B147DFA5249ADC3449A3AF.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_D7F370BB188248E5B0E1518BCCC32FBA.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_D8936C6ABB524C9CB9C0AEB555B9FE76.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_DC579747993645B5BFBC6322607531DD.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_DF6024CCBFAC4F0BB4EEB87CED6A85BD.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_E0547282422E4996979E8D51D31B61F9.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_E0CE3FEECE55469E82E49F9821A86CBD.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_E0FEF5AFDAD74F4995A54D7D9C1D650F.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_E3FC52871D824194913D313DA64243D7.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_E46CB1157D62418B93B6ADDDA216AE04.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_E47BA4F540DE48E8BE049084E0118D11.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
@@ -5321,6 +5583,7 @@
 		<row><td>NewShortcut2_E9902F64AA1D411E9C4971C4A8B50E65.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_EC5771DE3780411FA948519A9CD3D68D.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_EEB26E51C8524235A44CC604FAFA1A40.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_F0E4B86E9D3D4E59AB148419E532E945.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_F199C93592B74B558A72EA21B3B4B7C9.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_F1D2FAF16E1D4A0F960009D8E543E023.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_F41FE20D04274B988F8B3398188CF7D7.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
@@ -5332,81 +5595,198 @@
 		<row><td>NewShortcut2_FBECB582A9E64D5BB337C218E6127137.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_FC3968FCE1034ECE82EABEB939AD6B70.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_FC6367D789364EE383A592C3485020DA.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut2_FD38BF839C944BF5B71BD4189267E265.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_FD6317BEB60048358D3B7E894008879E.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
 		<row><td>NewShortcut2_FF432A296A0E481BBBA21131BA7C3F64.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
+		<row><td>NewShortcut31_1CFFB394665442D89EEE58FF76978FCE.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut31_3388DB4BCB30400082CC5E9B1815C792.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut31_4AC3A494B408499CA46626A9CA4C6B8D.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut31_51587B33FDF54A9DA55E6159A500781E.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut31_5BF7B372392F41CFA73E15DE610E7EAA.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut31_975714E2EA8D4110BB8AE98EA003C21F.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut31_9C465094D2264782B396B7CC7ED3F017.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut31_9D0EF43A641C47EA86DF9570D8CC98AF.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut31_D96E6F2407104D909CB9457C401CE08A.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
 		<row><td>NewShortcut3_04616DAF5063418E82CC437213B2B5BF.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut3_07FCCED0151E429986A67E7031E47C28.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut3_0BBE07E7C5C44DB2B36B9BBFD968DC97.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut3_156A8E59AA7A472FB5C77C35F13D01F8.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut3_1B5C39F85FC040EDB343948D20AE587B.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
 		<row><td>NewShortcut3_2524A652DA4D440497DB0C4956214E26.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Aster.exe</td><td>0</td></row>
 		<row><td>NewShortcut3_31D10BF571634FBCBDDC3A3EE6F82E3A.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut3_3501A78658A841A0A17212FD30C42349.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut3_3E0DC610B9CB4A27BC67C63E760C905A.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut3_3F85B2C0919B42FBAF6EC490DA12118E.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut3_41D6677FEE5B405283F4FD08ADCB0AD4.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut3_452A1BED0FBD4758B4E73C976F09354B.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut3_4C5C1FD19EB3482D976E4444A01E51E1.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut3_500839FC5AC147F2A15FCFD4D857FC59.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut3_50F1B38AF7DF4A63859B4AE1697B7855.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut3_6AEBE9FCD3FA4E69BFF2F4C2445E676C.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut3_6EB19FE3B7464CB5B4FFBE5124887B01.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut3_74530ADDBF99485AB8D6BD16E0F42B72.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut3_9A854F988BA0408787824B35E6FB056A.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut3_9C2E11BE08894CF9A1ED6ECF4C123A32.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut3_A1796744B32542A29C38D4B478A9B86A.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut3_A8BD6E396F264FCAA77AA42B2AF905A2.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
 		<row><td>NewShortcut3_B67C591BBEDC4270BCE4399AE91232AA.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut3_BA18584C3E684639B0357F4D7E85C1E7.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\ACAT.ico</td><td>0</td></row>
+		<row><td>NewShortcut3_C6EBCBB032B84A67B92C0248DAF06700.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut3_C86C457DE0434BAEBDA48E7C51BA5EEB.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut3_C89D0EDB42014C4DBE48ED5A953502F3.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut3_CB8040F5780A4341B5C9D1DB2BE482B4.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut3_CE7208EFC74A4EEA9AC6329F751E9BF3.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut3_D34F710FAF794FC5A742E58B8B357360.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
 		<row><td>NewShortcut3_D3A658227CC446E0BD6260C4C2D5BF07.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut3_DE357EE3536248BEBDBE015864B67F34.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut3_E4F8F276BABE49059A0E5D3F27530B75.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut3_EE5D53271FE24EBD9B419FB8489E2A3B.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
 		<row><td>NewShortcut3_EF5838E6F71B46B0A8B824BF369A28F9.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut3_F3ABC5E35AF04CDBA155068388F0D065.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn-Temp\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut3_F852DA826818460E989E74C75C74F403.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut41_01CA39ECAB704B899BF47E1F5584E848.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut41_68E619024C2C4DE5A2231F219D082163.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut41_99C47EAB32954C2C9A7959A442FDC406.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut41_99CC8BB3322849F2A6C3A4DD8540C7AC.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut41_C45CF434011A4800AEC9F50768C5D148.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut41_D855DA5167B948E1854B3BBB51AC9B71.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut41_ECFA881AD52A4329BA6E0C438BCCEA34.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut41_F6033A6DF50F494AB795EAFF0A773D57.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut41_F768D146848346578A465EE0AE747741.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut4_01DBBDF1AC964938871AFA96D8A5D59C.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut4_023C4AD0CBA94429BF03C0A580F0C446.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut4_0DF5A284F62247E28D85C0F46087E0EA.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut4_127895E682D1403A8FD3EA2668CFDFC7.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut4_132C1C7BBC6F4811BDCCECE3370A1FB7.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut4_153803686FE549BAA9114ABA769124B6.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut4_179CB695550A4A9FAA786529BFE58F64.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut4_1F2C8C1BC97A4FD88A88E56D7CC6D818.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
 		<row><td>NewShortcut4_2B9366A9D6EC4977BF58A0D2054E8649.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut4_2DCDD50165364C859C31600F142DC101.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut4_2E9F91448235492782E2C6ED45660AB9.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut4_3117041A6736477BA67BCC78B1C3A307.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut4_39CC7B7C973C49468EEBBC0AFFEFCE59.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
 		<row><td>NewShortcut4_454EDE5521FD40449ED2D4DD59E1F2A8.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut4_59861FD7B03645119B6426E903405055.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut4_6734AA0B669B4178AF956260FCD69477.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\ACAT.ico</td><td>0</td></row>
+		<row><td>NewShortcut4_79634A672F1D4E8BA538DA92D0A04ED9.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut4_79BB7D7F53D7428A901DE0018C426350.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut4_8A947BAC353D423599E392D08836F245.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut4_8FE4E914A432454090196CC97BF78A42.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut4_95A54B13A22744C391CAD216BF5F6D4B.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
 		<row><td>NewShortcut4_9891D622544145B7977622FC185B184E.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut4_A20A8FD11AF045B898F836FAA7037FA9.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut4_A9801572B344491C8F4840EDB70721C9.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
 		<row><td>NewShortcut4_B942F0ACABCA47758DE9E2E0F69DDF27.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut4_C6565CBF7DAD47B0B891D7225C62EB96.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\Aster-3\Applications\Setup\Launcher.exe</td><td>0</td></row>
+		<row><td>NewShortcut4_D95506B26D60410C9CD06DCDB4145FA5.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut4_DD9C49CE4E19498286F64BCD35CA6033.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut4_E264F8F7366C4966A3A478D7E0CE2B29.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut4_ED152AEDC2EA4E329CC6DC07CBE46AFC.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut4_F9015CB4B7BD4CE4BD80ACC477C067ED.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut4_FDBFAE63C5374F4399AF344554A59B75.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut5_9F316EC8DD79415EB0CE981AA9B5676E.exe</td><td/><td>C:\Program Files (x86)\InstallShield\2013LE\Redist\Language Independent\OS Independent\uninstall.ico</td><td>0</td></row>
+		<row><td>NewShortcut61_26FC1EB9CA9D4A7DAF053237115AA346.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut61_69D363AC0A5546768A9144CBE50F8897.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut61_6CC51DCD0ADF49148A4FF942467A22DB.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut61_7B797072A5E04B3C80064051974B5DBF.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut61_AC2B4504066C4E3398320BA602480516.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut61_AD2A43CE32F74F069B8E891696A5C6AB.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut61_B88A0E6CAF044D02B288AF53D20DAACE.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut61_FA003B7B64B44B099317782F1AD4EFB9.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut6_0D73DADA28394CFE81F7EF6A562E9F44.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut6_0E3C687AA7BE4490A7396EE75C4F7939.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut6_280CD27A45854206AF56F56B6B60685C.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
 		<row><td>NewShortcut6_28C6BAA865DD472EB7EF77D54083D5DF.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut6_43BF9073AB354C4DACFA86C4713C7697.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut6_48EF81EC304844E2B3C4420097226813.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut6_516F54D67B5E472DA4D6C55B4635F145.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut6_56A2B764DDE34598B07BBC3083457805.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut6_5DA7CDE02A364B0995E5DE51E4DC9CB5.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut6_5EA6FBA81B2644D58B9205846A37036A.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut6_63D3958B006B4E81BF9AF5DDD20BC5FE.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut6_653D235F2FD146D9AFF05875B15CB962.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut6_65F7C5B3E8F7449E91A9A94D100B2C5B.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut6_6C6D012B670042AD894F3E46F709384D.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut6_6EBBFB78CE62422E8B547D2B74AF2AE0.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut6_76E187A75D3C432496F3090919A48513.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut6_974C93A8FE984D908ACCB38BA4C73E59.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut6_9B4C0B41398E48819FF564D4E56859E9.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut6_A15D26A66A634E76B992C6F66CF05964.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut6_AD123963005645CFA076ECA311C64B91.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut6_BC92EE16C6924781BB83FF380E1F81EB.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut6_BEFD009C9D8D4442B688B6159E7463AC.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut6_DF791CD2D5EB4F5DBE73A30F5C1E4DF8.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut6_EDBCA2D518394A05B8EA69D4FA2910B3.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut6_FA9EDF09F2704082A1976BB06D795713.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut6_FB395BE9179D469A9542C6545C588680.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut71_3F6926E041694C1D8B7841782BAE447A.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut71_660636DB9D4740D2B8147B254EAEB481.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut71_685F4A6100BD43A98E6B6274B1F2EDBD.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut71_8959EABD86F24653B571F7119D386275.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut71_B52D6BD56F1C401B81B234784EB9AE84.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut71_B7C4A3646A8E4D91A14FE8EAD4235836.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut71_DCAEBD504DE54C789FCDA9C7934FE5A7.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut71_F8D859CA9BB2491A88E48DE6F883AEC1.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut7_033B5FA6B6474E459D3DACFE322CF1AD.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut7_0D173F6301834CE29AEC9D5422E6F720.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut7_124B8CEEABF444FEB0D3A613FE0C29F7.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut7_141C8CBF1A7C4D998752A3E1F19EC0A5.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut7_14CEDCFCBD644D97A8177070D65F3C86.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut7_1F539BB32A414366B4CBD481026182BB.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut7_1F7739FDCA3C483596AB8C5B31A7454B.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut7_263441ED2E83432CA137E29E7AB5CC51.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut7_295D43A0539449E784B95F2FE426A0EF.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut7_4008E3C6B75F45C2AC0FC991A4A95BE3.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut7_6EAEC448EF4D466A964A4CA5D7BE064F.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut7_7116B1C4BA5B4C5EB9377B9843FF86F8.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut7_71D983D698F34167B0014036D5E1EAA4.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut7_7A678E7B197C4FAFAA6F4B95FB025DC9.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut7_80B1AD9445DE44FCAF8F62A570EDD7A3.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut7_B87873B487CE4EAFBECB9D3609383CEE.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut7_C53DC45101AC4929AA32E448BB176671.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTalk.exe</td><td>0</td></row>
+		<row><td>NewShortcut7_CC54641F489C4101B63DEF136C1C56C7.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut7_CEBC1C7445DB4E86A8B7E1DD01F6CB82.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut7_D19AFAA7592948879DA3C0EB55B81E93.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut7_E710768CE9E34D4F8DEF0B6F16C69C79.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut7_F29C898B338A48CCBD2848E8F8D7B149.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut7_F588EDAE0A37472E8665037642CBE5A3.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut7_F82B707905A841D595C122D32229D4FC.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut7_FDDC1F74D8EB43A9855A73FEA9ADBEF4.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut81_7C7A2D75E1E04EF49BA6C89C201B853D.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut81_CCF21DD4D59F4CEBAE786762F40B1C9C.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut8_0219F1C51FF445B7AE5A93CEC9302917.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut8_0490D5C991A944FDB863DDA06141A070.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut8_14E67089879F4362BF557A46FBA33468.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut8_20766BF5589F4137A2E473FEB1573F8F.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut8_215A323A796F4C289572D8009AD92488.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut8_2881C2845C8E41E9B9CFBCE318E8E5A7.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut8_2F0ABF28D7E14A00B2BF40E34180C7B2.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut8_31D988E0F7494F9F869A162E03EEEA9E.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut8_3E33E3079800429DB0058A01853E7444.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut8_8EEC0555EB2A4132A8A04E88832348BD.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut8_8F495E7D34064230A4C6DAEDA9943371.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut8_9B14A55F3A054F46B298CC91524281CD.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut8_9BD5FBCA06E043CAB71912742D32E416.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut8_B3B82C6B69E94A7AAC5599F1127E2A9F.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut8_B3F2AEEF9B7447B1A9E9D80755E1F017.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut8_C1136E4D2AFB40C3845ED5755F853DE5.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut8_D2533FFEA1B44D8EAD845745A72D73FE.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
 		<row><td>NewShortcut8_F6C9BA332DCC47CFBFEF06E0AACB461C.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATTryout.exe</td><td>0</td></row>
+		<row><td>NewShortcut8_FD2DBCB139084E42A94A56E40D17BDA8.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut9_040C42FEB2664AF2A117491CD2225043.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut9_064DF3F2997345B1B31277D03994BDC7.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut9_0E2BBB0F34544914AD9EB52807CDA4EA.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut9_1A13E1B6D9F64339A91EF336F7CEEF12.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut9_266C6BA348C243D19BACA746990B9712.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut9_2D9BE321161347DBB2B1DB941F8EF1E2.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut9_3093781CD4034A9294D06D8E36B430C2.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut9_447CB9A036AF422AAD205EEACD5996D3.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut9_487769E186CD48D7AF35CD065A29A1D9.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
+		<row><td>NewShortcut9_5ACCD93C2881451EB7D8FC29C04C3C86.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut9_791FBBB2FCCC4AD0A7AEDBAEF6A86E40.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut9_7E21052FCE1F47DFB1A24E463ECD60D3.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
+		<row><td>NewShortcut9_84CCB013423B455D94B65082225AB6B4.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\Vision\acat_gestures.exe</td><td>0</td></row>
 		<row><td>NewShortcut9_AB0F498C42D745B591E9247A3E9BDDCD.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 		<row><td>NewShortcut9_BB919234785F4F2186E3EB9EDA9F2488.exe</td><td/><td>C:\Users\sprasad1\Documents\Projects\EPL Glen Ellyn\Hawking\ACAT-1\OpenSource\Src\Applications\Setup\ACATApp.exe</td><td>0</td></row>
 	</table>
@@ -6004,11 +6384,13 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="L255">FileName</col>
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
-		<row><td>NewShortcut1</td><td>ACATApp.exe</td><td/><td>newfolder1</td><td>2</td></row>
-		<row><td>NewShortcut2</td><td>ACATApp.exe</td><td/><td>newfolder1</td><td>2</td></row>
-		<row><td>NewShortcut3</td><td>ACATTryout.exe</td><td/><td>newfolder1</td><td>2</td></row>
-		<row><td>NewShortcut4</td><td>acat_gestures.exe</td><td/><td>newfolder1</td><td>2</td></row>
+		<row><td>NewShortcut11</td><td>ACATApp.exe</td><td/><td>newfolder1</td><td>2</td></row>
+		<row><td>NewShortcut21</td><td>ACATApp.exe</td><td/><td>newfolder1</td><td>2</td></row>
+		<row><td>NewShortcut41</td><td>ACATTalk.exe</td><td/><td>newfolder1</td><td>2</td></row>
 		<row><td>NewShortcut5</td><td>ISX_DEFAULTCOMPONENT1</td><td/><td>newfolder1</td><td>2</td></row>
+		<row><td>NewShortcut61</td><td>ACATTalk.exe</td><td/><td>newfolder1</td><td>2</td></row>
+		<row><td>NewShortcut71</td><td>ACATTryout.exe</td><td/><td>newfolder1</td><td>2</td></row>
+		<row><td>NewShortcut81</td><td>acat_gestures.exe</td><td/><td>newfolder1</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -6094,15 +6476,19 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>NewShortcut1</td><td>newfolder1</td><td>##ID_STRING404##</td><td>ACATApp.exe</td><td>[INSTALLDIR]ACATApp.exe</td><td/><td/><td/><td>NewShortcut1_AF7D9325428349AFBD96DC8CFCFDBE78.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>NewShortcut2</td><td>newfolder1</td><td>##ID_STRING405##</td><td>ACATApp.exe</td><td>[INSTALLDIR]ACATApp.exe</td><td>-profile Talk</td><td/><td/><td>NewShortcut2_100769AD1D234E3F91A4A450C0E60FAB.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>NewShortcut3</td><td>newfolder1</td><td>##ID_STRING406##</td><td>ACATTryout.exe</td><td>[INSTALLDIR]ACATTryout.exe</td><td/><td/><td/><td>NewShortcut3_D3A658227CC446E0BD6260C4C2D5BF07.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>NewShortcut4</td><td>newfolder1</td><td>##ID_STRING407##</td><td>acat_gestures.exe</td><td>[INSTALLDIR]Vision\acat_gestures.exe</td><td/><td/><td/><td>NewShortcut4_DD9C49CE4E19498286F64BCD35CA6033.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut1</td><td>DesktopFolder</td><td>##ID_STRING587##</td><td>ACATApp.exe</td><td>[INSTALLDIR]ACATApp.exe</td><td/><td/><td/><td>NewShortcut1_FEF54FD25AE24EF388823211F26361B9.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut11</td><td>newfolder1</td><td>##ID_STRING593##</td><td>ACATApp.exe</td><td>[INSTALLDIR]ACATApp.exe</td><td/><td/><td/><td>NewShortcut11_7EBD74FEFAF94FE28B4ABA04ED0CBF4D.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut2</td><td>DesktopFolder</td><td>##ID_STRING588##</td><td>ACATApp.exe</td><td>[INSTALLDIR]ACATApp.exe</td><td>-panelconfig AlphabetAbc</td><td/><td/><td>NewShortcut2_2D53FF30FD364336827474A1C80FAA74.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut21</td><td>newfolder1</td><td>##ID_STRING594##</td><td>ACATApp.exe</td><td>[INSTALLDIR]ACATApp.exe</td><td>-panelconfig AlphabetAbc</td><td/><td/><td>NewShortcut21_A4FE79EEF81D4C2A9A73CC2A45535C42.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut4</td><td>DesktopFolder</td><td>##ID_STRING589##</td><td>ACATTalk.exe</td><td>[INSTALLDIR]ACATTalk.exe</td><td/><td/><td/><td>NewShortcut4_79634A672F1D4E8BA538DA92D0A04ED9.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut41</td><td>newfolder1</td><td>##ID_STRING595##</td><td>ACATTalk.exe</td><td>[INSTALLDIR]ACATTalk.exe</td><td/><td/><td/><td>NewShortcut41_F6033A6DF50F494AB795EAFF0A773D57.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>NewShortcut5</td><td>newfolder1</td><td>##ID_STRING315##</td><td>ISX_DEFAULTCOMPONENT1</td><td>[SystemFolder]MsiExec.exe</td><td>/x [ProductCode]</td><td/><td/><td>NewShortcut5_9F316EC8DD79415EB0CE981AA9B5676E.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>NewShortcut6</td><td>DesktopFolder</td><td>##ID_STRING408##</td><td>ACATApp.exe</td><td>[INSTALLDIR]ACATApp.exe</td><td/><td/><td/><td>NewShortcut6_76E187A75D3C432496F3090919A48513.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>NewShortcut7</td><td>DesktopFolder</td><td>##ID_STRING409##</td><td>ACATApp.exe</td><td>[INSTALLDIR]ACATApp.exe</td><td>-profile Talk</td><td/><td/><td>NewShortcut7_141C8CBF1A7C4D998752A3E1F19EC0A5.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>NewShortcut8</td><td>DesktopFolder</td><td>##ID_STRING410##</td><td>ACATTryout.exe</td><td>[INSTALLDIR]ACATTryout.exe</td><td/><td/><td/><td>NewShortcut8_8EEC0555EB2A4132A8A04E88832348BD.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>NewShortcut9</td><td>DesktopFolder</td><td>##ID_STRING411##</td><td>acat_gestures.exe</td><td>[INSTALLDIR]Vision\acat_gestures.exe</td><td/><td/><td/><td>NewShortcut9_1A13E1B6D9F64339A91EF336F7CEEF12.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut6</td><td>DesktopFolder</td><td>##ID_STRING590##</td><td>ACATTalk.exe</td><td>[INSTALLDIR]ACATTalk.exe</td><td>-f TalkApplicationScanner2</td><td/><td/><td>NewShortcut6_280CD27A45854206AF56F56B6B60685C.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut61</td><td>newfolder1</td><td>##ID_STRING596##</td><td>ACATTalk.exe</td><td>[INSTALLDIR]ACATTalk.exe</td><td>-f TalkApplicationScanner2</td><td/><td/><td>NewShortcut61_7B797072A5E04B3C80064051974B5DBF.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut7</td><td>DesktopFolder</td><td>##ID_STRING591##</td><td>ACATTryout.exe</td><td>[INSTALLDIR]ACATTryout.exe</td><td/><td/><td/><td>NewShortcut7_14CEDCFCBD644D97A8177070D65F3C86.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut71</td><td>newfolder1</td><td>##ID_STRING597##</td><td>ACATTryout.exe</td><td>[INSTALLDIR]ACATTryout.exe</td><td/><td/><td/><td>NewShortcut71_3F6926E041694C1D8B7841782BAE447A.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut8</td><td>DesktopFolder</td><td>##ID_STRING592##</td><td>acat_gestures.exe</td><td>[INSTALLDIR]Vision\acat_gestures.exe</td><td/><td/><td/><td>NewShortcut8_9B14A55F3A054F46B298CC91524281CD.exe</td><td>1</td><td>1</td><td>VISION</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut81</td><td>newfolder1</td><td>##ID_STRING598##</td><td>acat_gestures.exe</td><td>[INSTALLDIR]Vision\acat_gestures.exe</td><td/><td/><td/><td>NewShortcut81_CCF21DD4D59F4CEBAE786762F40B1C9C.exe</td><td>1</td><td>1</td><td>VISION</td><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">

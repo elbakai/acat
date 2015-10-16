@@ -72,8 +72,9 @@ namespace ACAT.Lib.Core.Extensions.Base.AppAgents.WordPadAgent
         public static String PreferencesFilePath;
 
         /// <summary>
-        /// If focus changes in the foreground window,
-        /// show scanner relevant to the focused element
+        /// Set to true to track focus changes in the foreground
+        /// window and display the appropriate scanner.  If false,
+        /// always displays the Alphabet scanner.
         /// </summary>
         public bool AutoSwitchScannerEnable;
 

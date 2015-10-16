@@ -63,7 +63,7 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Extension.CommandHandlers
 {
     /// <summary>
-    /// TODO: Update summary.
+    /// Executes mouse commands such as right click, left click etc
     /// </summary>
     public class MouseHandler : RunCommandHandler
     {

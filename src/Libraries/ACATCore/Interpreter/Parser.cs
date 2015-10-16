@@ -63,7 +63,8 @@ namespace ACAT.Lib.Core.Interpreter
 {
     /// <summary>
     /// A script parser class. Generates intermediate pCode
-    /// after interpreting.
+    /// after interpreting.  (Refer to the documentation for
+    /// the CTOR below for details)
     /// </summary>
     public class Parser
     {
@@ -125,8 +126,8 @@ namespace ACAT.Lib.Core.Interpreter
 
                     // function may have comma delimited arguments.
                     // extract them
-                    bool ret = parseActionVerb(trimmedToken, ref actionVerb);
-                    if (ret)
+                    retVal = parseActionVerb(trimmedToken, ref actionVerb);
+                    if (retVal)
                     {
                         pCode.ActionVerbList.Add(actionVerb);
                     }

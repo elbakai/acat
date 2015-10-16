@@ -44,7 +44,7 @@
             // labelMessage
             // 
             this.labelMessage.BackColor = System.Drawing.Color.White;
-            this.labelMessage.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMessage.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMessage.ForeColor = System.Drawing.Color.Black;
             this.labelMessage.Location = new System.Drawing.Point(9, 16);
             this.labelMessage.Name = "labelMessage";

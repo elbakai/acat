@@ -197,6 +197,7 @@ namespace ACAT.Lib.Extension.CommandHandlers
 
                     break;
 
+                case "CmdParitalMaximizeWindow":
                 case "CmdThreeFourthMaximizeWindow":
                     if (!isForegroundWindowSizeable())
                     {
@@ -210,6 +211,7 @@ namespace ACAT.Lib.Extension.CommandHandlers
                     }));
                     break;
 
+                case "CmdMaximizePartialMaximizeToggle":
                 case "CmdMaximizeThreeFourthToggle":
                     if (!isForegroundWindowSizeable())
                     {

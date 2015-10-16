@@ -64,7 +64,7 @@ namespace ACAT.Lib.Core.InputActuators
 {
     /// <summary>
     /// Represents the base class for an actuator that receives
-    /// trigger events from a TCP/IP socket client.  ACAT in this case
+    /// trigger events from a TCP/IP socket server.  ACAT in this case
     /// acts as a client and the source app for the trigger acts as
     /// the TCP server. Does a lot of the heavy lifting such as trying
     /// to connect to the server, receiving and parsing the data packet
@@ -251,7 +251,7 @@ namespace ACAT.Lib.Core.InputActuators
         }
 
         /// <summary>
-        /// Send data over socket
+        /// Sends data over socket
         /// </summary>
         /// <param name="msg">msg to send</param>
         /// <returns>true on sucess</returns>
@@ -272,7 +272,7 @@ namespace ACAT.Lib.Core.InputActuators
         }
 
         /// <summary>
-        /// Depending on the switch action, raised events such as
+        /// Depending on the switch action, raises events such as
         /// switch engaged, switch disengaged etc
         /// </summary>
         /// <param name="switchObj"></param>

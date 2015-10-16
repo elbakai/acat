@@ -22,7 +22,9 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Security.Permissions;
 using System.Windows.Forms;
+using ACAT.Lib.Core.ActuatorManagement;
 using ACAT.Lib.Core.Extensions;
+using ACAT.Lib.Core.InputActuators;
 using ACAT.Lib.Core.PanelManagement;
 using ACAT.Lib.Core.Utility;
 using ACAT.Lib.Core.WidgetManagement;
@@ -65,17 +67,24 @@ using ACAT.Lib.Core.WidgetManagement;
 namespace ACAT.Extensions.Default.UI.Dialogs
 {
     /// <summary>
-    /// Displays a dialog box with a prompt and
-    /// yes no buttons. Can be used for user confirmaton
+    /// A dialog which has a prompt and expects
+    /// a YES/NO response.  Has a blank spaces between the yes
+    /// and no to give user time to react
     /// </summary>
-    [DescriptorAttribute("285CB072-737D-4EE1-B866-F574BA633401", "YesNoDialogForm",
-                        "Yes/No Dialog")]
+    [DescriptorAttribute("640B79F7-0574-45A5-9A8C-50F87C62B08A",
+                            "YesNoDialogForm",
+                            "Yes/No Dialog")]
     public partial class YesNoDialogForm : Form, IDialogPanel, IExtension
     {
         /// <summary>
         /// Provides access to methods and properties in this class
         /// </summary>
         private readonly ExtensionInvoker _invoker;
+
+        /// <summary>
+        /// The keyboard actuator
+        /// </summary>
+        private readonly KeyboardActuator _keyboardActuator;
 
         /// <summary>
         /// The DialogCommon object
@@ -93,10 +102,15 @@ namespace ACAT.Extensions.Default.UI.Dialogs
 
             Choice = false;
 
-            TextButton1 = "Yes";
-            TextButton2 = "No";
             Caption = String.Empty;
             TitleBar = "ACAT";
+
+            var actuator = ActuatorManager.Instance.GetActuator(typeof(KeyboardActuator));
+            if (actuator is KeyboardActuator)
+            {
+                _keyboardActuator = actuator as KeyboardActuator;
+                _keyboardActuator.EvtKeyDown += keyboardActuator_EvtKeyDown;
+            }
 
             Init();
         }
@@ -108,7 +122,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
 
         /// <summary>
         /// Gets the choice the user made. True
-        /// if yes (or if the first button was selected)
+        /// if the user selected "Yes"
         /// </summary>
         public bool Choice { get; set; }
 
@@ -129,19 +143,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Gets / set the text for the first text
-        /// button. Typically this is a "Yes"
-        /// </summary>
-        public String TextButton1 { get; set; }
-
-        /// <summary>
-        /// Gets / sets the text for the second text
-        /// button. Typically this is a "No"
-        /// </summary>
-        public String TextButton2 { get; set; }
-
-        /// <summary>
-        /// Gets or sets the title for the dialog box
+        /// Gets or sets the title bar
         /// </summary>
         public String TitleBar { get; set; }
 
@@ -155,21 +157,21 @@ namespace ACAT.Extensions.Default.UI.Dialogs
                 new SecurityPermission(SecurityPermissionFlag.UnmanagedCode).Demand();
                 var createParams = base.CreateParams;
                 createParams.ExStyle |= Windows.WindowStyleFlags.WS_EX_NOACTIVATE;
-                return createParams;
+                return DialogCommon.SetFormStyles(createParams);
             }
         }
 
         /// <summary>
         /// Returns the extension invoker object
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The invoker object</returns>
         public ExtensionInvoker GetInvoker()
         {
             return _invoker;
         }
 
         /// <summary>
-        /// Initialzes the dialog
+        /// Initializes the form
         /// </summary>
         /// <returns>true on success</returns>
         public bool Init()
@@ -203,12 +205,12 @@ namespace ACAT.Extensions.Default.UI.Dialogs
 
             switch (value)
             {
-                case "@button1":
-                    Choice = true;
+                case "@CmdNo":
+                    Choice = false;
                     break;
 
-                case "@button2":
-                    Choice = false;
+                case "@CmdYes":
+                    Choice = true;
                     break;
             }
 
@@ -244,12 +246,20 @@ namespace ACAT.Extensions.Default.UI.Dialogs
             }
         }
 
+        /// <summary>
+        /// Form is closing. Release resources
+        /// </summary>
+        /// <param name="e">event args</param>
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             _dialogCommon.OnFormClosing(e);
             base.OnFormClosing(e);
         }
 
+        /// <summary>
+        /// Window procedure
+        /// </summary>
+        /// <param name="m">windows message</param>
         [EnvironmentPermissionAttribute(SecurityAction.LinkDemand, Unrestricted = true)]
         protected override void WndProc(ref Message m)
         {
@@ -264,14 +274,19 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         /// <summary>
         /// Form is closing. Release resources
         /// </summary>
+        /// <param name="sender">event sender</param>
+        /// <param name="e">event args</param>
         private void Form_Closing(object sender, FormClosingEventArgs e)
         {
+            _keyboardActuator.EvtKeyDown -= keyboardActuator_EvtKeyDown;
             _dialogCommon.OnClosing();
         }
 
         /// <summary>
         /// Form has been loaded
         /// </summary>
+        /// <param name="sender">event sender</param>
+        /// <param name="e">event args</param>
         private void Form_Load(object sender, EventArgs e)
         {
             _dialogCommon.OnLoad();
@@ -282,16 +297,34 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Initialize the scanner
+        /// Initializes the form
         /// </summary>
-        /// <returns></returns>
+        /// <returns>true</returns>
         private bool initialize()
         {
             Windows.SetText(labelCaption, Caption);
-            Windows.SetText(Button1, TextButton1);
-            Windows.SetText(Button2, TextButton2);
+            Windows.SetText(this, TitleBar);
 
             return true;
+        }
+
+        /// <summary>
+        /// Keydown event handler.  Handles y n and escape
+        /// </summary>
+        /// <param name="sender">event sender</param>
+        /// <param name="e">event args</param>
+        private void keyboardActuator_EvtKeyDown(object sender, KeyEventArgs keyEventArgs)
+        {
+            if (keyEventArgs.KeyCode == Keys.Escape || keyEventArgs.KeyCode == Keys.N)
+            {
+                Choice = false;
+                Close();
+            }
+            else if (keyEventArgs.KeyCode == Keys.Y)
+            {
+                Choice = true;
+                Close();
+            }
         }
     }
 }

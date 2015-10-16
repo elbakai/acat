@@ -73,6 +73,11 @@ namespace ACAT.Applications.ACATApp
     internal static class Program
     {
         /// <summary>
+        /// Preferred panel config to sue
+        /// </summary>
+        private static String _panelConfig;
+
+        /// <summary>
         /// Active profile name
         /// </summary>
         private static string _profile;
@@ -89,7 +94,8 @@ namespace ACAT.Applications.ACATApp
         {
             Next,
             Username,
-            Profile
+            Profile,
+            PanelConfig
         }
 
         /// <summary>
@@ -99,10 +105,12 @@ namespace ACAT.Applications.ACATApp
         public static void Main(String[] args)
         {
             // Disallow multiple instances
-            if (FileUtils.CheckAppExistingInstance("ACATMutex"))
+            if (FileUtils.IsACATRunning())
             {
                 return;
             }
+
+            Windows.TurnOffDPIAwareness();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -111,21 +119,22 @@ namespace ACAT.Applications.ACATApp
 
             // get appname and copyright information
             object[] attributes = assembly.GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
-            var appName = (attributes.Length != 0) ? 
-                            ((AssemblyTitleAttribute)attributes[0]).Title : 
-                            String.Empty;
+            var appName = (attributes.Length != 0)
+                ? ((AssemblyTitleAttribute)attributes[0]).Title
+                : String.Empty;
 
             var appVersion = "Version " + assembly.GetName().Version;
             attributes = assembly.GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
-            var appCopyright = (attributes.Length != 0) ? 
-                                ((AssemblyCopyrightAttribute)attributes[0]).Copyright : 
-                                String.Empty;
+            var appCopyright = (attributes.Length != 0)
+                ? ((AssemblyCopyrightAttribute)attributes[0]).Copyright
+                : String.Empty;
 
             Log.Info("***** " + appName + ". " + appVersion + ". " + appCopyright + " *****");
 
             parseCommandLine(args);
 
-            CoreGlobals.AppGlobalPreferences = GlobalPreferences.Load(FileUtils.GetPreferencesFileFullPath(GlobalPreferences.FileName));
+            CoreGlobals.AppGlobalPreferences =
+                GlobalPreferences.Load(FileUtils.GetPreferencesFileFullPath(GlobalPreferences.FileName));
 
             //Set the active user/profile information
             setUserName();
@@ -144,8 +153,13 @@ namespace ACAT.Applications.ACATApp
 
             Log.SetupListeners();
 
-            // Display splash screen and initialize
-            Splash splash = new Splash(FileUtils.GetImagePath("SplashScreenImage.png"), appName, appVersion, appCopyright, 5000);
+            if (!String.IsNullOrEmpty(_panelConfig))
+            {
+                Common.AppPreferences.PreferredPanelConfigNames = _panelConfig + ";" +
+                                                                  Common.AppPreferences.PreferredPanelConfigNames;
+            }
+
+            Splash splash = new Splash(FileUtils.GetImagePath("SplashScreenImage.png"), appName, appVersion, appCopyright, 1000);
             splash.Show();
 
             Context.PreInit();
@@ -169,11 +183,15 @@ namespace ACAT.Applications.ACATApp
             Context.AppAgentMgr.EnableContextualMenusForDialogs = Common.AppPreferences.EnableContextualMenusForDialogs;
             Context.AppAgentMgr.EnableContextualMenusForMenus = Common.AppPreferences.EnableContextualMenusForMenus;
 
-            Context.PostInit();
-
             if (splash != null)
             {
                 splash.Close();
+            }
+
+            if (!Context.PostInit())
+            {
+                MessageBox.Show(Context.GetInitCompletionStatus(), "Initialization Error");
+                return;
             }
 
             Common.Init();
@@ -212,11 +230,12 @@ namespace ACAT.Applications.ACATApp
             try
             {
                 var dir = AppDomain.CurrentDomain.BaseDirectory;
+                var fileName = Path.Combine(dir, batchFileName);
                 Process proc = new Process
                 {
                     StartInfo =
                     {
-                        FileName = Path.Combine(dir, batchFileName),
+                        FileName = fileName,
                         WorkingDirectory = dir,
                         Arguments = userName,
                         UseShellExecute = true
@@ -225,7 +244,14 @@ namespace ACAT.Applications.ACATApp
 
                 proc.Start();
                 proc.WaitForExit();
+                int exitCode = proc.ExitCode;
                 proc.Close();
+
+                retVal = (exitCode == 0);
+                if (!retVal)
+                {
+                    MessageBox.Show("Could not create user.\nThe batch file " + fileName + " returned an error.\n\nPlease run this batch file manually to check the reason", "ACAT Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
@@ -335,6 +361,11 @@ namespace ACAT.Applications.ACATApp
                     case "/profile":
                         parseState = ParseState.Profile;
                         break;
+
+                    case "-panelconfig":
+                    case "/panelconfig":
+                        parseState = ParseState.PanelConfig;
+                        break;
                 }
 
                 switch (parseState)
@@ -354,6 +385,13 @@ namespace ACAT.Applications.ACATApp
                             _userName = args[index].Trim();
                         }
 
+                        break;
+
+                    case ParseState.PanelConfig:
+                        if (!isOption(args[index]))
+                        {
+                            _panelConfig = args[index].Trim();
+                        }
                         break;
                 }
             }
@@ -386,7 +424,8 @@ namespace ACAT.Applications.ACATApp
             // command line, use the one from GlobalPreferences
             if (string.IsNullOrEmpty(_userName))
             {
-                UserManager.CurrentUser = CoreGlobals.AppGlobalPreferences.CurrentUser.Trim();
+                //UserManager.CurrentUser = CoreGlobals.AppGlobalPreferences.CurrentUser.Trim();
+                UserManager.CurrentUser = "ACAT";  // hardcode for
                 if (String.IsNullOrEmpty(UserManager.CurrentUser))
                 {
                     UserManager.CurrentUser = UserManager.DefaultUserName;

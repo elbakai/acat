@@ -60,17 +60,18 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Core.SpellCheckManagement
 {
     /// <summary>
-    /// The null word predictor basically does nothing.  It is used
-    /// where no word predictor is currently valid.
+    /// The null spellchecker basically does nothing.  It is used
+    /// where no SpellChecker is currently active/valid.
     /// </summary>
-    ///
-    [DescriptorAttribute("CCC45241-9BA0-4BD9-AB37-DC2C960772F4", "Null Spell Checker", "No spell checking functionality.")]
+    [DescriptorAttribute("CCC45241-9BA0-4BD9-AB37-DC2C960772F4", 
+                        "Null Spell Checker", 
+                        "No spell checking functionality.")]
     public class NullSpellChecker : ISpellChecker
     {
         /// <summary>
         /// Has this object been disposed
         /// </summary>
-        private bool _disposed = false;
+        private bool _disposed;
 
         /// <summary>
         /// Gets the descriptor for this class

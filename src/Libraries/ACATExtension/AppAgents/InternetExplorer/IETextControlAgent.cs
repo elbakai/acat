@@ -63,7 +63,7 @@ namespace ACAT.Lib.Extension.AppAgents.InternetExplorer
 {
     /// <summary>
     /// Text control agent for the IE browser.  Disable
-    /// spellcheck and abbreviation expansoin
+    /// spellcheck and abbreviation expansion.
     /// </summary>
     public class IETextControlAgent : EditTextControlAgent
     {

@@ -69,8 +69,9 @@ namespace ACAT.Extensions.Default.UI.Dialogs
     /// <summary>
     /// Dialog to change settings related to word prediction
     /// </summary>
-    [DescriptorAttribute("DF4867B5-C812-44A9-8DFB-1D6D9DC4A81A", "WordPredictionSettingsForm",
-                            "Word Prediction Settings Dialog")]
+    [DescriptorAttribute("DF4867B5-C812-44A9-8DFB-1D6D9DC4A81A",
+                        "WordPredictionSettingsForm",
+                        "Word Prediction Settings Dialog")]
     public partial class WordPredictionSettingsForm : Form, IDialogPanel
     {
         /// <summary>
@@ -214,7 +215,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Init the controls in the dialog box based on
+        /// Inits the controls in the dialog box based on
         /// settings
         /// </summary>
         /// <param name="prefs">ACAT settings</param>
@@ -222,13 +223,13 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         {
             var rootWidget = _dialogCommon.GetRootWidget();
 
-            WidgetUtils.SetCheckBoxWidgetState(rootWidget, pbDynamicLearning.Name, prefs.EnableWordPredictionDynamicModel);
-            WidgetUtils.SetCheckBoxWidgetState(rootWidget, pbUseCorpus.Name, prefs.EnableWordPredictionCorpusModel);
-            WidgetUtils.SetSliderState(rootWidget, tbWordCount.Name, prefs.WordPredictionCount, WidgetUtils.SliderUnitsOnes);
+            (rootWidget.Finder.FindChild(pbDynamicLearning.Name) as CheckBoxWidget).SetState(prefs.EnableWordPredictionDynamicModel);
+            (rootWidget.Finder.FindChild(pbUseCorpus.Name) as CheckBoxWidget).SetState(prefs.EnableWordPredictionCorpusModel);
+            (rootWidget.Finder.FindChild(tbWordCount.Name) as SliderWidget).SetState(prefs.WordPredictionCount, SliderWidget.SliderUnitsOnes);
         }
 
         /// <summary>
-        /// Load default values for all the settings in the
+        /// Loads default values for all the settings in the
         /// dialog
         /// </summary>
         private void loadDefaultSettings()
@@ -243,7 +244,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Confirm with the user and quit the dialog
+        /// Confirms with the user and quits the dialog
         /// </summary>
         private void quit()
         {
@@ -264,7 +265,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Save settings and close the dialog
+        /// Saves settings and closes the dialog
         /// </summary>
         private void saveSettingsAndQuit()
         {
@@ -326,16 +327,18 @@ namespace ACAT.Extensions.Default.UI.Dialogs
 
         /// <summary>
         /// Update settings based on what the user has
-        /// set in the dialog
+        /// set in the dialog.  Returns the preferences object
+        /// with the settings
         /// </summary>
+        /// <returns>Preferences object</returns>
         private ACATPreferences updateSettingsFromUI()
         {
             var rootWidget = _dialogCommon.GetRootWidget();
             var prefs = ACATPreferences.Load();
 
-            prefs.EnableWordPredictionDynamicModel = Common.AppPreferences.EnableWordPredictionDynamicModel = WidgetUtils.GetCheckBoxWidgetState(rootWidget, pbDynamicLearning.Name);
-            prefs.EnableWordPredictionCorpusModel = Common.AppPreferences.EnableWordPredictionCorpusModel = WidgetUtils.GetCheckBoxWidgetState(rootWidget, pbUseCorpus.Name);
-            prefs.WordPredictionCount = Common.AppPreferences.WordPredictionCount = WidgetUtils.GetSliderState(rootWidget, tbWordCount.Name, WidgetUtils.SliderUnitsOnes);
+            prefs.EnableWordPredictionDynamicModel = Common.AppPreferences.EnableWordPredictionDynamicModel = (rootWidget.Finder.FindChild(pbDynamicLearning.Name) as CheckBoxWidget).GetState();
+            prefs.EnableWordPredictionCorpusModel = Common.AppPreferences.EnableWordPredictionCorpusModel = (rootWidget.Finder.FindChild(pbUseCorpus.Name) as CheckBoxWidget).GetState();
+            prefs.WordPredictionCount = Common.AppPreferences.WordPredictionCount = (rootWidget.Finder.FindChild(tbWordCount.Name) as SliderWidget).GetState(SliderWidget.SliderUnitsOnes);
 
             return prefs;
         }

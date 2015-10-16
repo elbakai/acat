@@ -169,7 +169,7 @@ namespace ACAT.Lib.Extension.AppAgents.MSWord
         }
 
         /// <summary>
-        /// Reterns selected text (if any)
+        /// Returns selected text (if any)
         /// </summary>
         /// <returns>selected text</returns>
         public String GetSelectedText()

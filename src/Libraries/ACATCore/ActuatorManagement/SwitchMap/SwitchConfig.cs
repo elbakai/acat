@@ -64,11 +64,15 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Core.ActuatorManagement
 {
     /// <summary>
-    /// Stores a mapping between scanners and their SwitchMap elements.
+    /// Stores a mapping between scanners/scanner types and their
+    /// SwitchMap elements.
     /// The switch mapping is a lookup table that maps
     /// a switch and an action (a command).  See SwitchMap class
-    /// for details on this.  Each scanner can have its own customized
-    /// switch map.
+    /// for details on this.  Each scanner or scanner type can have its own
+    /// customized switch map table.  When the switch is triggered,
+    /// the action associated with the switch is executed.
+    /// The scanner type for eg can be a "Scanner", "Dialog", "ContextMenu" etcc
+    ///
     /// </summary>
     public class SwitchConfig
     {
@@ -105,23 +109,23 @@ namespace ACAT.Lib.Core.ActuatorManagement
 
         /// <summary>
         /// Returns onTrigger Pcode for the specified switch for the
-        /// specified screen
+        /// specified scanner
         /// </summary>
-        /// <param name="screen">Name of the screen</param>
+        /// <param name="scanner">Name of the scanner</param>
         /// <param name="actuatorSwitch">Input switch</param>
         /// <returns>null if there is no onTrigger</returns>
         ///
-        public PCode GetOnTrigger(String screen, IActuatorSwitch actuatorSwitch)
+        public PCode GetOnTrigger(String scanner, IActuatorSwitch actuatorSwitch)
         {
             try
             {
-                Log.Debug("Scanner: " + screen);
+                Log.Debug("Scanner: " + scanner);
                 var actuatorName = actuatorSwitch.Actuator.Name;
                 Log.Debug("actuatorname: " + actuatorName);
 
                 SwitchMap switchMap;
 
-                if (_switchMapTable.TryGetValue(screen.ToLower(), out switchMap))
+                if (_switchMapTable.TryGetValue(scanner.ToLower(), out switchMap))
                 {
                     Log.Debug("Getting swithcmapActuator for " + actuatorName);
                     var switchMapActuator = switchMap[actuatorName];

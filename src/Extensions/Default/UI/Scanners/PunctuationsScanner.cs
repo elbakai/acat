@@ -68,10 +68,11 @@ using ACAT.Lib.Extension.CommandHandlers;
 namespace ACAT.Extensions.Default.UI.Scanners
 {
     /// <summary>
-    /// Scanner that has all the punctuations, numbers and function
-    /// keys (F1 through F10)
+    /// Scanner that has all the punctuations
     /// </summary>
-    [DescriptorAttribute("D7F899FF-73AD-4B32-A0CA-6E0FDA83CC0A", "PunctuationsScanner", "Numbers and Punctuations")]
+    [DescriptorAttribute("478CE93F-A391-435C-B5B3-2AFC32CD99A7",
+                        "PunctuationsScanner",
+                        "Enter punctuations")]
     public partial class PunctuationsScanner : Form, IScannerPanel, ISupportsStatusBar
     {
         /// <summary>
@@ -90,21 +91,15 @@ namespace ACAT.Extensions.Default.UI.Scanners
         private ScannerHelper _scannerHelper;
 
         /// <summary>
-        /// The StatusBar for this scanner
-        /// </summary>
-        private ScannerStatusBar _statusBar;
-
-        /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
         public PunctuationsScanner()
         {
             InitializeComponent();
-            createStatusBar();
             Load += PunctuationsScanner_Load;
             FormClosing += PunctuationsScanner_FormClosing;
             PanelClass = PanelClasses.Punctuation;
-            _dispatcher = new Dispatcher(this);
+            _dispatcher = new DefaultCommandDispatcher(this);
         }
 
         /// <summary>
@@ -149,7 +144,7 @@ namespace ACAT.Extensions.Default.UI.Scanners
         /// </summary>
         public ScannerStatusBar ScannerStatusBar
         {
-            get { return _statusBar; }
+            get { return ScannerCommon.StatusBar; }
         }
 
         /// <summary>
@@ -214,6 +209,8 @@ namespace ACAT.Extensions.Default.UI.Scanners
                 Log.Debug("Could not initialize form " + Name);
                 return false;
             }
+
+            _scannerCommon.CreateStatusBar();
 
             return true;
         }
@@ -302,26 +299,15 @@ namespace ACAT.Extensions.Default.UI.Scanners
         [EnvironmentPermissionAttribute(SecurityAction.LinkDemand, Unrestricted = true)]
         protected override void WndProc(ref Message m)
         {
-            _scannerCommon.HandleWndProc(m);
-            base.WndProc(ref m);
-        }
-
-        /// <summary>
-        /// Creates the scanner status bar object
-        /// </summary>
-        private void createStatusBar()
-        {
-            if (_statusBar == null)
+            if (_scannerCommon != null)
             {
-                _statusBar = new ScannerStatusBar
+                if (_scannerCommon.HandleWndProc(m))
                 {
-                    AltStatus = BAltStatus,
-                    CtrlStatus = BCtrlStatus,
-                    FuncStatus = BFuncStatus,
-                    ShiftStatus = BShiftStatus,
-                    LockStatus = BLockStatus
-                };
+                    return;
+                }
             }
+
+            base.WndProc(ref m);
         }
 
         /// <summary>
@@ -331,7 +317,6 @@ namespace ACAT.Extensions.Default.UI.Scanners
         /// <param name="e">event arg</param>
         private void PunctuationsScanner_FormClosing(object sender, FormClosingEventArgs e)
         {
-            KeyStateTracker.ClearFunc();
             _scannerCommon.OnClosing();
             _scannerCommon.Dispose();
         }
@@ -346,153 +331,6 @@ namespace ACAT.Extensions.Default.UI.Scanners
             _scannerCommon.OnLoad();
 
             _scannerCommon.GetAnimationManager().Start(_scannerCommon.GetRootWidget());
-        }
-
-        /// <summary>
-        /// Handles all  the commands for the scanner
-        /// </summary>
-        private class CommandHandler : RunCommandHandler
-        {
-            /// <summary>
-            /// Initializes an instance of the handler
-            /// </summary>
-            /// <param name="cmd">the command</param>
-            public CommandHandler(String cmd)
-                : base(cmd)
-            {
-            }
-
-            /// <summary>
-            /// Executes the command
-            /// </summary>
-            /// <param name="handled">set to true if handled</param>
-            /// <returns>true</returns>
-            public override bool Execute(ref bool handled)
-            {
-                handled = true;
-
-                switch (Command)
-                {
-                    case "CmdFunctionKey":
-                        if (KeyStateTracker.IsFuncOn())
-                        {
-                            KeyStateTracker.ClearFunc();
-                        }
-                        else
-                        {
-                            KeyStateTracker.FuncTriggered();
-                        }
-
-                        break;
-
-                    case "CmdNumberPeriod":
-                        Context.AppAgentMgr.Keyboard.Send(KeyStateTracker.GetExtendedKeys(), '.');
-                        break;
-
-                    case "CmdNumberComma":
-                        Context.AppAgentMgr.Keyboard.Send(KeyStateTracker.GetExtendedKeys(), ',');
-                        break;
-
-                    default:
-                        handled = false;
-                        break;
-                }
-
-                return true;
-            }
-        }
-
-        /// <summary>
-        /// Command dispatcher class that takes care of all the
-        /// commands associated with this scanner
-        /// </summary>
-        private class Dispatcher : DefaultCommandDispatcher
-        {
-            /// <summary>
-            /// Initializes a new instance of the class.
-            /// </summary>
-            /// <param name="panel">the scanner</param>
-            public Dispatcher(IScannerPanel panel)
-                : base(panel)
-            {
-                Commands.Add(new CommandHandler("CmdFunctionKey"));
-                Commands.Add(new CommandHandler("CmdNumberPeriod"));
-                Commands.Add(new CommandHandler("CmdNumberComma"));
-                Commands.Add(new FKeyHandler("1"));
-                Commands.Add(new FKeyHandler("2"));
-                Commands.Add(new FKeyHandler("3"));
-                Commands.Add(new FKeyHandler("4"));
-                Commands.Add(new FKeyHandler("5"));
-                Commands.Add(new FKeyHandler("6"));
-                Commands.Add(new FKeyHandler("7"));
-                Commands.Add(new FKeyHandler("8"));
-                Commands.Add(new FKeyHandler("9"));
-                Commands.Add(new FKeyHandler("0"));
-            }
-        }
-
-        /// <summary>
-        /// Simulates function key presses F1 through F10
-        /// </summary>
-        private class FKeyHandler : FunctionKeyHandler
-        {
-            /// <summary>
-            /// Initializes a new instance of the class.
-            /// </summary>
-            /// <param name="cmd">The command</param>
-            public FKeyHandler(String cmd)
-                : base(cmd)
-            {
-            }
-
-            /// <summary>
-            /// Executes the command
-            /// </summary>
-            /// <param name="handled">true if handled</param>
-            /// <returns>true on success</returns>
-            public override bool Execute(ref bool handled)
-            {
-                var form = Dispatcher.Scanner.Form as PunctuationsScanner;
-
-                switch (Command)
-                {
-                    case "1":
-                    case "2":
-                    case "3":
-                    case "4":
-                    case "5":
-                    case "6":
-                    case "7":
-                    case "8":
-                    case "9":
-                    case "0":
-                        if (KeyStateTracker.IsFuncOn())
-                        {
-                            sendFunctionKey("F" + Command);
-
-                            KeyStateTracker.ClearFunc();
-                            KeyStateTracker.ClearShift();
-                            KeyStateTracker.ClearAlt();
-                            KeyStateTracker.ClearCtrl();
-                        }
-                        else
-                        {
-                            if (form._scannerCommon.ActuatedWidget != null)
-                            {
-                                form._scannerCommon.ActuateButton(form._scannerCommon.ActuatedWidget, Command[0]);
-                            }
-                        }
-
-                        handled = true;
-                        break;
-
-                    default:
-                        handled = false;
-                        break;
-                }
-
-                return true;
-            }
         }
     }
 }

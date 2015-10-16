@@ -26,10 +26,10 @@ copy .\%SOURCEDIR%\bin\%CONFIG%\Dialogs.dll %TARGETDIR%
 copy .\%SOURCEDIR%\Config\*.xml %TARGETDIR%
 
 
-set SOURCEDIR=Extensions\Default\UI\ContextMenus
+set SOURCEDIR=Extensions\Default\UI\Menus
 set TARGETDIR=%INSTALLDIR%\%SOURCEDIR%
 if not exist %TARGETDIR% mkdir %TARGETDIR%
-copy .\%SOURCEDIR%\bin\%CONFIG%\ContextMenus.dll %TARGETDIR%
+copy .\%SOURCEDIR%\bin\%CONFIG%\Menus.dll %TARGETDIR%
 copy .\%SOURCEDIR%\Config\*.xml %TARGETDIR%
 
 set SOURCEDIR=Extensions\Default\UI\Scanners
@@ -46,14 +46,6 @@ set SOURCEDIR=Extensions\Default\Actuators\CameraActuator
 set TARGETDIR=%INSTALLDIR%\%SOURCEDIR%
 if not exist %TARGETDIR% mkdir %TARGETDIR%
 copy .\%SOURCEDIR%\bin\%CONFIG%\CameraActuator.dll %TARGETDIR%
-
-set SOURCEDIR=Extensions\Default\Actuators\WordsPlusActuator
-set TARGETDIR=%INSTALLDIR%\%SOURCEDIR%
-if not exist %TARGETDIR% mkdir %TARGETDIR%
-copy .\%SOURCEDIR%\bin\%CONFIG%\WordsPlusActuator.dll %TARGETDIR%
-copy .\%SOURCEDIR%\bin\%CONFIG%\USBHidInterface.dll %TARGETDIR%
-
-
 
 rem ------------------------------------------------
 @echo Deploying TTSEngine dlls
@@ -101,6 +93,14 @@ if not exist %TARGETDIR% mkdir %TARGETDIR%
 copy .\%SOURCEDIR%\bin\%CONFIG%\%AGENT%.dll %TARGETDIR%
 if exist %SOURCEDIR%\Config\*.xml copy %SOURCEDIR%\Config\*.xml %TARGETDIR%
 
+set AGENT=FoxitReaderAgent
+set EXTENSIONSBASE=Extensions\Default
+set SOURCEDIR=%EXTENSIONSBASE%\AppAgents\%AGENT%
+set TARGETDIR=%INSTALLDIR%\%EXTENSIONSBASE%\AppAgents\%AGENT%
+if not exist %TARGETDIR% mkdir %TARGETDIR%
+copy .\%SOURCEDIR%\bin\%CONFIG%\%AGENT%.dll %TARGETDIR%
+if exist %SOURCEDIR%\Config\*.xml copy %SOURCEDIR%\Config\*.xml %TARGETDIR%
+
 set AGENT=MenuControlAgent
 set EXTENSIONSBASE=Extensions\Default
 set SOURCEDIR=%EXTENSIONSBASE%\AppAgents\%AGENT%
@@ -116,7 +116,6 @@ set TARGETDIR=%INSTALLDIR%\%EXTENSIONSBASE%\AppAgents\%AGENT%
 if not exist %TARGETDIR% mkdir %TARGETDIR%
 copy .\%SOURCEDIR%\bin\%CONFIG%\%AGENT%.dll %TARGETDIR%
 if exist %SOURCEDIR%\Config\*.xml copy %SOURCEDIR%\Config\*.xml %TARGETDIR%
-
 
 set AGENT=FireFoxAgent
 set EXTENSIONSBASE=Extensions\Default
@@ -174,13 +173,39 @@ if not exist %TARGETDIR% mkdir %TARGETDIR%
 copy .\%SOURCEDIR%\bin\%CONFIG%\%AGENT%.dll %TARGETDIR%
 if exist %SOURCEDIR%\Config\*.xml copy %SOURCEDIR%\Config\*.xml %TARGETDIR%
 
-set AGENT=EudoraAgent
+set AGENT=OutlookAgent
 set EXTENSIONSBASE=Extensions\Default
 set SOURCEDIR=%EXTENSIONSBASE%\AppAgents\%AGENT%
 set TARGETDIR=%INSTALLDIR%\%EXTENSIONSBASE%\AppAgents\%AGENT%
 if not exist %TARGETDIR% mkdir %TARGETDIR%
 copy .\%SOURCEDIR%\bin\%CONFIG%\%AGENT%.dll %TARGETDIR%
 if exist %SOURCEDIR%\Config\*.xml copy %SOURCEDIR%\Config\*.xml %TARGETDIR%
+
+set AGENT=TalkWindowAgent
+set EXTENSIONSBASE=Extensions\Default
+set SOURCEDIR=%EXTENSIONSBASE%\AppAgents\%AGENT%
+set TARGETDIR=%INSTALLDIR%\%EXTENSIONSBASE%\AppAgents\%AGENT%
+if not exist %TARGETDIR% mkdir %TARGETDIR%
+copy .\%SOURCEDIR%\bin\%CONFIG%\%AGENT%.dll %TARGETDIR%
+if exist %SOURCEDIR%\Config\*.xml copy %SOURCEDIR%\Config\*.xml %TARGETDIR%
+
+set AGENT=MediaPlayerAgent
+set EXTENSIONSBASE=Extensions\Default
+set SOURCEDIR=%EXTENSIONSBASE%\AppAgents\%AGENT%
+set TARGETDIR=%INSTALLDIR%\%EXTENSIONSBASE%\AppAgents\%AGENT%
+if not exist %TARGETDIR% mkdir %TARGETDIR%
+copy .\%SOURCEDIR%\bin\%CONFIG%\%AGENT%.dll %TARGETDIR%
+if exist %SOURCEDIR%\Config\*.xml copy %SOURCEDIR%\Config\*.xml %TARGETDIR%
+
+set AGENT=WindowsExplorerAgent
+set EXTENSIONSBASE=Extensions\Default
+set SOURCEDIR=%EXTENSIONSBASE%\AppAgents\%AGENT%
+set TARGETDIR=%INSTALLDIR%\%EXTENSIONSBASE%\AppAgents\%AGENT%
+if not exist %TARGETDIR% mkdir %TARGETDIR%
+echo copy .\%SOURCEDIR%\bin\%CONFIG%\%AGENT%.dll %TARGETDIR%
+copy .\%SOURCEDIR%\bin\%CONFIG%\%AGENT%.dll %TARGETDIR%
+if exist %SOURCEDIR%\Config\*.xml copy %SOURCEDIR%\Config\*.xml %TARGETDIR%
+
 
 rem ------------------------------------------------
 @echo Deploying Functional Agent dlls
@@ -203,6 +228,14 @@ copy .\%SOURCEDIR%\bin\%CONFIG%\%AGENT%.dll %TARGETDIR%
 if exist %SOURCEDIR%\Config\*.xml copy %SOURCEDIR%\Config\*.xml %TARGETDIR%
 
 set AGENT=AbbreviationsAgent
+set EXTENSIONSBASE=Extensions\Default
+set SOURCEDIR=%EXTENSIONSBASE%\FunctionalAgents\%AGENT%
+set TARGETDIR=%INSTALLDIR%\%EXTENSIONSBASE%\FunctionalAgents\%AGENT%
+if not exist %TARGETDIR% mkdir %TARGETDIR%
+copy .\%SOURCEDIR%\bin\%CONFIG%\%AGENT%.dll %TARGETDIR%
+if exist %SOURCEDIR%\Config\*.xml copy %SOURCEDIR%\Config\*.xml %TARGETDIR%
+
+set AGENT=PhraseSpeakAgent
 set EXTENSIONSBASE=Extensions\Default
 set SOURCEDIR=%EXTENSIONSBASE%\FunctionalAgents\%AGENT%
 set TARGETDIR=%INSTALLDIR%\%EXTENSIONSBASE%\FunctionalAgents\%AGENT%

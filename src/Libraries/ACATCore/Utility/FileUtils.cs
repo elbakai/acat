@@ -220,6 +220,37 @@ namespace ACAT.Lib.Core.Utility
         }
 
         /// <summary>
+        /// Converts a filename from the \\Device\\HarddiskVolume1\\....\\abc.exe
+        /// format to a Dos file name
+        /// </summary>
+        /// <param name="mappedFileName">input mapped file name</param>
+        /// <returns>dos file name</returns>
+        public static String ConvertMappedFileNameToDosFileName(String mappedFileName)
+        {
+            const int bufLen = 260;
+            var fileName = String.Empty;
+
+            for (var driveLetter = 'A'; driveLetter <= 'Z'; driveLetter++)
+            {
+                var drive = driveLetter + ":";
+                var buffer = new StringBuilder(bufLen);
+                if (Kernel32Interop.QueryDosDevice(drive, buffer, buffer.Capacity) == 0)
+                {
+                    continue;
+                }
+
+                var devicePath = buffer.ToString();
+                if (mappedFileName.StartsWith(devicePath))
+                {
+                    fileName = (drive + mappedFileName.Substring(devicePath.Length));
+                    break;
+                }
+            }
+
+            return fileName;
+        }
+
+        /// <summary>
         /// Copies the spcified source to target. IF source
         /// is a folder, recursively copies source to target
         /// </summary>
@@ -426,6 +457,30 @@ namespace ACAT.Lib.Core.Utility
         }
 
         /// <summary>
+        /// Returns the mapped file name of a memory mapped file
+        /// </summary>
+        /// <param name="hModule">handle to the module</param>
+        /// <returns>mapped file name</returns>
+        public static String GetMappedFileName(IntPtr hModule)
+        {
+            var mappedFileName = String.Empty;
+            const int bufLen = 260;
+
+            var buffer = new StringBuilder(bufLen);
+
+            int len = Kernel32Interop.GetMappedFileName(Kernel32Interop.GetCurrentProcess(),
+                                                        hModule,
+                                                        buffer,
+                                                        buffer.Capacity);
+            if (len != 0)
+            {
+                mappedFileName = buffer.ToString();
+            }
+
+            return mappedFileName;
+        }
+
+        /// <summary>
         /// Returns the fully qualified name of the preferences file. The
         /// location of the file is the same as the EXE
         /// </summary>
@@ -468,7 +523,7 @@ namespace ACAT.Lib.Core.Utility
         public static String GetSoundPath(string soundFile)
         {
             var fullPath = Path.Combine(GetUserSoundsDir(), soundFile);
-            return File.Exists(fullPath) ? fullPath : Path.Combine(GetAssetsDir(), soundFile);
+            return File.Exists(fullPath) ? fullPath : Path.Combine(GetSoundsDir(), soundFile);
         }
 
         /// <summary>
@@ -527,6 +582,16 @@ namespace ACAT.Lib.Core.Utility
         public static String GetUserSoundsDir()
         {
             return Path.Combine(UserManager.GetFullPath(AssetsDir), SoundsDir);
+        }
+
+        /// <summary>
+        /// Returns true if an instance of any of the ACAT apps is
+        /// still running
+        /// </summary>
+        /// <returns>true if so</returns>
+        public static bool IsACATRunning()
+        {
+            return CheckAppExistingInstance("ACATMutex");
         }
 
         /// <summary>

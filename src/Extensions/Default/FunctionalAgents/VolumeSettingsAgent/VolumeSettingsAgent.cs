@@ -60,7 +60,7 @@ using ACAT.Lib.Core.Utility;
 
 #endregion SupressStyleCopWarnings
 
-namespace ACAT.Extensions.Hawking.FunctionalAgents.VolumeSettings
+namespace ACAT.Extensions.Default.FunctionalAgents.VolumeSettings
 {
     /// <summary>
     /// Functional agent that allows the user to set the volume
@@ -68,7 +68,8 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.VolumeSettings
     /// different TTS engines have different ranges.  The value
     /// is then scaled by the TTS engine before setting it.
     /// </summary>
-    [DescriptorAttribute("6D6F94CF-154B-4911-84CD-71CBA07424A3", "Volume Settings Agent",
+    [DescriptorAttribute("6D6F94CF-154B-4911-84CD-71CBA07424A3",
+                        "Volume Settings Agent",
                         "Agent to set volume of speech engine")]
     internal class VolumeSettingsAgent : FunctionalAgentBase
     {

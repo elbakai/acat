@@ -148,9 +148,9 @@ namespace ACAT.Lib.Core.AgentManagement.TextInterface
         public virtual bool CheckInsertOrReplaceWord(out int insertOrReplaceOffset, out String wordToReplace)
         {
             return TextUtils.CheckInsertOrReplaceWord(
-                                    GetText(), 
-                                    GetCaretPos(), 
-                                    out insertOrReplaceOffset, 
+                                    GetText(),
+                                    GetCaretPos(),
+                                    out insertOrReplaceOffset,
                                     out wordToReplace);
         }
 
@@ -236,6 +236,15 @@ namespace ACAT.Lib.Core.AgentManagement.TextInterface
             // Prevent finalization code for this object
             // from executing a second time.
             GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Does the text control support smart punctuations?
+        /// </summary>
+        /// <returns>true on success</returns>
+        public virtual bool EnableSmartPunctuations()
+        {
+            return true;
         }
 
         /// <summary>
@@ -849,7 +858,7 @@ namespace ACAT.Lib.Core.AgentManagement.TextInterface
         /// or page navigation.  Text continues to highlight as
         /// caret moves
         /// </summary>
-        /// <param name="selectMode">true to turn on</param>
+        /// <param name="mode">true to turn on</param>
         public void SetSelectMode(bool mode)
         {
             _selectMode = mode;

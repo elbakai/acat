@@ -23,7 +23,6 @@ using System.Diagnostics.CodeAnalysis;
 using ACAT.Lib.Core.AgentManagement;
 using ACAT.Lib.Core.PanelManagement;
 using ACAT.Lib.Core.PanelManagement.CommandDispatcher;
-using ACAT.Lib.Core.Utility;
 
 #region SupressStyleCopWarnings
 
@@ -63,7 +62,8 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Extension.CommandHandlers
 {
     /// <summary>
-    /// Activates the functional agent to create a new file
+    /// Activates the New File functional agent to enable the user to
+    /// create new text/doc files
     /// </summary>
     public class ShowNewFileDialogHandler : RunCommandHandler
     {
@@ -99,7 +99,6 @@ namespace ACAT.Lib.Extension.CommandHandlers
             }
 
             Context.AppTalkWindowManager.CloseTalkWindow(true);
-            Windows.CloseForm(Dispatcher.Scanner.Form);  // TODO move this to main menu
             await Context.AppAgentMgr.ActivateAgent(agent as IFunctionalAgent);
         }
     }

@@ -72,7 +72,7 @@ namespace ACAT.Lib.Extension
     public class DialogUtils
     {
         /// <summary>
-        /// Displays a yes no confirmation
+        /// Displays a yes no confirmation dialog box.
         /// </summary>
         /// <param name="caption">Prompt string</param>
         /// <param name="title">title of the dialog</param>
@@ -83,7 +83,7 @@ namespace ACAT.Lib.Extension
         }
 
         /// <summary>
-        /// Displays a yes no confirmation
+        /// Displays a yes no confirmation dialog box
         /// </summary>
         /// <param name="caption">Prompt string</param>
         /// <returns>true if yes</returns>
@@ -93,7 +93,7 @@ namespace ACAT.Lib.Extension
         }
 
         /// <summary>
-        /// Displays a yes no confirmation
+        /// Displays a yes no confirmation dialog box
         /// </summary>
         /// <param name="parent">parent scanner</param>
         /// <param name="caption">prompt string</param>
@@ -136,11 +136,6 @@ namespace ACAT.Lib.Extension
         /// <returns>true if yes</returns>
         public static bool ConfirmScanner(IPanel parent, String caption)
         {
-            //var yesNoScannerHelper = new YesNoScannerHelper("YesNoScanner", caption);
-
-            //yesNoScannerHelper.ShowDialog(parent);
-            //return yesNoScannerHelper.YesNo;
-
             return showYesNoScanner(parent, "YesNoScanner", caption);
         }
 
@@ -235,6 +230,31 @@ namespace ACAT.Lib.Extension
         }
 
         /// <summary>
+        /// Activates the File Browser functional agent.
+        /// </summary>
+        public static async void ShowFileBrowser()
+        {
+            try
+            {
+                Context.AppTalkWindowManager.CloseTalkWindow();
+
+                IApplicationAgent fileBrowserAgent = Context.AppAgentMgr.GetAgentByName("FileBrowser Agent");
+                if (fileBrowserAgent == null)
+                {
+                    return;
+                }
+
+                fileBrowserAgent.GetInvoker().SetValue("AutoLaunchFile", true);
+
+                await Context.AppAgentMgr.ActivateAgent(fileBrowserAgent as IFunctionalAgent);
+            }
+            catch (Exception ex)
+            {
+                Log.Debug(ex.ToString());
+            }
+        }
+
+        /// <summary>
         /// Activates the Switch Windows functional agent to enable the
         /// user to switch windows/apps.  If taskname
         /// is not null, it only shows windows belonging to the task (eg
@@ -289,7 +309,7 @@ namespace ACAT.Lib.Extension
             }
             catch (Exception e)
             {
-                Log.Debug("Error creating task switcher dialog. Exception: " + e.ToString());
+                Log.Debug("Error creating task switcher dialog. Exception: " + e);
             }
         }
 

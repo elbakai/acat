@@ -1,4 +1,4 @@
-﻿namespace ACAT.Extensions.Hawking.FunctionalAgents.FileBrowser
+﻿namespace ACAT.Extensions.Default.FunctionalAgents.FileBrowserAgent
 {
     partial class FileOperationConfirmScanner 
     {

@@ -22,7 +22,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 #region SupressStyleCopWarnings
@@ -66,9 +65,9 @@ namespace ACAT.Lib.Core.Utility
     /// Tracks the state of Shift, Ctrl and Alt keys.  On the UI, if
     /// the user selects Shift (for eg) twice in a row, it is sticky and
     /// Shift is applied to all the letters typed there after. If the
-    /// user selects Shift the third time, it is unselected. The same
-    /// applies to Alt and ctrl.  This class keeps track of the key
-    /// states.
+    /// user selects Shift the third time, it is unselected.
+    /// This class keeps track of the key states of Shift, Ctrl and Alt -
+    /// whether they are currently active or not.
     ///
     /// Note that everything in this class is static since we want
     /// these settings to be system-wide.
@@ -82,11 +81,9 @@ namespace ACAT.Lib.Core.Utility
         private static int _ctrl = 0x1;
         private static int _extendedKeyPressedStatus = 0;
         private static int _extendedKeyTriggerStatus = 0;
-        private static int _func = 0x8;
         private static int _shift = 0x4;
         private static bool _stickyAlt = false;
         private static bool _stickyCtrl = false;
-        private static bool _stickyFunc = false;
         private static bool _stickyShift = false;
 
         public delegate void KeyStateChanged();
@@ -110,86 +107,38 @@ namespace ACAT.Lib.Core.Utility
             _stickyShift = false;
             _stickyCtrl = false;
             _stickyAlt = false;
-            _stickyFunc = false;
             setCapsLockState(false);
-            triggerKeyStateChanged();
+            notifyKeyStateChanged();
         }
 
         /// <summary>
-        /// Clear alt key status
+        /// Clears alt key status
         /// </summary>
         public static void ClearAlt()
         {
             turnOff(_alt);
             _stickyAlt = false;
-            triggerKeyStateChanged();
+            notifyKeyStateChanged();
         }
 
         /// <summary>
-        /// Clear ctrl key status
+        /// Clears ctrl key status
         /// </summary>
         public static void ClearCtrl()
         {
             _stickyCtrl = false;
             turnOff(_ctrl);
-            triggerKeyStateChanged();
+            notifyKeyStateChanged();
         }
 
         /// <summary>
-        /// Clear func key status
-        /// </summary>
-        public static void ClearFunc()
-        {
-            turnOff(_func);
-            _stickyFunc = false;
-            triggerKeyStateChanged();
-        }
-
-        /// <summary>
-        /// Clear shift key status
+        /// Clears shift key status
         /// </summary>
         public static void ClearShift()
         {
             turnOff(_shift);
             _stickyShift = false;
-            triggerKeyStateChanged();
-        }
-
-        public static void FuncOff()
-        {
-            turnOff(_func);
-        }
-
-        public static void FuncTriggered()
-        {
-            if (IsFuncOn())
-            {
-                turnOff(_func);
-            }
-            else
-            {
-                turnOn(_func);
-            }
-
-            /*
-                        if (IsFuncOn())
-                        {
-                            if (_stickyFunc)
-                            {
-                                turnOff(_func);
-                                _stickyFunc = false;
-                            }
-                            else
-                            {
-                                _stickyFunc = true;
-                            }
-                        }
-                        else
-                        {
-                            turnOn(_func);
-                        }
-             */
-            triggerKeyStateChanged();
+            notifyKeyStateChanged();
         }
 
         /// <summary>
@@ -226,7 +175,7 @@ namespace ACAT.Lib.Core.Utility
         /// pressed state.  The keys are delimited with a plus.
         /// For eg, Ctrl+Alt
         /// </summary>
-        /// <returns></returns>
+        /// <returns>string representing the key pressed status</returns>
         public static string GetKeyPressedStatus()
         {
             String keyString = String.Empty;
@@ -263,7 +212,7 @@ namespace ACAT.Lib.Core.Utility
         /// <returns></returns>
         public static bool IsCapsLockOn()
         {
-            return GetKeyState(VK_CAPITAL) != 0;
+            return User32Interop.GetKeyState(VK_CAPITAL) != 0;
         }
 
         /// <summary>
@@ -275,20 +224,19 @@ namespace ACAT.Lib.Core.Utility
             return isOn(_extendedKeyTriggerStatus, _ctrl) || isOn(_extendedKeyPressedStatus, _ctrl);
         }
 
-        public static bool IsFuncOn()
-        {
-            return isOn(_extendedKeyTriggerStatus, _func);
-        }
-
         /// <summary>
         /// Is capslock engaged?
         /// </summary>
         /// <returns></returns>
         public static bool IsNumLockOn()
         {
-            return GetKeyState(VK_CAPITAL) != 0;
+            return User32Interop.GetKeyState(VK_NUMLOCK) != 0;
         }
 
+        /// <summary>
+        /// Is the SHIFT key currently pressed?
+        /// </summary>
+        /// <returns></returns>
         public static bool IsShiftKeyDown()
         {
             return isOn(_extendedKeyPressedStatus, _shift);
@@ -321,11 +269,6 @@ namespace ACAT.Lib.Core.Utility
             return _stickyCtrl;
         }
 
-        public static bool IsStickyFuncOn()
-        {
-            return _stickyFunc;
-        }
-
         /// <summary>
         /// Is the sticky shift key on?
         /// </summary>
@@ -338,8 +281,8 @@ namespace ACAT.Lib.Core.Utility
         /// <summary>
         /// A keydown event was detected from the physical keyboard
         /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
+        /// <param name="key">key that is down</param>
+        /// <returns>true if it is one of the modifier keys</returns>
         public static bool KeyDown(Keys key)
         {
             bool retVal = true;
@@ -411,53 +354,33 @@ namespace ACAT.Lib.Core.Utility
                         turnOn(_shift);
                     }
 
-                    triggerKeyStateChanged();
+                    notifyKeyStateChanged();
                     break;
 
                 case Keys.LControlKey:
                     if (IsCtrlOn())
                     {
                         turnOff(_ctrl);
-                        /*
-                        if (_stickyCtrl)
-                        {
-                            turnOff(_ctrl);
-                            _stickyCtrl = false;
-                        }
-                        else
-                        {
-                            _stickyCtrl = true;
-                        }*/
                     }
                     else
                     {
                         turnOn(_ctrl);
                     }
 
-                    triggerKeyStateChanged();
+                    notifyKeyStateChanged();
                     break;
 
                 case Keys.LMenu:
                     if (IsAltOn())
                     {
                         turnOff(_alt);
-                        /*
-                        if (_stickyAlt)
-                        {
-                            turnOff(_alt);
-                            _stickyAlt = false;
-                        }
-                        else
-                        {
-                            _stickyAlt = true;
-                        }*/
                     }
                     else
                     {
                         turnOn(_alt);
                     }
 
-                    triggerKeyStateChanged();
+                    notifyKeyStateChanged();
                     break;
 
                 default:
@@ -502,7 +425,7 @@ namespace ACAT.Lib.Core.Utility
                         ClearShift();
                     }
 
-                    triggerKeyStateChanged();
+                    notifyKeyStateChanged();
                     break;
             }
         }
@@ -510,7 +433,7 @@ namespace ACAT.Lib.Core.Utility
         /// <summary>
         /// Track the state of the Alt key
         /// </summary>
-        /// <param name="state"></param>
+        /// <param name="state">the Key state</param>
         private static void altState(State state)
         {
             if (state == State.Down)
@@ -522,7 +445,7 @@ namespace ACAT.Lib.Core.Utility
                 _extendedKeyPressedStatus &= ~_alt;
             }
 
-            triggerKeyStateChanged();
+            notifyKeyStateChanged();
         }
 
         /// <summary>
@@ -540,19 +463,30 @@ namespace ACAT.Lib.Core.Utility
                 _extendedKeyPressedStatus &= ~_ctrl;
             }
 
-            triggerKeyStateChanged();
+            notifyKeyStateChanged();
         }
 
-        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-        private static extern short GetKeyState(int vKey);
-
+        /// <summary>
+        /// Checks if the 'bit' is on in 'status'
+        /// </summary>
+        /// <param name="status">status field</param>
+        /// <param name="bit">bit to check</param>
+        /// <returns>true if it is on</returns>
         private static bool isOn(int status, int bit)
         {
             return (status & bit) == bit;
         }
 
-        [DllImport("user32.dll")]
-        private static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, UIntPtr dwExtraInfo);
+        /// <summary>
+        /// Notifies subscribeers that keystate changed
+        /// </summary>
+        private static void notifyKeyStateChanged()
+        {
+            if (EvtKeyStateChanged != null)
+            {
+                EvtKeyStateChanged();
+            }
+        }
 
         /// <summary>
         /// Removes all keys that are currently not sticky, but
@@ -583,7 +517,7 @@ namespace ACAT.Lib.Core.Utility
 
             if (somethingChanged)
             {
-                triggerKeyStateChanged();
+                notifyKeyStateChanged();
             }
         }
 
@@ -602,8 +536,8 @@ namespace ACAT.Lib.Core.Utility
                 if (!Form.IsKeyLocked(Keys.CapsLock))
                 {
                     // turn on capslock
-                    keybd_event((byte)Keys.CapsLock, 0xAA, 0, UIntPtr.Zero);
-                    keybd_event((byte)Keys.CapsLock, 0xAA, (uint)KEYEVENTF_KEYUP, UIntPtr.Zero);
+                    User32Interop.keybd_event((byte)Keys.CapsLock, 0xAA, 0, UIntPtr.Zero);
+                    User32Interop.keybd_event((byte)Keys.CapsLock, 0xAA, (uint)KEYEVENTF_KEYUP, UIntPtr.Zero);
                     turnOn(_shift);
                     _stickyShift = true;
                 }
@@ -613,8 +547,8 @@ namespace ACAT.Lib.Core.Utility
                 if (Form.IsKeyLocked(Keys.CapsLock))
                 {
                     // turn off capslock
-                    keybd_event((byte)Keys.CapsLock, 0x45, KEYEVENTF_EXTENDEDKEY, (UIntPtr)0);
-                    keybd_event((byte)Keys.CapsLock, 0x45, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, (UIntPtr)0);
+                    User32Interop.keybd_event((byte)Keys.CapsLock, 0x45, KEYEVENTF_EXTENDEDKEY, (UIntPtr)0);
+                    User32Interop.keybd_event((byte)Keys.CapsLock, 0x45, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, (UIntPtr)0);
                     ClearShift();
                 }
             }
@@ -626,8 +560,6 @@ namespace ACAT.Lib.Core.Utility
         /// <param name="state"></param>
         private static void shiftState(State state)
         {
-            string hexValue = _extendedKeyPressedStatus.ToString("X");
-
             if (state == State.Down)
             {
                 _extendedKeyPressedStatus |= _shift;
@@ -637,30 +569,23 @@ namespace ACAT.Lib.Core.Utility
                 _extendedKeyPressedStatus &= ~_shift;
             }
 
-            triggerKeyStateChanged();
-        }
-
-        private static void triggerKeyStateChanged()
-        {
-            if (EvtKeyStateChanged != null)
-            {
-                EvtKeyStateChanged();
-            }
+            notifyKeyStateChanged();
         }
 
         /// <summary>
-        /// Turn off the specified bit
+        /// Turn off the specified bit in the extendedkeytriggerstatus
+        /// field
         /// </summary>
-        /// <param name="bit"></param>
+        /// <param name="bit">which bit to turn off</param>
         private static void turnOff(int bit)
         {
             _extendedKeyTriggerStatus &= ~bit;
         }
 
         /// <summary>
-        /// Turn on the specified bit
+        /// Turn on the specified bit in the extendedkeytriggerstatus
         /// </summary>
-        /// <param name="bit"></param>
+        /// <param name="bit">which bit to turn on</param>
         private static void turnOn(int bit)
         {
             _extendedKeyTriggerStatus |= bit;

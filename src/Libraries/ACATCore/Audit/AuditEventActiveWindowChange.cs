@@ -94,7 +94,7 @@ namespace ACAT.Lib.Core.Audit
         /// </summary>
         public String WindowTitle { get; set; }
 
-        /// <summary>
+        /// <summary>z
         /// Converts to string
         /// </summary>
         /// <returns>string representation</returns>

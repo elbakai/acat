@@ -60,7 +60,9 @@ using System.Threading;
 namespace ACAT.Lib.Core.ActuatorManagement
 {
     /// <summary>
-    /// Opens a HID device and reads data from it
+    /// Opens a HID device and reads data from it.  Notifies
+    /// through events when data comes in, when the device
+    /// connects and when it is disconnected.
     /// </summary>
     public class USBDevice : IDisposable
     {
@@ -154,7 +156,7 @@ namespace ACAT.Lib.Core.ActuatorManagement
         }
 
         /// <summary>
-        /// Close the hid device.  This has to be called
+        /// Closes the hid device.  This has to be called
         /// for all the threads to be closed properly
         /// </summary>
         public void Close()
@@ -173,7 +175,8 @@ namespace ACAT.Lib.Core.ActuatorManagement
         }
 
         /// <summary>
-        /// Stop reading
+        /// Stops reading data from the device, kills
+        /// the read thread
         /// </summary>
         public void EndRead()
         {
@@ -194,7 +197,8 @@ namespace ACAT.Lib.Core.ActuatorManagement
         }
 
         /// <summary>
-        /// Opens the Hid device
+        /// Enumerates all the hid devices, locates
+        /// the device of interest and opens it.
         /// </summary>
         /// <returns>true on success</returns>
         public bool Open()
@@ -243,7 +247,8 @@ namespace ACAT.Lib.Core.ActuatorManagement
         }
 
         /// <summary>
-        /// Disposer
+        /// Disposer.  Disposes resources.  Closes the
+        /// handles
         /// </summary>
         /// <param name="disposeManagedResources">dispose managed resources</param>
         protected void Dispose(bool disposeManagedResources)

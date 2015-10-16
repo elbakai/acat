@@ -85,6 +85,7 @@
     <Reference Include="UIAutomationTypes" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TextDocumentReader.cs" />
     <Compile Include="LectureManagerTextControlAgent.cs" />
     <Compile Include="LectureManagerAgent.cs" />
     <Compile Include="LectureManagerMainForm.cs">
@@ -99,7 +100,7 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Config\LectureManagerSpeakMenu2.xml">
+    <Content Include="Config\LectureManagerSpeakMenu.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -128,10 +129,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Config\LectureManagerNavigationMenu.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Config\LectureManagerSpeakMenu.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

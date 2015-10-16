@@ -19,6 +19,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 using System.Diagnostics.CodeAnalysis;
+using ACAT.Lib.Core.UserManagement;
 using ACAT.Lib.Core.Utility;
 using ACAT.Lib.Extension.AppAgents.MenuControlAgent;
 
@@ -69,5 +70,25 @@ namespace ACATCore.Extensions.Base.AppAgents.MenuControl
         "Agent for interacting with menus")]
     internal class MenuControlAgent : MenuControlAgentBase
     {
+        /// <summary>
+        /// Settings for this agent
+        /// </summary>
+        internal static MenuControlAgentSettings Settings;
+
+        /// <summary>
+        /// Name of the settings file
+        /// </summary>
+        private const string SettingsFileName = "MenuControlAgentSettings.xml";
+
+        /// <summary>
+        /// Initializes an instance of the class
+        /// </summary>
+        public MenuControlAgent()
+        {
+            MenuControlAgentSettings.PreferencesFilePath = UserManager.GetFullPath(SettingsFileName);
+            Settings = MenuControlAgentSettings.Load();
+
+            autoSwitchScanners = Settings.AutoSwitchScannerEnable;
+        }
     }
 }

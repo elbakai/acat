@@ -60,8 +60,11 @@ namespace ACAT.Lib.Core.PanelManagement
 {
     /// <summary>
     /// Represents a command that should be executed AFTER a
-    /// functional agent has exited.
-    ///
+    /// functional agent has exited.  For instance if a "File
+    /// Browser" functional agent is active and the user wants to
+    /// activate the Talk window.  The browser functional agent
+    /// must exit first, and then request ACAT to activate the
+    /// Talk window.  This command facitilates this.
     /// </summary>
     public class PostExitCommand
     {

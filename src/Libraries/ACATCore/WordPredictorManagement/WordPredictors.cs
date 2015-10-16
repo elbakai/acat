@@ -107,6 +107,12 @@ namespace ACAT.Lib.Core.WordPredictionManagement
             GC.SuppressFinalize(this);
         }
 
+        /// <summary>
+        /// Returns the ID of the WordPredictor with the
+        /// specified name
+        /// </summary>
+        /// <param name="name">name of the word predictor</param>
+        /// <returns>ID of the word predictor</returns>
         public Guid GetByName(String name)
         {
             foreach (Type type in _wordPredictorsTypeCache.Values)
@@ -124,12 +130,12 @@ namespace ACAT.Lib.Core.WordPredictionManagement
         }
 
         /// <summary>
-        /// Recursively look into each of the extension directories looking
+        /// Recursively looks into each of the extension directories looking
         /// for WordPredictor DLL's. If found, cache the GUID and Type.
         /// </summary>
-        /// <param name="extensionDirs"></param>
-        /// <param name="recursive"></param>
-        /// <returns></returns>
+        /// <param name="extensionDirs">Folders to search under</param>
+        /// <param name="recursive">recursively descend and search?</param>
+        /// <returns>true</returns>
         public bool Load(IEnumerable<String> extensionDirs, bool recursive = true)
         {
             foreach (string dir in extensionDirs)

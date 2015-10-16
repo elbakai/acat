@@ -122,7 +122,8 @@ namespace ACAT.Lib.Core.TTSManagement
     }
 
     /// <summary>
-    /// Interface for the TTS Engine.
+    /// Interface for the TTS Engine.  All TTS Engines must implement
+    /// this interface.
     /// </summary>
     public interface ITTSEngine : IDisposable, IExtension
     {

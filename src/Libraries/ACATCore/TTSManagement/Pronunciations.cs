@@ -69,6 +69,10 @@ namespace ACAT.Lib.Core.TTSManagement
     /// so the application can handle the expansion suitably.  The list of
     /// pronunciation is created by parsing the xml file that has a list
     /// of all the pronunciations.
+    /// Pronunciations are useful where the TTS engine may not pronounce
+    /// words correctly (eg proper nouns). This object maps the actual
+    /// spelling with the phonetic spelling. The phonetically spelt word
+    /// is the one sent to the TTS engine to convert to speech.
     /// </summary>
     public class Pronunciations : IDisposable
     {
@@ -153,7 +157,7 @@ namespace ACAT.Lib.Core.TTSManagement
         }
 
         /// <summary>
-        /// Load pronunciation from the specified file.  If filename
+        /// Loads pronunciation from the specified file.  If filename
         /// is null, loads from the default file.  Parses the XML file
         /// and populates the sorted list
         /// </summary>
@@ -208,8 +212,7 @@ namespace ACAT.Lib.Core.TTSManagement
         }
 
         /// <summary>
-        /// Looks up the word and returns its pronunciation
-        /// object.
+        /// Looks up the word and returns its pronunciation object.
         /// </summary>
         /// <param name="word">word to lookup</param>
         /// <returns>pronunciation object, null if not found</returns>
@@ -246,7 +249,8 @@ namespace ACAT.Lib.Core.TTSManagement
         /// Takes in a string of text (a sentence for example), parses it into
         /// words, looks up each word in the lookup table to see if there is
         /// an alternate pronunciation and if so, replaces the word with the
-        /// alternate pronunciation.  Returns the converted sentence
+        /// alternate pronunciation.  Returns the converted sentence with the
+        /// phonetically spelt words.
         /// </summary>
         /// <param name="inputString">input text</param>
         /// <returns>converted text</returns>

@@ -1,5 +1,5 @@
-﻿////////////////////////////////////////////////////////////////////////////
-// <copyright file="UserManager.cs" company="Intel Corporation">
+﻿// <copyright file="UserManager.cs" company="Intel Corporation">
+////////////////////////////////////////////////////////////////////////////
 //
 // Copyright (c) 2013-2015 Intel Corporation 
 //
@@ -64,7 +64,8 @@ namespace ACAT.Lib.Core.UserManagement
     /// Manages users.  The purpose for having "users" is to support apps
     /// that require multi-user support.  Assets such as word prediction models,
     /// abbreviations etc are user specific and the application can store
-    /// them in the user directory
+    /// them in the user directory.
+    /// Gets paths to the various files relative to the User folder.
     /// </summary>
     public class UserManager
     {
@@ -77,17 +78,6 @@ namespace ACAT.Lib.Core.UserManagement
         /// The name of the current user
         /// </summary>
         private static String _currentUserName = DefaultUserName;
-
-#if SUPPORT_ASSETS
-        private static String _sourceDir = "Install";
-
-        private static Tuples<Assets, String, String> _assetList = new Tuples<Assets, string, string>
-        {
-            {Assets.Abbreviations, "AbbreviationsEmpty.xml", "Abbreviations.xml"},
-            {Assets.Spellings, "SpellCheck.xml", "*"},
-            {Assets.WordPrediction, "WordPrediction", "*"}
-        };
-#endif
 
         /// <summary>
         /// Initializes the user manager

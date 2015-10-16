@@ -60,7 +60,7 @@ namespace ACAT.Lib.Core.Audit
 {
     /// <summary>
     /// Represents log entry to audit events related to
-    /// mouse navigation using the mouse mover (radar or grid)
+    /// mouse navigation using the mouse mover
     /// </summary>
     public class AuditEventMouseMover : AuditEventBase
     {
@@ -75,12 +75,10 @@ namespace ACAT.Lib.Core.Audit
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
-        /// <param name="moverType">radar or grid?</param>
         /// <param name="direction">which way is the mover moving?</param>
-        public AuditEventMouseMover(string moverType, String direction)
+        public AuditEventMouseMover(String direction)
             : base("MouseMover")
         {
-            MoverType = moverType;
             Direction = direction;
         }
 
@@ -90,17 +88,12 @@ namespace ACAT.Lib.Core.Audit
         public String Direction { get; set; }
 
         /// <summary>
-        /// Gets or sets type of the mover (grid ? radar?)
-        /// </summary>
-        public String MoverType { get; set; }
-
-        /// <summary>
         /// Converts to string
         /// </summary>
         /// <returns>string representation</returns>
         protected override string toString()
         {
-            return formatEventString(MoverType, Direction);
+            return formatEventString(Direction);
         }
     }
 }

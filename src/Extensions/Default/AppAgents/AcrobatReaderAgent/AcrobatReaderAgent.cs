@@ -65,7 +65,9 @@ namespace ACAT.Extensions.Default.AppAgents.AcrobatReaderAgent
     /// Base class does all the heavy-lifting.  Override functions
     /// as required customize
     /// </summary>
-    [DescriptorAttribute("9684490F-52DE-4BF4-9C9D-548CD2696F65", "Acrobat Reader Agent", "Application Agent for Acrobat Reader")]
+    [DescriptorAttribute("9684490F-52DE-4BF4-9C9D-548CD2696F65", 
+                            "Acrobat Reader Agent", 
+                            "Application Agent for Acrobat Reader")]
     internal class AcrobatReaderAgent : AcrobatReaderAgentBase
     {
         /// <summary>
@@ -78,7 +80,9 @@ namespace ACAT.Extensions.Default.AppAgents.AcrobatReaderAgent
         /// </summary>
         private const string SettingsFileName = "AcrobatReaderAgentSettings.xml";
 
-        // override functions here if necessary
+        /// <summary>
+        /// Initializes an instance of the class
+        /// </summary>
         public AcrobatReaderAgent()
         {
             AcrobatReaderAgentSettings.PreferencesFilePath = UserManager.GetFullPath(SettingsFileName);

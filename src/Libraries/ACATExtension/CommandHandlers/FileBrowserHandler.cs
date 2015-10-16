@@ -21,12 +21,10 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Windows.Forms;
-using ACAT.Lib.Core.AgentManagement;
-using ACAT.Lib.Core.PanelManagement;
 using ACAT.Lib.Core.PanelManagement.CommandDispatcher;
-using ACAT.Lib.Core.Utility;
 
 #region SupressStyleCopWarnings
+
 [module: SuppressMessage(
         "StyleCop.CSharp.ReadabilityRules",
         "SA1126:PrefixCallsCorrectly",
@@ -57,12 +55,14 @@ using ACAT.Lib.Core.Utility;
         "SA1300:ElementMustBeginWithUpperCaseLetter",
         Scope = "namespace",
         Justification = "ACAT guidelines. Private/Protected methods begin with lowercase")]
-#endregion
+
+#endregion SupressStyleCopWarnings
 
 namespace ACAT.Lib.Extension.CommandHandlers
 {
     /// <summary>
-    /// Launches the file browser functional agent
+    /// Launches the File Browser functional agent which enables
+    /// the user to open/delete files from favorite folders
     /// </summary>
     public class FileBrowserHandler : RunCommandHandler
     {
@@ -84,40 +84,9 @@ namespace ACAT.Lib.Extension.CommandHandlers
         {
             handled = true;
 
-            Form form = Dispatcher.Scanner.Form;
-            form.Invoke(new MethodInvoker(hideTalkWindow));
-
-            launchFileBrowser();
+            Dispatcher.Scanner.Form.Invoke(new MethodInvoker(DialogUtils.ShowFileBrowser));
 
             return true;
-        }
-
-        /// <summary>
-        /// Hides the talk window if it is active
-        /// </summary>
-        private void hideTalkWindow()
-        {
-            if (Context.AppTalkWindowManager.IsTalkWindowActive)
-            {
-                Context.AppTalkWindowManager.ToggleTalkWindow();
-            }
-        }
-
-        /// <summary>
-        /// Activates the file browser functional agent
-        /// </summary>
-        private async void launchFileBrowser()
-        {
-            IApplicationAgent fileBrowserAgent = Context.AppAgentMgr.GetAgentByName("FileBrowser Agent");
-            if (fileBrowserAgent == null)
-            {
-                return;
-            }
-
-            fileBrowserAgent.GetInvoker().SetValue("AutoLaunchFile", true);
-            fileBrowserAgent.GetInvoker().SetValue("SelectActionOpen", !Common.AppPreferences.FileBrowserShowFileOperationsMenu);  
-
-            await Context.AppAgentMgr.ActivateAgent(fileBrowserAgent as IFunctionalAgent);
         }
     }
 }

@@ -83,13 +83,11 @@ namespace ACAT.Lib.Extension.CommandHandlers
         /// <returns>true on success</returns>
         public override bool Execute(ref bool handled)
         {
-            bool retVal = true;
-
             handled = true;
 
             handleAbbreviationSettings();
 
-            return retVal;
+            return true;
         }
 
         /// <summary>

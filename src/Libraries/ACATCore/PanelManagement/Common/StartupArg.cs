@@ -105,7 +105,7 @@ namespace ACAT.Lib.Core.PanelManagement
         public bool DialogMode { get; set; }
 
         /// <summary>
-        /// The currently focuesed control in the application window
+        /// The currently focused control in the application window
         /// </summary>
         public AutomationElement FocusedElement { get; set; }
 

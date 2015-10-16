@@ -114,6 +114,15 @@ namespace ACAT.Lib.Core.AgentManagement.TextInterface
         }
 
         /// <summary>
+        /// Does the text control support smart punctuations?
+        /// </summary>
+        /// <returns>true on success</returns>
+        public override bool EnableSmartPunctuations()
+        {
+            return true;
+        }
+
+        /// <summary>
         /// Should abbreviations be expanded?
         /// </summary>
         /// <returns>true on success</returns>

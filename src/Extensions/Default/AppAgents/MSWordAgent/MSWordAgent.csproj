@@ -103,7 +103,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\MSWordContextMenu.xml" />
-    <Content Include="Config\MSWordContextMenuIconsOnly.xml" />
     <Content Include="Config\PanelConfigMap.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

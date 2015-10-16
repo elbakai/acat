@@ -30,6 +30,7 @@ using ACAT.Lib.Core.TalkWindowManagement;
 using ACAT.Lib.Core.ThemeManagement;
 using ACAT.Lib.Core.TTSManagement;
 using ACAT.Lib.Core.Utility;
+using ACAT.Lib.Core.WidgetManagement;
 using ACAT.Lib.Core.WordPredictionManagement;
 
 #region SupressStyleCopWarnings
@@ -65,20 +66,25 @@ using ACAT.Lib.Core.WordPredictionManagement;
     Scope = "namespace",
     Justification = "ACAT guidelines. Private/Protected methods begin with lowercase")]
 
-#endregion
+#endregion SupressStyleCopWarnings
 
 namespace ACAT.Lib.Core.PanelManagement
 {
     /// <summary>
     /// Encapsulates system wide global shared objects. Creates
     /// instances of all the managers in ACAT.  Since all managers
-    /// are singletons, access to them can be made through this class. 
+    /// are singletons, access to them can be made through this class.
+    /// Handles initialization of all the different managers in ACAT
+    /// such as the TTSManager, WordPrediction manager etc.
+    /// There is a sequence to the initialization:
+    ///     PreInit()
+    ///     Init()
+    ///     PostInit()
+    /// 
     /// </summary>
     public class Context
     {
         private static readonly ActuatorManager _actuatorManager;
-
-        // All the ACAT manager objects
         private static readonly AgentManager _agentManager;
         private static readonly AutomationEventManager _automationEventManager;
         private static readonly List<String> _extensionDirs = new List<String>();
@@ -87,6 +93,7 @@ namespace ACAT.Lib.Core.PanelManagement
         private static readonly ThemeManager _themeManager;
         private static readonly TTSManager _ttsManager;
         private static readonly WordPredictionManager _wordPredictionManager;
+
         /// <summary>
         /// Error message if there was an error during initialization
         /// </summary>
@@ -108,13 +115,16 @@ namespace ACAT.Lib.Core.PanelManagement
         private static StartupFlags _startupFlags = StartupFlags.All;
 
         private static TalkWindowManager _talkManager;
+
         /// <summary>
         /// Initializes the singleton instance of the class
         /// </summary>
         static Context()
         {
             AppQuit = false;
-            AppWindowPosition = Windows.WindowPosition.TopRight;
+            AppWindowPosition = Windows.WindowPosition.MiddleRight;
+
+            //Initialize all the manager singleton objects
             _actuatorManager = ActuatorManager.Instance;
             _agentManager = AgentManager.Instance;
             _panelManager = PanelManager.Instance;
@@ -137,6 +147,7 @@ namespace ACAT.Lib.Core.PanelManagement
             TextToSpeech = 4,
             SpellChecker = 16,
             Abbreviations = 32,
+            AgentManager = 64,
             All = 0xffff
         }
 
@@ -176,6 +187,7 @@ namespace ACAT.Lib.Core.PanelManagement
         {
             get { return _panelManager; }
         }
+
         /// <summary>
         /// Gets or sets whether the application should quit
         /// </summary>
@@ -225,6 +237,7 @@ namespace ACAT.Lib.Core.PanelManagement
         {
             get { return _wordPredictionManager; }
         }
+
         /// <summary>
         /// Gets the list of extension directories
         /// </summary>
@@ -232,6 +245,7 @@ namespace ACAT.Lib.Core.PanelManagement
         {
             get { return _extensionDirs; }
         }
+
         /// <summary>
         /// Gets or sets whether the talk windows should be displayed
         /// when the application is launched
@@ -319,6 +333,11 @@ namespace ACAT.Lib.Core.PanelManagement
 
             if (retVal)
             {
+                retVal = initWidgetManager();
+            }
+
+            if (retVal)
+            {
                 retVal = createWordPredictionManager();
             }
 
@@ -341,7 +360,7 @@ namespace ACAT.Lib.Core.PanelManagement
 
             if (retVal)
             {
-                retVal = createActuatorManager();
+                retVal = createAgentManager();
             }
 
             if (_initWarning)
@@ -352,6 +371,7 @@ namespace ACAT.Lib.Core.PanelManagement
             Log.Debug("Returning " + retVal + " from context init");
             return retVal;
         }
+
         /// <summary>
         /// Returns whether initialization error was fatal
         /// </summary>
@@ -364,13 +384,25 @@ namespace ACAT.Lib.Core.PanelManagement
         /// <summary>
         /// Call this AFTER the Init function
         /// </summary>
-        public static void PostInit()
+        public static bool PostInit()
         {
+            if (!createActuatorManager())
+            {
+                return false;
+            }
+
+            if (isEnabled(StartupFlags.AgentManager))
+            {
+                AppAgentMgr.PostInit();
+            }
+
             if (isEnabled(StartupFlags.WindowsActivityMonitor))
             {
-                AppAgentMgr.Init(ExtensionDirs);
+                WindowActivityMonitor.GetActiveWindow();
                 WindowActivityMonitor.Start();
             }
+
+            return true;
         }
 
         /// <summary>
@@ -381,6 +413,7 @@ namespace ACAT.Lib.Core.PanelManagement
         {
             return true;
         }
+
         /// <summary>
         /// Creates the singleton instance of the Abbreviations manager
         /// </summary>
@@ -413,6 +446,26 @@ namespace ACAT.Lib.Core.PanelManagement
             if (!retVal)
             {
                 setCompletionStatus("Error initializing actuator manager");
+            }
+
+            return retVal;
+        }
+
+        /// <summary>
+        /// Initializes the singleton instance of the Agent manager
+        /// </summary>
+        /// <returns></returns>
+        private static bool createAgentManager()
+        {
+            bool retVal = true;
+
+            if (isEnabled(StartupFlags.AgentManager))
+            {
+                retVal = AppAgentMgr.Init(ExtensionDirs);
+                if (!retVal)
+                {
+                    setCompletionStatus("Error initializing the Agent manager");
+                }
             }
 
             return retVal;
@@ -488,6 +541,7 @@ namespace ACAT.Lib.Core.PanelManagement
 
             return retVal;
         }
+
         /// <summary>
         /// Creates the singleton instance of the Text-to-Speech manager
         /// </summary>
@@ -544,6 +598,7 @@ namespace ACAT.Lib.Core.PanelManagement
 
             return retVal;
         }
+
         /// <summary>
         /// Reads the config setting for extension directories,
         /// resolves them into full directory paths, checks if they
@@ -582,6 +637,21 @@ namespace ACAT.Lib.Core.PanelManagement
         }
 
         /// <summary>
+        /// Initialize the widget manager
+        /// </summary>
+        /// <returns>true on success</returns>
+        private static bool initWidgetManager()
+        {
+            bool retVal = WidgetManager.Init(ExtensionDirs);
+            if (!retVal)
+            {
+                setCompletionStatus("Error initializing Widget Manager");
+            }
+
+            return retVal;
+        }
+
+        /// <summary>
         /// Checks if the specified flag is in startup
         /// </summary>
         /// <param name="flag">Flag to check for</param>
@@ -590,6 +660,7 @@ namespace ACAT.Lib.Core.PanelManagement
         {
             return (_startupFlags & flag) == flag;
         }
+
         /// <summary>
         /// Sets the completion status string. This could be an
         /// error message for instance

@@ -68,9 +68,12 @@ namespace ACAT.Extensions.Default.UI.Dialogs
 {
     /// <summary>
     /// Dialog form that allows user to change common
-    /// settings for ACAT.  These are on/off settings.
+    /// settings for ACAT.  All settings in this dialog
+    /// box are checkboxes.
     /// </summary>
-    [DescriptorAttribute("216A2E8D-15A7-4995-B2D3-C0D3B4D42374", "GeneralSettingsForm", "General Settings Dialog")]
+    [DescriptorAttribute("216A2E8D-15A7-4995-B2D3-C0D3B4D42374",
+                        "GeneralSettingsForm",
+                        "General Settings Dialog")]
     public partial class GeneralSettingsForm : Form, IDialogPanel
     {
         /// <summary>
@@ -81,7 +84,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         /// <summary>
         /// Did the user change any setting?
         /// </summary>
-        private bool isDirty;
+        private bool _isDirty;
 
         /// <summary>
         /// Initializes a new instance of the class.
@@ -166,7 +169,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Pause animation
+        /// Pauses animation
         /// </summary>
         public void OnPause()
         {
@@ -174,7 +177,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Resume animation
+        /// Resumes animation
         /// </summary>
         public void OnResume()
         {
@@ -239,8 +242,9 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Get the settings with the current state of
-        /// widgets in the form
+        /// Gets the settings with the current state of
+        /// widgets in the form and returns a ACATPreferences
+        /// object that can be presisted.
         /// </summary>
         /// <returns>Preferences with settings from the form</returns>
         private ACATPreferences getAppPreferencesFromUI()
@@ -249,14 +253,15 @@ namespace ACAT.Extensions.Default.UI.Dialogs
 
             var rootWidget = _dialogCommon.GetRootWidget();
 
-            prefs.EnableGlass = Common.AppPreferences.EnableGlass = WidgetUtils.GetCheckBoxWidgetState(rootWidget, pbShowGlass.Name);
-            prefs.HideScannerOnIdle = Common.AppPreferences.HideScannerOnIdle = WidgetUtils.GetCheckBoxWidgetState(rootWidget, pbHideScannersOnIdle.Name);
-            prefs.ExpandAbbreviationsOnSeparator = Common.AppPreferences.ExpandAbbreviationsOnSeparator = WidgetUtils.GetCheckBoxWidgetState(rootWidget, pbExpandAbbreviationsOnSeparator.Name);
-            prefs.ShowTalkWindowOnStartup = Common.AppPreferences.ShowTalkWindowOnStartup = WidgetUtils.GetCheckBoxWidgetState(rootWidget, pbShowTalkWindowOnStartup.Name);
-            prefs.RetainTalkWindowContentsOnHide = Common.AppPreferences.RetainTalkWindowContentsOnHide = WidgetUtils.GetCheckBoxWidgetState(rootWidget, pbRetainTalkWindowText.Name);
-            prefs.DebugMessagesEnable = Common.AppPreferences.DebugMessagesEnable = WidgetUtils.GetCheckBoxWidgetState(rootWidget, pbEnableDebugTraceLogging.Name);
-            prefs.AuditLogEnable = Common.AppPreferences.AuditLogEnable = WidgetUtils.GetCheckBoxWidgetState(rootWidget, pbEnableAuditLog.Name);
-            prefs.AutoSaveScannerLastPosition = Common.AppPreferences.AutoSaveScannerLastPosition = WidgetUtils.GetCheckBoxWidgetState(rootWidget, pbScannerAutoSaveLastPosition.Name);
+            prefs.EnableGlass = Common.AppPreferences.EnableGlass = (rootWidget.Finder.FindChild(pbShowGlass.Name) as CheckBoxWidget).GetState();
+            prefs.HideScannerOnIdle = Common.AppPreferences.HideScannerOnIdle = (rootWidget.Finder.FindChild(pbHideScannersOnIdle.Name) as CheckBoxWidget).GetState();
+            prefs.ExpandAbbreviationsOnSeparator = Common.AppPreferences.ExpandAbbreviationsOnSeparator = (rootWidget.Finder.FindChild(pbExpandAbbreviationsOnSeparator.Name) as CheckBoxWidget).GetState();
+            prefs.ShowTalkWindowOnStartup = Common.AppPreferences.ShowTalkWindowOnStartup = (rootWidget.Finder.FindChild(pbShowTalkWindowOnStartup.Name) as CheckBoxWidget).GetState();
+            prefs.RetainTalkWindowContentsOnHide = Common.AppPreferences.RetainTalkWindowContentsOnHide = (rootWidget.Finder.FindChild(pbRetainTalkWindowText.Name) as CheckBoxWidget).GetState();
+            prefs.DebugMessagesEnable = Common.AppPreferences.DebugMessagesEnable = (rootWidget.Finder.FindChild(pbEnableDebugTraceLogging.Name) as CheckBoxWidget).GetState();
+            prefs.AuditLogEnable = Common.AppPreferences.AuditLogEnable = (rootWidget.Finder.FindChild(pbEnableAuditLog.Name) as CheckBoxWidget).GetState();
+            prefs.AutoSaveScannerLastPosition = Common.AppPreferences.AutoSaveScannerLastPosition = (rootWidget.Finder.FindChild(pbScannerAutoSaveLastPosition.Name) as CheckBoxWidget).GetState();
+
             if (Common.AppPreferences.AutoSaveScannerLastPosition)
             {
                 prefs.ScannerPosition = Common.AppPreferences.ScannerPosition = Context.AppWindowPosition;
@@ -268,7 +273,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Initialize the state of all the widgets in the form
+        /// Initializes the state of all the widgets in the form
         /// with values from the settings.
         /// </summary>
         /// <param name="prefs">ACAT Preferences</param>
@@ -276,36 +281,36 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         {
             var rootWidget = _dialogCommon.GetRootWidget();
 
-            WidgetUtils.SetCheckBoxWidgetState(rootWidget, pbScannerAutoSaveLastPosition.Name, prefs.AutoSaveScannerLastPosition);
-            WidgetUtils.SetCheckBoxWidgetState(rootWidget, pbHideScannersOnIdle.Name, prefs.HideScannerOnIdle);
-            WidgetUtils.SetCheckBoxWidgetState(rootWidget, pbShowGlass.Name, prefs.EnableGlass);
-            WidgetUtils.SetCheckBoxWidgetState(rootWidget, pbShowTalkWindowOnStartup.Name, prefs.ShowTalkWindowOnStartup);
-            WidgetUtils.SetCheckBoxWidgetState(rootWidget, pbRetainTalkWindowText.Name, prefs.RetainTalkWindowContentsOnHide);
-            WidgetUtils.SetCheckBoxWidgetState(rootWidget, pbEnableDebugTraceLogging.Name, prefs.DebugMessagesEnable);
-            WidgetUtils.SetCheckBoxWidgetState(rootWidget, pbEnableAuditLog.Name, prefs.AuditLogEnable);
-            WidgetUtils.SetCheckBoxWidgetState(rootWidget, pbExpandAbbreviationsOnSeparator.Name, prefs.ExpandAbbreviationsOnSeparator);
+            ((CheckBoxWidget)(rootWidget.Finder.FindChild(pbScannerAutoSaveLastPosition.Name))).SetState(prefs.AutoSaveScannerLastPosition);
+            ((CheckBoxWidget)(rootWidget.Finder.FindChild(pbHideScannersOnIdle.Name))).SetState(prefs.HideScannerOnIdle);
+            ((CheckBoxWidget)(rootWidget.Finder.FindChild(pbShowGlass.Name))).SetState(prefs.EnableGlass);
+            ((CheckBoxWidget)(rootWidget.Finder.FindChild(pbShowTalkWindowOnStartup.Name))).SetState(prefs.ShowTalkWindowOnStartup);
+            ((CheckBoxWidget)(rootWidget.Finder.FindChild(pbRetainTalkWindowText.Name))).SetState(prefs.RetainTalkWindowContentsOnHide);
+            ((CheckBoxWidget)(rootWidget.Finder.FindChild(pbEnableDebugTraceLogging.Name))).SetState(prefs.DebugMessagesEnable);
+            ((CheckBoxWidget)(rootWidget.Finder.FindChild(pbEnableAuditLog.Name))).SetState(prefs.AuditLogEnable);
+            ((CheckBoxWidget)(rootWidget.Finder.FindChild(pbExpandAbbreviationsOnSeparator.Name))).SetState(prefs.ExpandAbbreviationsOnSeparator);
         }
 
         /// <summary>
-        /// Restore default settings from the settings file for ACAT
+        /// Restores default settings from the settings file for ACAT
         /// </summary>
         private void loadDefaultSettings()
         {
             if (DialogUtils.Confirm(this, "Restore default settings?"))
             {
                 initWidgetSettings(ACATPreferences.LoadDefaultSettings());
-                isDirty = true;
+                _isDirty = true;
             }
         }
 
         /// <summary>
-        /// Confirm whether to quit and close the form
+        /// Confirms whether to quit and close the form
         /// </summary>
         private void quit()
         {
             bool quit = true;
 
-            if (isDirty)
+            if (_isDirty)
             {
                 if (!DialogUtils.Confirm(this, "Changes not saved. Quit?"))
                 {
@@ -320,7 +325,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Save changes and close the dialog
+        /// Saves changes and closes the dialog
         /// </summary>
         private void saveSettingsAndQuit()
         {
@@ -328,7 +333,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
             {
                 getAppPreferencesFromUI().Save();
 
-                isDirty = false;
+                _isDirty = false;
                 Common.AppPreferences.NotifyPreferencesChanged();
             }
 
@@ -351,13 +356,13 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// User changed some setting on the form. Set the dirty flag
+        /// User changed some setting on the form. Sets the dirty flag
         /// </summary>
         /// <param name="sender">event sender</param>
         /// <param name="e">event args</param>
         private void widget_EvtValueChanged(object sender, WidgetEventArgs e)
         {
-            isDirty = true;
+            _isDirty = true;
         }
     }
 }

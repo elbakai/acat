@@ -63,7 +63,7 @@ using ACAT.Lib.Extension;
 
 #endregion SupressStyleCopWarnings
 
-namespace ACAT.Extensions.Hawking.FunctionalAgents.SwitchWindows
+namespace ACAT.Extensions.Default.FunctionalAgents.SwitchWindowsAgent
 {
     /// <summary>
     /// Functional agent that the user to switch between active windows
@@ -71,8 +71,9 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.SwitchWindows
     /// Displays a scanner with the names of the windows. User
     /// selects a window and the agent activates the window and exits.
     /// </summary>
-    [DescriptorAttribute("A310DFD2-09EA-4A1D-B94F-C9BD477B6849", "Switch Windows Agent",
-        "Alt-Tab equivalent.  Allows the user to switch between active windows")]
+    [DescriptorAttribute("16478B95-A328-4575-A3F1-D8289781CC20",
+                        "Switch Windows Agent",
+                        "Alt-Tab equivalent.  Allows the user to switch between active windows")]
     internal class SwitchWindowsAgent : FunctionalAgentBase
     {
         /// <summary>
@@ -81,28 +82,8 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.SwitchWindows
         private static SwitchWindowsScanner _switchWindowsScanner;
 
         /// <summary>
-        /// These are the buttons (widgets) that hold the
-        /// titles of windows
+        /// Meta data for window welected
         /// </summary>
-        private readonly String[] _supportedFeatures =
-        {
-            "Select_1",
-            "Select_2",
-            "Select_3",
-            "Select_4",
-            "Select_5",
-            "Select_6",
-            "Select_7",
-            "Select_8",
-            "Select_9",
-            "Select_10",
-        };
-
-        /// <summary>
-        /// Has the alphabet scanner been shown yet?
-        /// </summary>
-        private bool _scannerShown;
-
         private EnumWindows.WindowInfo _windowInfo;
 
         /// <summary>
@@ -111,7 +92,6 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.SwitchWindows
         public SwitchWindowsAgent()
         {
             Name = DescriptorAttribute.GetDescriptor(GetType()).Name;
-            initProperties();
         }
 
         /// <summary>
@@ -132,9 +112,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.SwitchWindows
 
             if (_switchWindowsScanner != null)
             {
-                _switchWindowsScanner.FormClosing += _form_FormClosing;
-                _switchWindowsScanner.EvtDone += _form_EvtDone;
-                _switchWindowsScanner.EvtActivateWindow += _switchWindowsScanner_EvtActivateWindow;
+                subscribeToEvents();
 
                 _switchWindowsScanner.FilterByProcessName = FilterByProcessName;
                 Context.AppPanelManager.ShowDialog(_switchWindowsScanner);
@@ -150,27 +128,27 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.SwitchWindows
         /// <param name="arg">info about the scanner button</param>
         public override void CheckWidgetEnabled(CheckEnabledArgs arg)
         {
-            if (_switchWindowsScanner == null)
-            {
-                return;
-            }
+            arg.Handled = true;
 
             switch (arg.Widget.SubClass)
             {
-                case "FileBrowserToggle":
-                    arg.Handled = true;
-                    arg.Enabled = false;
-                    return;
+                case "PunctuationScanner":
+                case "NumberScanner":
+                    arg.Enabled = true;
+                    break;
 
-                case "Back":
-                case "DeletePreviousWord":
-                case "clearText":
-                    arg.Handled = true;
-                    arg.Enabled = (_switchWindowsScanner != null) && !_switchWindowsScanner.IsFilterEmpty();
-                    return;
+                default:
+                    if (_switchWindowsScanner != null)
+                    {
+                        _switchWindowsScanner.CheckWidgetEnabled(arg);
+                    }
+                    if (!arg.Handled)
+                    {
+                        arg.Enabled = false;
+                        arg.Handled = true;
+                    }
+                    break;
             }
-
-            checkWidgetEnabled(_supportedFeatures, arg);
         }
 
         /// <summary>
@@ -184,18 +162,6 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.SwitchWindows
             Log.Debug("OnFocus: " + monitorInfo);
 
             base.OnFocusChanged(monitorInfo, ref handled);
-
-            if (!_scannerShown && _switchWindowsScanner != null)
-            {
-                var arg = new PanelRequestEventArgs(PanelClasses.AlphabetMinimal, monitorInfo)
-                {
-                    TargetPanel = _switchWindowsScanner,
-                    RequestArg = _switchWindowsScanner,
-                    UseCurrentScreenAsParent = true
-                };
-                showPanel(this, arg);
-                _scannerShown = true;
-            }
 
             handled = true;
         }
@@ -221,23 +187,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.SwitchWindows
         /// <param name="handled">was this handled?</param>
         public override void OnRunCommand(String command, object commandArg, ref bool handled)
         {
-            handled = true;
-
-            switch (command)
-            {
-                case "clearText":
-                    _switchWindowsScanner.ClearFilter();
-                    break;
-
-                default:
-                    Log.Debug(command);
-                    if (_switchWindowsScanner != null)
-                    {
-                        _switchWindowsScanner.OnRunCommand(command, ref handled);
-                    }
-
-                    break;
-            }
+            _switchWindowsScanner.OnRunCommand(command, ref handled);
         }
 
         /// <summary>
@@ -249,7 +199,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.SwitchWindows
         /// <returns>text control agent interface</returns>
         protected override TextControlAgentBase createEditControlTextInterface(
                                                                         IntPtr handle,
-                                                                        AutomationElement focusedElement, 
+                                                                        AutomationElement focusedElement,
                                                                         ref bool handled)
         {
             return new SwitchWindowsTextControlAgent(handle, focusedElement, ref handled);
@@ -260,7 +210,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.SwitchWindows
         /// </summary>
         private void _form_EvtDone()
         {
-            if (confirm("Close and exit?"))
+            if (confirm("Close?"))
             {
                 quit();
             }
@@ -273,8 +223,11 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.SwitchWindows
         /// <param name="e">event args</param>
         private void _form_FormClosing(object sender, FormClosingEventArgs e)
         {
-            _switchWindowsScanner.EvtDone -= _form_EvtDone;
-            initProperties();
+            if (_switchWindowsScanner != null)
+            {
+                unsubscribeFromEvents();
+            }
+
             _switchWindowsScanner = null;
         }
 
@@ -311,15 +264,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.SwitchWindows
         /// <returns>true if yes</returns>
         private bool confirm(String prompt)
         {
-            return DialogUtils.ConfirmScanner(PanelManager.Instance.GetCurrentPanel(), prompt);
-        }
-
-        /// <summary>
-        /// Initializes the class
-        /// </summary>
-        private void initProperties()
-        {
-            _scannerShown = false;
+            return DialogUtils.ConfirmScanner(PanelManager.Instance.GetCurrentForm(), prompt);
         }
 
         /// <summary>
@@ -330,6 +275,54 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.SwitchWindows
             ExitCode = CompletionCode.None;
             closeScanner();
             Close();
+        }
+
+        /// <summary>
+        /// Subscribes to events
+        /// </summary>
+        private void subscribeToEvents()
+        {
+            if (_switchWindowsScanner != null)
+            {
+                _switchWindowsScanner.FormClosing += _form_FormClosing;
+                _switchWindowsScanner.EvtDone += _form_EvtDone;
+                _switchWindowsScanner.EvtActivateWindow += _switchWindowsScanner_EvtActivateWindow;
+                _switchWindowsScanner.EvtShowScanner += switchWindows_EvtShowScanner;
+            }
+        }
+
+        /// <summary>
+        /// Event handler to display alphabet scanner
+        /// </summary>
+        /// <param name="sender">event sender</param>
+        /// <param name="eventArgs">event args</param>
+        private void switchWindows_EvtShowScanner(object sender, EventArgs eventArgs)
+        {
+            if (_switchWindowsScanner != null)
+            {
+                var arg = new PanelRequestEventArgs(PanelClasses.AlphabetMinimal, WindowActivityMonitor.GetForegroundWindowInfo())
+                {
+                    TargetPanel = _switchWindowsScanner,
+                    RequestArg = _switchWindowsScanner,
+                    UseCurrentScreenAsParent = true
+                };
+
+                showPanel(this, arg);
+            }
+        }
+
+        /// <summary>
+        /// Unsubscribes events
+        /// </summary>
+        private void unsubscribeFromEvents()
+        {
+            if (_switchWindowsScanner != null)
+            {
+                _switchWindowsScanner.FormClosing -= _form_FormClosing;
+                _switchWindowsScanner.EvtDone -= _form_EvtDone;
+                _switchWindowsScanner.EvtActivateWindow -= _switchWindowsScanner_EvtActivateWindow;
+                _switchWindowsScanner.EvtShowScanner -= switchWindows_EvtShowScanner;
+            }
         }
     }
 }

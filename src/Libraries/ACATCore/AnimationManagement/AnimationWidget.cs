@@ -68,7 +68,7 @@ namespace ACAT.Lib.Core.AnimationManagement
     /// for the acutal ui widget.  The animation widget
     /// the PCodes associated with the animations. The remaining
     /// attributes such as the highlight color etc are in the UI
-    ///  widget class.
+    /// widget class.
     /// widget
     /// </summary>
     public class AnimationWidget : IDisposable
@@ -151,7 +151,7 @@ namespace ACAT.Lib.Core.AnimationManagement
         }
 
         /// <summary>
-        /// Load attributes from XML file for a <Widget> node in an Animation node
+        /// Loads attributes from XML file for a <Widget> node in an Animation node
         /// </summary>
         /// <param name="xmlNode">The input xml node</param>
         public void Load(XmlNode xmlNode)

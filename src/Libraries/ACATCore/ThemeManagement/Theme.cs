@@ -62,8 +62,10 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Core.ThemeManagement
 {
     /// <summary>
-    /// Contains all the attribtues for a skin. This includes
-    /// the color schemes for all the various screen elements.
+    /// Contains all the attribtues for a Theme. This includes
+    /// the color schemes for all the various UI elements such
+    /// as Scanners, Dialogs, Menus, buttons in scanners etc.
+    /// The theme is loaded from an XML file
     /// </summary>
     public class Theme : IDisposable
     {

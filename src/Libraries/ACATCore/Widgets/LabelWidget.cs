@@ -73,7 +73,7 @@ namespace ACAT.Lib.Core.Widgets
         /// <summary>
         /// Should the corners of the control be rounded?
         /// </summary>
-        protected bool enableRoundCorners = true;
+        protected bool enableRoundCorners;
 
         /// <summary>
         /// Default radius of the corner
@@ -112,7 +112,7 @@ namespace ACAT.Lib.Core.Widgets
 
             if (!enableRoundCorners)
             {
-                _cornerRadius = 0;
+                _cornerRadius = 1;
             }
 
             uiControl.MouseDown += uiControl_MouseDown;
@@ -177,7 +177,7 @@ namespace ACAT.Lib.Core.Widgets
         }
 
         /// <summary>
-        /// Dispose resources
+        /// Disposes resources
         /// </summary>
         /// <param name="disposing">true to dispose managed resources</param>
         protected override void Dispose(bool disposing)

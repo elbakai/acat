@@ -88,7 +88,6 @@ namespace ACAT.Lib.Extension.CommandHandlers
             Form form = Dispatcher.Scanner.Form;
             if (Windows.GetVisible(form))
             {
-                Glass.HideGlass();
                 form.Invoke(new MethodInvoker(delegate()
                 {
                     IPanel mainMenu = Context.AppPanelManager.CreatePanel("MainMenu") as IPanel;

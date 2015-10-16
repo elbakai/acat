@@ -66,7 +66,9 @@ namespace ACAT.Lib.Core.InputActuators
     /// and rasies switch activation events.  Each key (Eg F5, F6 etc) has a
     /// corresponding switch object and the event is propogated through the switch object.
     /// </summary>
-    [DescriptorAttribute("D91A1877-C92B-4D7E-9AB6-F01F30B12DF9", "Keyboard Actuator", "Handles Keyboard and Mouse input")]
+    [DescriptorAttribute("D91A1877-C92B-4D7E-9AB6-F01F30B12DF9",
+                        "Keyboard Actuator",
+                        "Handles Keyboard and Mouse input")]
     public class KeyboardActuator : ActuatorBase
     {
         /// <summary>
@@ -121,8 +123,24 @@ namespace ACAT.Lib.Core.InputActuators
         {
             subscribeToHookManager();
             actuatorState = State.Running;
+#if TestCalibration
+            RequestCalibration();
+#endif
+            OnInitDone();
             return true;
         }
+
+#if TestCalibration
+        public override void StartCalibration()
+        {
+            UpdateCalibrationStatus("Calibrating " + Name, "Please stay perfectly still", 7, false);
+        }
+
+        public override void OnCalibrationPeriodExpired()
+        {
+            OnEndCalibration();
+        }
+#endif
 
         /// <summary>
         /// Pause actuator.  No events will be raised

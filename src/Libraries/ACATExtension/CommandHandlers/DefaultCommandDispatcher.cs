@@ -60,7 +60,8 @@ using ACAT.Lib.Core.PanelManagement.CommandDispatcher;
 namespace ACAT.Lib.Extension.CommandHandlers
 {
     /// <summary>
-    /// This class takes care of most of the commands in ACAT.
+    /// This class takes care of most of the commands in ACAT.  Any
+    /// custom commands should be handled separately.
     /// </summary>
     public class DefaultCommandDispatcher : RunCommandDispatcher
     {
@@ -81,14 +82,15 @@ namespace ACAT.Lib.Extension.CommandHandlers
         {
             Commands.Add(new ShowMainMenuHandler("CmdMainMenu"));
             Commands.Add(new ShowSettingsMenuHandler("CmdSettingsMenu"));
+            Commands.Add(new ShowToolsMenuHandler("CmdToolsMenu"));
             Commands.Add(new SwitchWindowsHandler("CmdSwitchWindows"));
-            Commands.Add(new ShowWindowsStartMenuHandler("WindowsStartMenu"));
             Commands.Add(new FileBrowserHandler("CmdFileBrowser"));
             Commands.Add(new SwitchAppsHandler("CmdSwitchApps"));
-            Commands.Add(new ShowMuteScreenHandler("CmdMuteScreen"));
+            Commands.Add(new ShowScreenLockHandler("CmdMuteScreen"));
             Commands.Add(new ShowNewFileDialogHandler("CmdNewFileAgent"));
             Commands.Add(new LaunchAppHandler("CmdLaunchApp"));
             Commands.Add(new ShowAbbreviationsHandler("CmdShowAbbreviationSettings"));
+            Commands.Add(new ShowPhraseSpeakHandler("CmdPhraseSpeak"));
             Commands.Add(new LectureManagerHandler("CmdLectureManager"));
             Commands.Add(new ContextMenuHandler("CmdContextMenu"));
 
@@ -100,6 +102,8 @@ namespace ACAT.Lib.Extension.CommandHandlers
             Commands.Add(new AppWindowManagementHandler("CmdMaximizeWindow"));
             Commands.Add(new AppWindowManagementHandler("CmdRestoreWindow"));
             Commands.Add(new AppWindowManagementHandler("CmdThreeFourthMaximizeWindow"));
+            Commands.Add(new AppWindowManagementHandler("CmdParitalMaximizeWindow"));
+            Commands.Add(new AppWindowManagementHandler("CmdMaximizePartialMaximizeToggle"));
             Commands.Add(new AppWindowManagementHandler("CmdMaximizeThreeFourthToggle"));
 
             Commands.Add(new TalkWindowHandler("CmdTalkWindowToggle"));
@@ -124,11 +128,14 @@ namespace ACAT.Lib.Extension.CommandHandlers
             Commands.Add(new ModifierKeyTriggerHandler("CmdAltKey"));
             Commands.Add(new ModifierKeyTriggerHandler("CmdFunctionKey"));
 
-            Commands.Add(new PositionScannerHandler("CmdAutoPositionScanner"));
-            Commands.Add(new PositionScannerHandler("CmdPositionScannerTopRight"));
-            Commands.Add(new PositionScannerHandler("CmdPositionScannerTopLeft"));
-            Commands.Add(new PositionScannerHandler("CmdPositionScannerBottomRight"));
-            Commands.Add(new PositionScannerHandler("CmdPositionScannerBottomLeft"));
+            Commands.Add(new PositionSizeScannerHandler("CmdAutoPositionScanner"));
+            Commands.Add(new PositionSizeScannerHandler("CmdPositionScannerTopRight"));
+            Commands.Add(new PositionSizeScannerHandler("CmdPositionScannerTopLeft"));
+            Commands.Add(new PositionSizeScannerHandler("CmdPositionScannerBottomRight"));
+            Commands.Add(new PositionSizeScannerHandler("CmdPositionScannerBottomLeft"));
+            Commands.Add(new PositionSizeScannerHandler("CmdScannerZoomIn"));
+            Commands.Add(new PositionSizeScannerHandler("CmdScannerZoomOut"));
+            Commands.Add(new PositionSizeScannerHandler("CmdScannerZoomDefault"));
 
             Commands.Add(new DocumentEditingHandler("CmdCut"));
             Commands.Add(new DocumentEditingHandler("CmdCopy"));
@@ -152,6 +159,8 @@ namespace ACAT.Lib.Extension.CommandHandlers
             Commands.Add(new CreateAndShowScanner("CmdPunctuationScanner"));
             Commands.Add(new CreateAndShowScanner("CmdCursorScanner"));
             Commands.Add(new CreateAndShowScanner("CmdMouseScanner"));
+            Commands.Add(new CreateAndShowScanner("CmdNumberScanner"));
+            Commands.Add(new CreateAndShowScanner("CmdFunctionKeyScanner"));
 
             Commands.Add(new ZoomOperationsHandler("CmdZoomIn"));
             Commands.Add(new ZoomOperationsHandler("CmdZoomOut"));
@@ -161,6 +170,8 @@ namespace ACAT.Lib.Extension.CommandHandlers
             Commands.Add(new SendKeyHandler("CmdNumLock"));
             Commands.Add(new SendKeyHandler("CmdScrollLock"));
             Commands.Add(new SendKeyHandler("CmdEnterKey"));
+            Commands.Add(new SendKeyHandler("CmdCommaKey"));
+            Commands.Add(new SendKeyHandler("CmdPeriodKey"));
 
             Commands.Add(new MouseHandler("CmdRightClick"));
             Commands.Add(new MouseHandler("CmdLeftClick"));
@@ -182,7 +193,6 @@ namespace ACAT.Lib.Extension.CommandHandlers
             Commands.Add(new ShowDialogsHandler("CmdShowGeneralSettings"));
             Commands.Add(new ShowDialogsHandler("CmdShowScanSettings"));
             Commands.Add(new ShowDialogsHandler("CmdShowWordPredictionSettings"));
-            Commands.Add(new ShowDialogsHandler("CmdShowMouseRadarSettings"));
             Commands.Add(new ShowDialogsHandler("CmdShowMouseGridSettings"));
             Commands.Add(new ShowDialogsHandler("CmdShowVoiceSettings"));
             Commands.Add(new ShowDialogsHandler("CmdShowMuteScreenSettings"));

@@ -1,4 +1,24 @@
-﻿using System;
+﻿////////////////////////////////////////////////////////////////////////////
+// <copyright file="Windows.cs" company="Intel Corporation">
+//
+// Copyright (c) 2013-2015 Intel Corporation 
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// </copyright>
+////////////////////////////////////////////////////////////////////////////
+
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -59,7 +79,7 @@ namespace ACAT.Lib.Core.Utility
 
         private delegate void setText(Control control, string text);
 
-        private delegate void setTopMost(Form form);
+        private delegate void setTopMost(Form form, bool value);
 
         private delegate void setTrackBarValue(TrackBar trackBar, int positionValue);
 
@@ -77,11 +97,11 @@ namespace ACAT.Lib.Core.Utility
 
         private delegate void unselectText(TextBoxBase control);
 
-        static public event FadeInComplete EvtFadeInComplete;
+        public static event FadeInComplete EvtFadeInComplete;
 
-        static public event FadeOutComplete EvtFadeOutComplete;
+        public static event FadeOutComplete EvtFadeOutComplete;
 
-        static public event WindowPositionChanged EvtWindowPositionChanged;
+        public static event WindowPositionChanged EvtWindowPositionChanged;
 
         public enum WindowAlign
         {
@@ -95,6 +115,8 @@ namespace ACAT.Lib.Core.Utility
             BottomRight,
             BottomLeft,
             CenterScreen,
+            MiddleRight,
+            MiddleLeft
         }
 
         public enum WindowRelative
@@ -105,11 +127,29 @@ namespace ACAT.Lib.Core.Utility
             Left = 3
         }
 
+        public enum WindowsVersion
+        {
+            Unknown,
+            Win7,
+            Win8,
+            Win10
+        }
+
+        /// <summary>
+        /// Enum used by SetProssDpiAwareness
+        /// </summary>
+        private enum _Process_DPI_Awareness
+        {
+            Process_DPI_Unaware = 0,
+            Process_System_DPI_Aware = 1,
+            Process_Per_Monitor_DPI_Aware = 2
+        }
+
         /// <summary>
         /// Activates the specified form
         /// </summary>
         /// <param name="form">form to activate</param>
-        static public void Activate(Form form)
+        public static void Activate(Form form)
         {
             if (form.InvokeRequired)
             {
@@ -125,7 +165,7 @@ namespace ACAT.Lib.Core.Utility
         /// Activates the specified form
         /// </summary>
         /// <param name="form">form to activate</param>
-        static public void ActivateForm(Form form)
+        public static void ActivateForm(Form form)
         {
             if (form.InvokeRequired)
             {
@@ -196,7 +236,7 @@ namespace ACAT.Lib.Core.Utility
         /// Closes the form asynchronously in a different thread
         /// </summary>
         /// <param name="form">form to close</param>
-        static public void CloseAsync(Form form)
+        public static void CloseAsync(Form form)
         {
             var thread = new Thread(() => closeFormThreadProc(form));
             thread.Start();
@@ -209,7 +249,7 @@ namespace ACAT.Lib.Core.Utility
         /// exceptions.
         /// </summary>
         /// <param name="form">Form to close</param>
-        static public void CloseForm(Form form)
+        public static void CloseForm(Form form)
         {
             if (form.InvokeRequired)
             {
@@ -232,8 +272,13 @@ namespace ACAT.Lib.Core.Utility
         /// <param name="form">form to dock</param>
         /// <param name="scanner">scanner form to dock to</param>
         /// <param name="scannerPosition">relative position</param>
-        static public void DockWithScanner(Form form, Form scanner, WindowPosition scannerPosition)
+        public static void DockWithScanner(Form form, Form scanner, WindowPosition scannerPosition)
         {
+            if (form == scanner)
+            {
+                return;
+            }
+
             switch (scannerPosition)
             {
                 case WindowPosition.TopRight:
@@ -251,6 +296,14 @@ namespace ACAT.Lib.Core.Utility
                 case WindowPosition.BottomRight:
                     form.Location = new Point(scanner.Left - form.Width, Screen.PrimaryScreen.WorkingArea.Height - form.Height);
                     break;
+
+                case WindowPosition.MiddleRight:
+                    form.Location = new Point(scanner.Left - form.Width, (Screen.PrimaryScreen.WorkingArea.Height - form.Height) / 2);
+                    break;
+
+                case WindowPosition.MiddleLeft:
+                    form.Location = new Point(scanner.Width, (Screen.PrimaryScreen.WorkingArea.Height - form.Height) / 2);
+                    break;
             }
         }
 
@@ -258,7 +311,7 @@ namespace ACAT.Lib.Core.Utility
         /// Fades in the specified form
         /// </summary>
         /// <param name="form">form to fade in</param>
-        static public void FadeIn(Form form)
+        public static void FadeIn(Form form)
         {
             SetOpacity(form, 0.0);
 
@@ -273,7 +326,7 @@ namespace ACAT.Lib.Core.Utility
         /// Gradually fades out the form
         /// </summary>
         /// <param name="form">form to fade out</param>
-        static public void FadeOut(Form form)
+        public static void FadeOut(Form form)
         {
             var fadeOutThread = new Thread(
                 delegate()
@@ -328,7 +381,7 @@ namespace ACAT.Lib.Core.Utility
         /// cross-thread invokations that would result in .NET
         /// exceptions.
         /// </summary>
-        static public int GetCaretPosition(TextBoxBase textBox)
+        public static int GetCaretPosition(TextBoxBase textBox)
         {
             if (textBox.InvokeRequired)
             {
@@ -344,7 +397,7 @@ namespace ACAT.Lib.Core.Utility
         /// Returns the currently active fg window
         /// </summary>
         /// <returns>window handle</returns>
-        static public IntPtr GetForegroundWindow()
+        public static IntPtr GetForegroundWindow()
         {
             return User32Interop.GetForegroundWindow();
         }
@@ -357,7 +410,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="form">Form object</param>
         /// <param name="arg">opacity value</param>
-        static public double GetOpacity(Form form)
+        public static double GetOpacity(Form form)
         {
             if (form.InvokeRequired)
             {
@@ -368,12 +421,43 @@ namespace ACAT.Lib.Core.Utility
         }
 
         /// <summary>
+        /// Returns the OS version
+        /// </summary>
+        /// <returns>os version</returns>
+        public static WindowsVersion GetOSVersion()
+        {
+            try
+            {
+                var osInfo = Environment.OSVersion;
+                if (osInfo.Version.Major == 6 && osInfo.Version.Minor == 1)
+                {
+                    return WindowsVersion.Win7;
+                }
+
+                if (osInfo.Version.Major == 6 && osInfo.Version.Minor == 2)
+                {
+                    return WindowsVersion.Win8;
+                }
+
+                if (osInfo.Version.Major == 10 && osInfo.Version.Minor == 0)
+                {
+                    return WindowsVersion.Win10;
+                }
+            }
+            catch
+            {
+            }
+
+            return WindowsVersion.Unknown;
+        }
+
+        /// <summary>
         /// Gets the position of the specified form. which
         /// corner is the scanner at?
         /// </summary>
         /// <param name="form">the scanner form</param>
         /// <returns>the position</returns>
-        static public WindowPosition GetScannerPosition(Form form)
+        public static WindowPosition GetScannerPosition(Form form)
         {
             WindowPosition retVal;
 
@@ -381,17 +465,26 @@ namespace ACAT.Lib.Core.Utility
             {
                 retVal = WindowPosition.TopLeft;
             }
-            else if (form.Left == 0 && form.Top != 0)
+            else if (form.Left == 0 && form.Top == Screen.PrimaryScreen.WorkingArea.Height - form.Height)
             {
                 retVal = WindowPosition.BottomLeft;
             }
-            else if (form.Top == 0 && form.Left != 0)
+            else if (form.Left == 0)
+            {
+                retVal = WindowPosition.MiddleLeft;
+            }
+            else if (form.Top == 0 && form.Left == Screen.PrimaryScreen.WorkingArea.Width - form.Width)
             {
                 retVal = WindowPosition.TopRight;
             }
-            else
+            else if (form.Top == Screen.PrimaryScreen.WorkingArea.Height - form.Height &&
+                     form.Left == Screen.PrimaryScreen.WorkingArea.Width - form.Width)
             {
                 retVal = WindowPosition.BottomRight;
+            }
+            else
+            {
+                retVal = WindowPosition.MiddleRight;
             }
 
             return retVal;
@@ -402,7 +495,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="control">text box</param>
         /// <returns>selected text</returns>
-        static public String GetSelectedText(TextBoxBase control)
+        public static String GetSelectedText(TextBoxBase control)
         {
             if (control.InvokeRequired)
             {
@@ -418,7 +511,7 @@ namespace ACAT.Lib.Core.Utility
         /// cross-thread invokations that would result in .NET
         /// exceptions.
         /// </summary>
-        static public String GetText(Control control)
+        public static String GetText(Control control)
         {
             if (control.InvokeRequired)
             {
@@ -433,7 +526,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="hWnd">window handle</param>
         /// <returns>the text</returns>
-        static public string GetText(IntPtr hWnd)
+        public static string GetText(IntPtr hWnd)
         {
             var title = new StringBuilder();
 
@@ -457,7 +550,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="trackBar">the trackbar object</param>
         /// <returns>position</returns>
-        static public int GetTrackBarValueInt(TrackBar trackBar)
+        public static int GetTrackBarValueInt(TrackBar trackBar)
         {
             if (trackBar.InvokeRequired)
             {
@@ -473,7 +566,7 @@ namespace ACAT.Lib.Core.Utility
         /// cross-thread invokations that would result in .NET
         /// exceptions.
         /// </summary>
-        static public bool GetVisible(Control control)
+        public static bool GetVisible(Control control)
         {
             try
             {
@@ -496,7 +589,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="hwnd">handle to the window</param>
         /// <returns>the title</returns>
-        static public String GetWindowTitle(IntPtr hwnd)
+        public static String GetWindowTitle(IntPtr hwnd)
         {
             if (hwnd != IntPtr.Zero)
             {
@@ -510,7 +603,7 @@ namespace ACAT.Lib.Core.Utility
         /// <summary>
         /// Hide windows taskbar
         /// </summary>
-        static public void HideTaskbar()
+        public static void HideTaskbar()
         {
             IntPtr hwnd = User32Interop.FindWindow(_taskbarWinClass, String.Empty);
             if (hwnd != IntPtr.Zero)
@@ -534,7 +627,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="handle">window handle</param>
         /// <returns>true if it is</returns>
-        static public bool IsMaximized(IntPtr handle)
+        public static bool IsMaximized(IntPtr handle)
         {
             var placement = new User32Interop.WINDOWPLACEMENT();
             placement.length = Marshal.SizeOf(placement);
@@ -547,7 +640,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="handle">window handle</param>
         /// <returns>true if it is</returns>
-        static public bool IsMinimized(IntPtr handle)
+        public static bool IsMinimized(IntPtr handle)
         {
             int style = User32Interop.GetWindowLong(handle, GWL_STYLE);
 
@@ -560,7 +653,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="windowHandle">Window to check for</param>
         /// <returns>true if it is</returns>
-        static public bool IsObscuredByNonACATWindows(IntPtr windowHandle)
+        public static bool IsObscuredByNonACATWindows(IntPtr windowHandle)
         {
             if (windowHandle == null ||
                 windowHandle == IntPtr.Zero ||
@@ -611,7 +704,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="windowHandle">Window to check for</param>
         /// <returns>true if it is</returns>
-        static public bool IsObscuredWindow(IntPtr windowHandle)
+        public static bool IsObscuredWindow(IntPtr windowHandle)
         {
             if (windowHandle == null ||
                 windowHandle == IntPtr.Zero ||
@@ -652,7 +745,7 @@ namespace ACAT.Lib.Core.Utility
         /// Maximizes the window
         /// </summary>
         /// <param name="handle">window handle</param>
-        static public void MaximizeWindow(IntPtr handle)
+        public static void MaximizeWindow(IntPtr handle)
         {
             if (handle != IntPtr.Zero)
             {
@@ -664,7 +757,7 @@ namespace ACAT.Lib.Core.Utility
         /// Minimizes a window
         /// </summary>
         /// <param name="handle">window handle</param>
-        static public void MinimizeWindow(IntPtr handle)
+        public static void MinimizeWindow(IntPtr handle)
         {
             if (handle != IntPtr.Zero)
             {
@@ -675,7 +768,7 @@ namespace ACAT.Lib.Core.Utility
         /// <summary>
         /// Windows PostMessage()
         /// </summary>
-        static public bool PostMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, UInt32 lParam)
+        public static bool PostMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, UInt32 lParam)
         {
             return User32Interop.PostMessage(hWnd, Msg, wParam, lParam);
         }
@@ -684,7 +777,7 @@ namespace ACAT.Lib.Core.Utility
         /// Restores the window from the maximized position
         /// </summary>
         /// <param name="handle">window handle</param>
-        static public void RestoreWindow(IntPtr handle)
+        public static void RestoreWindow(IntPtr handle)
         {
             if (handle != IntPtr.Zero)
             {
@@ -705,7 +798,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="hwnd">window handle</param>
         /// <returns>true</returns>
-        static public void SetActiveWindow(IntPtr hwnd)
+        public static void SetActiveWindow(IntPtr hwnd)
         {
             try
             {
@@ -720,7 +813,7 @@ namespace ACAT.Lib.Core.Utility
         /// .NET exceptions
         /// </summary>
         /// <param name="color">Color to set</param>
-        static public void SetBackgroundColor(Control control, Color color)
+        public static void SetBackgroundColor(Control control, Color color)
         {
             try
             {
@@ -742,7 +835,7 @@ namespace ACAT.Lib.Core.Utility
         /// cross-thread invokations that would result in .NET
         /// exceptions.
         /// </summary>
-        static public void SetCaretPosition(TextBoxBase textBox, int position)
+        public static void SetCaretPosition(TextBoxBase textBox, int position)
         {
             if (textBox.InvokeRequired)
             {
@@ -759,7 +852,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="control">control to set focus to</param>
         /// <returns>true on success</returns>
-        static public bool SetFocus(Control control)
+        public static bool SetFocus(Control control)
         {
             if (control.InvokeRequired)
             {
@@ -793,7 +886,7 @@ namespace ACAT.Lib.Core.Utility
         /// .NET exceptions
         /// </summary>
         /// <param name="color">Color to set</param>
-        static public void SetForegroundColor(Control control, Color color)
+        public static void SetForegroundColor(Control control, Color color)
         {
             try
             {
@@ -814,7 +907,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="hwnd">window handle</param>
         /// <returns>true on success</returns>
-        static public bool SetForegroundWindow(IntPtr hwnd)
+        public static bool SetForegroundWindow(IntPtr hwnd)
         {
             bool retVal = false;
             try
@@ -831,7 +924,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="scannerPosition">where to position the window?</param>
         /// <param name="percent">the percent width</param>
-        static public void SetForegroundWindowSizePercent(WindowPosition scannerPosition, int percent)
+        public static void SetForegroundWindowSizePercent(WindowPosition scannerPosition, int percent)
         {
             SetWindowSizePercent(User32Interop.GetForegroundWindow(), scannerPosition, percent);
         }
@@ -857,7 +950,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="box"></param>
         /// <param name="image"></param>
-        static public void SetImage(PictureBox box, Image image)
+        public static void SetImage(PictureBox box, Image image)
         {
             if (box.InvokeRequired)
             {
@@ -878,7 +971,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="form">Form object</param>
         /// <param name="arg">opacity value</param>
-        static public void SetOpacity(Form form, double arg)
+        public static void SetOpacity(Form form, double arg)
         {
             if (form.InvokeRequired)
             {
@@ -895,7 +988,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="control">control to set region for</param>
         /// <param name="region">region to set</param>
-        static public void SetRegion(Control control, Region region)
+        public static void SetRegion(Control control, Region region)
         {
             try
             {
@@ -919,7 +1012,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="Control">control to set text for</param>
         /// <param name="text">text to set</param>
-        static public void SetText(Control control, String text)
+        public static void SetText(Control control, String text)
         {
             if (control.InvokeRequired)
             {
@@ -935,18 +1028,27 @@ namespace ACAT.Lib.Core.Utility
         /// Sets topmost to true
         /// </summary>
         /// <param name="form">which form?</param>
-        static public void SetTopMost(Form form)
+        /// <param name="topMost">set to true for topmost, false otherwise</param>
+        public static void SetTopMost(Form form, bool topMost = true)
         {
             if (form.InvokeRequired)
             {
-                form.Invoke(new setTopMost(SetTopMost), form);
+                form.Invoke(new setTopMost(SetTopMost), form, topMost);
             }
             else
             {
                 // need to toggle to false and
                 // then to true for this to take effect
-                form.TopMost = false;
-                form.TopMost = true;
+
+                if (topMost)
+                {
+                    form.TopMost = false;
+                    form.TopMost = true;
+                }
+                else
+                {
+                    form.TopMost = false;
+                }
             }
         }
 
@@ -957,7 +1059,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="trackBar"></param>
         /// <param name="positionValue"></param>
-        static public void SetTrackBarValue(TrackBar trackBar, int positionValue)
+        public static void SetTrackBarValue(TrackBar trackBar, int positionValue)
         {
             if (trackBar.InvokeRequired)
             {
@@ -982,7 +1084,7 @@ namespace ACAT.Lib.Core.Utility
         /// cross-thread invokations that would result in .NET
         /// exceptions.
         /// </summary>
-        static public void SetVisible(Control control, bool visible)
+        public static void SetVisible(Control control, bool visible)
         {
             if (control.InvokeRequired)
             {
@@ -999,11 +1101,12 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="form">form to reposition</param>
         /// <param name="position">the new position</param>
-        static public void SetWindowPosition(Form form, WindowPosition position)
+        public static void SetWindowPosition(Form form, WindowPosition position)
         {
             form.StartPosition = FormStartPosition.Manual;
 
             Log.Debug("Before setposition " + position);
+
             switch (position)
             {
                 case WindowPosition.TopRight:
@@ -1023,6 +1126,14 @@ namespace ACAT.Lib.Core.Utility
                     form.Location = new Point(0, Screen.PrimaryScreen.WorkingArea.Height - form.Height);
                     break;
 
+                case WindowPosition.MiddleRight:
+                    form.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - form.Width, (Screen.PrimaryScreen.WorkingArea.Height - form.Height) / 2);
+                    break;
+
+                case WindowPosition.MiddleLeft:
+                    form.Location = new Point(0, (Screen.PrimaryScreen.WorkingArea.Height - form.Height) / 2);
+                    break;
+
                 case WindowPosition.CenterScreen:
                     form.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - form.Width) / 2,
                                         (Screen.PrimaryScreen.WorkingArea.Height - form.Height) / 2);
@@ -1037,7 +1148,7 @@ namespace ACAT.Lib.Core.Utility
         /// <param name="form">form to reposition</param>
         /// <param name="insertAfter">insert after this window</param>
         /// <param name="position">new position</param>
-        static public void SetWindowPosition(Form form, IntPtr insertAfter, WindowPosition position)
+        public static void SetWindowPosition(Form form, IntPtr insertAfter, WindowPosition position)
         {
             form.StartPosition = FormStartPosition.Manual;
             var location = new Point(0, 0);
@@ -1076,7 +1187,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="form">The form</param>
         /// <param name="position">Where to set the position</param>
-        static public void SetWindowPositionAndNotify(Form form, WindowPosition position)
+        public static void SetWindowPositionAndNotify(Form form, WindowPosition position)
         {
             Log.Debug("Setting position to " + position);
             SetWindowPosition(form, position);
@@ -1094,7 +1205,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="form">The form</param>
         /// <param name="position">Where to set the position</param>
-        static public void SetWindowPositionAndNotify(Form form, IntPtr insertAfter, WindowPosition position)
+        public static void SetWindowPositionAndNotify(Form form, IntPtr insertAfter, WindowPosition position)
         {
             SetWindowPosition(form, insertAfter, position);
             if (EvtWindowPositionChanged != null)
@@ -1104,51 +1215,13 @@ namespace ACAT.Lib.Core.Utility
         }
 
         /// <summary>
-        /// Sets the position of the form relative to another form
-        /// (the 'parent' parameter. Does not mean the parent owns
-        /// the 'form')
-        /// </summary>
-        /// <param name="form">form to repositon</param>
-        /// <param name="parent">relative to this form</param>
-        /// <param name="relativePosition">relative positon of docking</param>
-        static public void SetWindowPositionRelative(Form form, Form parent, WindowRelative relativePosition)
-        {
-            switch (relativePosition)
-            {
-                case WindowRelative.Below:
-                    form.StartPosition = FormStartPosition.Manual;
-                    form.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - form.Width) / 2,
-                                                parent.Top + parent.Height);
-                    break;
-
-                case WindowRelative.Above:
-                    form.StartPosition = FormStartPosition.Manual;
-                    form.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - form.Width) / 2,
-                                                parent.Top - form.Height);
-                    break;
-
-                case WindowRelative.Right:
-                    form.StartPosition = FormStartPosition.Manual;
-                    form.Location = new Point(parent.Left + parent.Width,
-                                                (Screen.PrimaryScreen.WorkingArea.Height - form.Height) / 2);
-                    break;
-
-                case WindowRelative.Left:
-                    form.StartPosition = FormStartPosition.Manual;
-                    form.Location = new Point(parent.Left - form.Width,
-                                                (Screen.PrimaryScreen.WorkingArea.Height - form.Height) / 2);
-                    break;
-            }
-        }
-
-        /// <summary>
         /// Partial maximize.  Sets the window width to
-        /// a percent of the screen width.
+        /// a percent of the display width.
         /// </summary>
         /// <param name="handle">handle of the window</param>
         /// <param name="scannerPosition">which corner should the window be positioned at?</param>
         /// <param name="percent">percentage of display monitor width</param>
-        static public void SetWindowSizePercent(IntPtr handle, WindowPosition scannerPosition, int percent)
+        public static void SetWindowSizePercent(IntPtr handle, WindowPosition scannerPosition, int percent)
         {
             Log.Debug("Entering...scannerPosition=" + scannerPosition.ToString() + " percent=" + percent.ToString());
             int screenOffset = 0;
@@ -1214,7 +1287,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="parent"></param>
         /// <param name="child"></param>
-        static public void Show(Form parent, Form child)
+        public static void Show(Form parent, Form child)
         {
             if (parent.InvokeRequired)
             {
@@ -1234,7 +1307,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="parent"></param>
         /// <param name="child"></param>
-        static public void ShowDialog(Form parent, Form child)
+        public static void ShowDialog(Form parent, Form child)
         {
             if (parent.InvokeRequired)
             {
@@ -1257,7 +1330,7 @@ namespace ACAT.Lib.Core.Utility
         /// exceptions.
         /// </summary>
         /// <param name="form"></param>
-        static public void ShowForm(Form form)
+        public static void ShowForm(Form form)
         {
             if (form.InvokeRequired)
             {
@@ -1301,7 +1374,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="control">form</param>
         /// <param name="show">set to true to show</param>
-        static public void ShowInTaskbar(Form control, bool show)
+        public static void ShowInTaskbar(Form control, bool show)
         {
             if (control.InvokeRequired)
             {
@@ -1316,7 +1389,7 @@ namespace ACAT.Lib.Core.Utility
         /// <summary>
         /// Show windows taskbar
         /// </summary>
-        static public void ShowTaskbar()
+        public static void ShowTaskbar()
         {
             IntPtr hwnd = User32Interop.FindWindow(_taskbarWinClass, String.Empty);
             if (hwnd != IntPtr.Zero)
@@ -1331,7 +1404,7 @@ namespace ACAT.Lib.Core.Utility
         /// <param name="form">the target form</param>
         /// <param name="show">true to show border/title</param>
         /// <param name="title">title to set</param>
-        static public void ShowWindowBorder(Form form, bool show, String title = "")
+        public static void ShowWindowBorder(Form form, bool show, String title = "")
         {
             if (show)
             {
@@ -1349,7 +1422,7 @@ namespace ACAT.Lib.Core.Utility
         /// Shows a window without setting focus to it
         /// </summary>
         /// <param name="form">the window form</param>
-        static public void ShowWindowWithoutActivation(Form form)
+        public static void ShowWindowWithoutActivation(Form form)
         {
             if (form.InvokeRequired)
             {
@@ -1368,7 +1441,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="parent">parent form</param>
         /// <param name="child">child form</param>
-        static public void ShowWithoutActivation(Form parent, Form child)
+        public static void ShowWithoutActivation(Form parent, Form child)
         {
             if (parent.InvokeRequired)
             {
@@ -1387,7 +1460,7 @@ namespace ACAT.Lib.Core.Utility
         /// </summary>
         /// <param name="scannerPosition">where to position the window</param>
         /// <param name="percent">the partial maximize percentage</param>
-        static public void ToggleFgWindowMaximizeAndPartialMaximize(WindowPosition scannerPosition, int percent)
+        public static void ToggleFgWindowMaximizeAndPartialMaximize(WindowPosition scannerPosition, int percent)
         {
             IntPtr fgWindow = GetForegroundWindow();
             if (fgWindow != IntPtr.Zero)
@@ -1405,10 +1478,30 @@ namespace ACAT.Lib.Core.Utility
         }
 
         /// <summary>
+        /// In Win8 and Win10, there are undesirable side-effects where the
+        /// scanners are scaled imporperly.  Turn off DPI awareness to fix this
+        /// </summary>
+        public static void TurnOffDPIAwareness()
+        {
+            try
+            {
+                var osVersion = GetOSVersion();
+
+                if (osVersion == WindowsVersion.Win8 || osVersion == WindowsVersion.Win10)
+                {
+                    SetProcessDpiAwareness(_Process_DPI_Awareness.Process_DPI_Unaware);
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        /// <summary>
         /// Unselect text in textbox
         /// </summary>
         /// <param name="control">the text box control</param>
-        static public void UnselectText(TextBoxBase control)
+        public static void UnselectText(TextBoxBase control)
         {
             if (control.InvokeRequired)
             {
@@ -1428,31 +1521,11 @@ namespace ACAT.Lib.Core.Utility
         /// Thread proc for CloseAsync()
         /// </summary>
         /// <param name="form">form to close</param>
-        static private void closeFormThreadProc(Form form)
+        private static void closeFormThreadProc(Form form)
         {
             Thread.Sleep(250);
             CloseForm(form);
         }
-
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRectRgn")]
-        private static extern IntPtr CreateRectRgn
-        (
-            int nLeftRect, // x-coordinate of upper-left corner
-            int nTopRect, // y-coordinate of upper-left corner
-            int nRightRect, // x-coordinate of lower-right corner
-            int nBottomRect // y-coordinate of lower-right corner
-         );
-
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn
-        (
-            int nLeftRect, // x-coordinate of upper-left corner
-            int nTopRect, // y-coordinate of upper-left corner
-            int nRightRect, // x-coordinate of lower-right corner
-            int nBottomRect, // y-coordinate of lower-right corner
-            int nWidthEllipse, // height of ellipse
-            int nHeightEllipse // width of ellipse
-         );
 
         /// <summary>
         /// Threadproc for fade-in
@@ -1504,6 +1577,9 @@ namespace ACAT.Lib.Core.Utility
                 }
             }
         }
+
+        [DllImport("shcore.dll")]
+        private static extern int SetProcessDpiAwareness(_Process_DPI_Awareness value);
 
         public struct ShowWindowFlags
         {

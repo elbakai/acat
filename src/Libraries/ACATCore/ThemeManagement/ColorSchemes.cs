@@ -62,7 +62,7 @@ namespace ACAT.Lib.Core.ThemeManagement
 {
     /// <summary>
     /// Encapsulates a list of color scheme objects for the various ui elements
-    /// and for the various screen types such as dialogs, scanners, buttons
+    /// and for the various panel types such as dialogs, scanners, buttons
     /// Each color scheme object contains the background/foreground color or image
     /// to be used in the various states of the UI element such as highlighted,
     /// normal, selected etc.
@@ -173,6 +173,16 @@ namespace ACAT.Lib.Core.ThemeManagement
             // Prevent finalization code for this object
             // from executing a second time.
             GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Does the specified scheme exist?
+        /// </summary>
+        /// <param name="scheme">Name of the scheme</param>
+        /// <returns>true if it does</returns>
+        public bool Exists(String scheme)
+        {
+            return _colorsTable.ContainsKey(scheme.ToLower().Trim());
         }
 
         /// <summary>

@@ -93,15 +93,6 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Config\WindowsPhotoViewerContextMenuIconsOnly.xml" />
-    <Content Include="Config\PhotoViewerRotateMenuIconsOnly.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Config\PhotoViewerZoomMenuIconsOnly.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Config\WindowsPhotoViewerContextMenu.xml" />
     <Content Include="Config\PanelConfigMap.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

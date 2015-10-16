@@ -86,7 +86,7 @@ namespace ACAT.Lib.Extension
         public bool HideLaunchpadOnIdle = false;
         public int TimedDialogTimeout = 4000;
 
-        public bool PrefixNumbersInWordPredictionList = true;
+        public bool PrefixNumbersInWordPredictionList = false;
 
         //Contextual Menu Settings
         public bool EnableContextualMenusForMenus = true;
@@ -109,28 +109,16 @@ namespace ACAT.Lib.Extension
         public bool TalkWindowShowBorder = true;
         public bool TalkWindowShowTitleBar = true;
 
-        // Mouse Radar settings
-        public int MouseRadarRotatingSpeed = 6;
-        public int MouseRadarRotatingSweeps = 1;
-        public int MouseRadarRadialSpeed = 6;
-        public int MouseRadarRadialSweeps = 1;
-        public int MouseRadarLineWidth = 3;
-        public bool MouseRadarStartFromLastCursorPos = true;
-        public bool MouseRadarSoundEffectsOn = false;
-        public int MouseRadarRotatingSpeedMultiplier = 4;
-        public int MouseRadarRadialSpeedMultipler = 12;
-
         //Mouse grid settings
-        public int MouseGridVerticalSpeed = 4;
-        public int MouseGridVerticalSweeps = 1;
-        public int MouseGridHorizontalSpeed = 11;
-        public int MouseGridHorizontalSweeps = 1;
-        public int MouseGridLineWidth = 3;
-        public bool MouseGridStartFromLastCursorPos = false;
-        public int MouseGridMouseMoveSpeedMultiplier = 6;
-        public int MouseGridScanSpeedMultiplier = 14;
+        public int MouseGridRectangleSpeed = 40;
+        public int MouseGridRectangleCycles = 2;
+        public int MouseGridLineSpeed = 20;
+        public int MouseGridLineCycles = 1;
+        public int MouseGridLineThickness = 2;
+        public int MouseGridRectangleHeight = 120;
+        public bool MouseGridEnableVerticalRectangleScan = true;
 
-        // Mute screen settings
+        // Screen Lock Settings
         public int MuteScanIterations = -1;
         public String MutePin = "2589";
         public int MutePinDigitMax = 9;
@@ -143,10 +131,6 @@ namespace ACAT.Lib.Extension
         public bool TTSUseBookmarks = true;
 
         // File Browser settings
-        public String FileBrowserDateFormat = "MM/dd/yyyy";
-        public String FavoriteFolders = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        public String FileBrowserExcludeFileExtensions = String.Empty;
-        public bool FileBrowserShowFileOperationsMenu = true;
         public String NewTextFileCreateFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         public String NewWordDocCreateFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
@@ -185,22 +169,6 @@ namespace ACAT.Lib.Extension
         {
             return !String.IsNullOrEmpty(PreferencesFilePath) && 
                 Save<ACATPreferences>(this, PreferencesFilePath);
-        }
-
-        /// <summary>
-        /// Returns list of favorite folders.  Parses the
-        /// "FavoriteFolders" setting, normalizes it and 
-        /// returns the list of folders
-        /// </summary>
-        /// <returns></returns>
-        public String[] GetFavoriteFolders()
-        {
-            if (String.IsNullOrEmpty(FavoriteFolders))
-            {
-                return new[] { Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) };
-            }
-
-            return SmartPath.ACATParseAndNormalizePaths(FavoriteFolders);
         }
 
         /// <summary>

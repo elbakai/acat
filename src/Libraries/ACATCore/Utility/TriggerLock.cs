@@ -94,7 +94,7 @@ namespace ACAT.Lib.Core.Utility
         }
 
         /// <summary>
-        /// Is the resource currently locked?
+        /// Returns true if the resource currently locked
         /// </summary>
         /// <returns>true if it is</returns>
         public bool OnHold()

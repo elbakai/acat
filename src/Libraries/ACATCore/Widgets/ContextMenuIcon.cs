@@ -72,6 +72,7 @@ namespace ACAT.Lib.Core.Widgets
             : base(uiControl)
         {
             Colors = ThemeManager.Instance.ActiveTheme.Colors.GetColorScheme(ColorSchemes.ContextMenuIconSchemeName);
+            DisabledButtonColors = ThemeManager.Instance.ActiveTheme.Colors.GetColorScheme(ColorSchemes.DisabledContextMenuIconSchemeName);
         }
     }
 }

@@ -69,7 +69,14 @@ namespace ACAT.Lib.Core.Widgets
     /// </summary>
     public class ButtonControlWidget : ButtonWidgetBase
     {
+        /// <summary>
+        /// Has this object been disposed off yet?
+        /// </summary>
         private bool _disposed;
+
+        /// <summary>
+        /// Font to use for this widget
+        /// </summary>
         private Font _font;
 
         /// <summary>
@@ -106,7 +113,9 @@ namespace ACAT.Lib.Core.Widgets
 
             if (fontFamily != null)
             {
-                _font = new Font(fontFamily, widgetAttribute.FontSize, widgetAttribute.FontBold ? FontStyle.Bold : FontStyle.Regular);
+                _font = new Font(fontFamily,
+                                widgetAttribute.FontSize,
+                                widgetAttribute.FontBold ? FontStyle.Bold : FontStyle.Regular);
                 UIControl.Font = _font;
             }
 
@@ -143,6 +152,11 @@ namespace ACAT.Lib.Core.Widgets
             }
         }
 
+        /// <summary>
+        /// If a space was pressed, actuate the widget
+        /// </summary>
+        /// <param name="sender">event sender</param>
+        /// <param name="e">event args</param>
         private void button_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == ' ')

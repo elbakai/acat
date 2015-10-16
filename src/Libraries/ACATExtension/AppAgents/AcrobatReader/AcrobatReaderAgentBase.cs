@@ -65,7 +65,9 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Extension.AppAgents.AcrobatReader
 {
     /// <summary>
-    /// Base class application agent for the Acrobat reader
+    /// Base class application agent for the Acrobat reader. Enables
+    /// easy browsing of PDF files, page up, page down, zoom in,
+    /// zoom out etc.
     /// </summary>
     public class AcrobatReaderAgentBase : GenericAppAgentBase
     {
@@ -73,7 +75,7 @@ namespace ACAT.Lib.Extension.AppAgents.AcrobatReader
         /// If set to true, the agent will autoswitch the
         /// scanners depending on which element has focus.
         /// Eg: Alphabet scanner if an edit text window has focus,
-        /// the contextual menu if the main document has focus
+        /// or the contextual menu if the main document has focus
         /// </summary>
         protected bool autoSwitchScanners = true;
 
@@ -140,7 +142,7 @@ namespace ACAT.Lib.Extension.AppAgents.AcrobatReader
 
         /// <summary>
         /// Invoked when the foreground window focus changes. Depending on which
-        /// element has focus in the acrobat reader window, display the appropriate
+        /// element has focus in the acrobat reader window, displays the appropriate
         /// scanner
         /// </summary>
         /// <param name="monitorInfo">Foreground window info</param>
@@ -176,7 +178,7 @@ namespace ACAT.Lib.Extension.AppAgents.AcrobatReader
         }
 
         /// <summary>
-        /// Invoked to run a command
+        /// Executes the specified command
         /// </summary>
         /// <param name="command">The command to execute</param>
         /// <param name="commandArg">Optional arguments for the command</param>

@@ -19,6 +19,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 using System;
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
@@ -73,8 +74,16 @@ namespace ACATCleanup
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            if (args.Length > 0 && args[0] == "blah")
+            if (args.Length > 0 && args[0].StartsWith("blahblah"))
             {
+                String[] strings = args[0].Split(';');
+
+                var installDir = String.Empty;
+                if (strings.Length > 1)
+                {
+                    installDir = strings[1];
+                }
+
                 Thread.Sleep(3000);
 
                 if (isPresageRunning())
@@ -82,9 +91,8 @@ namespace ACATCleanup
                     KillPresage();
                 }
 
-                const string key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Intel Corporation\\ACAT";
-
-                var installDir = (String)Registry.GetValue(key, "InstallDir", String.Empty);
+                //const string key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Intel Corporation\\ACAT";
+                //var installDir = (String)Registry.GetValue(key, "InstallDir", String.Empty);
 
                 try
                 {
@@ -97,9 +105,15 @@ namespace ACATCleanup
                             directoryExists(installDir, "AuditLogs") ||
                             directoryExists(installDir, "Users") || File.Exists(fileName))
                         {
-                            Directory.Delete(installDir, true);
-                            Directory.Delete(installDir);
+                                Directory.Delete(installDir, true);
+                                Directory.Delete(installDir);
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Could not locate ACAT install folder.  Please delete it manually", "ACAT Uninstall",
+                             MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
                     }
                 }
                 catch (Exception ex)

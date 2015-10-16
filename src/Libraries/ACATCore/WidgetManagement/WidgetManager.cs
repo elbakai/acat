@@ -21,6 +21,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 using ACAT.Lib.Core.Utility;
@@ -63,6 +64,10 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Core.WidgetManagement
 {
     /// <summary>
+    /// Caches the .NET types of all the widgets in the Core DLL as well
+    /// as any in the Extensions\Widgets folder.  All widgets MUST derive
+    /// from the Widget class.  The cached types are then used to create
+    /// the Widget objects.
     /// Parses the config file for the scanner and creates the two major elements
     /// from it:  The WidgetAttributes element and the Layout element.  The
     /// WidgetAttributes element contains extended attributes for all the
@@ -75,7 +80,7 @@ namespace ACAT.Lib.Core.WidgetManagement
         /// Holds the types of all classes in the executing assembly that
         /// derive from the Widget class
         /// </summary>
-        private static IEnumerable<String> _widgetTypeCollection;
+        private static List<String> _widgetTypeCollection;
 
         /// <summary>
         /// The layout object for the scanner
@@ -102,17 +107,27 @@ namespace ACAT.Lib.Core.WidgetManagement
         /// </summary>
         public WidgetManager(Control control)
         {
-            if (_widgetTypeCollection == null)
-            {
-                _widgetTypeCollection = loadWidgetTypeCollection();
-            }
-
             _widgetAttributes = new WidgetAttributes();
             _layout = new Layout();
             _rootWidget = new Widget(control);
 
             Log.Debug("control name is : " + control.Name);
             Log.Debug("_rootWidget.name is  : " + _rootWidget.Name);
+        }
+
+        /// <summary>
+        /// Caches .NET types of the widgets.
+        /// </summary>
+        /// <param name="extensionDirs"></param>
+        /// <returns></returns>
+        public static bool Init(IEnumerable<String> extensionDirs)
+        {
+            if (_widgetTypeCollection == null)
+            {
+                loadWidgetTypeCollection(extensionDirs);
+            }
+
+            return true;
         }
 
         /// <summary>
@@ -207,9 +222,9 @@ namespace ACAT.Lib.Core.WidgetManagement
         }
 
         /// <summary>
-        /// Parses the xml config file for the screen and creates the layout
-        /// and all the widgets for the screen.  These widgets are all
-        /// descendents of the root widget which is the screen itself.
+        /// Parses the xml config file for the panel and creates the layout
+        /// and all the widgets for the panel.  These widgets are all
+        /// descendents of the root widget which is the Panel itself.
         /// </summary>
         /// <param name="configPath">full path to the config file</param>
         /// <returns>true on success</returns>
@@ -224,7 +239,8 @@ namespace ACAT.Lib.Core.WidgetManagement
                 Log.Debug("configPath: " + configPath);
                 Log.IsNull("Layout for root widget ", Layout.RootWidget);
 
-                if (retVal = Layout.Load(configPath, _rootWidget))
+                retVal = Layout.Load(configPath, _rootWidget);
+                if (retVal)
                 {
                     retrieveAndSetWidgetAttribute(Layout.RootWidget);
                 }
@@ -271,21 +287,120 @@ namespace ACAT.Lib.Core.WidgetManagement
         /// Creates a list of types in the executing assembly that
         /// derive from the type "Widget"
         /// </summary>
-        /// <returns>list of types</returns>
-        private IEnumerable<String> loadWidgetTypeCollection()
+        static private void loadWidgetTypeCollection(IEnumerable<String> extensionDirs)
         {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            var collection = new List<String>();
-            Type[] types = assembly.GetTypes();
-            foreach (Type t in types)
+            var assembly = Assembly.GetExecutingAssembly();
+            _widgetTypeCollection = new List<String>();
+            var types = assembly.GetTypes();
+            foreach (var type in types)
             {
-                if (typeof(Widget).IsAssignableFrom(t))
+                if (typeof(Widget).IsAssignableFrom(type))
                 {
-                    collection.Add(t.FullName);
+                    _widgetTypeCollection.Add(type.FullName);
                 }
             }
 
-            return collection;
+            foreach (var dir in extensionDirs)
+            {
+                var targetDir = dir + "\\Widgets";
+                load(targetDir);
+#if abc
+                targetDir = dir + "\\UI";
+                load(targetDir);
+
+                targetDir = dir + "\\Agents";
+                load(targetDir);
+#endif
+            }
+        }
+
+        /// <summary>
+        /// Walks the specified directory (rescursively)
+        /// to look for dll's that may contain widgets
+        /// </summary>
+        /// <param name="dir">Directory to walk</param>
+        /// <param name="resursive">Recursively search?</param>
+        private static void load(String dir, bool resursive = true)
+        {
+            var walker = new DirectoryWalker(dir, "*.dll");
+            Log.Debug("Walking dir " + dir);
+            walker.Walk(new OnFileFoundDelegate(onFileFound));
+        }
+
+        /// Callback function for the directory walker that's invoked
+        /// when a file is found.  Checks the file is a dll and handles
+        /// loads widgets from the dll
+        /// </summary>
+        /// <param name="file">name of the file found</param>
+        private static void onFileFound(String file)
+        {
+            String filePath = file.ToLower();
+            String fileName = Path.GetFileName(filePath);
+            String extension = Path.GetExtension(filePath);
+            if (String.Compare(extension, ".dll", true) == 0)
+            {
+                onDllFound(filePath);
+            }
+        }
+
+        /// <summary>
+        /// Found a DLL.  Load the class Types of all the relevant classes
+        /// from the DLL
+        /// </summary>
+        /// <param name="dllName">name of the dll</param>
+        private static void onDllFound(String dllName)
+        {
+            try
+            {
+                Log.Debug("Found dll " + dllName);
+                loadTypesFromAssembly(Assembly.LoadFile(dllName));
+            }
+            catch (Exception ex)
+            {
+                Log.Debug("Could get types from assembly " + dllName + ". Exception : " + ex);
+                if (ex is ReflectionTypeLoadException)
+                {
+                    var typeLoadException = (ReflectionTypeLoadException)ex;
+                    var exceptions = typeLoadException.LoaderExceptions;
+                    foreach (var e in exceptions)
+                    {
+                        Log.Debug("Loader exception: " + e);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Loads relevant types from the assembly and caches them
+        /// </summary>
+        /// <param name="assembly">name of the assembly</param>
+        /// <returns>true on success</returns>
+        private static bool loadTypesFromAssembly(Assembly assembly)
+        {
+            bool retVal = true;
+
+            if (assembly == null)
+            {
+                return false;
+            }
+
+            try
+            {
+                foreach (Type type in assembly.GetTypes())
+                {
+                    if (typeof(Widget).IsAssignableFrom(type) && !_widgetTypeCollection.Contains(type.FullName))
+                    {
+                        _widgetTypeCollection.Add(type.FullName);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Debug(ex.ToString());
+                retVal = false;
+            }
+
+            return retVal;
         }
 
         /// <summary>

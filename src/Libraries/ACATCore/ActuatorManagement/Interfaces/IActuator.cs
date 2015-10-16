@@ -21,10 +21,12 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Windows.Forms;
 using System.Xml;
 using ACAT.Lib.Core.Utility;
 
 #region SupressStyleCopWarnings
+
 [module: SuppressMessage(
         "StyleCop.CSharp.ReadabilityRules",
         "SA1101:PrefixLocalCallsWithThis",
@@ -50,7 +52,8 @@ using ACAT.Lib.Core.Utility;
         "SA1300:ElementMustBeginWithUpperCaseLetter",
         Scope = "namespace",
         Justification = "ACAT guidelines. Private/Protected methods begin with lowercase")]
-#endregion
+
+#endregion SupressStyleCopWarnings
 
 namespace ACAT.Lib.Core.ActuatorManagement
 {
@@ -64,8 +67,8 @@ namespace ACAT.Lib.Core.ActuatorManagement
     public delegate void SwitchActivated(object sender, ActuatorSwitchEventArgs e);
 
     /// <summary>
-    /// Delegate for the event raised when a switch is disengaged.  Ths is the end of 
-    /// the switch activation event.  For instance, for a keyboard switch, this is 
+    /// Delegate for the event raised when a switch is disengaged.  Ths is the end of
+    /// the switch activation event.  For instance, for a keyboard switch, this is
     /// equivalent to a keyup
     /// </summary>
     /// <param name="sender">sender object</param>
@@ -91,8 +94,8 @@ namespace ACAT.Lib.Core.ActuatorManagement
     }
 
     /// <summary>
-    /// Actutators must implement this interface.  An actuator contains one or more switches and
-    /// raises events when the switches are actuated.
+    /// Actutators must implement this interface.  An actuator contains one or
+    /// more switches and raises events when the switches are actuated.
     /// </summary>
     public interface IActuator : IDisposable
     {
@@ -110,7 +113,7 @@ namespace ACAT.Lib.Core.ActuatorManagement
         /// Raised when one of the switches in this actuator is triggered
         /// </summary>
         event SwitchTriggered EvtSwitchTriggered;
-        
+
         /// <summary>
         /// Gets the ACAT descriptor
         /// </summary>
@@ -125,6 +128,12 @@ namespace ACAT.Lib.Core.ActuatorManagement
         /// Gets or sets the name of the actuator
         /// </summary>
         String Name { get; set; }
+
+        /// <summary>
+        /// Does this actuator support a settings dialog?
+        /// </summary>
+        bool SupportsSettingsDialog { get; }
+
         /// <summary>
         /// Gets a collection of switches that are a part of this actuator
         /// </summary>
@@ -135,6 +144,12 @@ namespace ACAT.Lib.Core.ActuatorManagement
         /// </summary>
         /// <returns>Switch object</returns>
         IActuatorSwitch CreateSwitch();
+
+        /// <summary>
+        /// Returns the form that is the settings dialog for the actuator
+        /// </summary>
+        /// <returns>the form</returns>
+        Form GetSettingsDialog();
 
         /// <summary>
         /// Initializes the actuator
@@ -148,6 +163,19 @@ namespace ACAT.Lib.Core.ActuatorManagement
         /// <param name="actuatorNode">The xml fragment for the actuator</param>
         /// <returns>true on success</returns>
         bool Load(XmlNode actuatorNode);
+
+        /// <summary>
+        /// Invoked if the calibration is canceled before the time period
+        /// expires
+        /// </summary>
+        void OnCalibrationCanceled();
+
+        /// <summary>
+        /// If the calibration is required to complete in a specific time,
+        /// this function is invoked when the timer expires
+        /// </summary>
+        void OnCalibrationPeriodExpired();
+
         /// <summary>
         /// Pauses the actuator.  No events will be raised from the acutator
         /// when paused
@@ -158,5 +186,10 @@ namespace ACAT.Lib.Core.ActuatorManagement
         /// Resumes actuator.  Will resume raising events
         /// </summary>
         void Resume();
+
+        /// <summary>
+        /// Starts calibration of the actuator
+        /// </summary>
+        void StartCalibration();
     }
 }

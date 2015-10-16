@@ -63,13 +63,65 @@ using ACAT.Lib.Core.WidgetManagement;
 namespace ACAT.Lib.Core.Widgets
 {
     /// <summary>
+    /// Extension class for slider widget.  This consists of a
+    /// slider (TrackBar) control with increment and decrement
+    /// controls on either side.  The user increments/decrements
+    /// the slider value by actuating the increment/decrement
+    /// controls.
+    /// </summary>
+    public static class SliderWidgetExtension
+    {
+        /// <summary>
+        /// Returns the current value of the slider
+        /// </summary>
+        /// <param name="sliderWidget">The slider widget</param>
+        /// <param name="units">conversion units</param>
+        /// <returns>slider value</returns>
+        public static int GetState(this SliderWidget sliderWidget, decimal units)
+        {
+            if (sliderWidget != null)
+            {
+                decimal unconvertedValue = sliderWidget.GetSliderValue();
+                return Convert.ToInt32(unconvertedValue / units);
+            }
+
+            return 0;
+        }
+
+        /// <summary>
+        /// Sets the slider position to the indicated value. The 'units' parameter
+        /// is used to normalize the value for the number of ticks in the track bar
+        /// </summary>
+        /// <param name="sliderWidget">the slider widget</param>
+        /// <param name="sliderPosition">slider value</param>
+        /// <param name="units">conversion units</param>
+        public static void SetState(this SliderWidget sliderWidget, int sliderPosition, decimal units)
+        {
+            if (sliderWidget != null)
+            {
+                sliderWidget.SetSliderValue(sliderPosition, 1 / units);
+            }
+        }
+    }
+
+    /// <summary>
     /// Widget that encapsulates a Track bar with increment and
     /// decrement controls on either side. The min and max values
     /// are displayed along with the current value.  All these
-    /// are configurable through the config file
+    /// are configurable through the scanner config file
     /// </summary>
     public class SliderWidget : Widget
     {
+        public const decimal SliderUnitsHundredths = 0.01M;
+
+        /// <summary>
+        /// Slider track bar tick units.
+        /// </summary>
+        public const decimal SliderUnitsOnes = 1;
+
+        public const decimal SliderUnitsTenths = 0.1M;
+        public const decimal SliderUnitsThousandths = 0.001M;
+
         /// <summary>
         /// If decimal, what is the step
         /// </summary>
@@ -242,7 +294,7 @@ namespace ACAT.Lib.Core.Widgets
         }
 
         /// <summary>
-        /// Set the trackbar position to the specified value
+        /// Sets the trackbar position to the specified value
         /// </summary>
         /// <param name="value">value to set</param>
         /// <param name="units">factor for converson</param>
@@ -301,7 +353,8 @@ namespace ACAT.Lib.Core.Widgets
         }
 
         /// <summary>
-        /// Value changed
+        /// Trackbar Value changed.  Update current value and notify
+        /// subscribers
         /// </summary>
         /// <param name="sender">event sender</param>
         /// <param name="e">event args</param>
@@ -333,9 +386,11 @@ namespace ACAT.Lib.Core.Widgets
         }
 
         /// <summary>
-        /// Quick helper function just to avoid repetition and error when setting the tick position
-        /// as it is now coded, you not only must update the _sliderTickPosition variable, you also
-        /// need to tell the slider widget to update the screen.  That is what this method does///
+        /// Quick helper function just to avoid repetition and
+        /// error when setting the tick position as it is now coded,
+        /// you not only must update the _sliderTickPosition variable,
+        /// you also need to tell the slider widget to update the
+        /// form.  That is what this method does.
         /// </summary>
         /// <param name="tickPosition">The trackbar tick position</param>
         private void setTickPosition(int tickPosition)

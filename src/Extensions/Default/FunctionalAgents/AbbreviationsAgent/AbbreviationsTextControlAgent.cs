@@ -59,7 +59,7 @@ using ACAT.Lib.Core.Utility;
 
 #endregion SupressStyleCopWarnings
 
-namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
+namespace ACAT.Extensions.Default.FunctionalAgents.AbbreviationsAgent
 {
     /// <summary>
     /// Text control agent for the abbreviations scanner. Disallow

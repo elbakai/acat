@@ -109,7 +109,7 @@ namespace ACAT.Lib.Core.PanelManagement
         private bool _disposed;
 
         /// <summary>
-        /// Name of the form in the screen config map
+        /// Name of the form in the Panel config map
         /// </summary>
         private String _panelName;
 
@@ -145,12 +145,21 @@ namespace ACAT.Lib.Core.PanelManagement
             _panelName = String.Empty;
             _dialogPanel = (IDialogPanel)_form;
             _syncLock = new SyncLock();
+            AutoDockScanner = true;
         }
 
         /// <summary>
         /// Delegate to stop animation
         /// </summary>
         private delegate void StopDelegate();
+
+        /// <summary>
+        /// Get/sets whether a scanner will be docked to the dialog
+        /// or not.  The scanner is typically used to enter data
+        /// into the form.  If set to false, the scanner will be displayed
+        /// in its default position.
+        /// </summary>
+        public bool AutoDockScanner { get; set; }
 
         /// <summary>
         /// Returns the synchronization object
@@ -261,7 +270,9 @@ namespace ACAT.Lib.Core.PanelManagement
             }
 
             _form.TopMost = true;
-            _form.Paint += Form_Paint;
+
+            PanelManager.Instance.EvtScannerShow += Instance_EvtScannerShow;
+            PanelManager.Instance.EvtScannerClosed += Instance_EvtScannerClosed;
 
             Windows.SetWindowPositionAndNotify(_form, Windows.WindowPosition.CenterScreen);
 
@@ -310,7 +321,8 @@ namespace ACAT.Lib.Core.PanelManagement
         }
 
         /// <summary>
-        /// Pause handler.  Pauses the animation manager
+        /// Pause handler.  Pauses the animation manager and any
+        /// watchdogs that are active
         /// </summary>
         public void OnPause()
         {
@@ -323,7 +335,8 @@ namespace ACAT.Lib.Core.PanelManagement
         }
 
         /// <summary>
-        /// Resume handler.  Resumes the animation manager
+        /// Resume handler.  Resumes the animation manager and
+        /// any watchdogs that are active
         /// </summary>
         public void OnResume()
         {
@@ -364,6 +377,9 @@ namespace ACAT.Lib.Core.PanelManagement
 
                 if (disposing)
                 {
+                    PanelManager.Instance.EvtScannerShow -= Instance_EvtScannerShow;
+                    PanelManager.Instance.EvtScannerClosed -= Instance_EvtScannerClosed;
+
                     // dispose all managed resources.
                     Log.Debug();
 
@@ -405,7 +421,8 @@ namespace ACAT.Lib.Core.PanelManagement
         }
 
         /// <summary>
-        /// If the widget requires a scanner to interact, create the scanner
+        /// If the widget requires a scanner to interact, create the scanner. For
+        /// eg if the user want to enter text into a TextBox in the dialog.
         /// </summary>
         /// <param name="widget"></param>
         private void createAndShowScannerForWidget(Widget widget)
@@ -443,16 +460,6 @@ namespace ACAT.Lib.Core.PanelManagement
             };
 
             return startupArg;
-        }
-
-        /// <summary>
-        /// Draw a border around the form.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Form_Paint(object sender, PaintEventArgs e)
-        {
-            //RoundedCornerControl.DrawBorder(_formGraphicsPath, e, Color.Black);
         }
 
         /// <summary>
@@ -510,6 +517,47 @@ namespace ACAT.Lib.Core.PanelManagement
         }
 
         /// <summary>
+        /// Event handler for when a scanner is closed. Reset the default position
+        /// of the form
+        /// </summary>
+        /// <param name="sender">event sender</param>
+        /// <param name="arg">event args</param>
+        private void Instance_EvtScannerClosed(object sender, ScannerCloseEventArg arg)
+        {
+            if (arg.Scanner != _form)
+            {
+                Windows.SetWindowPositionAndNotify(_form, Windows.WindowPosition.CenterScreen);
+            }
+        }
+
+        /// <summary>
+        /// Event handler for when a scanner is shown.  Dock it to the dialog
+        /// form
+        /// </summary>
+        /// <param name="sender">event sender</param>
+        /// <param name="arg">event args</param>
+        private void Instance_EvtScannerShow(object sender, ScannerShowEventArg arg)
+        {
+            if (AutoDockScanner &&
+                Windows.GetVisible(_form) &&
+                arg.Scanner != _form &&
+                Windows.GetOpacity(_form) != 0.0f)
+            {
+                Windows.WindowPosition position = Context.AppWindowPosition;
+                if (position == Windows.WindowPosition.CenterScreen)
+                {
+                    position = CoreGlobals.AppPreferences.ScannerPosition;
+                }
+                if (position == Windows.WindowPosition.CenterScreen)
+                {
+                    position = Windows.WindowPosition.MiddleRight;
+                }
+
+                arg.Scanner.ScannerCommon.PositionSizeController.DockScanner(_form.Handle, position);
+            }
+        }
+
+        /// <summary>
         /// Event handler to run a command. The interpreter raises the event when
         /// it encounters a command in the animation config file
         ///  command
@@ -553,9 +601,9 @@ namespace ACAT.Lib.Core.PanelManagement
         }
 
         /// <summary>
-        /// The user actuated a widget.  perform the necessary action.  If the
-        ///  widget requires a scanner to interact (text boxes may require the
-        ///  alphabet scanner for eg) active the scanner
+        /// The user actuated a widget. Performs the necessary action.  If the
+        /// widget requires a scanner to interact (text boxes may require the
+        /// alphabet scanner for eg) activates the scanner
         /// </summary>
         private void widget_EvtActuated(object sender, WidgetEventArgs e)
         {

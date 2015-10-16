@@ -65,7 +65,9 @@ namespace ACAT.Lib.Core.Extensions.Base.AppAgents.MSWordAgent
     /// Base class does all the heavy-lifting.  Override functions
     /// as required customize
     /// </summary>
-    [DescriptorAttribute("4482C5C8-2713-45E7-94C9-84B0855BF92D", "MS Word Agent", "Agent for Microsoft Word")]
+    [DescriptorAttribute("4482C5C8-2713-45E7-94C9-84B0855BF92D",
+                            "MS Word Agent",
+                            "Agent for Microsoft Word")]
     internal class MSWordAgent : MSWordAgentBase
     {
         /// <summary>
@@ -78,7 +80,9 @@ namespace ACAT.Lib.Core.Extensions.Base.AppAgents.MSWordAgent
         /// </summary>
         private const string SettingsFileName = "MSWordAgentSettings.xml";
 
-        // override functions here if necessary
+        /// <summary>
+        /// Initializes an instance of the class
+        /// </summary>
         public MSWordAgent()
         {
             MSWordAgentSettings.PreferencesFilePath = UserManager.GetFullPath(SettingsFileName);

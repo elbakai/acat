@@ -2,6 +2,6 @@
 
 <ACAT>
   <ConfigMapEntries>
-    <ConfigMapEntry panelClass="SwitchWindowsScanner" configName="SwitchWindowsScanner" formId="FAE01845-95BD-4D52-9C57-3653888F1EFF" configFile="SwitchWindowsScanner.xml"/>
+    <ConfigMapEntry panelClass="SwitchWindowsScanner" configName="SwitchWindowsScanner" formId="52D33D6A-4254-4727-8291-DC9D26A51F4F" configFile="SwitchWindowsScanner.xml"/>
   </ConfigMapEntries>
 </ACAT>

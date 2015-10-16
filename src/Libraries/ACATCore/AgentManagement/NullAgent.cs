@@ -66,7 +66,9 @@ namespace ACAT.Lib.Core.AgentManagement
     /// to support the foreground app, it returns an instance of the null agent
     /// instead of returning NULL. Saves headaches for the caller
     /// </summary>
-    [DescriptorAttribute("92D2C512-DCAA-4773-8773-73E5D8C849FA", "Null Agent", "No-op agent")]
+    [DescriptorAttribute("92D2C512-DCAA-4773-8773-73E5D8C849FA",
+                        "Null Agent",
+                        "No-op agent")]
     public class NullAgent : AgentBase
     {
         /// <summary>

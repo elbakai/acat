@@ -60,8 +60,8 @@ using ACAT.Lib.Core.WidgetManagement;
 namespace ACAT.Lib.Core.Widgets
 {
     /// <summary>
-    /// A wrapper widget class for any windows control that doesn't require
-    /// font scaling as the widget is scaled up or down
+    /// A generic wrapper widget class for any windows control that 
+    /// doesn't require font scaling as the widget is scaled up or down
     /// </summary>
     public class WinControlWidget : Widget
     {

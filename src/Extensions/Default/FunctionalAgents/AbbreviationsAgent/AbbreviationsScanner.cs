@@ -21,6 +21,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
 using System.Linq;
 using System.Security.Permissions;
 using System.Windows.Forms;
@@ -71,25 +72,28 @@ using ACAT.Lib.Extension;
 
 #endregion SupressStyleCopWarnings
 
-namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
+namespace ACAT.Extensions.Default.FunctionalAgents.AbbreviationsAgent
 {
     /// <summary>
     /// This class represents the scanner that displays a list
     /// of abbreviations that the user can edit, add or delete.
     /// User can sort the abbreviations, page up and page down
-    /// and browse all the abbreviations
+    /// and browse all the abbreviations, filter based on a
+    /// search string.
     /// </summary>
-    [DescriptorAttribute("D174DAD7-A9FD-49CB-9DE1-7EB856109A79", "AbbreviationsScanner", "Abbreviations Scanner")]
+    [DescriptorAttribute("D174DAD7-A9FD-49CB-9DE1-7EB856109A79",
+                            "AbbreviationsScanner",
+                            "Abbreviations Scanner")]
     public partial class AbbreviationsScanner : Form, IScannerPanel, IExtension
     {
         /// <summary>
-        /// how many chars in the abbr to display. ellipses
+        /// How many chars in the abbr to display. ellipses
         /// are displayed if longer
         /// </summary>
         private const int MaxAbbrCharacters = 5;
 
         /// <summary>
-        /// Run commands
+        /// Run command dispatcher object
         /// </summary>
         private readonly RunCommandDispatcher _dispatcher;
 
@@ -102,6 +106,16 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
         /// The keyboard actuator object
         /// </summary>
         private readonly KeyboardActuator _keyboardActuator;
+
+        /// <summary>
+        /// Status bar for the scanner form
+        /// </summary>
+        private readonly StatusBar _statusBar = new StatusBar();
+
+        /// <summary>
+        /// Displays the state of the Alt key
+        /// </summary>
+        private readonly StatusBarPanel _statusBarPanelSort = new StatusBarPanel();
 
         /// <summary>
         /// List of abbreviations
@@ -149,6 +163,11 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
         private ScannerCommon _scannerCommon;
 
         /// <summary>
+        /// Widget that the user clicks to resort
+        /// </summary>
+        private Widget _sortButton;
+
+        /// <summary>
         /// sort order of abbr display
         /// </summary>
         private SortOrder _sortOrder = SortOrder.AtoZ;
@@ -190,6 +209,8 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
             }
 
             _dispatcher = new RunCommandDispatcher(this);
+
+            createStatusBar();
         }
 
         /// <summary>
@@ -226,6 +247,11 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
         /// Raised if the user wants to edit an abbr
         /// </summary>
         public event EditAbbreviationDelegate EvtEditAbbreviation;
+
+        /// <summary>
+        /// Event raised to display the alphabet scanner
+        /// </summary>
+        public event EventHandler EvtShowScanner;
 
         /// <summary>
         /// How to sort the list?
@@ -309,12 +335,48 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
         }
 
         /// <summary>
-        /// Nothing to do here
+        /// Invoked to check if a scanner button should be enabled.  Uses context
+        /// to determine the 'enabled' state.
         /// </summary>
-        /// <param name="arg"></param>
-        /// <returns></returns>
+        /// <param name="arg">info about the scanner button</param>
         public bool CheckWidgetEnabled(CheckEnabledArgs arg)
         {
+            arg.Handled = true;
+
+            switch (arg.Widget.SubClass)
+            {
+                case "PreviousPage":
+                    arg.Enabled = (_pageNumber != 0);
+                    break;
+
+                case "NextPage":
+                    arg.Enabled = (_numPages != 0 && (_pageNumber + 1) != _numPages);
+                    break;
+
+                case "Back":
+                case "DeletePreviousWord":
+                case "ClearFilter":
+                    arg.Handled = true;
+                    arg.Enabled = !IsFilterEmpty();
+                    break;
+
+                case "Sort":
+                case "Search":
+                    arg.Handled = true;
+                    arg.Enabled = (_abbreviationsList != null && _abbreviationsList.Any());
+                    break;
+
+                case "PrevChar":
+                case "NextChar":
+                    arg.Handled = true;
+                    arg.Enabled = true;
+                    break;
+
+                default:
+                    arg.Handled = false;
+                    break;
+            }
+
             return false;
         }
 
@@ -325,11 +387,28 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
         {
             Invoke(new MethodInvoker(delegate()
             {
-                if (SearchFilter.Text.Length > 0 && DialogUtils.ConfirmScanner("Clear filter?"))
+                if (SearchFilter.Text.Length > 0 && AbbreviationsAgent.Confirm("Clear filter?"))
                 {
                     SearchFilter.Text = String.Empty;
                 }
             }));
+        }
+
+        /// <summary>
+        /// Creates a status bar for the scanner
+        /// </summary>
+        public void createStatusBar()
+        {
+            _statusBarPanelSort.BorderStyle = StatusBarPanelBorderStyle.None;
+            _statusBarPanelSort.AutoSize = StatusBarPanelAutoSize.Contents;
+            _statusBar.Panels.Add(_statusBarPanelSort);
+
+            _statusBar.SizingGrip = false;
+            _statusBar.ShowPanels = true;
+            _statusBar.Height = 30;
+            _statusBar.Margin = new Padding(4, 4, 4, 4);
+            _statusBar.Font = new Font("Arial", 16.0f);
+            Controls.Add(_statusBar);
         }
 
         /// <summary>
@@ -349,7 +428,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
         /// <returns>true on success</returns>
         public bool Initialize(StartupArg startupArg)
         {
-            _scannerCommon = new ScannerCommon(this) { PositionSizeController = { AutoPosition = false } };
+            _scannerCommon = new ScannerCommon(this) { PositionSizeController = { AutoPosition = true } };
 
             if (!_scannerCommon.Initialize(startupArg))
             {
@@ -358,6 +437,8 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
             }
 
             PanelManager.Instance.EvtScannerShow += Instance_EvtScannerShow;
+            PanelManager.Instance.EvtScannerClosed += Instance_EvtScannerClosed;
+
             return true;
         }
 
@@ -382,22 +463,15 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
         public void LoadAbbreviations()
         {
             Windows.SetText(SearchFilter, String.Empty);
+
             _allAbbreviationsList = Context.AppAbbreviations.AbbrevationList;
             _abbreviationsList = _allAbbreviationsList.ToList();
-
-            // there must be at least three widgets - one
-            // previous page, one for next page and one
-            // for at least one abbreviation.
-            if (_abbreviationsList.Count >= 3)
-            {
-                _entriesPerPage = _abbreviationsList.Count - 2;
-            }
 
             refreshAbbreviationsList();
         }
 
         /// <summary>
-        /// No op
+        /// Not used
         /// </summary>
         /// <param name="monitorInfo"></param>
         public void OnFocusChanged(WindowActivityMonitorInfo monitorInfo)
@@ -409,6 +483,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
         /// </summary>
         public void OnPause()
         {
+            _scannerCommon.GetAnimationManager().Pause();
         }
 
         /// <summary>
@@ -426,54 +501,44 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
         /// </summary>
         public void OnResume()
         {
+            _scannerCommon.GetAnimationManager().Resume();
         }
 
+        /// <summary>
+        /// Not used
+        /// </summary>
+        /// <param name="command"></param>
+        /// <param name="handled"></param>
         public void OnRunCommand(string command, ref bool handled)
         {
-            if (command.StartsWith("highlight", StringComparison.InvariantCultureIgnoreCase))
-            {
-                handleHighlight(command);
-            }
-
-            if (command.StartsWith("select", StringComparison.InvariantCultureIgnoreCase))
-            {
-                handleSelect(command);
-            }
-            else
-            {
-                Log.Debug("Unhandled command " + command);
-                handled = false;
-            }
         }
 
         /// <summary>
-        /// Called when the user clicks on a item that holds
-        /// an abbreviation
+        /// Called when a widget on the scanner is activated
         /// </summary>
-        /// <param name="widget">widget</param>
-        /// <param name="handled">true</param>
+        /// <param name="widget">widget activated</param>
+        /// <param name="handled">true if handled</param>
         public void OnWidgetActuated(Widget widget, ref bool handled)
         {
-            if (widget is TabStopScannerButton)
-            {
-                handled = true;
-            }
+            actuateWidget(widget, ref handled);
         }
 
         /// <summary>
-        /// Temporary disable keypress
+        /// Temporary disable keypress, pause animation
         /// </summary>
         public void Pause()
         {
             _keyboardActuator.EvtKeyPress -= _keyboardActuator_EvtKeyPress;
+            _scannerCommon.GetAnimationManager().Pause();
         }
 
         /// <summary>
-        /// Resume key press handlers
+        /// Resume key press handlers, resume animation
         /// </summary>
         public void Resume()
         {
             _keyboardActuator.EvtKeyPress += _keyboardActuator_EvtKeyPress;
+            _scannerCommon.GetAnimationManager().Resume();
         }
 
         /// <summary>
@@ -496,19 +561,12 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
             removeWatchdogs();
 
             PanelManager.Instance.EvtScannerShow -= Instance_EvtScannerShow;
+            PanelManager.Instance.EvtScannerClosed -= Instance_EvtScannerClosed;
 
             _keyboardActuator.EvtKeyPress -= _keyboardActuator_EvtKeyPress;
             base.OnFormClosing(e);
         }
 
-        /// <summary>
-        /// Invoked when there is a request to run a command. This
-        /// could as a result of the user activating a button on the
-        /// scanner and there is a command associated with the button
-        /// in the animation
-        /// </summary>
-        /// <param name="command">command to run</param>
-        /// <param name="handled">was this handled?</param>
         /// <summary>
         /// Windows procedure
         /// </summary>
@@ -516,7 +574,14 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
         [EnvironmentPermissionAttribute(SecurityAction.LinkDemand, Unrestricted = true)]
         protected override void WndProc(ref Message m)
         {
-            _scannerCommon.HandleWndProc(m);
+            if (_scannerCommon != null)
+            {
+                if (_scannerCommon.HandleWndProc(m))
+                {
+                    return;
+                }
+            }
+
             base.WndProc(ref m);
         }
 
@@ -564,8 +629,8 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
         }
 
         /// <summary>
-        /// Initilaze. Load the abbreviations, populate list and
-        /// dock the form to the active scanner
+        /// Initilaze. Load the abbreviations, populate list and display
+        /// the abbreviations.
         /// </summary>
         private void AbbreviationsScanner_Load(object sender, EventArgs e)
         {
@@ -576,13 +641,9 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
             var list = new List<Widget>();
             _scannerCommon.GetRootWidget().Finder.FindChild(typeof(TabStopScannerButton), list);
 
-            foreach (var widget in list)
-            {
-                widget.EvtMouseClicked += widget_EvtMouseClicked;
-            }
-
             _sortOrderWidget = _scannerCommon.GetRootWidget().Finder.FindChild("SortOrderIcon");
             _pageNumberWidget = _scannerCommon.GetRootWidget().Finder.FindChild("PageNumber");
+            _sortButton = _scannerCommon.GetRootWidget().Finder.FindChild("ButtonSort");
 
             SearchFilter.TextChanged += SearchFilter_TextChanged;
             SortOrderIcon.Click += SortOrderIcon_Click;
@@ -597,11 +658,13 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
             {
                 dockToScanner(panel as Form);
             }
+
+            _scannerCommon.GetAnimationManager().Start(_scannerCommon.GetRootWidget());
         }
 
         /// <summary>
         /// Event handler for when location of the form changes.
-        /// Disallow this an redock the form
+        /// Disallow this and redock the form
         /// </summary>
         /// <param name="sender">event sender</param>
         /// <param name="e">event arg</param>
@@ -626,24 +689,14 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
         }
 
         /// <summary>
-        /// Handle acutation of a button.  In this case,
-        /// user selected an abbr by clicking on the button
-        /// in the list
+        /// Handles actuation of a widget
         /// </summary>
-        /// <param name="widgetName">name of the selected list item</param>
-        private void actuateWidget(String widgetName)
+        /// <param name="widget">widget actauted</param>
+        /// <param name="handled">true if handled</param>
+        private void actuateWidget(Widget widget, ref bool handled)
         {
-            var widget = _scannerCommon.GetRootWidget().Finder.FindChild(widgetName);
-            if (widget != null)
-            {
-                var obj = widget.UserData;
-                if (obj is ItemTag)
-                {
-                    handleSelect((ItemTag)obj);
-                }
-
-                highlightOff();
-            }
+            handleWidgetSelection(widget, ref handled);
+            highlightOff();
         }
 
         /// <summary>
@@ -679,17 +732,8 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
         private List<Abbreviation> filterAbbreviations(IEnumerable<Abbreviation> abbrList, String filter)
         {
             var trimFilter = filter.Trim();
-            var retVal = new List<Abbreviation>();
 
-            foreach (Abbreviation a in abbrList)
-            {
-                if (includeAbbr(a, trimFilter))
-                {
-                    retVal.Add(a);
-                }
-            }
-
-            return retVal;
+            return abbrList.Where(abbr => includeAbbr(abbr, trimFilter)).ToList();
         }
 
         /// <summary>
@@ -735,7 +779,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
         {
             if (EvtAddAbbreviation != null)
             {
-                if (DialogUtils.ConfirmScanner("Add Abbreviation " + Windows.GetText(SearchFilter) + "?"))
+                if (DialogUtils.ConfirmScanner("Add new abbreviation?"))
                 {
                     Invoke(new MethodInvoker(() => EvtAddAbbreviation(Windows.GetText(SearchFilter))));
                 }
@@ -746,96 +790,70 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
         /// User wants to edit or delete an abbr
         /// </summary>
         /// <param name="itemTag">Tag associated with the list item selected</param>
-        private void handleEditAbbreviation(ItemTag itemTag)
+        private void handleEditAbbreviation(Abbreviation abbr)
         {
-            if (itemTag.Abbr != null)
+            if (EvtEditAbbreviation != null)
             {
-                if (EvtEditAbbreviation != null)
-                {
-                    Invoke(new MethodInvoker(() => EvtEditAbbreviation(itemTag.Abbr)));
-                }
+                Invoke(new MethodInvoker(() => EvtEditAbbreviation(abbr)));
             }
         }
 
         /// <summary>
-        /// Highlight a button in the abbreviation list.
-        /// This is a part of the animation sequence
+        /// Handles actuation of a widget
         /// </summary>
-        /// <param name="cmd"></param>
-        private void handleHighlight(String cmd)
+        /// <param name="widget">widget actuated</param>
+        /// <param name="handled">true if handled</param>
+        private void handleWidgetSelection(Widget widget, ref bool handled)
         {
-            if (cmd.Equals("highlight_off", StringComparison.InvariantCultureIgnoreCase))
+            // the user actuated an abbreviation in the list
+            if (widget.UserData is Abbreviation)
             {
-                highlightOff();
+                handleEditAbbreviation((Abbreviation)widget.UserData);
+                handled = true;
             }
             else
             {
-                // Get the name of the widget to be highlighted
-                int index = cmd.LastIndexOf('_');
-                if (index >= 0 && index < cmd.Length - 1)
+                handled = true;
+                switch (widget.Value)
                 {
-                    var widgetName = "Item" + cmd.Substring(index + 1);
-                    highlight(widgetName);
+                    case "@Quit":
+                        if (EvtDone != null)
+                        {
+                            EvtDone.BeginInvoke(false, null, null);
+                        }
+                        break;
+
+                    case "@AbbrListSort":
+                        switchSortOrder();
+                        break;
+
+                    case "@AbbrListNextPage":
+                        gotoNextPage();
+                        break;
+
+                    case "@AbbrListPrevPage":
+                        gotoPreviousPage();
+                        break;
+
+                    case "@AbbrListClearFilter":
+                        ClearFilter();
+                        break;
+
+                    case "@AbbrListSearch":
+                        if (EvtShowScanner != null)
+                        {
+                            EvtShowScanner.BeginInvoke(null, null, null, null);
+                        }
+                        break;
+
+                    case "@AbbrListAdd":
+                        handleAddNewAbbreviation();
+                        break;
+
+                    default:
+                        handled = false;
+                        break;
                 }
-            }
-        }
-
-        /// <summary>
-        /// User selected something. Handle the acutation. Command
-        /// is in the format Select_x where x is the index number
-        /// of the button.
-        /// </summary>
-        /// <param name="cmd"></param>
-        private void handleSelect(String cmd)
-        {
-            int index = cmd.LastIndexOf('_');
-            if (index >= 0 && index < cmd.Length - 1)
-            {
-                actuateWidget("Item" + cmd.Substring(index + 1));
-            }
-        }
-
-        /// <summary>
-        /// Depending on the type of the button, handle appropriately
-        /// </summary>
-        /// <param name="itemTag"></param>
-        private void handleSelect(ItemTag itemTag)
-        {
-            switch (itemTag.DataType)
-            {
-                case ItemTag.ItemType.NextPage:
-                    gotoNextPage();
-                    break;
-
-                case ItemTag.ItemType.PreviousPage:
-                    gotoPreviousPage();
-                    break;
-
-                case ItemTag.ItemType.OrderBy:
-                    switchSortOrder();
-                    break;
-
-                case ItemTag.ItemType.Abbreviation:
-                    handleEditAbbreviation(itemTag);
-                    break;
-
-                case ItemTag.ItemType.AddNew:
-                    handleAddNewAbbreviation();
-                    break;
-            }
-        }
-
-        /// <summary>
-        /// Highlight the widget (list item) specified
-        /// </summary>
-        /// <param name="widgetName">widget to highlight</param>
-        private void highlight(String widgetName)
-        {
-            highlightOff();
-            var widget = _scannerCommon.GetRootWidget().Finder.FindChild(widgetName);
-            if (widget != null)
-            {
-                widget.HighlightOn();
             }
         }
 
@@ -854,17 +872,36 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
         /// </summary>
         /// <param name="abbr">abbr</param>
         /// <param name="filter">search filter</param>
-        /// <returns></returns>
+        /// <returns>true on match</returns>
         private bool includeAbbr(Abbreviation abbr, String filter)
         {
             bool add = true;
 
-            if (!String.IsNullOrEmpty(filter) && !abbr.Mnemonic.StartsWith(filter, StringComparison.InvariantCultureIgnoreCase))
+            if (!String.IsNullOrEmpty(filter) &&
+                !abbr.Mnemonic.StartsWith(filter, StringComparison.InvariantCultureIgnoreCase))
             {
                 add = false;
             }
 
             return add;
+        }
+
+        /// <summary>
+        /// Event handler for when a scanner closes.  Reposition this scanner
+        /// to its default position
+        /// </summary>
+        /// <param name="sender">event sender</param>
+        /// <param name="arg">event args</param>
+        private void Instance_EvtScannerClosed(object sender, ScannerCloseEventArg arg)
+        {
+            if (arg.Scanner != this && Windows.GetVisible(this))
+            {
+                if (_dockedWithForm == arg.Scanner)
+                {
+                    _dockedWithForm = null;
+                }
+                _scannerCommon.PositionSizeController.AutoSetPosition();
+            }
         }
 
         /// <summary>
@@ -875,7 +912,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
         /// <param name="arg">event arg</param>
         private void Instance_EvtScannerShow(object sender, ScannerShowEventArg arg)
         {
-            if (arg.Scanner != this)
+            if (arg.Scanner != this && Windows.GetVisible(this))
             {
                 _dockedWithForm = arg.Scanner.Form;
                 dockToScanner(arg.Scanner.Form);
@@ -892,107 +929,59 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
             _scannerCommon.GetRootWidget().Finder.FindChild(typeof(TabStopScannerButton), list);
 
             int count = list.Count();
-            if (count >= 3)
+            if (count == 0)
             {
-                foreach (var button in list)
+                return;
+            }
+
+            foreach (var button in list)
+            {
+                button.UserData = null;
+                button.SetText(String.Empty);
+            }
+
+            _entriesPerPage = count;
+            _numPages = _abbreviationsList.Count() / _entriesPerPage;
+
+            if ((_abbreviationsList.Count() % _entriesPerPage) != 0)
+            {
+                _numPages++;
+            }
+
+            updateButtonBar();
+
+            updateStatusBar();
+
+            if (!_abbreviationsList.Any())
+            {
+                (list[0] as TabStopScannerButton).SetTabStops(0.0f, new float[] { 100, 120 });
+                list[0].SetText("\t-------- ABBREVIATIONS LIST EMPTY --------");
+                return;
+            }
+
+            _abbreviationsList = sort(_abbreviationsList, _sortOrder);
+
+            int ii = 0;
+
+            for (int jj = _pageStartIndex; jj < _abbreviationsList.Count && ii < count; ii++, jj++)
+            {
+                (list[ii] as TabStopScannerButton).SetTabStops(0.0f, new float[] { 100, 120 });
+
+                list[ii].UserData = _abbreviationsList[jj];
+
+                var word = _abbreviationsList[jj].Mnemonic;
+                if (word.Length > MaxAbbrCharacters)
                 {
-                    button.UserData = null;
-                    button.SetText(String.Empty);
+                    word = word.Substring(0, MaxAbbrCharacters) + "...";
                 }
 
-                _entriesPerPage = count - 2;
-                _numPages = _abbreviationsList.Count() / _entriesPerPage;
-
-                if ((_abbreviationsList.Count() % _entriesPerPage) != 0)
+                var replaceWith = System.Text.RegularExpressions.Regex.Replace(_abbreviationsList[jj].Expansion, "\n", " ");
+                if (replaceWith.Length > 40)
                 {
-                    _numPages++;
+                    replaceWith = replaceWith.Substring(0, 40) + "...";
                 }
 
-                updateStatusBar();
-
-                int ii = 0;
-
-                int displayIndex = (ii + 1) % 10;
-
-                // if the list is empty
-                if (!_abbreviationsList.Any())
-                {
-                    (list[0] as TabStopScannerButton).SetTabStops(0.0f, new float[] { 25, 400 });
-                    var filter = Windows.GetText(SearchFilter).Trim();
-                    if (!String.IsNullOrEmpty(filter))
-                    {
-                        list[0].SetText(displayIndex + ".  -------- NOT FOUND.  ADD THIS ABBREVIATION --------");
-                        list[0].UserData = new ItemTag(ItemTag.ItemType.AddNew);
-                    }
-                    else
-                    {
-                        list[0].SetText("-------- ABBREVIATIONS LIST EMPTY --------");
-                        list[0].UserData = new ItemTag(ItemTag.ItemType.Info);
-                    }
-
-                    return;
-                }
-
-                _abbreviationsList = sort(_abbreviationsList, _sortOrder);
-
-                (list[ii] as TabStopScannerButton).SetTabStops(0.0f, new float[] { 25, 400 });
-                if (_pageNumber == 0)
-                {
-                    list[ii].UserData = new ItemTag(ItemTag.ItemType.OrderBy);
-                    if (_sortOrder == SortOrder.AtoZ)
-                    {
-                        list[ii].SetText(displayIndex + ".\t------------- SORT Z-A -------------");
-                    }
-                    else
-                    {
-                        list[ii].SetText(displayIndex + ".\t------------- SORT A-Z -------------");
-                    }
-                }
-                else
-                {
-                    list[ii].UserData = new ItemTag(ItemTag.ItemType.PreviousPage);
-                    list[ii].SetText(displayIndex + ".\t------------- PREVIOUS PAGE  -------------");
-                }
-
-                ii++;
-
-                for (int jj = _pageStartIndex; jj < _abbreviationsList.Count && ii < count - 1; ii++, jj++)
-                {
-                    displayIndex = (ii + 1) % 10;
-                    (list[ii] as TabStopScannerButton).SetTabStops(0.0f, new float[] { 40, 100, 120 });
-
-                    list[ii].UserData = new ItemTag(_abbreviationsList[jj]);
-                    var word = _abbreviationsList[jj].Mnemonic;
-                    if (word.Length > MaxAbbrCharacters)
-                    {
-                        word = word.Substring(0, MaxAbbrCharacters) + "...";
-                    }
-
-                    var replaceWith = System.Text.RegularExpressions.Regex.Replace(_abbreviationsList[jj].Expansion, "\n", " ");
-                    if (replaceWith.Length > 40)
-                    {
-                        replaceWith = replaceWith.Substring(0, 40) + "...";
-                    }
-
-                    list[ii].SetText(displayIndex + ".\t" + word + "\t" + _abbreviationsList[jj].Mode.ToString() + "\t" + replaceWith);
-                }
-
-                Log.Debug("_pageNumber: " + _pageNumber + ", _numPages: " + _numPages);
-
-                if (_pageNumber < _numPages - 1)
-                {
-                    displayIndex = (ii + 1) % 10;
-                    (list[ii] as TabStopScannerButton).SetTabStops(0.0f, new float[] { 25, 400 });
-                    list[ii].UserData = new ItemTag(ItemTag.ItemType.NextPage);
-                    list[ii].SetText(displayIndex + ".\t------------- NEXT PAGE  -------------");
-                    ii++;
-                }
-
-                for (; ii < count; ii++)
-                {
-                    list[ii].SetText(String.Empty);
-                    list[ii].UserData = null;
-                }
+                list[ii].SetText(word + "\t" + _abbreviationsList[jj].Mode + "\t" + replaceWith);
             }
         }
 
@@ -1066,7 +1055,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
         }
 
         /// <summary>
-        /// Swtich the sort order and refresh the abbreviations list
+        /// Switch the sort order and refresh the abbreviations list
         /// </summary>
         private void switchSortOrder()
         {
@@ -1079,80 +1068,70 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
         }
 
         /// <summary>
-        /// Updates the page number info on the status bar depending
-        /// on which page we are on
+        /// Updates the status bar with page number info,
+        /// sort order etc.
         /// </summary>
-        private void updateStatusBar()
+        private void updateButtonBar()
         {
+            String text;
+            var sortButtonText = "A-Z";
+            if (!_abbreviationsList.Any())
+            {
+                text = String.Empty;
+            }
+            else if (_sortOrder == SortOrder.AtoZ)
+            {
+                text = "\u003A";
+                sortButtonText = "A-Z";
+            }
+            else
+            {
+                text = "\u003B";
+                sortButtonText = "Z-A";
+            }
+
             if (_sortOrderWidget != null)
             {
-                var text = String.Empty;
-                if (!_abbreviationsList.Any())
-                {
-                    text = String.Empty;
-                }
-                else if (_sortOrder == SortOrder.AtoZ)
-                {
-                    text = "\u003A";
-                }
-                else
-                {
-                    text = "\u003B";
-                }
-
                 _sortOrderWidget.SetText(text);
+            }
+
+            if (_sortButton != null)
+            {
+                _sortButton.SetText(sortButtonText);
             }
 
             if (_pageNumberWidget != null)
             {
-                var text = _abbreviationsList.Any() ? "Page " + (_pageNumber + 1) + " of " + _numPages : String.Empty;
+                text = _abbreviationsList.Any() ? "Page " + (_pageNumber + 1) + " of " + _numPages : String.Empty;
                 _pageNumberWidget.SetText(text);
             }
         }
 
         /// <summary>
-        /// User clicked on an abbreviation
+        /// Updates the status bar
         /// </summary>
-        /// <param name="sender">event sender</param>
-        /// <param name="e">event arg</param>
-        private void widget_EvtMouseClicked(object sender, WidgetEventArgs e)
+        private void updateStatusBar()
         {
-            actuateWidget(e.SourceWidget.Name);
-        }
+            var text = String.Empty;
 
-        /// <summary>
-        /// Used as a tag to store info about an item
-        ///  in the list of abbreviations displayed.  Tells
-        /// the type of the item and also holds the data
-        /// (the abbreviation in this case)
-        /// </summary>
-        private class ItemTag
-        {
-            public ItemTag(ItemType type)
+            if (!_abbreviationsList.Any())
             {
-                DataType = type;
-                Abbr = null;
+                _statusBarPanelSort.Text = String.Empty;
+                return;
             }
 
-            public ItemTag(Abbreviation abbr)
+            switch (_sortOrder)
             {
-                DataType = ItemType.Abbreviation;
-                Abbr = abbr;
+                case SortOrder.AtoZ:
+                    text = "Sort Order:  ALPHABETICAL";
+                    break;
+
+                case SortOrder.ZtoA:
+                    text = "Sort Order:  REVERSE ALPHABETICAL";
+                    break;
             }
 
-            public enum ItemType
-            {
-                AddNew,
-                OrderBy,
-                PreviousPage,
-                NextPage,
-                Abbreviation,
-                Info
-            }
-
-            public Abbreviation Abbr { get; private set; }
-
-            public ItemType DataType { get; private set; }
+            _statusBarPanelSort.Text = text;
         }
     }
 }

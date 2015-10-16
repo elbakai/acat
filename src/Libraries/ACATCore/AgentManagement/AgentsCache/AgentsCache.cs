@@ -67,7 +67,7 @@ namespace ACAT.Lib.Core.AgentManagement
     /// <summary>
     /// Maintains a cache of application agent objects.  The cache is
     /// populated by doing a directory walk of a base directory, dynamically
-    /// loading dlls that have IApplicationAgent objects, instantiating
+    /// loading DLL's that have IApplicationAgent objects, instantiating
     /// the objects and storing them in a table.
     /// Each application agent supports one or more processes (like notepad,
     /// ms word etc)
@@ -138,6 +138,10 @@ namespace ACAT.Lib.Core.AgentManagement
         public void AddAgent(IntPtr handle, IApplicationAgent agent)
         {
             _adhocAgentTable[handle] = agent;
+            if (EvtAgentAdded != null)
+            {
+                EvtAgentAdded(agent);
+            }
         }
 
         /// <summary>
@@ -147,7 +151,7 @@ namespace ACAT.Lib.Core.AgentManagement
         public void AddAgentByType(Type type)
         {
             addAgent(type);
-            populateLookupTableByProcess();
+            //populateLookupTableByProcess();
         }
 
         /// <summary>
@@ -323,6 +327,8 @@ namespace ACAT.Lib.Core.AgentManagement
                 _agentCache.Add(agent);
                 _agentLookupTableById.Add(agent.Descriptor.Id, agent);
 
+                updateProcessLookupTable(agent);
+
                 if (EvtAgentAdded != null)
                 {
                     EvtAgentAdded(agent);
@@ -353,7 +359,7 @@ namespace ACAT.Lib.Core.AgentManagement
         {
             foreach (String dir in extensionDirs)
             {
-                String path = Path.Combine(dir, AgentManager.AppAgentsRootDir);
+                var path = Path.Combine(dir, AgentManager.AppAgentsRootDir);
                 loadAgentsFromDir(path);
 
                 path = Path.Combine(dir, AgentManager.FunctionalAgentsRootDir);
@@ -399,22 +405,40 @@ namespace ACAT.Lib.Core.AgentManagement
             // name to a list of agents that support it
             foreach (var agent in _agentCache)
             {
-                foreach (var processInfo in agent.ProcessesSupported)
-                {
-                    if (!String.IsNullOrEmpty(processInfo.Name))
-                    {
-                        List<IApplicationAgent> supportedAgents;
-                        String processName = processInfo.Name.ToLower();
-                        if (!_agentLookupTableByProcessName.ContainsKey(processInfo.Name))
-                        {
-                            supportedAgents = new List<IApplicationAgent>();
-                            _agentLookupTableByProcessName.Add(processName, supportedAgents);
-                        }
-                        else
-                        {
-                            supportedAgents = (List<IApplicationAgent>)_agentLookupTableByProcessName[processName];
-                        }
+                updateProcessLookupTable(agent);
+            }
+        }
 
+        private void updateProcessLookupTable(IApplicationAgent agent)
+        {
+            foreach (var processInfo in agent.ProcessesSupported)
+            {
+                if (!String.IsNullOrEmpty(processInfo.Name))
+                {
+                    List<IApplicationAgent> supportedAgents;
+                    var processName = processInfo.Name.ToLower();
+                    if (!_agentLookupTableByProcessName.ContainsKey(processName))
+                    {
+                        supportedAgents = new List<IApplicationAgent>();
+                        _agentLookupTableByProcessName.Add(processName, supportedAgents);
+                    }
+                    else
+                    {
+                        supportedAgents = (List<IApplicationAgent>)_agentLookupTableByProcessName[processName];
+                    }
+
+                    bool found = false;
+                    foreach (var supportedAgent in supportedAgents)
+                    {
+                        if (supportedAgent == agent)
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found)
+                    {
                         supportedAgents.Add(agent);
                     }
                 }

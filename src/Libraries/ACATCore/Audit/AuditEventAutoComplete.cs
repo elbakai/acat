@@ -60,7 +60,7 @@ namespace ACAT.Lib.Core.Audit
 {
     /// <summary>
     /// Represents the log engry to audit events related
-    /// to word completion using word prediction
+    /// to word auto-completion using word prediction.
     /// </summary>
     public class AuditEventAutoComplete : AuditEventBase
     {

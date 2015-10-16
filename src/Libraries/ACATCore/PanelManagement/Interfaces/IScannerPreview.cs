@@ -61,7 +61,9 @@ namespace ACAT.Lib.Core.PanelManagement
     /// Interface used to display the scanner in the preview
     /// mode to enable the user to select the appropriate
     /// size of the scanner.  User can scale the size up
-    /// or down and save the desired setting
+    /// or down and save the desired setting. Alphabet scanners
+    /// typically implement this interface to allow the user
+    /// to resize the scanner to a preferred size.
     /// </summary>
     public interface IScannerPreview
     {
@@ -77,9 +79,19 @@ namespace ACAT.Lib.Core.PanelManagement
         void RestoreDefaults();
 
         /// <summary>
+        /// Saves the current scale level
+        /// </summary>
+        void SaveScaleSetting();
+
+        /// <summary>
         /// Saves the current setting as default
         /// </summary>
         void SaveSettings();
+
+        /// <summary>
+        /// Scales the size to the default size
+        /// </summary>
+        void ScaleDefault();
 
         /// <summary>
         /// Scales the size down by one step

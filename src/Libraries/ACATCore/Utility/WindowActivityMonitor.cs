@@ -21,7 +21,6 @@
 using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using System.Windows.Automation;
 using System.Windows.Forms;
@@ -75,30 +74,24 @@ namespace ACAT.Lib.Core.Utility
     public class WindowActivityMonitor
     {
         /// <summary>
-        /// Timer to track focus changes
-        /// </summary>
-        private static Timer _timer;
-
-        /// <summary>
-        /// Used to control whether the heartbeat will trigger
-        /// an event or not
-        /// </summary>
-        private static bool _heartbeatToggle = true;
-
-        /// <summary>
         /// How often to check for active window focus changes
         /// </summary>
         private const int Interval = 600;
 
         /// <summary>
-        /// Currently active window
+        /// To prevent re-entrancy
         /// </summary>
-        private static IntPtr _currentHwnd = IntPtr.Zero;
+        private static readonly object _timerSync = new object();
 
         /// <summary>
         /// Automation element of the control that is currently in focus
         /// </summary>
         private static AutomationElement _currentFocusedElement;
+
+        /// <summary>
+        /// Currently active window
+        /// </summary>
+        private static IntPtr _currentHwnd = IntPtr.Zero;
 
         /// <summary>
         /// Normally events are raised only if something changes.  Set
@@ -107,10 +100,15 @@ namespace ACAT.Lib.Core.Utility
         private static volatile bool _forceGetActiveWindow;
 
         /// <summary>
-        /// To prevent re-entrancy
+        /// Used to control whether the heartbeat will trigger
+        /// an event or not
         /// </summary>
-        private static readonly object _timerSync = new object();
+        private static bool _heartbeatToggle = true;
 
+        /// <summary>
+        /// Timer to track focus changes
+        /// </summary>
+        private static Timer _timer;
         /// <summary>
         /// For the event raised for activity monitoring
         /// </summary>
@@ -124,38 +122,24 @@ namespace ACAT.Lib.Core.Utility
         public delegate void AutomationElementFocusChanged(AutomationElement element);
 
         /// <summary>
-        /// Raised for heartbeat subscribers
-        /// </summary>
-        public static event ActivityMonitorDelegate EvtWindowMonitorHeartbeat;
-
-        /// <summary>
         /// Raised when focus changes
         /// </summary>
         public static event ActivityMonitorDelegate EvtFocusChanged;
 
         /// <summary>
-        /// Starts activity monitoring
+        /// Raised for heartbeat subscribers
         /// </summary>
-        /// <returns>true</returns>
-        public static bool Start()
-        {
-            if (_timer == null)
-            {
-                _timer = new Timer { Interval = Interval };
-                _timer.Tick += _timer_Tick;
-                _timer.Start();
-            }
-
-            return true;
-        }
-
+        public static event ActivityMonitorDelegate EvtWindowMonitorHeartbeat;
         /// <summary>
-        /// Asyncrhonously forces an event to be raised
-        /// regardless of whether focus changed or not
+        /// Disposes resources
         /// </summary>
-        public static void GetActiveWindowAsync()
+        public static void Dispose()
         {
-            _forceGetActiveWindow = true;
+            if (_timer != null)
+            {
+                _timer.Stop();
+                _timer.Dispose();
+            }
         }
 
         /// <summary>
@@ -169,46 +153,12 @@ namespace ACAT.Lib.Core.Utility
         }
 
         /// <summary>
-        /// Pauses the activity monitoring.  No events
-        /// will be raised when paused
+        /// Asyncrhonously forces an event to be raised
+        /// regardless of whether focus changed or not
         /// </summary>
-        public static void Pause()
+        public static void GetActiveWindowAsync()
         {
-            if (_timer != null)
-            {
-                _timer.Stop();
-                _currentHwnd = IntPtr.Zero;
-            }
-        }
-
-        /// <summary>
-        /// Resumes window activity monitoring.
-        /// </summary>
-        public static void Resume()
-        {
-            try
-            {
-                if (_timer != null)
-                {
-                    _timer.Start();
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.Debug(ex.ToString());
-            }
-        }
-
-        /// <summary>
-        /// Disposes resources
-        /// </summary>
-        public static void Dispose()
-        {
-            if (_timer != null)
-            {
-                _timer.Stop();
-                _timer.Dispose();
-            }
+            _forceGetActiveWindow = true;
         }
 
         /// <summary>
@@ -256,7 +206,7 @@ namespace ACAT.Lib.Core.Utility
         {
             int pid;
 
-            GetWindowThreadProcessId(hwnd, out pid);
+            User32Interop.GetWindowThreadProcessId(hwnd, out pid);
 
             return Process.GetProcessById(pid);
         }
@@ -289,6 +239,52 @@ namespace ACAT.Lib.Core.Utility
             return retVal;
         }
 
+        /// <summary>
+        /// Pauses the activity monitoring.  No events
+        /// will be raised when paused
+        /// </summary>
+        public static void Pause()
+        {
+            if (_timer != null)
+            {
+                _timer.Stop();
+                _currentHwnd = IntPtr.Zero;
+            }
+        }
+
+        /// <summary>
+        /// Resumes window activity monitoring.
+        /// </summary>
+        public static void Resume()
+        {
+            try
+            {
+                if (_timer != null)
+                {
+                    _timer.Start();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Debug(ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Starts activity monitoring
+        /// </summary>
+        /// <returns>true</returns>
+        public static bool Start()
+        {
+            if (_timer == null)
+            {
+                _timer = new Timer { Interval = Interval };
+                _timer.Tick += _timer_Tick;
+                _timer.Start();
+            }
+
+            return true;
+        }
         /// <summary>
         /// The timer function to check the currently focused window
         /// and to see if focus changed or not
@@ -363,13 +359,14 @@ namespace ACAT.Lib.Core.Utility
                         {
                             monitorInfo.IsNewFocusedElement = true;
                         }
-#if abc
+
+#if VERBOSE
                         Log.Debug("#$#>>>>>>>>>>>>>>>> Triggering FOCUS changed event");
 
                         Log.Debug("#$#    title: " + title);
-                        Log.Debug("#$#    fgHwnd " + fgHwnd);
+                        Log.Debug("#$#    fgHwnd " + monitorInfo.FgHwnd);
                         Log.Debug("#$#    nativewinhandle: " + focusedElement.Current.NativeWindowHandle);
-                        Log.Debug("#$#    Process " + process.ProcessName);
+                        Log.Debug("#$#    Process: " + process.ProcessName);
                         Log.Debug("#$#    class: " + focusedElement.Current.ClassName);
                         Log.Debug("#$#    controltype:  " + focusedElement.Current.ControlType.ProgrammaticName);
                         Log.Debug("#$#    automationid: " + focusedElement.Current.AutomationId);
@@ -377,6 +374,7 @@ namespace ACAT.Lib.Core.Utility
                         Log.Debug("#$#    newFocusElement: " + monitorInfo.IsNewFocusedElement);
                         Log.Debug("#$#    IsMinimized :  " + Windows.IsMinimized(monitorInfo.FgHwnd));
 #endif
+
                         if (monitorInfo.IsNewWindow)
                         {
                             AuditLog.Audit(new AuditEventActiveWindowChange(process.ProcessName, title));
@@ -414,42 +412,9 @@ namespace ACAT.Lib.Core.Utility
             }
             catch (Exception e)
             {
-                Log.Debug("exception: " + e.ToString());
+                Log.Debug("exception: " + e);
                 _currentFocusedElement = null;
             }
-
-            //Log.Debug("*** EXIT ***");
-        }
-
-        /// <summary>
-        /// Returns the parent process for the focused element
-        /// </summary>
-        /// <param name="focusedElement">element that has focus</param>
-        /// <returns>the parent process</returns>
-        private static Process getActiveProcess(AutomationElement focusedElement)
-        {
-            Process process = null;
-
-            int pid = (int)focusedElement.GetCurrentPropertyValue(AutomationElement.ProcessIdProperty);
-            if (pid != 0)
-            {
-                process = Process.GetProcessById(pid);
-                Log.Debug("Active process is " + process.ProcessName + " MainWindowHandle: " + process.MainWindowHandle);
-            }
-
-            return process;
-        }
-
-        /// <summary>
-        /// Uses Monitor to see if it can enter
-        /// </summary>
-        /// <param name="syncObj">synchronization object</param>
-        /// <returns>true if it entered</returns>
-        private static bool tryEnter(Object syncObj)
-        {
-            bool lockTaken = false;
-            System.Threading.Monitor.TryEnter(syncObj, ref lockTaken);
-            return lockTaken;
         }
 
         /// <summary>
@@ -468,7 +433,16 @@ namespace ACAT.Lib.Core.Utility
             }
         }
 
-        [DllImportAttribute("user32.dll", EntryPoint = "GetWindowThreadProcessId")]
-        private static extern int GetWindowThreadProcessId([InAttribute()] IntPtr handle, out int lpdwProcessId);
+        /// <summary>
+        /// Uses Monitor to see if it can enter
+        /// </summary>
+        /// <param name="syncObj">synchronization object</param>
+        /// <returns>true if it entered</returns>
+        private static bool tryEnter(Object syncObj)
+        {
+            bool lockTaken = false;
+            System.Threading.Monitor.TryEnter(syncObj, ref lockTaken);
+            return lockTaken;
+        }
     }
 }

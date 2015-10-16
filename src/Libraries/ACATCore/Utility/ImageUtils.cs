@@ -22,6 +22,7 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 
 #region SupressStyleCopWarnings
 
@@ -65,6 +66,28 @@ namespace ACAT.Lib.Core.Utility
     /// </summary>
     public class ImageUtils
     {
+        /// <summary>
+        /// Converts the specified icon into a bitmap
+        /// </summary>
+        /// <param name="icon">icon to convert</param>
+        /// <returns>bitmap representation of icon</returns>
+        public static Bitmap ConvertIconToBitmap(Icon icon)
+        {
+            if (icon != null)
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    icon.Save(memoryStream);
+                    using (var bitmap = (Bitmap)Image.FromStream(memoryStream))
+                    {
+                        return new Bitmap(bitmap);
+                    }
+                }
+            }
+
+            return null;
+        }
+
         /// <summary>
         /// Converts the specified icon to a bitmap
         /// </summary>

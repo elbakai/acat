@@ -109,6 +109,11 @@ namespace ACAT.Lib.Core.PanelManagement
             _preferredPanelConfig.Load();
         }
 
+        /// <summary>
+        /// Gets or sets the list of configurations that the user
+        /// prefers. Each configuration represents a collection
+        /// of scanners
+        /// </summary>
         public static String[] PreferredPanelConfigNames
         {
             get
@@ -135,17 +140,17 @@ namespace ACAT.Lib.Core.PanelManagement
             foreach (string dir in extensionDirs)
             {
                 String extensionDir = dir + "\\" + AgentManager.AppAgentsRootDir;
-                loadPanelConfigMap(extensionDir);
+                load(extensionDir);
 
                 extensionDir = dir + "\\" + AgentManager.FunctionalAgentsRootDir;
-                loadPanelConfigMap(extensionDir);
+                load(extensionDir);
             }
 
             foreach (string dir in extensionDirs)
             {
                 String extensionDir = dir + "\\" + PanelManager.UiRootDir;
                 Log.Debug("LoadPanelConfigMap for " + extensionDir);
-                loadPanelConfigMap(extensionDir);
+                load(extensionDir);
             }
 
             return true;
@@ -324,8 +329,7 @@ namespace ACAT.Lib.Core.PanelManagement
         }
 
         /// <summary>
-        /// Gets the ACAT descriptor guid for the specifed
-        /// Type
+        /// Gets the ACAT descriptor guid for the specifed Type
         /// </summary>
         /// <param name="type">Scanner class Type</param>
         /// <returns>The descirptor guid</returns>
@@ -351,11 +355,11 @@ namespace ACAT.Lib.Core.PanelManagement
         {
             if (_formsCache.ContainsKey(guid))
             {
-                Log.Debug("Screen " + type.FullName + ", guid " + guid.ToString() + " is already added");
+                Log.Debug("Form Type " + type.FullName + ", guid " + guid + " is already added");
                 return;
             }
 
-            Log.Debug("Adding screen " + type.FullName + ", guid " + guid.ToString() + " to cache");
+            Log.Debug("Adding form " + type.FullName + ", guid " + guid + " to cache");
             _formsCache.Add(guid, type);
 
             var mapEntry = new PanelConfigMapEntry(type.Name, type.Name, (type.Name + ".xml").ToLower(), guid, type);
@@ -380,16 +384,7 @@ namespace ACAT.Lib.Core.PanelManagement
             }
 
             List<PanelConfigMapEntry> list = _mapTable[mapEntry.PanelClass];
-#if abc
-            foreach (var panelConfigMapEntry in list)
-            {
-                if (panelConfigMapEntry.FormId == mapEntry.FormId)
-                {
-                    panelConfigMapEntry.ConfigFileName = mapEntry.ConfigFileName;
-                    return;
-                }
-            }
-#endif
+
             Log.Debug("Adding " + mapEntry);
             list.Add(mapEntry);
         }
@@ -508,7 +503,7 @@ namespace ACAT.Lib.Core.PanelManagement
         /// </summary>
         /// <param name="dir">Directory to walk</param>
         /// <param name="resursive">Recursively search?</param>
-        private static void loadPanelConfigMap(String dir, bool resursive = true)
+        private static void load(String dir, bool resursive = true)
         {
             var walker = new DirectoryWalker(dir, "*.*");
             Log.Debug("Walking dir " + dir);
@@ -602,8 +597,7 @@ namespace ACAT.Lib.Core.PanelManagement
             try
             {
                 Log.Debug("Found dll " + dllName);
-                Assembly screenAssembly = Assembly.LoadFile(dllName);
-                loadTypesFromAssembly(screenAssembly);
+                loadTypesFromAssembly(Assembly.LoadFile(dllName));
             }
             catch (Exception ex)
             {
@@ -628,6 +622,11 @@ namespace ACAT.Lib.Core.PanelManagement
         private static bool loadTypesFromAssembly(Assembly assembly)
         {
             bool retVal = true;
+
+            if (assembly == null)
+            {
+                return false;
+            }
 
             try
             {

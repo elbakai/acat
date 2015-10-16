@@ -181,7 +181,9 @@ namespace ACAT.Lib.Extension.CommandHandlers
         }
 
         /// <summary>
-        /// If the sticky shift is turned on, turn on select mode
+        /// If the sticky shift is turned on, turn on select mode. If select
+        /// mode is on, text is automatically selected as the user moves
+        /// the cursor.
         /// </summary>
         private void turnOnSelectModeIfStickyShiftEnabled()
         {

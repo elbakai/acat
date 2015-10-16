@@ -63,8 +63,8 @@ using ACAT.Lib.Core.WidgetManagement;
 namespace ACAT.Lib.Core.Widgets
 {
     /// <summary>
-    /// A wrapper widget class for any windows control that
-    /// requires fonts to be scaled as the widget is scaled up or down
+    /// A wrapper widget class a TextBox .NET control.  Scales
+    /// the font size of the control depending on the scalefactor.
     /// </summary>
     public class TextBoxWidget : ButtonWidgetBase
     {
@@ -125,7 +125,9 @@ namespace ACAT.Lib.Core.Widgets
 
             if (_fontFamily != null)
             {
-                _font = new Font(_fontFamily, widgetAttribute.FontSize, widgetAttribute.FontBold ? FontStyle.Bold : FontStyle.Regular);
+                _font = new Font(_fontFamily,
+                                    widgetAttribute.FontSize, widgetAttribute
+                                    .FontBold ? FontStyle.Bold : FontStyle.Regular);
                 UIControl.Font = _font;
             }
 
@@ -133,7 +135,7 @@ namespace ACAT.Lib.Core.Widgets
         }
 
         /// <summary>
-        /// Dispose resources
+        /// Disposes resources
         /// </summary>
         /// <param name="disposing">true to dispose managed resources</param>
         protected override void Dispose(bool disposing)
@@ -163,7 +165,7 @@ namespace ACAT.Lib.Core.Widgets
         }
 
         /// <summary>
-        /// Release resources
+        /// Releases resources
         /// </summary>
         private void unInit()
         {

@@ -57,7 +57,7 @@ using ACAT.Lib.Core.Utility;
 
 #endregion SupressStyleCopWarnings
 
-namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
+namespace ACAT.Extensions.Default.FunctionalAgents.LaunchAppAgent
 {
     /// <summary>
     /// Holds the settings for the launch app agent.  This

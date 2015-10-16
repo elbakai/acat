@@ -62,10 +62,10 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Core.SpellCheckManagement
 {
     /// <summary>
-    /// Maintains a list of discovered word predictors in an internal cache.
-    /// The mapping is between the GUID for the word predictor and the .NET
-    /// Type of the word predictor.  The Type will be used to instantiate the
-    /// word predictor using Reflection
+    /// Maintains a list of discovered SpellCheckers in an internal cache.
+    /// The mapping is between the GUID for the SpellChecker and the .NET
+    /// Type of the SpellChecker.  The Type will be used to instantiate the
+    /// SpellChecker using Reflection
     /// </summary>
     public class SpellCheckers : IDisposable
     {
@@ -170,8 +170,7 @@ namespace ACAT.Lib.Core.SpellCheckManagement
         }
 
         /// <summary>
-        /// Adds the spell checker identified by the GUID and Type to
-        /// the cache.
+        /// Adds the spell checker identified by the GUID and Type to the cache.
         /// <param name="guid">guid of the spell checker</param>
         /// <param name="type">.NET Type of the class</param>
         internal void add(Guid guid, Type type)

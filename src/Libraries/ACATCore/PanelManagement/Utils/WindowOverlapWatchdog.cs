@@ -62,12 +62,14 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Core.PanelManagement
 {
     /// <summary>
-    /// Keeps watch if the form is getting obscured by other windows and if so,
-    /// brings it back on top. Based on a watchdog timer.  This is useful to
-    /// make sure nothing else overlaps.  The TopMost attribute can be used
-    /// to make a window the topmost window but if another window also has the
-    /// TopMost attribute set, that window could overlap our window.  This
-    /// class makes sure that doesn't happen
+    /// Keeps watch if the form is getting obscured by other
+    /// windows and if so, brings it back on top. Based on a
+    /// watchdog timer.  This is useful to make sure nothing else
+    /// overlaps.  The TopMost attribute can be used to make
+    /// a window the topmost window but if another window
+    /// also has the TopMost attribute set, that window could
+    /// overlap our window.  This class makes sure that
+    /// doesn't happen
     /// </summary>
     public class WindowOverlapWatchdog : IDisposable
     {
@@ -75,6 +77,11 @@ namespace ACAT.Lib.Core.PanelManagement
         /// How often to check
         /// </summary>
         private const int Interval = 1500;
+
+        /// <summary>
+        /// Set to true to Force to stay on top.
+        /// </summary>
+        private bool _force;
 
         /// <summary>
         /// Pause operations?
@@ -95,9 +102,11 @@ namespace ACAT.Lib.Core.PanelManagement
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="window">The form that needs to stay on top</param>
-        public WindowOverlapWatchdog(Form window)
+        /// <param name="force">set to true to force to stay on top</param>
+        public WindowOverlapWatchdog(Form window, bool force = false)
         {
             _window = window;
+            _force = force;
             _timer = new Timer { Enabled = true, Interval = Interval };
             _timer.Tick += timer_Tick;
             window.VisibleChanged += window_VisibleChanged;
@@ -109,6 +118,12 @@ namespace ACAT.Lib.Core.PanelManagement
         /// <returns></returns>
         public void Dispose()
         {
+            if (_window != null)
+            {
+                Log.Debug("DISPOSE!!  for " + _window.Name);
+                _window.VisibleChanged -= window_VisibleChanged;
+            }
+
             if (_timer != null)
             {
                 _timer.Tick -= timer_Tick;
@@ -117,7 +132,6 @@ namespace ACAT.Lib.Core.PanelManagement
                 _timer = null;
             }
 
-            _window.VisibleChanged -= window_VisibleChanged;
             _window = null;
         }
 
@@ -126,6 +140,8 @@ namespace ACAT.Lib.Core.PanelManagement
         /// </summary>
         public void Pause()
         {
+            Log.Debug("PAUSSE!!  for " + _window.Name);
+
             stopTimer();
             _isPaused = true;
         }
@@ -135,6 +151,8 @@ namespace ACAT.Lib.Core.PanelManagement
         /// </summary>
         public void Resume()
         {
+            Log.Debug("RESUME!!  for " + _window.Name);
+
             _isPaused = false;
             startTimer();
         }
@@ -171,10 +189,23 @@ namespace ACAT.Lib.Core.PanelManagement
                 cache.Add(windowHandle);
 
                 bool isScanner = false;
-                if (User32Interop.IsWindowVisible(windowHandle))
+                if (!_force && User32Interop.IsWindowVisible(windowHandle))
                 {
-                    Control ctl = Form.FromHandle(windowHandle);
-                    isScanner = (ctl is Form) && (ctl is IScannerPanel);
+                    try
+                    {
+                        Control ctl = Form.FromHandle(windowHandle);
+                        isScanner = (ctl is Form) && (ctl is IScannerPanel);
+                        if (isScanner)
+                        {
+                            double opacity = Windows.GetOpacity(ctl as Form);
+                            isScanner = (opacity == 1.0f);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        isScanner = false;
+                        Log.Debug("isScanner logic exception " + ex.ToString());
+                    }
                 }
 
                 if (User32Interop.IsWindowVisible(windowHandle) &&
@@ -233,7 +264,7 @@ namespace ACAT.Lib.Core.PanelManagement
             }
             catch (Exception ex)
             {
-                Log.Debug("exception occured!  ex=" + ex);
+                Log.Debug("exception occured!  ex=" + ex + "for " + (_window != null ? _window.Name : "null"));
             }
         }
 

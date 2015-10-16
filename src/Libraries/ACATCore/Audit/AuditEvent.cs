@@ -59,15 +59,16 @@ using System.Diagnostics.CodeAnalysis;
 namespace ACAT.Lib.Core.Audit
 {
     /// <summary>
-    /// Represents a general audit log event. Use this when a
-    /// event specific class does not exist
+    /// Represents a general audit log event. Use this when an
+    /// event-specific class does not exist for the event being
+    /// audited.
     /// </summary>
     public class AuditEvent : AuditEventBase
     {
         /// <summary>
         /// Data for the audit log
         /// </summary>
-        private readonly object[] args;
+        private readonly object[] _args;
 
         /// <summary>
         /// Initializes a new instance of the class.
@@ -85,7 +86,7 @@ namespace ACAT.Lib.Core.Audit
         public AuditEvent(String eventType, params object[] args)
             : base(eventType)
         {
-            this.args = args;
+            _args = args;
         }
 
         /// <summary>
@@ -94,7 +95,7 @@ namespace ACAT.Lib.Core.Audit
         /// <returns>string representation</returns>
         protected override string toString()
         {
-            return formatEventString(this.args);
+            return formatEventString(_args);
         }
     }
 }

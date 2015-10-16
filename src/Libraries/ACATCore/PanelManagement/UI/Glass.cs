@@ -64,7 +64,7 @@ namespace ACAT.Lib.Core.PanelManagement
 {
     /// <summary>
     /// Represents a transluscent glass that covers the
-    /// entire screen.  Can be used as a backdrop to a
+    /// entire display.  Can be used as a backdrop to a
     /// foreground window so the ACAT scanners and the
     /// talk window stand out.
     /// </summary>
@@ -294,7 +294,7 @@ namespace ACAT.Lib.Core.PanelManagement
         }
 
         /// <summary>
-        /// Gradually fade in the glass when displaying.  It
+        /// Gradually fades in the glass when displaying.  It
         /// is done asynchronously
         /// </summary>
         private static void fadeIn()

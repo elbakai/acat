@@ -35,12 +35,13 @@
             this.textBoxOtherInfo = new System.Windows.Forms.TextBox();
             this.labelCopyrightInfo = new System.Windows.Forms.Label();
             this.labelVersionInfo = new System.Windows.Forms.Label();
+            this.labelUserProfileInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonOK
             // 
-            this.buttonOK.Location = new System.Drawing.Point(185, 280);
+            this.buttonOK.Location = new System.Drawing.Point(181, 342);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(199, 40);
             this.buttonOK.TabIndex = 7;
@@ -50,13 +51,13 @@
             // labelAppTitle
             // 
             this.labelAppTitle.BackColor = System.Drawing.Color.Transparent;
-            this.labelAppTitle.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAppTitle.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAppTitle.ForeColor = System.Drawing.Color.Black;
             this.labelAppTitle.Location = new System.Drawing.Point(149, 10);
             this.labelAppTitle.Name = "labelAppTitle";
             this.labelAppTitle.Size = new System.Drawing.Size(407, 39);
             this.labelAppTitle.TabIndex = 8;
-            this.labelAppTitle.Text = "ACAT - Assistive Context-Aware Toolkit";
+            this.labelAppTitle.Text = "Assistive Context-Aware Toolkit (ACAT)";
             this.labelAppTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBoxLogo
@@ -71,7 +72,7 @@
             // 
             this.textBoxOtherInfo.BackColor = System.Drawing.Color.White;
             this.textBoxOtherInfo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOtherInfo.Location = new System.Drawing.Point(15, 147);
+            this.textBoxOtherInfo.Location = new System.Drawing.Point(15, 200);
             this.textBoxOtherInfo.Multiline = true;
             this.textBoxOtherInfo.Name = "textBoxOtherInfo";
             this.textBoxOtherInfo.ReadOnly = true;
@@ -105,12 +106,25 @@
             this.labelVersionInfo.Text = "Version 1.00.00";
             this.labelVersionInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // labelUserProfileInfo
+            // 
+            this.labelUserProfileInfo.BackColor = System.Drawing.Color.Transparent;
+            this.labelUserProfileInfo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserProfileInfo.ForeColor = System.Drawing.Color.Black;
+            this.labelUserProfileInfo.Location = new System.Drawing.Point(167, 144);
+            this.labelUserProfileInfo.Name = "labelUserProfileInfo";
+            this.labelUserProfileInfo.Size = new System.Drawing.Size(375, 43);
+            this.labelUserProfileInfo.TabIndex = 15;
+            this.labelUserProfileInfo.Text = "User: Default, Profile: Default";
+            this.labelUserProfileInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // AboutBoxForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 357);
+            this.ClientSize = new System.Drawing.Size(571, 449);
             this.ControlBox = false;
+            this.Controls.Add(this.labelUserProfileInfo);
             this.Controls.Add(this.labelVersionInfo);
             this.Controls.Add(this.labelCopyrightInfo);
             this.Controls.Add(this.textBoxOtherInfo);
@@ -135,6 +149,7 @@
         private System.Windows.Forms.TextBox textBoxOtherInfo;
         private System.Windows.Forms.Label labelCopyrightInfo;
         private System.Windows.Forms.Label labelVersionInfo;
+        private System.Windows.Forms.Label labelUserProfileInfo;
 
     }
 }

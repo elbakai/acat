@@ -65,9 +65,9 @@ namespace ACAT.Lib.Core.TTSManagement
         /// <summary>
         /// Initializes a new instance of the TTSValue class
         /// </summary>
-        /// <param name="min"></param>
-        /// <param name="max"></param>
-        /// <param name="value"></param>
+        /// <param name="min">min value</param>
+        /// <param name="max">max value</param>
+        /// <param name="value">current value</param>
         public TTSValue(int min, int max, int value)
         {
             RangeMin = min;
@@ -101,8 +101,7 @@ namespace ACAT.Lib.Core.TTSManagement
         public int Value { get; set; }
 
         /// <summary>
-        /// Indicates whether the value is within
-        /// the range
+        /// Indicates whether the value is within the range
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>

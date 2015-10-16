@@ -87,7 +87,9 @@ namespace ACAT.Lib.Core.Widgets
         }
 
         /// <summary>
-        /// Clears the text the child widgets starting at the index
+        /// Clears the text the child widgets starting at the index. Use
+        /// this if the word list has fewer words than the max. The 
+        /// remaining entires in the word list should be cleared.
         /// </summary>
         /// <param name="start">starting index</param>
         public void ClearEntries(int start)

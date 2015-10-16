@@ -133,6 +133,14 @@ namespace ACAT.Lib.Core.AgentManagement.TextInterface
         void Delete(int offset, int count);
 
         /// <summary>
+        /// Indicates whether to enable smart punctuations
+        /// which includes:  Adding spaces after sentence terminator, removing
+        /// extraneous spaces before a puncutuation
+        /// </summary>
+        /// <returns></returns>
+        bool EnableSmartPunctuations();
+
+        /// <summary>
         /// Indicates whether abbreviations need to be expanded or not.  For
         /// instance, if the text control is for accepting a filename, we
         ///  would not want abbreviations to be expanded

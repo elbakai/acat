@@ -65,7 +65,9 @@ namespace ACAT.Lib.Core.Extensions.Base.AppAgents.WordPadAgent
     /// Base class does all the heavy-lifting.  Override functions
     /// as required customize
     /// </summary>
-    [DescriptorAttribute("36460FD2-FB73-4D69-952D-D640EC58C202", "Wordpad Agent", "Agent for Wordpad")]
+    [DescriptorAttribute("36460FD2-FB73-4D69-952D-D640EC58C202", 
+                            "Wordpad Agent", 
+                            "Agent for WordPad")]
     internal class WordpadAgent : WordpadAgentBase
     {
         /// <summary>
@@ -78,7 +80,9 @@ namespace ACAT.Lib.Core.Extensions.Base.AppAgents.WordPadAgent
         /// </summary>
         private const string SettingsFileName = "WordPadAgentSettings.xml";
 
-        // override functions here if necessary
+        /// <summary>
+        /// Initializes an instance of the class
+        /// </summary>
         public WordpadAgent()
         {
             WordPadSettings.PreferencesFilePath = UserManager.GetFullPath(SettingsFileName);

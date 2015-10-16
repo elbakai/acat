@@ -1,17 +1,21 @@
 ﻿<?xml version="1.0" ?>
+<!DOCTYPE ACAT [
+  <!ENTITY usebold "false">
+  <!ENTITY buttonFontName "Arial">
+]>
 
 <ACAT>
   <WidgetAttributes>
-    <WidgetAttribute name="ContextMenuTitle" label="" value="" fontsize="20" fontname="Arial" mouseClickActuate="false"/>
+    <WidgetAttribute name="ContextMenuTitle" label="" value="" fontsize="20" fontname="Arial" mouseClickActuate="false" bold="&usebold;"/>
 
-    <WidgetAttribute name="ItemIcon1" label=" " value="@CancelFileOperation" fontsize="20" fontname="Arial" mouseClickActuate="true"/>
-    <WidgetAttribute name="ItemText1" label="(" value="@CancelFileOperation" fontsize="18" fontname="ACAT Icon" mouseClickActuate="true"/>
+    <WidgetAttribute name="ItemIcon1" label=" " value="@CancelFileOperation" fontsize="20" fontname="Arial" mouseClickActuate="true" bold="&usebold;"/>
+    <WidgetAttribute name="ItemText1" label="&#x75;" value="@CancelFileOperation" fontsize="18" fontname="ACAT Icon" mouseClickActuate="true" bold="&usebold;"/>
 
-    <WidgetAttribute name="ItemIcon2" label="&#x3F;" value="@OpenFile" fontsize="20" fontname="ACAT Icon" mouseClickActuate="true"/>
-    <WidgetAttribute name="ItemText2" label="Open File" value="@OpenFile" fontsize="18" fontname="Arial" mouseClickActuate="true"/>
+    <WidgetAttribute name="ItemIcon2" label="&#x3F;" value="@OpenFile" fontsize="20" fontname="ACAT Icon" mouseClickActuate="true" bold="&usebold;"/>
+    <WidgetAttribute name="ItemText2" label="Open File" value="@OpenFile" fontsize="18" fontname="Arial" mouseClickActuate="true" bold="&usebold;"/>
 
-    <WidgetAttribute name="ItemIcon3" label="&#x25;" value="@DeleteFile" fontsize="20" fontname="ACAT Icon" mouseClickActuate="true"/>
-    <WidgetAttribute name="ItemText3" label="Delete File" value="@DeleteFile" fontsize="18" fontname="Arial" mouseClickActuate="true"/>
+    <WidgetAttribute name="ItemIcon3" label="&#x25;" value="@DeleteFile" fontsize="20" fontname="ACAT Icon" mouseClickActuate="true" bold="&usebold;"/>
+    <WidgetAttribute name="ItemText3" label="Delete File" value="@DeleteFile" fontsize="18" fontname="Arial" mouseClickActuate="true" bold="&usebold;"/>
   </WidgetAttributes>
 
   <Layout>

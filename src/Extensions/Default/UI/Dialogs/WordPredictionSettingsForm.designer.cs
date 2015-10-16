@@ -71,7 +71,7 @@
             // 
             // lblUseCorpus
             // 
-            this.lblUseCorpus.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUseCorpus.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUseCorpus.Location = new System.Drawing.Point(100, 117);
             this.lblUseCorpus.Name = "lblUseCorpus";
             this.lblUseCorpus.Size = new System.Drawing.Size(207, 29);
@@ -81,7 +81,7 @@
             // 
             // lblDynamicLearning
             // 
-            this.lblDynamicLearning.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDynamicLearning.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDynamicLearning.Location = new System.Drawing.Point(100, 69);
             this.lblDynamicLearning.Name = "lblDynamicLearning";
             this.lblDynamicLearning.Size = new System.Drawing.Size(254, 29);
@@ -110,7 +110,7 @@
             // 
             // lblWordCount
             // 
-            this.lblWordCount.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWordCount.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWordCount.Location = new System.Drawing.Point(55, 171);
             this.lblWordCount.Name = "lblWordCount";
             this.lblWordCount.Size = new System.Drawing.Size(135, 22);
@@ -188,7 +188,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(14, -3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(243, 24);
@@ -205,7 +205,7 @@
             this.groupBox1.TabIndex = 172;
             this.groupBox1.TabStop = false;
             // 
-            // AsterWordPredictionPrefsForm
+            // WordPredictionSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

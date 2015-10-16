@@ -23,6 +23,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using ACAT.Lib.Core.AgentManagement;
 using ACAT.Lib.Core.Audit;
 using ACAT.Lib.Core.PanelManagement;
 using ACAT.Lib.Core.TalkWindowManagement;
@@ -75,14 +76,11 @@ namespace ACAT.Extensions.Default.UI.Dialogs
     /// also learns user writing style from the text entered in
     /// the talk window.
     /// </summary>
-    [DescriptorAttribute("BF1C93D7-3962-4A52-A56D-668149D116AE", "TalkWindowForm", "Talk Window")]
+    [DescriptorAttribute("BF1C93D7-3962-4A52-A56D-668149D116AE",
+                        "TalkWindowForm",
+                        "Talk Window")]
     public partial class TalkWindowForm : TalkWindowBase
     {
-        /// <summary>
-        /// Thickness of the border around the form
-        /// </summary>
-        private const int BorderThickness = 2;
-
         /// <summary>
         /// Font to use for the speaker icon
         /// </summary>
@@ -111,7 +109,6 @@ namespace ACAT.Extensions.Default.UI.Dialogs
             InitializeComponent();
 
             TalkWindowTextBox = textBox;
-            dateTimeControl = labelDateTime;
 
             enableDateTimeDisplay = Common.AppPreferences.TalkWindowDisplayDateTimeEnable;
             displayDateFormat = Common.AppPreferences.TalkWindowDisplayDateFormat;
@@ -119,14 +116,6 @@ namespace ACAT.Extensions.Default.UI.Dialogs
 
             ShowInTaskbar = false;
             MaximizeBox = false;
-            Windows.ShowWindowBorder(this,
-                                    Common.AppPreferences.TalkWindowShowBorder,
-                                    Common.AppPreferences.TalkWindowShowTitleBar ? Text : String.Empty);
-
-            if (Common.AppPreferences.TalkWindowShowTitleBar)
-            {
-                labelTalk.Text = String.Empty;
-            }
 
             Windows.SetTopMost(this);
 
@@ -198,6 +187,27 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         public override void OnPositionChanged()
         {
             Windows.ClickOnWindow(this);
+            User32Interop.SetForegroundWindow(Handle);
+        }
+
+        /// <summary>
+        /// Displays the date/time on the form
+        /// </summary>
+        /// <param name="text">date/time string</param>
+        protected override void displayDateTime(String text)
+        {
+            toolStripLabelDate.Text = text;
+        }
+
+        /// <summary>
+        /// Called when form is closing
+        /// </summary>
+        /// <param name="e">event arg</param>
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            notifyRequestClose();
+            e.Cancel = false;
+            base.OnFormClosing(e);
         }
 
         /// <summary>
@@ -233,29 +243,6 @@ namespace ACAT.Extensions.Default.UI.Dialogs
             {
                 updateVolumeStatus();
             }));
-        }
-
-        /// <summary>
-        /// Paint the border around the talk window
-        /// </summary>
-        /// <param name="sender">event sender</param>
-        /// <param name="e">event args</param>
-        private void BorderPanel_Paint(object sender, PaintEventArgs e)
-        {
-            if (BorderPanel.BorderStyle == BorderStyle.FixedSingle)
-            {
-                const int thickness = BorderThickness;
-                const int halfThickness = thickness / 2;
-                using (var pen = new Pen(Color.Black, thickness))
-                {
-                    e.Graphics.DrawRectangle(
-                        pen,
-                        new Rectangle(halfThickness,
-                        halfThickness,
-                        BorderPanel.ClientSize.Width - thickness,
-                        BorderPanel.ClientSize.Height - thickness));
-                }
-            }
         }
 
         /// <summary>
@@ -300,6 +287,20 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
+        /// Activates the "Phrases" agent that allows the user to
+        /// convert canned phrases to speech
+        /// </summary>
+        private async void handlePhraseSpeak()
+        {
+            notifyRequestClose();
+            IApplicationAgent agent = Context.AppAgentMgr.GetAgentByName("Phrase Speak Agent");
+            if (agent != null)
+            {
+                await Context.AppAgentMgr.ActivateAgent(agent as IFunctionalAgent);
+            }
+        }
+
+        /// <summary>
         /// The text to speech engine changed
         /// </summary>
         /// <param name="oldEngine">previous engine</param>
@@ -308,26 +309,6 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         {
             oldEngine.EvtPropertyChanged -= ActiveEngine_EvtPropertyChanged;
             newEngine.EvtPropertyChanged += ActiveEngine_EvtPropertyChanged;
-        }
-
-        /// <summary>
-        /// User clicked on the "Clear text" button in the talk window status bar
-        /// </summary>
-        /// <param name="sender">event sender</param>
-        /// <param name="e">event args</param>
-        private void labelClearText_Click(object sender, EventArgs e)
-        {
-            Clear();
-        }
-
-        /// <summary>
-        /// User clicked on the "Close" button in the talk indow
-        /// </summary>
-        /// <param name="sender">event sender</param>
-        /// <param name="e">event args</param>
-        private void labelClose_Click(object sender, EventArgs e)
-        {
-            notifyRequestClose();
         }
 
         /// <summary>
@@ -358,13 +339,9 @@ namespace ACAT.Extensions.Default.UI.Dialogs
             if (File.Exists(intelIcon))
             {
                 var image = Image.FromFile(FileUtils.GetImagePath("Intel-logo.png"));
-                image = ImageUtils.ImageResize(image, lblIntelIcon.Width, lblIntelIcon.Height);
-                lblIntelIcon.ImageAlign = ContentAlignment.MiddleCenter;
-                lblIntelIcon.Image = image;
-            }
-            else
-            {
-                lblIntelIcon.Text = "&";
+                image = ImageUtils.ImageResize(image, toolStripLabelIcon.Width, toolStripLabelIcon.Height);
+                toolStripLabelIcon.ImageAlign = ContentAlignment.MiddleCenter;
+                toolStripLabelIcon.Image = image;
             }
         }
 
@@ -373,15 +350,16 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         /// </summary>
         private void subscribeToEvents()
         {
+            Log.Debug("yoyo subscribing to formclosing");
             Load += TalkWindowForm_Load;
             FormClosing += TalkWindowForm_FormClosing;
             VisibleChanged += TalkWindowForm_VisibleChanged;
-            BorderPanel.Paint += BorderPanel_Paint;
             TTSManager.Instance.ActiveEngine.EvtPropertyChanged += ActiveEngine_EvtPropertyChanged;
             TTSManager.Instance.EvtEngineChanged += Instance_EvtEngineChanged;
             labelSpeaker.Click += labelSpeaker_Click;
             textBox.KeyPress += textBox_KeyPress;
             trackBarVolume.MouseUp += trackBarVolume_MouseUp;
+            toolStripButtonClear.Click += ToolStripButtonClearOnClick;
         }
 
         /// <summary>
@@ -408,7 +386,8 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Called when loaded. Create timers, position the window
+        /// Called when loaded. Creates timers, positions the window,
+        /// initializes etc.
         /// <param name="sender">event sender</param>
         /// <param name="e">event args</param>
         /// </summary>
@@ -419,9 +398,9 @@ namespace ACAT.Extensions.Default.UI.Dialogs
                 var fontFamily = Fonts.Instance.GetFontFamily("ACAT Icon");
                 if (fontFamily != null)
                 {
-                    _acatFont = new Font(fontFamily, labelSpeaker.Font.Size);
+                    _acatFont = new Font(fontFamily, 16);
                     labelSpeaker.Font = _acatFont;
-                    labelClearText.Font = _acatFont;
+                    toolStripButtonClear.Font = _acatFont;
                 }
             }
 
@@ -435,7 +414,10 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Visibility of the talk window changed
+        /// Visibility of the talk window changed.  Since the textbox
+        /// is the only tabbable control, Windows selects the entire text
+        /// because the text box received focus (as if the user tabbed
+        /// into it).  So let's do an unselect.
         /// </summary>
         /// <param name="sender">event sender</param>
         /// <param name="e">event args</param>
@@ -484,6 +466,11 @@ namespace ACAT.Extensions.Default.UI.Dialogs
                         ttsAndLearn(textToSpeak);
                     }
                 }
+                else if (e.KeyChar == '\t')
+                {
+                    e.Handled = true;
+                    handlePhraseSpeak();
+                }
             }
             catch (Exception ex)
             {
@@ -492,7 +479,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Convert text to speech
+        /// Converts the specified text to speech
         /// </summary>
         /// <param name="text">text to convert</param>
         private void textToSpeech(String text)
@@ -508,6 +495,17 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
+        /// User clicked on the "Clear" button on  the toolbar.  Clear
+        /// the text in the window
+        /// </summary>
+        /// <param name="sender">event sender</param>
+        /// <param name="eventArgs">event args</param>
+        private void ToolStripButtonClearOnClick(object sender, EventArgs eventArgs)
+        {
+            Clear();
+        }
+
+        /// <summary>
         /// Mouse up event on the track bar that represents
         /// the volume
         /// </summary>
@@ -520,7 +518,8 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Converts the current para to speech and notify app about this
+        /// Converts the current para to speech and optionally learns
+        /// the text to refine the word prediction model
         /// </summary>
         /// <param name="text">text to convert</param>
         private void ttsAndLearn(String text)

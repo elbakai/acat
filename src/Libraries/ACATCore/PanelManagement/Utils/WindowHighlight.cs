@@ -62,7 +62,8 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Core.PanelManagement
 {
     /// <summary>
-    /// Highlights a window by drawing a border around it.
+    /// Highlights a window by drawing a border around it.  If the window
+    /// is moved, tracks the window and redraws the rectangle
     /// </summary>
     public class WindowHighlight : IDisposable
     {

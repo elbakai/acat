@@ -127,7 +127,7 @@ namespace ACAT.Lib.Core.AnimationManagement
         }
 
         /// <summary>
-        /// Load all the animations from the config file (from ACAT/Animations node)
+        /// Loads all the animations from the config file (from ACAT/Animations node)
         /// </summary>
         /// <param name="configFile">Name of the config file</param>
         /// <returns>true on success</returns>
@@ -197,10 +197,10 @@ namespace ACAT.Lib.Core.AnimationManagement
 
         /// <summary>
         /// Checks if there is already an entry for specified
-        /// screen.  If so returns it otherwise, creates a new one
+        /// scanner.  If so returns it otherwise, creates a new one
         /// </summary>
-        /// <param name="name">Name of the screen</param>
-        /// <returns>The animations object for the screen</returns>
+        /// <param name="name">Name of the panel</param>
+        /// <returns>The animations object for the panel</returns>
         private Animations findOrCreateAnimationsEntry(String name)
         {
             Animations animations = this[name];

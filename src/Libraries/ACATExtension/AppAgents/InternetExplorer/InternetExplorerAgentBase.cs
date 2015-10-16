@@ -66,7 +66,9 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Extension.AppAgents.InternetExplorer
 {
     /// <summary>
-    /// Base class for the Application agent for Internet Explorer.
+    /// Base class for the Application agent for Internet Explorer. Enables
+    /// easy browing of web pages, page up, page down, go back, forward,
+    /// search etc.
     /// </summary>
     public class InternetExplorerAgentBase : GenericAppAgentBase
     {
@@ -110,13 +112,13 @@ namespace ACAT.Lib.Extension.AppAgents.InternetExplorer
             "SwitchAppWindow"
         };
 
+        private bool _scannerShown;
+
         /// <summary>
         /// Which scanner type has been displayed?  Depends on
         /// which element in the browser currently has focus
         /// </summary>
         private ScannerType _scannerType = ScannerType.None;
-
-        private bool _scannerShown;
 
         /// <summary>
         /// Initializes a new instance of the class.
@@ -175,11 +177,6 @@ namespace ACAT.Lib.Extension.AppAgents.InternetExplorer
         /// <param name="monitorInfo">Foreground window info</param>
         public override void OnContextMenuRequest(WindowActivityMonitorInfo monitorInfo)
         {
-            //if (autoSwitchScanners)
-            //{
-            //    AgentManager.Instance.Keyboard.Send(Keys.F6);
-            //}
-
             showPanel(this, new PanelRequestEventArgs("InternetExplorerContextMenu", ScannerTitle, monitorInfo));
         }
 
@@ -220,10 +217,11 @@ namespace ACAT.Lib.Extension.AppAgents.InternetExplorer
         {
             base.OnFocusLost();
             _scannerType = ScannerType.None;
+            _scannerShown = false;
         }
 
         /// <summary>
-        /// Invoked to run a command
+        /// Executes the specified command
         /// </summary>
         /// <param name="command">The command to execute</param>
         /// <param name="commandArg">Optional arguments for the command</param>
@@ -233,8 +231,8 @@ namespace ACAT.Lib.Extension.AppAgents.InternetExplorer
             handled = true;
             switch (command)
             {
-                case "CmdThreeFourthMaximizeWindow":
-                    Windows.SetForegroundWindowSizePercent(Context.AppWindowPosition, 75);
+                case "CmdParitalMaximizeWindow":
+                    Windows.SetForegroundWindowSizePercent(Context.AppWindowPosition, Common.AppPreferences.WindowMaximizeSizePercent);
                     break;
 
                 case "SwitchAppWindow":
@@ -300,14 +298,19 @@ namespace ACAT.Lib.Extension.AppAgents.InternetExplorer
                     AgentManager.Instance.Keyboard.Send(Keys.F4);
                     break;
 
-                case "IEZoomMenu":
-                    {
-                        var monitorInfo = WindowActivityMonitor.GetForegroundWindowInfo();
-                        var panelArg = new PanelRequestEventArgs("InternetExplorerZoomMenu",
-                            "IExplorer", monitorInfo) { UseCurrentScreenAsParent = true };
-                        showPanel(this, panelArg);
-                    }
+                case "IEBrowserMenu":
+                    showPanel(this, new PanelRequestEventArgs("InternetExplorerBrowserMenu",
+                                                                "IExplorer",
+                                                                WindowActivityMonitor.GetForegroundWindowInfo(),
+                                                                true));
 
+                    break;
+
+                case "IEZoomMenu":
+                    showPanel(this, new PanelRequestEventArgs("InternetExplorerZoomMenu",
+                                                            "IExplorer",
+                                                            WindowActivityMonitor.GetForegroundWindowInfo(),
+                                                            true));
                     break;
 
                 case "IEEmailLink":
@@ -322,7 +325,7 @@ namespace ACAT.Lib.Extension.AppAgents.InternetExplorer
 
         /// <summary>
         /// Creates the text control interface for the IE control that
-        /// is currently in focused
+        /// is currently in focus
         /// </summary>
         /// <param name="handle">Handle to the IE window</param>
         /// <param name="focusedElement">the focused element</param>
@@ -350,18 +353,14 @@ namespace ACAT.Lib.Extension.AppAgents.InternetExplorer
         private void autoDisplayScanner(WindowActivityMonitorInfo monitorInfo, ref bool handled)
         {
             handled = true;
+
             if (_explorerElements.IsFavoritesWindow(monitorInfo.FocusedElement) ||
                             _explorerElements.IsHistoryWindow(monitorInfo.FocusedElement) ||
                             _explorerElements.IsFeedsWindow(monitorInfo.FocusedElement))
             {
                 if (!_scannerType.HasFlag(ScannerType.Favorites))
                 {
-                    var args = new PanelRequestEventArgs(PanelClasses.MenuContextMenu, ScannerTitle, monitorInfo)
-                    {
-                        UseCurrentScreenAsParent = true
-                    };
-
-                    showPanel(this, args);
+                    showPanel(this, new PanelRequestEventArgs(PanelClasses.MenuContextMenu, ScannerTitle, monitorInfo, true));
                     _scannerType = ScannerType.Favorites;
                 }
             }

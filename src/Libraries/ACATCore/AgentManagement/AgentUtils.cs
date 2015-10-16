@@ -74,8 +74,13 @@ namespace ACAT.Lib.Core.AgentManagement
         /// <param name="className">class name </param>
         /// <param name="controlType">controlType</param>
         /// <param name="automationId">automation id </param>
+        /// <param name="name">optional, name of the element to search for</param>
         /// <returns>automation element if found null otherwise</returns>
-        public static AutomationElement FindElementByAutomationId(AutomationElement focusedElement, String className, object controlType, String automationId)
+        public static AutomationElement FindElementByAutomationId(AutomationElement focusedElement,
+                                                                    String className,
+                                                                    object controlType,
+                                                                    String automationId,
+                                                                    String name = "")
         {
             var controlTypeProperty = new PropertyCondition(AutomationElement.ControlTypeProperty, controlType);
             var automationIdProperty = new PropertyCondition(AutomationElement.AutomationIdProperty, automationId);
@@ -83,6 +88,12 @@ namespace ACAT.Lib.Core.AgentManagement
             var findControl = new AndCondition(controlTypeProperty, automationIdProperty, classNameProperty);
 
             var retVal = focusedElement.FindFirst(TreeScope.Descendants, findControl);
+
+            if (retVal != null && !String.IsNullOrEmpty(name))
+            {
+                retVal = ((String.Compare(retVal.Current.Name, name, true) == 0) ? retVal : null);
+            }
+
             return retVal;
         }
 
@@ -95,7 +106,10 @@ namespace ACAT.Lib.Core.AgentManagement
         /// <param name="controlType">controlType of the ancestor</param>
         /// <param name="automationId">automation id of the ancestor</param>
         /// <returns>true if it is</returns>
-        public static AutomationElement GetElementOrAncestorByAutomationId(AutomationElement focusedElement, String className, String controlType, String automationId)
+        public static AutomationElement GetElementOrAncestorByAutomationId(AutomationElement focusedElement,
+                                                                            String className,
+                                                                            String controlType,
+                                                                            String automationId)
         {
             var walker = TreeWalker.ControlViewWalker;
 
@@ -163,6 +177,45 @@ namespace ACAT.Lib.Core.AgentManagement
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Inserts the specified string value into the control
+        /// referenced by the element
+        /// </summary>
+        /// <param name="element">the element into which to insert text</param>
+        /// <param name="value">text to insert</param>
+        public static void InsertTextIntoElement(AutomationElement element, string value)
+        {
+            if (element == null || value == null)
+            {
+                return;
+            }
+
+            try
+            {
+                if (!element.Current.IsEnabled || !element.Current.IsKeyboardFocusable)
+                {
+                    Log.Debug("Control not enabled or keyboard focusable. AutomationID " + element.Current.AutomationId);
+                    return;
+                }
+
+                object valuePattern;
+                if (!element.TryGetCurrentPattern(ValuePattern.Pattern, out valuePattern))
+                {
+                    element.SetFocus();
+                    SendKeys.SendWait(value);
+                }
+                else
+                {
+                    element.SetFocus();
+                    ((ValuePattern)valuePattern).SetValue(value);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Debug(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -248,6 +301,34 @@ namespace ACAT.Lib.Core.AgentManagement
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Checks if the focusedElement has the specified className, controlType
+        /// and automationID
+        /// </summary>
+        /// <param name="focusedElement">control that has focus</param>
+        /// <param name="className">class name of the ancestor</param>
+        /// <param name="controlType">controlType of the ancestor</param>
+        /// <param name="automationId">automation id of the ancestor</param>
+        /// <param name="name">(optional) name of the element</param>
+        /// <returns>true if it is</returns>
+        public static bool IsElementByAutomationId(AutomationElement focusedElement,
+                                                            String className,
+                                                            String controlType,
+                                                            String automationId,
+                                                            String name = "")
+        {
+            bool retVal = (String.Compare(focusedElement.Current.ClassName, className, true) == 0 &&
+                    String.Compare(focusedElement.Current.ControlType.ProgrammaticName, controlType, true) == 0 &&
+                    String.Compare(focusedElement.Current.AutomationId, automationId, true) == 0);
+
+            if (!String.IsNullOrEmpty(name))
+            {
+                retVal = (String.Compare(focusedElement.Current.Name, name, true) == 0);
+            }
+
+            return retVal;
         }
 
         /// <summary>
@@ -415,45 +496,6 @@ namespace ACAT.Lib.Core.AgentManagement
                 }
             }
             return false;
-        }
-
-        /// <summary>
-        /// Inserts the specified string value into the control
-        /// referenced by the element
-        /// </summary>
-        /// <param name="element">the element into which to insert text</param>
-        /// <param name="value">text to insert</param>
-        public static void InsertTextIntoElement(AutomationElement element, string value)
-        {
-            if (element == null || value == null)
-            {
-                return;
-            }
-
-            try
-            {
-                if (!element.Current.IsEnabled || !element.Current.IsKeyboardFocusable)
-                {
-                    Log.Debug("Control not enabled or keyboard focusable. AutomationID " + element.Current.AutomationId);
-                    return;
-                }
-
-                object valuePattern;
-                if (!element.TryGetCurrentPattern(ValuePattern.Pattern, out valuePattern))
-                {
-                    element.SetFocus();
-                    SendKeys.SendWait(value);
-                }
-                else
-                {
-                    element.SetFocus();
-                    ((ValuePattern)valuePattern).SetValue(value);
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.Debug(ex.ToString());
-            }
         }
     }
 }

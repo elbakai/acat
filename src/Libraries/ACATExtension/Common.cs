@@ -20,6 +20,7 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using ACAT.Lib.Core.PanelManagement;
 using ACAT.Lib.Core.Utility;
 
@@ -76,6 +77,8 @@ namespace ACAT.Lib.Extension
         /// </summary>
         public static void Init()
         {
+            var assembly = Assembly.GetExecutingAssembly();
+            Log.Debug("Assembly name: " + assembly.FullName);
         }
 
         /// <summary>
@@ -99,17 +102,16 @@ namespace ACAT.Lib.Extension
         }
 
         /// <summary>
-        /// Event handler for when the screen manager initializes. Add any
-        /// Scanners in this library to the screen manager cache. This is because
-        /// the screen manager only looks at the extension folders for scanners and
-        /// this DLL does not reside int he extension folder.
+        /// Event handler for when the Panel Manager initializes. Add any
+        /// Scanners in this library to the Panel Manager cache. This is because
+        /// the Panel Manager only looks at the extension folders for scanners and
+        /// this DLL does not reside in the extension folder.
         /// </summary>
         /// <param name="sender">event sender</param>
         /// <param name="e">event arg</param>
         private static void AppPanelManager_EvtStartupAddForms(object sender, EventArgs e)
         {
-            Context.AppPanelManager.AddFormToCache(typeof(ContextualMenuMinimal));
-            Context.AppPanelManager.AddFormToCache(typeof(ContextualMenu));
+            Context.AppPanelManager.AddFormToCache(typeof(MenuPanel));
         }
     }
 }

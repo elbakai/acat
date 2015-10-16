@@ -59,7 +59,9 @@ namespace ACAT.Lib.Core.Extensions
 {
     /// <summary>
     /// Interface to enable callers to invoke methods/properties
-    /// and events from a class through reflection.
+    /// and events from a class through reflection.  Derive your
+    /// class from this interface to enable ACAT call methods/properties
+    /// from your class. (see ExtensionInvoker class)
     /// </summary>
     public interface IExtension
     {

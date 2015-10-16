@@ -71,7 +71,9 @@ namespace ACAT.Extensions.Default.UI.Dialogs
     /// by the animation xml file.  An alternate xml file
     /// can be used where the timer is not specified.
     /// </summary>
-    [DescriptorAttribute("22C1D68A-574F-4512-A0C3-579EA9AADD61", "TimedDialogForm", "Timed Dialog")]
+    [DescriptorAttribute("22C1D68A-574F-4512-A0C3-579EA9AADD61",
+                        "TimedDialogForm",
+                        "Timed Dialog")]
     public partial class TimedDialogForm : Form, IDialogPanel, IExtension
     {
         /// <summary>
@@ -229,7 +231,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Pause the scanner
+        /// Pauses the scanner
         /// </summary>
         public void OnPause()
         {

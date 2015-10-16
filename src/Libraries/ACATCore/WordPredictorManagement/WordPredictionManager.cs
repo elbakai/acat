@@ -62,11 +62,11 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Core.WordPredictionManagement
 {
     /// <summary>
-    /// Manages word prediction engines.  The engines are essentially DLLs
+    /// Manages word prediction engines.  The engines are  DLLs
     /// located in the WordPredictors folder in one of the extension directories.
     /// All engines derive from the IWordPredictor interface.  This class looks
     /// for these DLL's and maintains a list of available word predictors.  The
-    /// app can also set the active word predictor.
+    /// app sets the preferred word predcitor to use.
     /// This is a singleton instance class
     /// </summary>
     public class WordPredictionManager : IDisposable
@@ -253,7 +253,7 @@ namespace ACAT.Lib.Core.WordPredictionManagement
             }
 
             Type type = Guid.Equals(idOrName, Guid.Empty) ?
-                            type = typeof(NullWordPredictor) :
+                            typeof(NullWordPredictor) :
                             _wordPredictors.Lookup(guid);
 
             if (type != null)
@@ -316,11 +316,11 @@ namespace ACAT.Lib.Core.WordPredictionManagement
         /// specified type and makes it the active one.  If it fails,
         /// it set the null word predictor as the active one.
         /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
+        /// <param name="type">Type of the word predictor class</param>
+        /// <returns>true</returns>
         private bool createAndSetActiveWordPredictor(Type type)
         {
-            bool retVal = true;
+            bool retVal;
 
             try
             {

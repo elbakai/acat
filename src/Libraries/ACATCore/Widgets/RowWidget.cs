@@ -61,7 +61,9 @@ using ACAT.Lib.Core.WidgetManagement;
 namespace ACAT.Lib.Core.Widgets
 {
     /// <summary>
-    /// Represents a 'row' of widgets
+    /// Represents a 'row' of widgets.  The Row is typically
+    /// a TableLayoutPanel with one row and multiple columns.
+    /// Each column will host a Button (or any other .NET control)
     /// </summary>
     public class RowWidget : Widget, IRowWidget
     {
@@ -75,7 +77,7 @@ namespace ACAT.Lib.Core.Widgets
         }
 
         /// <summary>
-        /// Turn highlight off
+        /// Turns highlight off
         /// </summary>
         /// <returns>true</returns>
         protected override bool highlightOff()
@@ -88,7 +90,7 @@ namespace ACAT.Lib.Core.Widgets
         }
 
         /// <summary>
-        /// Turn highlight on
+        /// Turns highlight on
         /// </summary>
         /// <returns>true</returns>
         protected override bool highlightOn()

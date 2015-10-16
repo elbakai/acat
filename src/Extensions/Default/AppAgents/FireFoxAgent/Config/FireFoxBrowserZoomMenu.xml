@@ -1,20 +1,24 @@
 ﻿<?xml version="1.0" ?>
+<!DOCTYPE ACAT [
+  <!ENTITY usebold "false">
+  <!ENTITY buttonFontName "Arial">
+]>
 
 <ACAT>
   <WidgetAttributes>
-    <WidgetAttribute name="ContextMenuTitle" label="" value="" fontsize="20" fontname="Arial" mouseClickActuate="false"/>
+    <WidgetAttribute name="ContextMenuTitle" label="" value="" fontsize="20" fontname="&buttonFontName;" mouseClickActuate="false" bold="&usebold;"/>
 
-    <WidgetAttribute name="ItemIcon1" label=" " value="@CmdGoBack" fontsize="20" fontname="Arial" mouseClickActuate="true"/>
-    <WidgetAttribute name="ItemText1" label="(" value="@CmdGoBack" fontsize="18" fontname="ACAT Icon" mouseClickActuate="true"/>
+    <WidgetAttribute name="ItemIcon1" label=" " value="@CmdGoBack" fontsize="20" fontname="&buttonFontName;"  bold="&usebold;"/>
+    <WidgetAttribute name="ItemText1" label="&#x75;" value="@CmdGoBack" fontsize="18" fontname="ACAT Icon"  bold="&usebold;"/>
 
-    <WidgetAttribute name="ItemIcon2" label="Q" value="@CmdZoomFit" fontsize="20" fontname="ACAT Alpha" mouseClickActuate="true"/>
-    <WidgetAttribute name="ItemText2" label="Zoom Fit" value="@CmdZoomFit" fontsize="18" fontname="Arial" mouseClickActuate="true"/>
+    <WidgetAttribute name="ItemIcon2" label="Q" value="@CmdZoomFit" fontsize="20" fontname="ACAT Alpha"  bold="&usebold;"/>
+    <WidgetAttribute name="ItemText2" label="Zoom Fit" value="@CmdZoomFit" fontsize="18" fontname="&buttonFontName;"  bold="&usebold;"/>
 
-    <WidgetAttribute name="ItemIcon3" label="$" value="@CmdZoomIn" fontsize="20" fontname="ACAT Icon" mouseClickActuate="true"/>
-    <WidgetAttribute name="ItemText3" label="Zoom In" value="@CmdZoomIn" fontsize="18" fontname="Arial" mouseClickActuate="true"/>
+    <WidgetAttribute name="ItemIcon3" label="$" value="@CmdZoomIn" fontsize="20" fontname="ACAT Icon"  bold="&usebold;"/>
+    <WidgetAttribute name="ItemText3" label="Zoom In" value="@CmdZoomIn" fontsize="18" fontname="&buttonFontName;"  bold="&usebold;"/>
 
-    <WidgetAttribute name="ItemIcon4" label="#" value="@CmdZoomOut" fontsize="20" fontname="ACAT Icon" mouseClickActuate="true"/>
-    <WidgetAttribute name="ItemText4" label="Zoom Out" value="@CmdZoomOut" fontsize="18" fontname="Arial" mouseClickActuate="true"/>
+    <WidgetAttribute name="ItemIcon4" label="#" value="@CmdZoomOut" fontsize="20" fontname="ACAT Icon"  bold="&usebold;"/>
+    <WidgetAttribute name="ItemText4" label="Zoom Out" value="@CmdZoomOut" fontsize="18" fontname="&buttonFontName;"  bold="&usebold;"/>
   </WidgetAttributes>
 
   <Layout>

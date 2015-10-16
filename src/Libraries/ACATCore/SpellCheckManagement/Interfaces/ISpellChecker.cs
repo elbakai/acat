@@ -61,7 +61,7 @@ namespace ACAT.Lib.Core.SpellCheckManagement
 {
     /// <summary>
     /// Interface to Word prediction engines.  A word predictor predicts
-    /// the next word using the previous n-words as context.  Some word predictors
+    /// the next word using the previous words as context.  Some word predictors
     /// also support learning where the engine tunes its internal model for
     /// more accurate predictions based on the user.
     /// </summary>

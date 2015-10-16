@@ -66,10 +66,20 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Extension.AppAgents.Firefox
 {
     /// <summary>
-    /// Application agent base class for the Firefox Broswer
+    /// Base class for application agent for the FireFox browser. Enables
+    /// easy browing of web pages, page up, page down, go back, forward,
+    /// search etc.
     /// </summary>
     public class FireFoxAgentBase : GenericAppAgentBase
     {
+        /// <summary>
+        /// If set to true, the agent will autoswitch the
+        /// scanners depending on which element has focus.
+        /// Eg: Alphabet scanner if an edit text window has focus,
+        /// the contextual menu if the main document has focus
+        /// </summary>
+        protected bool autoSwitchScanners = true;
+
         /// <summary>
         /// Name of the firefox process
         /// </summary>
@@ -87,6 +97,11 @@ namespace ACAT.Lib.Extension.AppAgents.Firefox
             "SelectMode",
             "SwitchAppWindow"
         };
+
+        /// <summary>
+        /// Has the scanner been shown yet?
+        /// </summary>
+        private bool _scannerShown;
 
         /// <summary>
         /// Returns list of processes supported by this agent
@@ -124,13 +139,25 @@ namespace ACAT.Lib.Extension.AppAgents.Firefox
         {
             Log.Debug();
 
-            base.OnFocusChanged(monitorInfo, ref handled);
-            showPanel(this, new PanelRequestEventArgs(PanelClasses.Alphabet, monitorInfo));
+            if (monitorInfo.IsNewWindow)
+            {
+                _scannerShown = false;
+            }
+
+            if (!_scannerShown)
+            {
+                base.OnFocusChanged(monitorInfo, ref handled);
+
+                showPanel(this, new PanelRequestEventArgs((autoSwitchScanners) ? "FireFoxBrowserContextMenu" : PanelClasses.Alphabet, "Firefox", monitorInfo));
+
+                _scannerShown = true;
+            }
+
             handled = true;
         }
 
         /// <summary>
-        /// Invoked to run a command
+        /// Executes the specified command
         /// </summary>
         /// <param name="command">The command to execute</param>
         /// <param name="commandArg">Optional arguments for the command</param>
@@ -202,7 +229,7 @@ namespace ACAT.Lib.Extension.AppAgents.Firefox
         }
 
         /// <summary>
-        /// Creates the text control agent for firefox
+        /// Creates the text control agent for FireFox
         /// </summary>
         /// <param name="handle">Handle to the browser window</param>
         /// <param name="focusedElement">currently focused element</param>

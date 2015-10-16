@@ -1,5 +1,5 @@
 ﻿////////////////////////////////////////////////////////////////////////////
-// <copyright file="AnimationMouseClickEventArgs.cs" company="Intel Corporation">
+// <copyright file="AnimationPlayer.cs" company="Intel Corporation">
 //
 // Copyright (c) 2013-2015 Intel Corporation 
 //
@@ -25,7 +25,6 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Timers;
 using System.Windows.Forms;
-using ACAT.Lib.Core.ActuatorManagement;
 using ACAT.Lib.Core.Audit;
 using ACAT.Lib.Core.Interpreter;
 using ACAT.Lib.Core.PanelManagement;
@@ -194,7 +193,7 @@ namespace ACAT.Lib.Core.AnimationManagement
             Log.Debug("CTOR(" + rootWidget.Name + ")");
             if (rootWidget.UIControl is IPanel)
             {
-                _syncObj = (rootWidget.UIControl as IPanel).SyncObj;
+                _syncObj = ((IPanel) rootWidget.UIControl).SyncObj;
             }
 
             _transitionSync = _syncObj;
@@ -208,6 +207,7 @@ namespace ACAT.Lib.Core.AnimationManagement
             _playerState = PlayerState.Stopped;
             _variables = variables;
             _inTimer = false;
+            IsSwitchActive = false;
         }
 
         /// <summary>
@@ -237,6 +237,8 @@ namespace ACAT.Lib.Core.AnimationManagement
         {
             get { return _highlightedWidget; }
         }
+
+        public bool IsSwitchActive { get; set; }
 
         /// <summary>
         /// Gets the player state
@@ -284,7 +286,7 @@ namespace ACAT.Lib.Core.AnimationManagement
                 (_playerState == PlayerState.Running ||
                 _playerState == PlayerState.Timeout))
             {
-                Log.Debug("Interrupt timer for screen " + _rootWidget.Name);
+                Log.Debug("Interrupt timer for panel " + _rootWidget.Name);
 
                 _timer.Stop();
                 setPlayerState(PlayerState.Interrupted);
@@ -304,7 +306,7 @@ namespace ACAT.Lib.Core.AnimationManagement
                 _playerState == PlayerState.Timeout ||
                 _playerState == PlayerState.Interrupted))
             {
-                Log.Debug("Stop timer for screen " + _rootWidget.Name);
+                Log.Debug("Stop timer for panel " + _rootWidget.Name);
 
                 _timer.Stop();
                 setPlayerState(PlayerState.Paused);
@@ -313,7 +315,7 @@ namespace ACAT.Lib.Core.AnimationManagement
         }
 
         /// <summary>
-        /// Resume paused player and transitions to the
+        /// Resumes paused player and transitions to the
         /// animation
         /// </summary>
         /// <param name="animation">transition to this animation</param>
@@ -333,7 +335,7 @@ namespace ACAT.Lib.Core.AnimationManagement
         }
 
         /// <summary>
-        /// Stop playing the animation sequence
+        /// Stops playing the animation sequence
         /// </summary>
         public void Stop()
         {
@@ -370,7 +372,7 @@ namespace ACAT.Lib.Core.AnimationManagement
         }
 
         /// <summary>
-        /// Transition to the specified target animation. Stops the current
+        /// Transitions to the specified target animation. Stops the current
         /// animation and starts the new one.
         /// </summary>
         /// <param name="animation">Animation to transition to</param>
@@ -708,7 +710,8 @@ namespace ACAT.Lib.Core.AnimationManagement
 
                 // if any switch is currently engaged, keep the current widget
                 // highlighted until the user releases the switch
-                if (ActuatorManager.Instance.IsSwitchActive())
+                //if (ActuatorManager.Instance.IsSwitchActive())
+                if (IsSwitchActive)
                 {
                     Log.Debug("Some switch is active. Will try again");
                     return;
@@ -789,8 +792,6 @@ namespace ACAT.Lib.Core.AnimationManagement
                     {
                         _interpreter.Execute(_highlightedWidget.OnHighlightOff);
                     }
-
-                    _highlightedWidget = null;
                 }
 
                 check();

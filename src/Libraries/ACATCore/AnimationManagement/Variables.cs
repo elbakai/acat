@@ -65,7 +65,7 @@ namespace ACAT.Lib.Core.AnimationManagement
     /// </summary>
     internal class Variables
     {
-        public static string CurrentScreen = "CurrentScreen";
+        public static string CurrentPanel = "CurrentScreen";
         public static string HesitateTime = "HesitateTime";
         public static string SelectedBox = "SelectedBox";
         public static string SelectedButton = "SelectedButton";

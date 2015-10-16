@@ -1,5 +1,5 @@
 ﻿////////////////////////////////////////////////////////////////////////////
-// <copyright file="TTSBookmarkReachedEventArgs.cs" company="Intel Corporation">
+// <copyright file="TTSEngines.cs" company="Intel Corporation">
 //
 // Copyright (c) 2013-2015 Intel Corporation 
 //
@@ -65,7 +65,9 @@ namespace ACAT.Lib.Core.TTSManagement
     /// Maintains a list of TTS engines that were discovered.  The
     /// table it maintains is a mapping bewtween the unique GUID for
     /// each engine and the .NET Type for the class which can be used
-    /// to create an instance of the engine
+    /// to create an instance of the engine.  Discovery is done by
+    /// recursively walking the TTSEngines folder and looking for
+    /// DLL's that contain TTSEngines
     /// </summary>
     public class TTSEngines : IDisposable
     {
@@ -151,7 +153,7 @@ namespace ACAT.Lib.Core.TTSManagement
         }
 
         /// <summary>
-        /// Recursively descend into the the list of directories and cache the
+        /// Recursively descends into the the list of directories and caches the
         /// .NET class Type for each engine.
         /// </summary>
         /// <param name="extensionDirs">directories to explore</param>
@@ -168,7 +170,7 @@ namespace ACAT.Lib.Core.TTSManagement
         }
 
         /// <summary>
-        /// Disposer. Release resources and cleanup.
+        /// Disposer. Releases resources and cleanup.
         /// </summary>
         /// <param name="disposing">true to dispose managed resources</param>
         protected virtual void Dispose(bool disposing)

@@ -69,7 +69,9 @@ namespace ACAT.Lib.Core.Extensions.Base.AppAgents.DLLHostAgent
     /// For now, it supports only Windows Photo Viewer but can be
     /// extended to support other services that DLLHost enables.
     /// </summary>
-    [DescriptorAttribute("5D49B45B-0CD3-4058-BE2A-816A15600FA8", "DLL Host Agent", "App Agent DLL Host (eg Windows Photo Viewer)")]
+    [DescriptorAttribute("5D49B45B-0CD3-4058-BE2A-816A15600FA8",
+                            "DLL Host Agent",
+                            "App Agent DLL Host (eg Windows Photo Viewer)")]
     internal class DLLHostAgent : GenericAppAgentBase
     {
         /// <summary>
@@ -165,28 +167,17 @@ namespace ACAT.Lib.Core.Extensions.Base.AppAgents.DLLHostAgent
                     break;
 
                 case "PhotoViewerZoomMenu":
-                    {
-                        var monitorInfo = WindowActivityMonitor.GetForegroundWindowInfo();
-                        var panelArg = new PanelRequestEventArgs("PhotoViewerZoomMenu", PhotoViewerTitle, monitorInfo)
-                        {
-                            UseCurrentScreenAsParent = true
-                        };
-                        showPanel(this, panelArg);
-                    }
-
+                    showPanel(this, new PanelRequestEventArgs("PhotoViewerZoomMenu",
+                                                                PhotoViewerTitle,
+                                                                WindowActivityMonitor.GetForegroundWindowInfo(),
+                                                                true));
                     break;
 
                 case "PhotoViewerRotateMenu":
-                    {
-                        var monitorInfo = WindowActivityMonitor.GetForegroundWindowInfo();
-                        var panelArg = new PanelRequestEventArgs("PhotoViewerRotateMenu", PhotoViewerTitle, monitorInfo)
-                        {
-                            UseCurrentScreenAsParent = true
-                        };
-
-                        showPanel(this, panelArg);
-                    }
-
+                    showPanel(this, new PanelRequestEventArgs("PhotoViewerRotateMenu",
+                                                                PhotoViewerTitle,
+                                                                WindowActivityMonitor.GetForegroundWindowInfo(),
+                                                                true));
                     break;
 
                 case "CmdZoomIn":

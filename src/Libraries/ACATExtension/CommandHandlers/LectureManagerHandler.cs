@@ -65,7 +65,7 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Extension.CommandHandlers
 {
     /// <summary>
-    /// Launches the Lecture manager
+    /// Launches the Lecture manager functional agent
     /// </summary>
     public class LectureManagerHandler : RunCommandHandler
     {
@@ -95,19 +95,10 @@ namespace ACAT.Lib.Extension.CommandHandlers
         }
 
         /// <summary>
-        /// Which file extensions to exclude from the file browser
-        /// </summary>
-        /// <returns>list of extensions to exclude</returns>
-        private String[] getExcludeExtensions()
-        {
-            return (!String.IsNullOrEmpty(Common.AppPreferences.FileBrowserExcludeFileExtensions)) ?
-                            Common.AppPreferences.FileBrowserExcludeFileExtensions.Split(';') : new String[] { };
-        }
-
-        /// <summary>
         /// Launches the lecture manager.  First launches the
         /// file browser to get lecture file and then launches lecture
-        /// manager with the file.
+        /// manager with the file.  Only text files and word doc files
+        /// are supported.
         /// </summary>
         /// <param name="form">scanner form</param>
         private async void launchLectureManager(Form form)
@@ -122,9 +113,7 @@ namespace ACAT.Lib.Extension.CommandHandlers
 
             fileBrowserAgent.GetInvoker().SetValue("AutoLaunchFile", false);
             fileBrowserAgent.GetInvoker().SetValue("SelectActionOpen", true);
-            fileBrowserAgent.GetInvoker().SetValue("Folders", Common.AppPreferences.GetFavoriteFolders());//.AppPreferences.FavoriteFolders.Split(';'));
-            fileBrowserAgent.GetInvoker().SetValue("IncludeFileExtensions", new[] { "*.", "txt", "doc", "docx" });
-            fileBrowserAgent.GetInvoker().SetValue("ExcludeFileExtensions", getExcludeExtensions());
+            fileBrowserAgent.GetInvoker().SetValue("IncludeFileExtensions", new[] { "txt", "doc", "docx" });
 
             await Context.AppAgentMgr.ActivateAgent(fileBrowserAgent as IFunctionalAgent);
 
@@ -137,7 +126,7 @@ namespace ACAT.Lib.Extension.CommandHandlers
                 if (agent != null)
                 {
                     Windows.CloseForm(form);
-                    IExtension extension = agent as IExtension;
+                    IExtension extension = agent;
                     extension.GetInvoker().SetValue("LoadFromFile", true);
                     extension.GetInvoker().SetValue("LectureFile", selectedFile);
                     Log.Debug("Invoking LectureManager agent");

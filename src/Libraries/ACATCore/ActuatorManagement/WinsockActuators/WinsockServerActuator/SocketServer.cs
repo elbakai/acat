@@ -70,48 +70,40 @@ namespace ACAT.Lib.Core.InputActuators
     /// </summary>
     public class SocketServer
     {
-        public delegate void OnClientConnectedDelegate(object sender, WinsockClientConnectEventArgs e);
-
-        public delegate void OnClientDisconnectedDelegate(object sender, WinsockClientConnectEventArgs e);
-
-        public delegate void OnPacketReceivedDelegate(byte[] packet);
-
-        public delegate void OnSendMsgHandler(object sender, byte[] byteData, int count);
-
-#pragma warning disable
-
-        public delegate void OnServerShutdownHandler();
-
-        private delegate void OnClientListUpdatedHandler(ClientConnHandler clientHandler);
-
-        public static event OnSendMsgHandler OnSendToClient;
-
-#pragma warning restore
         /// <summary>
-        /// Fires when server is stopping. Child threads should listen for this and stop.
+        /// List of clients connected to this socket server
         /// </summary>
-
-#pragma warning disable
-
-        public static event OnServerShutdownHandler OnServerShutdown;
-
-#pragma warning enable
-
-        public event OnClientConnectedDelegate OnClientConnected;
-
-        public event OnClientDisconnectedDelegate OnClientDisconnected;
-
-        public event OnPacketReceivedDelegate OnPacketReceived;
-
-        private event OnClientListUpdatedHandler OnClientListUpdated;
-
         public ListDictionary clientList = new ListDictionary();
+
+        /// <summary>
+        /// IP address to bind to
+        /// </summary>
         private String ipToBind;
+
+        /// <summary>
+        /// The socket listener thread
+        /// </summary>
         private Thread listenThread;
+
+        /// <summary>
+        /// The parent thread
+        /// </summary>
         private Thread parentThread;
+
+        /// <summary>
+        /// Port to listen on
+        /// </summary>
         private int portToBind;
+
+        /// <summary>
+        /// The tcp listnener object
+        /// </summary>
         private TcpListener tcpListener;
-        private Thread workThread;
+
+        /// <summary>
+        /// Thread that listens for incoming connections
+        /// </summary>
+        private Thread workerThread;
 
         /// <summary>
         /// Initializes a new instance of the class.
@@ -131,6 +123,37 @@ namespace ACAT.Lib.Core.InputActuators
             portToBind = listenPort;
             parentThread = Thread.CurrentThread;
         }
+
+        public delegate void OnClientConnectedDelegate(object sender, WinsockClientConnectEventArgs e);
+
+        public delegate void OnClientDisconnectedDelegate(object sender, WinsockClientConnectEventArgs e);
+
+        public delegate void OnPacketReceivedDelegate(byte[] packet);
+
+        public delegate void OnSendMsgHandler(object sender, byte[] byteData, int count);
+
+#pragma warning disable
+
+        public delegate void OnServerShutdownHandler();
+
+        public static event OnSendMsgHandler OnSendToClient;
+
+#pragma warning restore
+        /// <summary>
+        /// Fires when server is stopping. Child threads should listen for this and stop.
+        /// </summary>
+
+#pragma warning disable
+
+        public static event OnServerShutdownHandler OnServerShutdown;
+
+#pragma warning enable
+
+        public event OnClientConnectedDelegate OnClientConnected;
+
+        public event OnClientDisconnectedDelegate OnClientDisconnected;
+
+        public event OnPacketReceivedDelegate OnPacketReceived;
 
         public static IPAddress GetIPToBind()
         {
@@ -180,14 +203,19 @@ namespace ACAT.Lib.Core.InputActuators
             return portToBind;
         }
 
-        public void Send(byte[] byteData, int count)
+        /// <summary>
+        /// Sends data to connected client
+        /// </summary>
+        /// <param name="clientid">client id</param>
+        /// <param name="byteData">data to send</param>
+        /// <param name="count">how many bytes</param>
+        public void Send(String clientid, byte[] byteData, int count)
         {
-            /*
-            if (SpeechTextService.OnSendToClient != null)
+            if (clientList.Contains(clientid))
             {
-                Debug.WriteLine(String.Format("Send {0} bytes to client.", count));
-                OnSendToClient.Invoke(null, byteData, count);
-            }*/
+                var client = (ClientConnHandler)clientList[clientid];
+                client.SendToClient(byteData, count);
+            }
         }
 
         /// <summary>
@@ -199,15 +227,15 @@ namespace ACAT.Lib.Core.InputActuators
         public Thread Start()
         {
             // Set up the service thread for most of the real work.  :)
-            workThread = new Thread(serverThreadMethod) {IsBackground = true};
+            workerThread = new Thread(serverThreadMethod) { IsBackground = true };
             try
             {
-                workThread.Start();
+                workerThread.Start();
             }
             catch (Exception exc)
             {
                 Log.Error("Couldn't start the SocketServer main working thread." + exc.StackTrace);
-                workThread = null;
+                workerThread = null;
             }
 
             return parentThread;
@@ -236,10 +264,10 @@ namespace ACAT.Lib.Core.InputActuators
                 listenThread.Abort();
                 listenThread = null;
             }
-            if (workThread != null)
+            if (workerThread != null)
             {
-                workThread.Abort();
-                workThread = null;
+                workerThread.Abort();
+                workerThread = null;
             }
         }
 
@@ -253,7 +281,7 @@ namespace ACAT.Lib.Core.InputActuators
             ClientConnHandler clientConn = (ClientConnHandler)sender;
             if (status == ClientConnHandler.ConnectionStatus.Disconnected)
             {
-                this.OnClientDisconnected(this, new WinsockClientConnectEventArgs(clientConn.ID, clientConn.ClientIPAddress));
+                OnClientDisconnected(this, new WinsockClientConnectEventArgs(clientConn.ID, clientConn.ClientIPAddress));
                 clientConn.OnClientConnStatusChanged -= connHandler_OnClientConnStatusChanged;
                 clientList.Remove(clientConn.ID);
             }
@@ -262,20 +290,20 @@ namespace ACAT.Lib.Core.InputActuators
                 OnClientConnected(this, new WinsockClientConnectEventArgs(clientConn.ID, clientConn.ClientIPAddress));
                 clientList.Add(clientConn.ID, clientConn);
             }
-
-            if (OnClientListUpdated != null)
-            {
-                OnClientListUpdated.Invoke(clientConn);
-            }
         }
 
+        /// <summary>
+        /// Invoked when data is received
+        /// </summary>
+        /// <param name="packet">the data received</param>
         private void connHandler_OnPacketReceived(byte[] packet)
         {
             OnPacketReceived(packet);
         }
 
         /// <summary>
-        /// Accept all incoming requests and create a handler thread to deal with the communication.
+        /// Accepts all incoming requests and creates a handler thread 
+        /// to deal with the communication.
         /// </summary>
         private void ListenForClients()
         {
@@ -316,7 +344,7 @@ namespace ACAT.Lib.Core.InputActuators
                     if (!String.IsNullOrEmpty(connHandler.ID))
                     {
                         connHandler.OnClientConnStatusChanged += connHandler_OnClientConnStatusChanged;
-                        connHandler.WorkerThread = new Thread(connHandler.WorkerThreadMethod) {IsBackground = true};
+                        connHandler.WorkerThread = new Thread(connHandler.WorkerThreadMethod) { IsBackground = true };
                         connHandler.WorkerThread.Start();
                     }
                 }
@@ -332,12 +360,10 @@ namespace ACAT.Lib.Core.InputActuators
         /// </summary>
         private void serverThreadMethod()
         {
-            IPAddress ipaddr = GetIPToBind(ipToBind);
             int port = GetPortToBind();
 
-            // TODO: Support selecting ports
             tcpListener = new TcpListener(IPAddress.Any, port);
-            listenThread = new Thread(ListenForClients) {IsBackground = true};
+            listenThread = new Thread(ListenForClients) { IsBackground = true };
             try
             {
                 listenThread.Start();
@@ -347,12 +373,11 @@ namespace ACAT.Lib.Core.InputActuators
                 Log.Error("SERVER: Couldn't start TCP Listener, exiting the app. " + se.StackTrace);
                 return;
             }
-            catch (Exception exc)
+            catch (Exception ex)
             {
-                // Need to stop the service somehow.  A caught exception will stop
-                // the service.  So, just throw the exception
-                throw exc;
+                throw ex;
             }
+
             string startMessage = String.Format("SERVER: Listener Started on {0}:{1}",
                 ((IPEndPoint)tcpListener.LocalEndpoint).Address,
                 ((IPEndPoint)tcpListener.LocalEndpoint).Port);

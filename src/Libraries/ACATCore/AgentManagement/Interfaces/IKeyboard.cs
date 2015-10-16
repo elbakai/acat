@@ -61,7 +61,8 @@ using System.Windows.Forms;
 namespace ACAT.Lib.Core.AgentManagement
 {
     /// <summary>
-    /// Interface to send keystrokes to the active application
+    /// Interface to send keystrokes to the active application by
+    /// inserting them into the Windows keyboard buffer.
     /// </summary>
     public interface IKeyboard : IDisposable
     {

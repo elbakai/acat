@@ -27,6 +27,7 @@ using System.Text;
 using System.Windows.Forms;
 using ACAT.Lib.Core.Extensions;
 using ACAT.Lib.Core.PanelManagement;
+using ACAT.Lib.Core.UserManagement;
 using ACAT.Lib.Core.Utility;
 using ACAT.Lib.Core.WidgetManagement;
 
@@ -68,14 +69,16 @@ using ACAT.Lib.Core.WidgetManagement;
 namespace ACAT.Extensions.Default.UI.Dialogs
 {
     /// <summary>
-    /// Displays the about box with infor about the application,
-    /// copyright and 3rd Party attributions.
+    /// Displays the about box with information about the application,
+    /// version, copyright and 3rd Party attributions.
     /// </summary>
-    [DescriptorAttribute("F9A367F9-F9C4-4CF6-BDE7-6995675E1BE4", "AboutBoxForm", "About box")]
+    [DescriptorAttribute("F9A367F9-F9C4-4CF6-BDE7-6995675E1BE4",
+                        "AboutBoxForm",
+                        "About box")]
     public partial class AboutBoxForm : Form, IDialogPanel, IExtension
     {
         /// <summary>
-        /// The dialogCommon object
+        /// The DialogCommon object
         /// </summary>
         private readonly DialogCommon _dialogCommon;
 
@@ -300,7 +303,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Handle the command. There is only the OK
+        /// Handles the command. There is only the OK
         /// button that we have to handle
         /// </summary>
         /// <param name="command">command to execute</param>
@@ -348,9 +351,18 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         /// <param name="e">event args</param>
         private void Form_Load(object sender, EventArgs e)
         {
+            updateUserProfileInfo();
             _dialogCommon.OnLoad();
 
             _dialogCommon.GetAnimationManager().Start(_dialogCommon.GetRootWidget());
+        }
+
+        /// <summary>
+        /// Updates user/profile info on the form
+        /// </summary>
+        private void updateUserProfileInfo()
+        {
+            labelUserProfileInfo.Text = "User: " + UserManager.CurrentUser + ", Profile: " + ProfileManager.CurrentProfile;
         }
     }
 }

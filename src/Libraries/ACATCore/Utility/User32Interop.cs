@@ -61,7 +61,7 @@ using System.Text;
 namespace ACAT.Lib.Core.Utility
 {
     /// <summary>
-    /// Interface to user32.dll functions
+    /// PInvoke interface to user32.dll functions
     /// </summary>
     public class User32Interop
     {
@@ -205,6 +205,9 @@ namespace ACAT.Lib.Core.Utility
         [DllImport("user32.dll", SetLastError = true)]
         public static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
 
+        [DllImportAttribute("user32.dll", EntryPoint = "GetWindowThreadProcessId")]
+        public static extern int GetWindowThreadProcessId([InAttribute()] IntPtr handle, out int lpdwProcessId);
+
         [DllImport("user32.dll", EntryPoint = "EnumDesktopWindows", ExactSpelling = false, CharSet = CharSet.Auto, SetLastError = true)]
         public static extern bool EnumDesktopWindows(IntPtr hDesktop, EnumDelegate lpEnumCallbackFunction, IntPtr lParam);
 
@@ -262,6 +265,15 @@ namespace ACAT.Lib.Core.Utility
 
         [DllImport("user32.dll")]
         public static extern IntPtr GetKeyboardLayout(uint idThread);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        public static extern bool AppendMenu(IntPtr hMenu, int uFlags, int uIDNewItem, string lpNewItem);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        public static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        public static extern bool InsertMenu(IntPtr hMenu, int uPosition, int uFlags, int uIDNewItem, string lpNewItem);
 
         [StructLayout(LayoutKind.Sequential)]
         public struct INPUT

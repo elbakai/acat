@@ -57,10 +57,20 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace ACAT.Lib.Core.Utility
 {
+    /// <summary>
+    /// Stores global variables of the ACAT Core library
+    /// </summary>
     public class CoreGlobals
     {
+        /// <summary>
+        /// The global preferences that spans applications (eg username,
+        /// profilename)
+        /// </summary>
         public static GlobalPreferences AppGlobalPreferences { get; set; }
 
+        /// <summary>
+        /// Application sepecific preferences
+        /// </summary>
         public static Preferences AppPreferences { get; set; }
     }
 }

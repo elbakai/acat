@@ -74,7 +74,8 @@ namespace ACAT.Lib.Extension
     /// This is a helper class exclusively for Alphabet scanners.
     /// It does a lot of the heavy lifting required for word predictions
     /// for instance.  This eases coding for Alphabet scanners.
-    /// Create an object of this type in the Alphabet scanner class
+    /// Create an object of this type in the Alphabet scanner class and call
+    /// the functions here when needed
     /// </summary>
     public class AlphabetScannerCommon : IDisposable
     {
@@ -264,6 +265,8 @@ namespace ACAT.Lib.Extension
         {
             Log.Debug();
 
+            KeyStateTracker.EvtKeyStateChanged -= KeyStateTracker_EvtKeyStateChanged;
+
             _scannerCommon.OnClosing();
             _scannerCommon.Dispose();
         }
@@ -303,6 +306,7 @@ namespace ACAT.Lib.Extension
 
             _currentWordWidget = (CurrentWordWidget)_rootWidget.Finder.FindChild(typeof(CurrentWordWidget));
             _wordListWidgetWidget = (WordListWidget)_rootWidget.Finder.FindChild(typeof(WordListWidget));
+            KeyStateTracker.EvtKeyStateChanged += KeyStateTracker_EvtKeyStateChanged;
 
             if (!_scannerCommon.PreviewMode)
             {
@@ -377,7 +381,6 @@ namespace ACAT.Lib.Extension
                     {
                         KeyStateTracker.ClearAlt();
                         KeyStateTracker.ClearCtrl();
-                        KeyStateTracker.ClearFunc();
 
                         _scannerCommon.AutoCompleteWord(wordSelected);
                         AuditLog.Audit(new AuditEventAutoComplete(widget.Name));
@@ -401,12 +404,28 @@ namespace ACAT.Lib.Extension
         }
 
         /// <summary>
+        /// Saves the current scale setting
+        /// </summary>
+        public void SaveScaleSetting()
+        {
+            _scannerCommon.PositionSizeController.SaveScaleSetting(ACATPreferences.Load());
+        }
+
+        /// <summary>
         /// Saves current size/position settings. Call this in the SaveSettings
         /// function in the Alphabet scanner.
         /// </summary>
         public void SaveSettings()
         {
-            _scannerCommon.PositionSizeController.SaveSettings();
+            _scannerCommon.PositionSizeController.SaveSettings(ACATPreferences.Load());
+        }
+
+        /// <summary>
+        /// Sets the default scale factor
+        /// </summary>
+        public void ScaleDefault()
+        {
+            _scannerCommon.PositionSizeController.ScaleDefault();
         }
 
         /// <summary>
@@ -432,13 +451,13 @@ namespace ACAT.Lib.Extension
         /// </summary>
         /// <param name="m">windows message</param>
         [EnvironmentPermissionAttribute(SecurityAction.LinkDemand, Unrestricted = true)]
-        public void WndProc(ref Message m)
+        public bool WndProc(ref Message m)
         {
-            _scannerCommon.HandleWndProc(m);
+            return _scannerCommon.HandleWndProc(m);
         }
 
         /// <summary>
-        /// Disposer. Release resources and cleanup.
+        /// Disposer. Releases resources and cleanup.
         /// </summary>
         /// <param name="disposing">true to dispose managed resources</param>
         protected virtual void Dispose(bool disposing)
@@ -460,7 +479,7 @@ namespace ACAT.Lib.Extension
         }
 
         /// <summary>
-        /// Something changed in the output text window.  Set the
+        /// Something changed in the output text window.  Sest the
         /// word in the "CurrentWordWidget" box and do a fresh
         /// word prediction
         /// </summary>
@@ -523,6 +542,30 @@ namespace ACAT.Lib.Extension
             }
 
             return text;
+        }
+
+        /// <summary>
+        /// Some modifier key was pressed. Handled it.
+        /// </summary>
+        private void KeyStateTracker_EvtKeyStateChanged()
+        {
+            try
+            {
+                // turn off select mode.  If select mode is on,
+                // as the user moves the cursor, ACAT selects
+                // text in the target window
+                if (!KeyStateTracker.IsShiftOn())
+                {
+                    using (AgentContext context = Context.AppAgentMgr.ActiveContext())
+                    {
+                        context.TextAgent().SetSelectMode(false);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Exception(ex);
+            }
         }
 
         /// <summary>
@@ -596,7 +639,10 @@ namespace ACAT.Lib.Extension
 
                 if (String.IsNullOrEmpty(nwords) && String.IsNullOrEmpty(wordAtCaret))
                 {
-                    _currentWordWidget.SetCurrentWord(String.Empty);
+                    if (_currentWordWidget != null)
+                    {
+                        _currentWordWidget.SetCurrentWord(String.Empty);
+                    }
 
                     _wordListWidgetWidget.ClearEntries();
 
@@ -666,7 +712,13 @@ namespace ACAT.Lib.Extension
                 if (!String.IsNullOrEmpty(possessiveWord) &&
                     !contains(predictedWordList, ii, possessiveWord))
                 {
+                    if (ii == 0)
+                    {
+                        ii++;
+                    }
+
                     int index = ii - 1;
+
                     var text = formatWord(index + 1, possessiveWord);
 
                     _wordListWidgetWidget.Children.ElementAt(index).SetText(text);
@@ -708,7 +760,9 @@ namespace ACAT.Lib.Extension
                 Commands.Add(new ShowScannerHandler(alphabetScannerCommon, "CmdMouseScanner"));
                 Commands.Add(new ShowScannerHandler(alphabetScannerCommon, "CmdCursorScanner"));
                 Commands.Add(new ShowScannerHandler(alphabetScannerCommon, "CmdPunctuationScanner"));
-                Commands.Add(new ShowScannerHandler(alphabetScannerCommon, "CmdWindowPosSizeContextMenu"));
+                Commands.Add(new ShowScannerHandler(alphabetScannerCommon, "CmdWindowPosSizeMenu"));
+                Commands.Add(new ShowScannerHandler(alphabetScannerCommon, "CmdNumberScanner"));
+                Commands.Add(new ShowScannerHandler(alphabetScannerCommon, "CmdFunctionKeyScanner"));
             }
         }
 
@@ -749,14 +803,16 @@ namespace ACAT.Lib.Extension
                     case "CmdPunctuationScanner":
                     case "CmdCursorScanner":
                     case "CmdMouseScanner":
+                    case "CmdNumberScanner":
+                    case "CmdFunctionKeyScanner":
                         // don't close the talk window
                         _alphabetScannerCommon._scannerCommon.KeepTalkWindowActive = true;
                         base.Execute(ref handled);
                         break;
 
-                    case "CmdWindowPosSizeContextMenu":
+                    case "CmdWindowPosSizeMenu":
                         {
-                            var panel = Context.AppPanelManager.CreatePanel("WindowPosSizeContextMenu", "Window") as IPanel;
+                            var panel = Context.AppPanelManager.CreatePanel("WindowPosSizeMenu", "Window") as IPanel;
                             if (panel != null)
                             {
                                 Context.AppPanelManager.Show(form as IPanel, panel);

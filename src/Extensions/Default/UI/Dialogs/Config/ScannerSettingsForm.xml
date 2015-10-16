@@ -2,34 +2,34 @@
 
 <ACAT>
 	<WidgetAttributes>
-    <WidgetAttribute name="lblOK" label="OK" value="valButtonSave"  fontsize="14" mouseClickActuate="true"/>
-		<WidgetAttribute name="lblBack" label="Cancel" value="valButtonBack"  fontsize="14"  mouseClickActuate="true"/>
-    <WidgetAttribute name="lblRestoreDefaults" label="Defaults" value="valButtonRestoreDefaults" fontsize="14"  mouseClickActuate="true" />
+    <WidgetAttribute name="lblOK" label="OK" value="valButtonSave"  fontsize="14" bold="false"/>
+		<WidgetAttribute name="lblBack" label="Cancel" value="valButtonBack"  fontsize="14"  bold="false"/>
+    <WidgetAttribute name="lblRestoreDefaults" label="Defaults" value="valButtonRestoreDefaults" fontsize="14"  bold="false" />
     
-    <WidgetAttribute name="lblSelectingClick" label="Beep On Select" fontsize="14" value="valSelectingClick"/>
-    <WidgetAttribute name="pbSelectingClick" label="M" value="valCheckSelectingClick" fontname="ACAT Icon" fontsize="32" bold="false" mouseClickActuate="true"/>
+    <WidgetAttribute name="lblSelectingClick" label="Beep On Select" fontsize="16" value="valSelectingClick" bold="false" mouseClickActuate="false"/>
+    <WidgetAttribute name="pbSelectingClick" label="M" value="valCheckSelectingClick" fontname="ACAT Icon" fontsize="32" bold="false" />
 
-    <WidgetAttribute name="lblEveryHalfLess" label="O" value="valButtonEveryHalfLess" fontname="ACAT Icon" fontsize="36"  bold="false" mouseClickActuate="true"/>
-    <WidgetAttribute name="lblEveryHalfMore" label="N" value="valButtonEveryHalfMore" fontname="ACAT Icon" fontsize="36"  bold="false" mouseClickActuate="true"/>
-    <WidgetAttribute name="lblEveryRowLess" label="O" value="valButtonEveryRowLess" fontname="ACAT Icon" fontsize="36" bold="false" mouseClickActuate="true"/>
-    <WidgetAttribute name="lblEveryRowMore" label="N" value="valButtonEveryRowMore" fontname="ACAT Icon" fontsize="36" bold="false" mouseClickActuate="true"/>
-    <WidgetAttribute name="lblEveryColumnLess" label="O" value="valButtonEveryColumnLess" fontname="ACAT Icon" bold="false" fontsize="36" mouseClickActuate="true"/>
-    <WidgetAttribute name="lblEveryColumnMore" label="N" value="valButtonEveryColumnMore" fontname="ACAT Icon" bold="false" fontsize="36" mouseClickActuate="true"/>
-    <WidgetAttribute name="lblWordPredictionLess" label="O" value="valButtonWordPredictionLess" fontname="ACAT Icon" bold="false" fontsize="36" mouseClickActuate="true"/>
-    <WidgetAttribute name="lblWordPredictionMore" label="N" value="valButtonWordPredictionMore" fontname="ACAT Icon" bold="false" fontsize="36" mouseClickActuate="true"/>
+    <WidgetAttribute name="lblEveryHalfLess" label="O" value="valButtonEveryHalfLess" fontname="ACAT Icon" fontsize="36"  bold="false" />
+    <WidgetAttribute name="lblEveryHalfMore" label="N" value="valButtonEveryHalfMore" fontname="ACAT Icon" fontsize="36"  bold="false" />
+    <WidgetAttribute name="lblEveryRowLess" label="O" value="valButtonEveryRowLess" fontname="ACAT Icon" fontsize="36" bold="false" />
+    <WidgetAttribute name="lblEveryRowMore" label="N" value="valButtonEveryRowMore" fontname="ACAT Icon" fontsize="36" bold="false" />
+    <WidgetAttribute name="lblEveryColumnLess" label="O" value="valButtonEveryColumnLess" fontname="ACAT Icon" bold="false" fontsize="36" />
+    <WidgetAttribute name="lblEveryColumnMore" label="N" value="valButtonEveryColumnMore" fontname="ACAT Icon" bold="false" fontsize="36" />
+    <WidgetAttribute name="lblWordPredictionLess" label="O" value="valButtonWordPredictionLess" fontname="ACAT Icon" bold="false" fontsize="36" />
+    <WidgetAttribute name="lblWordPredictionMore" label="N" value="valButtonWordPredictionMore" fontname="ACAT Icon" bold="false" fontsize="36" />
     
-    <WidgetAttribute name="ltbAcceptTimeLess" label="O" value="valButtonAcceptTimeLess" fontname="ACAT Icon" fontsize="36" bold="false" mouseClickActuate="true"/>
-    <WidgetAttribute name="ltbAcceptTimeMore" label="N" value="valButtonAcceptTimeMore" fontname="ACAT Icon" fontsize="36" bold="false" mouseClickActuate="true"/>
-    <WidgetAttribute name="ltbSteppingLess" label="O" value="valButtonSteppingLess" fontname="ACAT Icon" fontsize="36" bold="false" mouseClickActuate="true"/>
-    <WidgetAttribute name="ltbSteppingMore" label="N" value="valButtonSteppingMore" fontname="ACAT Icon" fontsize="36" bold="false" mouseClickActuate="true"/>
-    <WidgetAttribute name="ltbHesitateLess" label="O" value="valButtonSteppingMore" fontname="ACAT Icon" fontsize="36" bold="false" mouseClickActuate="true"/>
-    <WidgetAttribute name="ltbHesitateMore" label="N" value="valButtonHesitateMore" fontname="ACAT Icon" fontsize="36" bold="false" mouseClickActuate="true"/>
-    <WidgetAttribute name="ltbWordListHesitateLess" label="O" value="valButtonSteppingMore" fontname="ACAT Icon" fontsize="36" bold="false" mouseClickActuate="true"/>
-    <WidgetAttribute name="ltbWordListHesitateMore" label="N" value="valButtonHesitateMore" fontname="ACAT Icon" fontsize="36" bold="false" mouseClickActuate="true"/>
-    <WidgetAttribute name="ltbTabScanLess" label="O" value="valTabScanLess" fontname="ACAT Icon" fontsize="36" bold="false" mouseClickActuate="true"/>
-    <WidgetAttribute name="ltbTabScanMore" label="N" value="valTabScanMore" fontname="ACAT Icon" fontsize="36" bold="false" mouseClickActuate="true"/>
-    <WidgetAttribute name="ltbFirstRepeatLess" label="O" value="valFirstRepeatLess" fontname="ACAT Icon" fontsize="36" bold="false" mouseClickActuate="true"/>
-    <WidgetAttribute name="ltbFirstRepeatMore" label="N" value="valFirstRepeatMore" fontname="ACAT Icon" fontsize="36" bold="false" mouseClickActuate="true"/>
+    <WidgetAttribute name="ltbAcceptTimeLess" label="O" value="valButtonAcceptTimeLess" fontname="ACAT Icon" fontsize="36" bold="false" />
+    <WidgetAttribute name="ltbAcceptTimeMore" label="N" value="valButtonAcceptTimeMore" fontname="ACAT Icon" fontsize="36" bold="false" />
+    <WidgetAttribute name="ltbSteppingLess" label="O" value="valButtonSteppingLess" fontname="ACAT Icon" fontsize="36" bold="false" />
+    <WidgetAttribute name="ltbSteppingMore" label="N" value="valButtonSteppingMore" fontname="ACAT Icon" fontsize="36" bold="false" />
+    <WidgetAttribute name="ltbHesitateLess" label="O" value="valButtonSteppingMore" fontname="ACAT Icon" fontsize="36" bold="false" />
+    <WidgetAttribute name="ltbHesitateMore" label="N" value="valButtonHesitateMore" fontname="ACAT Icon" fontsize="36" bold="false" />
+    <WidgetAttribute name="ltbWordListHesitateLess" label="O" value="valButtonSteppingMore" fontname="ACAT Icon" fontsize="36" bold="false" />
+    <WidgetAttribute name="ltbWordListHesitateMore" label="N" value="valButtonHesitateMore" fontname="ACAT Icon" fontsize="36" bold="false" />
+    <WidgetAttribute name="ltbTabScanLess" label="O" value="valTabScanLess" fontname="ACAT Icon" fontsize="36" bold="false" />
+    <WidgetAttribute name="ltbTabScanMore" label="N" value="valTabScanMore" fontname="ACAT Icon" fontsize="36" bold="false" />
+    <WidgetAttribute name="ltbFirstRepeatLess" label="O" value="valFirstRepeatLess" fontname="ACAT Icon" fontsize="36" bold="false" />
+    <WidgetAttribute name="ltbFirstRepeatMore" label="N" value="valFirstRepeatMore" fontname="ACAT Icon" fontsize="36" bold="false" />
 	</WidgetAttributes>
 
   <Layout>
@@ -40,7 +40,7 @@
       <Widget class="CheckBoxWidget" name="pbSelectingClick" onStateText="L" offStateText="M" onOffState="on" />
       <Widget class="LabelWidget" name="lblSelectingClick" />
 
-    <Widget class="SliderWidget" name="tbEveryHalf" min="1" max="10" initialvalue="5" tickfrequency="1" step="1" caption="Every Half">
+    <Widget class="SliderWidget" name="tbEveryHalf" min="1" max="10" initialvalue="5" tickfrequency="1" step="1" caption="Grid">
         <Widget class="LabelWidget" name="lblEveryHalfLess" subclass="sliderdecrement"/>
         <Widget class="LabelWidget" name="lblEveryHalfMore" subclass="sliderincrement"/>
         <Widget class="WinControlWidget" name="tbEveryHalf"/>
@@ -50,7 +50,7 @@
         <Widget class="WinControlWidget" name="svalEveryHalf" subclass="slidercurrentvalue" />
       </Widget>
 
-      <Widget class="SliderWidget" name="tbEveryRow" min="1" max="10" initialvalue="5" tickfrequency="1" step="1" caption="Every Row">
+      <Widget class="SliderWidget" name="tbEveryRow" min="1" max="10" initialvalue="5" tickfrequency="1" step="1" caption="Rows">
         <Widget class="LabelWidget" name="lblEveryRowLess" subclass="sliderdecrement"/>
         <Widget class="LabelWidget" name="lblEveryRowMore" subclass="sliderincrement"/>
         <Widget class="WinControlWidget" name="tbEveryRow"/>
@@ -60,7 +60,7 @@
         <Widget class="WinControlWidget" name="svalEveryRow" subclass="slidercurrentvalue" />
       </Widget>
 
-      <Widget class="SliderWidget" name="tbEveryColumn" min="1" max="10" initialvalue="5" tickfrequency="1" step="1" caption="Every Column">
+      <Widget class="SliderWidget" name="tbEveryColumn" min="1" max="10" initialvalue="5" tickfrequency="1" step="1" caption="Columns">
         <Widget class="LabelWidget" name="lblEveryColumnLess" subclass="sliderdecrement"/>
         <Widget class="LabelWidget" name="lblEveryColumnMore" subclass="sliderincrement"/>
         <Widget class="WinControlWidget" name="tbEveryColumn"/>
@@ -80,7 +80,7 @@
         <Widget class="WinControlWidget" name="svalWordPrediction" subclass="slidercurrentvalue" />
       </Widget>
         
-        <Widget class="SliderWidget" name="tbAcceptTime" min="0" max="2" initialvalue="1" tickfrequency="0.5" step="0.05" caption="Accept Time">
+        <Widget class="SliderWidget" name="tbAcceptTime" min="0" max="2" initialvalue="1" tickfrequency="0.5" step="0.05" caption="Min. Actuation Hold">
           <Widget class="LabelWidget" name="ltbAcceptTimeLess" subclass="sliderdecrement"/>
           <Widget class="LabelWidget" name="ltbAcceptTimeMore" subclass="sliderincrement"/>
           <Widget class="WinControlWidget" name="tbAcceptTime"/>
@@ -90,7 +90,7 @@
           <Widget class="WinControlWidget" name="svalAcceptTime" subclass="slidercurrentvalue" />
         </Widget>
 
-        <Widget class="SliderWidget" name="tbSteppingTime" min="0.2" max="2" initialvalue="1" tickfrequency="0.5" step="0.05" caption="Stepping Time">
+        <Widget class="SliderWidget" name="tbSteppingTime" min="0.2" max="2" initialvalue="1" tickfrequency="0.5" step="0.05" caption="Scan">
           <Widget class="LabelWidget" name="ltbSteppingLess" subclass="sliderdecrement"/>
           <Widget class="LabelWidget" name="ltbSteppingMore" subclass="sliderincrement"/>
           <Widget class="WinControlWidget" name="tbSteppingTime"/>
@@ -100,7 +100,7 @@
           <Widget class="WinControlWidget" name="svalSteppingTime" subclass="slidercurrentvalue" />
         </Widget>
 
-        <Widget class="SliderWidget" name="tbHesitateTime" min="0" max="2" initialvalue="1" tickfrequency="0.5" step="0.05" caption="Hesitate Time">
+        <Widget class="SliderWidget" name="tbHesitateTime" min="0" max="2" initialvalue="1" tickfrequency="0.5" step="0.05" caption="First Pause">
           <Widget class="LabelWidget" name="ltbHesitateLess" subclass="sliderdecrement"/>
           <Widget class="LabelWidget" name="ltbHesitateMore" subclass="sliderincrement"/>
           <Widget class="WinControlWidget" name="tbHesitateTime"/>
@@ -110,7 +110,7 @@
           <Widget class="WinControlWidget" name="svalHesitateTime" subclass="slidercurrentvalue" />
         </Widget>
 
-        <Widget class="SliderWidget" name="tbWordListHesitateTime" min="0" max="2" initialvalue="1" tickfrequency="0.5" step="0.05" caption="WordList Hesitate">
+        <Widget class="SliderWidget" name="tbWordListHesitateTime" min="0" max="2" initialvalue="1" tickfrequency="0.5" step="0.05" caption="WordList First Pause">
           <Widget class="LabelWidget" name="ltbWordListHesitateLess" subclass="sliderdecrement"/>
           <Widget class="LabelWidget" name="ltbWordListHesitateMore" subclass="sliderincrement"/>
           <Widget class="WinControlWidget" name="tbWordListHesitateTime"/>
@@ -120,7 +120,7 @@
           <Widget class="WinControlWidget" name="svalWordListHesitateTime" subclass="slidercurrentvalue" />
         </Widget>
 
-        <Widget class="SliderWidget" name="tbTabScanTime" min="0.2" max="5" initialvalue="1" tickfrequency="0.5" step="0.05" caption="Tab Scan Time">
+        <Widget class="SliderWidget" name="tbTabScanTime" min="0.2" max="5" initialvalue="1" tickfrequency="0.5" step="0.05" caption="Menu / Dialog Scan">
           <Widget class="LabelWidget" name="ltbTabScanLess" subclass="sliderdecrement"/>
           <Widget class="LabelWidget" name="ltbTabScanMore" subclass="sliderincrement"/>
           <Widget class="WinControlWidget" name="tbTabScanTime"/>

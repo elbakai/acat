@@ -159,7 +159,7 @@ namespace ACAT.Lib.Extension.CommandHandlers
         }
 
         /// <summary>
-        /// Turns of the select.
+        /// Turns off the select mode.
         /// </summary>
         private void turnOffSelectMode()
         {

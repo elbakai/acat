@@ -62,12 +62,13 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Core.SpellCheckManagement
 {
     /// <summary>
-    /// Manages word prediction engines.  The engines are essentially DLLs
-    /// located in the WordPredictors folder in one of the extension directories.
-    /// All engines derive from the IWordPredictor interface.  This class looks
-    /// for these DLL's and maintains a list of available word predictors.  The
-    /// app can also set the active word predictor.
-    /// This is a singleton instance class
+    /// Manages SpellChecker engines.  The engines are essentially DLLs
+    /// located in the SpellChecker folder in one of the extension directories.
+    /// All SpellCheck engines derive from the ISpellChecker interface.  This class
+    /// looks for these DLL's and maintains a list of available SpellCheckers.  The
+    /// app can also set the active SpellChecker.
+    ///
+    /// This is a singleton instance class.
     /// </summary>
     public class SpellCheckManager : IDisposable
     {

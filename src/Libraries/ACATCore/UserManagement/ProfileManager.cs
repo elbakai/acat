@@ -65,7 +65,8 @@ namespace ACAT.Lib.Core.UserManagement
     /// settings can be stored in the profile directory. This could include aspects
     /// such as color schemes, word prediciton models etc.  Each user profile has
     /// its own root folder under the user's home folder.  This class manages
-    /// profiles for a user
+    /// profiles for a user.  Gets the paths to the various files relative to
+    /// the profile folder.
     /// </summary>
     public class ProfileManager
     {

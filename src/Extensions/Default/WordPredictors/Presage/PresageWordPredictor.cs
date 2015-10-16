@@ -21,8 +21,10 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading;
 using ACAT.Extensions.Default.WordPredictors.Presage.PresageService;
 using ACAT.Lib.Core.UserManagement;
@@ -31,12 +33,47 @@ using ACAT.Lib.Core.WordPredictionManagement;
 using ACAT.Lib.Extension;
 using Microsoft.Win32;
 
+#region SupressStyleCopWarnings
+
+[module: SuppressMessage(
+        "StyleCop.CSharp.ReadabilityRules",
+        "SA1126:PrefixCallsCorrectly",
+        Scope = "namespace",
+        Justification = "Not needed. ACAT naming conventions takes care of this")]
+[module: SuppressMessage(
+        "StyleCop.CSharp.ReadabilityRules",
+        "SA1101:PrefixLocalCallsWithThis",
+        Scope = "namespace",
+        Justification = "Not needed. ACAT naming conventions takes care of this")]
+[module: SuppressMessage(
+        "StyleCop.CSharp.ReadabilityRules",
+        "SA1121:UseBuiltInTypeAlias",
+        Scope = "namespace",
+        Justification = "Since they are just aliases, it doesn't really matter")]
+[module: SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1200:UsingDirectivesMustBePlacedWithinNamespace",
+        Scope = "namespace",
+        Justification = "ACAT guidelines")]
+[module: SuppressMessage(
+        "StyleCop.CSharp.NamingRules",
+        "SA1309:FieldNamesMustNotBeginWithUnderscore",
+        Scope = "namespace",
+        Justification = "ACAT guidelines. Private fields begin with an underscore")]
+[module: SuppressMessage(
+        "StyleCop.CSharp.NamingRules",
+        "SA1300:ElementMustBeginWithUpperCaseLetter",
+        Scope = "namespace",
+        Justification = "ACAT guidelines. Private/Protected methods begin with lowercase")]
+
+#endregion SupressStyleCopWarnings
+
 namespace ACAT.Extensions.Default.WordPredictors.PresageWCF
 {
     /// <summary>
     /// The Word Predictor that uses the Presage word predictor
-    /// for next word prediction. Presage is an intelligent predictive 
-    /// text engine created by Matteo Vescovi. 
+    /// for next word prediction. Presage is an intelligent predictive
+    /// text engine created by Matteo Vescovi.
     /// http://presage.sourceforge.net/
     /// </summary>
     [DescriptorAttribute("1495D4A3-29AD-471F-9FD3-46EC92171AF2",
@@ -288,27 +325,25 @@ namespace ACAT.Extensions.Default.WordPredictors.PresageWCF
         /// <returns>A list of predicted words</returns>
         public IEnumerable<String> Predict(String prevWords, String currentWord)
         {
-            // update the internal buffer with prevWords + currentWord
-            _inputText = prevWords + " " + currentWord;
-            Log.Debug("[" + _inputText + "]");
+            bool success = true;
 
-            List<string> retVal;
+            var wordList = predict(prevWords, currentWord, ref success);
+            if (!success)
+            {
+                Log.Debug("Prediction error.  Will initialize again");
 
-            try
-            {
-                string[] prediction = _presage.predict(prevWords, currentWord);
-                retVal = prediction.ToList();
+                var retVal = Init();
+                if (retVal)
+                {
+                    wordList = predict(prevWords, currentWord, ref success);
+                }
             }
-            catch (Exception ex)
-            {
-                Log.Exception(ex);
-                retVal = new List<string>();
-            }
-            return retVal;
+
+            return wordList;
         }
 
         /// <summary>
-        /// Save the word predictor settings to a file that is maintained
+        /// Saves the word predictor settings to a file that is maintained
         /// by the word predictor.
         /// </summary>
         /// <param name="settingsFilePath">Directory where the settings are stored</param>
@@ -329,6 +364,9 @@ namespace ACAT.Extensions.Default.WordPredictors.PresageWCF
             // not supported
         }
 
+        /// <summary>
+        /// Checks if Presage is already running, if not launches it.
+        /// </summary>
         private void checkAndRunPresage()
         {
             if (!isPresageRunning())
@@ -411,6 +449,95 @@ namespace ACAT.Extensions.Default.WordPredictors.PresageWCF
         {
             var pname = Process.GetProcessesByName(PresageProcessName);
             return pname.Length != 0;
+        }
+
+        /// <summary>
+        /// Checks to see how much of the prefix matches with the
+        /// specified word. The preference setting
+        /// WordPredictionFilterMatchPrefixLengthAdjust controls
+        /// how many chars to match.  If a match if found, returns true
+        /// </summary>
+        /// <param name="prefix">partially entered word</param>
+        /// <param name="word">word to match with</param>
+        /// <returns>true if a match was found</returns>
+        private bool matchPrefix(String prefix, String word)
+        {
+            if (!Common.AppPreferences.WordPredictionFilterMatchPrefix)
+            {
+                return true;
+            }
+
+            prefix = prefix.Trim();
+            if (String.IsNullOrEmpty(prefix))
+            {
+                return true;
+            }
+
+            int numCharsToMatch = prefix.Length - Common.AppPreferences.WordPredictionFilterMatchPrefixLengthAdjust;
+            if (numCharsToMatch <= 0)
+                numCharsToMatch = prefix.Length;
+
+            if (numCharsToMatch > 0)
+            {
+                if (word.Length > numCharsToMatch)
+                    word = word.Substring(0, numCharsToMatch);
+                if (prefix.Length > numCharsToMatch)
+                    prefix = prefix.Substring(0, numCharsToMatch);
+            }
+
+            return (word.Length > prefix.Length) ?
+                word.StartsWith(prefix, StringComparison.InvariantCultureIgnoreCase) :
+                prefix.StartsWith(word, StringComparison.InvariantCultureIgnoreCase);
+        }
+
+        /// <summary>
+        /// Returns a list of next word predictions based on the context
+        /// from the previous words in the sentence.  The number of words
+        /// returned is set by the PredictionWordCount property
+        /// </summary>
+        /// <param name="prevWords">Previous words in the sentence</param>
+        /// <param name="currentWord">current word (may be partially spelt out</param>
+        /// <param name="success">true if the function was successsful</param>
+        /// <returns>A list of predicted words</returns>
+        private IEnumerable<String> predict(String prevWords, String currentWord, ref bool success)
+        {
+            // update the internal buffer with prevWords + currentWord
+            _inputText = prevWords + " " + currentWord;
+            Log.Debug("[" + _inputText + "]");
+
+            var retVal = new List<string>();
+
+            success = true;
+
+            try
+            {
+                string[] prediction = _presage.predict(prevWords, currentWord);
+                for (int ii = 0; ii < prediction.Length; ii++)
+                {
+                    // remove non-ascii characters
+                    prediction[ii] = Regex.Replace(prediction[ii], "[^ -~]", "");
+                }
+
+                var predictionList = prediction.ToList();
+
+                for (int count = 0, ii = 0; count < PredictionWordCount && ii < predictionList.Count(); ii++)
+                {
+                    if (matchPrefix(currentWord, predictionList[ii]))
+                    {
+                        //LogDebug(String.Format("Prediction["+ ii + "] = " + predictions[ii].Term));
+                        retVal.Add(predictionList[ii]);
+                        count++;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                success = false;
+                Log.Debug("Presage Predict Exception " + ex);
+                retVal = new List<string>();
+            }
+
+            return retVal;
         }
 
         /// <summary>

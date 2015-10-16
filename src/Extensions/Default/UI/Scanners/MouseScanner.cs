@@ -72,11 +72,12 @@ namespace ACAT.Extensions.Default.UI.Scanners
 {
     /// <summary>
     /// This scanner enables the user to move the mouse around
-    /// the screen. It uses two modes of scanning - grid and
-    /// radar.  User can also click, double click, drag,
-    /// right click etc.
+    /// the display. It uses grid scanning technique to scan the display
+    /// User can also click, double click, drag, right click etc.
     /// </summary>
-    [DescriptorAttribute("9F350464-4135-4B03-9F44-5FB3B5226AD0", "MouseScanner", "Mouse Scanner")]
+    [DescriptorAttribute("802B03F0-1294-4D06-A601-2CEBFBFA5D9C", 
+                        "MouseScanner", 
+                        "Enables mouse placement and mouse action on the display")]
     public partial class MouseScanner : Form, IScannerPanel, ISupportsStatusBar
     {
         /// <summary>
@@ -95,16 +96,6 @@ namespace ACAT.Extensions.Default.UI.Scanners
         private KeyboardActuator _keyboardActuator;
 
         /// <summary>
-        /// The current mode - grid or radar
-        /// </summary>
-        private MouseMode _mode = MouseMode.None;
-
-        /// <summary>
-        /// Moves the mouse in the radar mode
-        /// </summary>
-        private RadarMouseMover _radarMouseMover;
-
-        /// <summary>
         /// The ScannerCommon object
         /// </summary>
         private ScannerCommon _scannerCommon;
@@ -115,31 +106,15 @@ namespace ACAT.Extensions.Default.UI.Scanners
         private ScannerHelper _scannerHelper;
 
         /// <summary>
-        /// Status bar object for this scanner
-        /// </summary>
-        private ScannerStatusBar _statusBar;
-
-        /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
         public MouseScanner()
         {
             InitializeComponent();
-            createStatusBar();
-            Load += MouseScannerScreen_Load;
-            FormClosing += MouseScannerScreen_FormClosing;
+            Load += MouseScanner_Load;
+            FormClosing += MouseScanner_FormClosing;
             PanelClass = PanelClasses.Mouse;
             _dispatcher = new Dispatcher(this);
-        }
-
-        /// <summary>
-        /// Scanning mode
-        /// </summary>
-        private enum MouseMode
-        {
-            None,
-            Radar,
-            Grid
         }
 
         /// <summary>
@@ -158,7 +133,10 @@ namespace ACAT.Extensions.Default.UI.Scanners
         /// </summary>
         public IDescriptor Descriptor
         {
-            get { return DescriptorAttribute.GetDescriptor(GetType()); }
+            get
+            {
+                return DescriptorAttribute.GetDescriptor(GetType());
+            }
         }
 
         /// <summary>
@@ -187,7 +165,7 @@ namespace ACAT.Extensions.Default.UI.Scanners
         /// </summary>
         public ScannerStatusBar ScannerStatusBar
         {
-            get { return _statusBar; }
+            get { return ScannerCommon.StatusBar; }
         }
 
         /// <summary>
@@ -244,6 +222,8 @@ namespace ACAT.Extensions.Default.UI.Scanners
                 Log.Debug("Could not initialize form " + Name);
                 return false;
             }
+
+            _scannerCommon.CreateStatusBar();
 
             Context.AppPanelManager.PausePanelChangeRequests();
 
@@ -328,32 +308,19 @@ namespace ACAT.Extensions.Default.UI.Scanners
         [EnvironmentPermissionAttribute(SecurityAction.LinkDemand, Unrestricted = true)]
         protected override void WndProc(ref Message m)
         {
-            _scannerCommon.HandleWndProc(m);
+            if (_scannerCommon != null)
+            {
+                if (_scannerCommon.HandleWndProc(m))
+                {
+                    return;
+                }
+            }
+
             base.WndProc(ref m);
         }
 
         /// <summary>
-        /// Event handler for state changes in the grid mouse mover
-        /// </summary>
-        /// <param name="sender">event sender</param>
-        /// <param name="e">event arg</param>
-        private void _gridMouseMover_EvtMouseMoverStateChanged(object sender, MouseMoverStateChangedEventArgs e)
-        {
-            handleStateChanged(e);
-        }
-
-        /// <summary>
-        /// Event handler for state changes in the radar mouse mover
-        /// </summary>
-        /// <param name="sender">event sender</param>
-        /// <param name="e">event arg</param>
-        private void _radarMouseMover_EvtMouseMoverStateChanged(object sender, MouseMoverStateChangedEventArgs e)
-        {
-            handleStateChanged(e);
-        }
-
-        /// <summary>
-        /// Invoked when a switch is activated.  Inform the radar/grid
+        /// Invoked when a switch is activated.  Inform the mouse
         /// mover objects that a switch activation was detected
         /// </summary>
         /// <param name="switchObj">Switch that was activated</param>
@@ -362,15 +329,10 @@ namespace ACAT.Extensions.Default.UI.Scanners
         {
             handled = false;
 
-            switch (_mode)
+            if (_gridMouseMover != null)
             {
-                case MouseMode.Radar:
-                    handled = _radarMouseMover.Actuate();
-                    break;
-
-                case MouseMode.Grid:
-                    handled = _gridMouseMover.Actuate();
-                    break;
+                _gridMouseMover.Actuate();
+                handled = true;
             }
         }
 
@@ -383,114 +345,15 @@ namespace ACAT.Extensions.Default.UI.Scanners
         {
             var gridMouseMover = new GridMouseMover
             {
-                Cycles = Common.AppPreferences.MouseGridVerticalSweeps,
-                Sweeps = Common.AppPreferences.MouseGridHorizontalSweeps,
-                MouseSpeed = Common.AppPreferences.MouseGridHorizontalSpeed,
-                ScanSpeed = Common.AppPreferences.MouseGridVerticalSpeed,
-                LineWidth = Common.AppPreferences.MouseGridLineWidth,
-                StartFromLastCursorPos = Common.AppPreferences.MouseGridStartFromLastCursorPos,
-                GridScanSpeedMultiplier = Common.AppPreferences.MouseGridScanSpeedMultiplier,
-                MouseMoveSpeedMultiplier = Common.AppPreferences.MouseGridMouseMoveSpeedMultiplier
+                GridRectangleSpeed = Common.AppPreferences.MouseGridRectangleSpeed,
+                GridRectangleCycles = Common.AppPreferences.MouseGridRectangleCycles,
+                GridLineSpeed = Common.AppPreferences.MouseGridLineSpeed,
+                GridLineCycles = Common.AppPreferences.MouseGridRectangleCycles,
+                GridLineThickness = Common.AppPreferences.MouseGridLineThickness,
+                EnableVerticalGridRectangle = Common.AppPreferences.MouseGridEnableVerticalRectangleScan
             };
-            gridMouseMover.Init();
-            gridMouseMover.EvtMouseMoverStateChanged += _gridMouseMover_EvtMouseMoverStateChanged;
 
             return gridMouseMover;
-        }
-
-        /// <summary>
-        /// Creates and initializes the object that will handle radar mouse
-        /// movement.
-        /// </summary>
-        /// <returns>The created object</returns>
-        private RadarMouseMover createRadarMouseMover()
-        {
-            var radarMouseMover = new RadarMouseMover
-            {
-                RotatingSweeps = Common.AppPreferences.MouseRadarRotatingSweeps,
-                RadialSweeps = Common.AppPreferences.MouseRadarRadialSweeps,
-                RadialSpeed = Common.AppPreferences.MouseRadarRadialSpeed,
-                RotatingSpeed = Common.AppPreferences.MouseRadarRotatingSpeed,
-                LineWidth = Common.AppPreferences.MouseRadarLineWidth,
-                StartFromLastCursorPos = Common.AppPreferences.MouseRadarStartFromLastCursorPos,
-                RotatingSpeedMultiplier = Common.AppPreferences.MouseRadarRotatingSpeedMultiplier,
-                RadialSpeedMultiplier = Common.AppPreferences.MouseRadarRadialSpeedMultipler
-            };
-            radarMouseMover.Init();
-            radarMouseMover.EvtMouseMoverStateChanged += _radarMouseMover_EvtMouseMoverStateChanged;
-            return radarMouseMover;
-        }
-
-        /// <summary>
-        /// Creates the statusbar object for this scanner
-        /// </summary>
-        private void createStatusBar()
-        {
-            if (_statusBar != null)
-            {
-                return;
-            }
-
-            _statusBar = new ScannerStatusBar
-            {
-                AltStatus = BAltStatus,
-                CtrlStatus = BCtrlStatus,
-                FuncStatus = BFuncStatus,
-                ShiftStatus = BShiftStatus,
-                LockStatus = BLockStatus
-            };
-        }
-
-        /// <summary>
-        /// Disposes the grid mouse move object
-        /// </summary>
-        private void disposeGridMouseMover()
-        {
-            if (_gridMouseMover != null)
-            {
-                _gridMouseMover.EvtMouseMoverStateChanged -= _gridMouseMover_EvtMouseMoverStateChanged;
-                _gridMouseMover.Dispose();
-            }
-        }
-
-        /// <summary>
-        /// Disposes the radar mouse move object
-        /// </summary>
-        private void disposeRadarMouseMover()
-        {
-            if (_radarMouseMover != null)
-            {
-                _radarMouseMover.EvtMouseMoverStateChanged -= _radarMouseMover_EvtMouseMoverStateChanged;
-                _radarMouseMover.Dispose();
-            }
-        }
-
-        /// <summary>
-        /// Handles state changes in the grid/radar mouse movers.  If the
-        /// scanner is paused, resumes animation, and resets the mode
-        /// </summary>
-        /// <param name="e">event args</param>
-        private void handleStateChanged(MouseMoverStateChangedEventArgs e)
-        {
-            if (e.State == MouseMoverStates.Idle)
-            {
-                if (_scannerCommon.IsPaused)
-                {
-                    resume();
-                }
-
-                _mode = MouseMode.None;
-            }
-        }
-
-        /// <summary>
-        /// Checks if either the radar or grid mouse movers are
-        /// currently idle
-        /// </summary>
-        /// <returns>true if they are </returns>
-        private bool mouseMoversIdle()
-        {
-            return _radarMouseMover.IsIdle() && _gridMouseMover.IsIdle();
         }
 
         /// <summary>
@@ -501,15 +364,9 @@ namespace ACAT.Extensions.Default.UI.Scanners
         /// <param name="mouseEventArgs">event args</param>
         private void MouseScannerScreen_EvtMouseDown(object sender, MouseEventArgs mouseEventArgs)
         {
-            switch (_mode)
+            if (_gridMouseMover != null)
             {
-                case MouseMode.Radar:
-                    _radarMouseMover.Actuate();
-                    break;
-
-                case MouseMode.Grid:
-                    _gridMouseMover.Actuate();
-                    break;
+                _gridMouseMover.Actuate();
             }
         }
 
@@ -518,12 +375,8 @@ namespace ACAT.Extensions.Default.UI.Scanners
         /// </summary>
         /// <param name="sender">event sender</param>
         /// <param name="e">event arg</param>
-        private void MouseScannerScreen_FormClosing(object sender, FormClosingEventArgs e)
+        private void MouseScanner_FormClosing(object sender, FormClosingEventArgs e)
         {
-            disposeRadarMouseMover();
-
-            disposeGridMouseMover();
-
             _scannerCommon.OnClosing();
             _scannerCommon.Dispose();
         }
@@ -533,16 +386,14 @@ namespace ACAT.Extensions.Default.UI.Scanners
         /// </summary>
         /// <param name="sender">event sender</param>
         /// <param name="e">event arg</param>
-        private void MouseScannerScreen_Load(object sender, EventArgs e)
+        private void MouseScanner_Load(object sender, EventArgs e)
         {
             _scannerCommon.HideTalkWindow();
 
             _scannerCommon.OnLoad();
-            _radarMouseMover = createRadarMouseMover();
-            _gridMouseMover = createGridMouseMover();
 
             Context.AppActuatorManager.EvtSwitchHook += AppActuatorManager_EvtSwitchHook;
-            IActuator actuator = Context.AppActuatorManager.GetActuator(typeof(KeyboardActuator));
+            var actuator = Context.AppActuatorManager.GetActuator(typeof(KeyboardActuator));
             if (actuator is KeyboardActuator)
             {
                 _keyboardActuator = actuator as KeyboardActuator;
@@ -553,7 +404,7 @@ namespace ACAT.Extensions.Default.UI.Scanners
         }
 
         /// <summary>
-        /// Pauses the scanner
+        /// Pause the scanner
         /// </summary>
         private void pause()
         {
@@ -589,40 +440,21 @@ namespace ACAT.Extensions.Default.UI.Scanners
         /// direction
         /// </summary>
         /// <param name="direction">down or up</param>
-        private void startGridSweep(GridMouseMover.GridSweepDirections direction)
+        private void startGridSweep(GridMouseMover.Direction direction)
         {
-            if (_gridMouseMover.IsIdle())
-            {
-                _mode = MouseMode.Grid;
+            pause();
 
-                pause();
-                _gridMouseMover.SetGridSweepDirection(direction);
+            _gridMouseMover = createGridMouseMover();
 
-                AuditLog.Audit(new AuditEventMouseMover("grid", direction.ToString()));
+            AuditLog.Audit(new AuditEventMouseMover(direction.ToString()));
 
-                _gridMouseMover.Start();
-            }
-        }
+            _gridMouseMover.GridRectangleDirection = direction;
 
-        /// <summary>
-        /// Starts moving the mouse in the radar mode, in the specified
-        /// direction
-        /// </summary>
-        /// <param name="direction">clockwise/counter-clockwise</param>
-        private void startRadarSweep(RadarMouseMover.RadarSweepDirections direction)
-        {
-            if (_radarMouseMover.IsIdle())
-            {
-                _mode = MouseMode.Radar;
+            _gridMouseMover.Start();
 
-                pause();
+            _gridMouseMover = null;
 
-                _radarMouseMover.SetSweepDirection(direction);
-
-                AuditLog.Audit(new AuditEventMouseMover("radar", direction.ToString()));
-
-                _radarMouseMover.Start();
-            }
+            resume();
         }
 
         /// <summary>
@@ -652,100 +484,28 @@ namespace ACAT.Extensions.Default.UI.Scanners
 
                 switch (Command)
                 {
-                    case "CmdRadarCounterClockwise":
-                        form.startRadarSweep(RadarMouseMover.RadarSweepDirections.CounterClockwise);
-                        break;
-
-                    case "CmdRadarClockwise":
-                        form.startRadarSweep(RadarMouseMover.RadarSweepDirections.ClockWise);
-                        break;
-
                     case "CmdScanVerticalDown":
-                        form.startGridSweep(GridMouseMover.GridSweepDirections.TopDown);
+                        form.startGridSweep(GridMouseMover.Direction.Down);
                         break;
 
                     case "CmdScanVerticalUp":
-                        form.startGridSweep(GridMouseMover.GridSweepDirections.BottomUp);
+                        form.startGridSweep(GridMouseMover.Direction.Up);
                         break;
 
                     case "CmdLeftClick":
-                        if (form.mouseMoversIdle())
-                        {
-                            MouseUtils.SimulateLeftMouseClick();
-                        }
-
+                        MouseUtils.SimulateLeftMouseClick();
                         break;
 
                     case "CmdLeftDoubleClick":
-                        if (form.mouseMoversIdle())
-                        {
-                            MouseUtils.SimulateLeftMouseDoubleClick();
-                        }
-
+                        MouseUtils.SimulateLeftMouseDoubleClick();
                         break;
 
                     case "CmdLeftClickAndHold":
-                        if (form.mouseMoversIdle())
-                        {
-                            MouseUtils.SimulateLeftMouseDrag();
-                        }
-
-                        break;
-
-                    case "CmdRightDoubleClick":
-                        if (form.mouseMoversIdle())
-                        {
-                            MouseUtils.SimulateRightMouseDoubleClick();
-                        }
-
+                        MouseUtils.SimulateLeftMouseDrag();
                         break;
 
                     case "CmdRightClick":
-                        if (form.mouseMoversIdle())
-                        {
-                            MouseUtils.SimulateRightMouseClick();
-                        }
-
-                        break;
-
-                    case "CmdRightClickAndHold":
-                        if (form.mouseMoversIdle())
-                        {
-                            MouseUtils.SimulateRightMouseDrag();
-                        }
-
-                        break;
-
-                    case "CmdMoveCursorNW":
-                        MouseUtils.SimulateMoveMouse(MouseUtils.MouseDirections.Northwest);
-                        break;
-
-                    case "CmdMoveCursorN":
-                        MouseUtils.SimulateMoveMouse(MouseUtils.MouseDirections.North);
-                        break;
-
-                    case "CmdMoveCursorNE":
-                        MouseUtils.SimulateMoveMouse(MouseUtils.MouseDirections.Northeast);
-                        break;
-
-                    case "CmdMoveCursorW":
-                        MouseUtils.SimulateMoveMouse(MouseUtils.MouseDirections.West);
-                        break;
-
-                    case "CmdMoveCursorE":
-                        MouseUtils.SimulateMoveMouse(MouseUtils.MouseDirections.East);
-                        break;
-
-                    case "CmdMoveCursorSW":
-                        MouseUtils.SimulateMoveMouse(MouseUtils.MouseDirections.Southwest);
-                        break;
-
-                    case "CmdMoveCursorS":
-                        MouseUtils.SimulateMoveMouse(MouseUtils.MouseDirections.South);
-                        break;
-
-                    case "CmdMoveCursorSE":
-                        MouseUtils.SimulateMoveMouse(MouseUtils.MouseDirections.Southeast);
+                        MouseUtils.SimulateRightMouseClick();
                         break;
 
                     default:
@@ -770,26 +530,13 @@ namespace ACAT.Extensions.Default.UI.Scanners
             public Dispatcher(IScannerPanel panel)
                 : base(panel)
             {
-                // Add all the commands we are going to handle
                 Commands.Add(new GoBackCommandHandler("CmdGoBack"));
-                Commands.Add(new CommandHandler("CmdRadarCounterClockwise"));
-                Commands.Add(new CommandHandler("CmdRadarClockwise"));
                 Commands.Add(new CommandHandler("CmdScanVerticalDown"));
                 Commands.Add(new CommandHandler("CmdScanVerticalUp"));
                 Commands.Add(new CommandHandler("CmdLeftClick"));
                 Commands.Add(new CommandHandler("CmdLeftDoubleClick"));
                 Commands.Add(new CommandHandler("CmdLeftClickAndHold"));
-                Commands.Add(new CommandHandler("CmdRightDoubleClick"));
                 Commands.Add(new CommandHandler("CmdRightClick"));
-                Commands.Add(new CommandHandler("CmdRightClickAndHold"));
-                Commands.Add(new CommandHandler("CmdMoveCursorNW"));
-                Commands.Add(new CommandHandler("CmdMoveCursorN"));
-                Commands.Add(new CommandHandler("CmdMoveCursorNE"));
-                Commands.Add(new CommandHandler("CmdMoveCursorW"));
-                Commands.Add(new CommandHandler("CmdMoveCursorE"));
-                Commands.Add(new CommandHandler("CmdMoveCursorSW"));
-                Commands.Add(new CommandHandler("CmdMoveCursorS"));
-                Commands.Add(new CommandHandler("CmdMoveCursorSE"));
             }
         }
 

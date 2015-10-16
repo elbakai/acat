@@ -150,7 +150,7 @@ namespace ACAT.Lib.Core.Utility
         }
 
         /// <summary>
-        /// Simulates a middel click at the current
+        /// Simulates a middle click at the current
         /// cursor position
         /// </summary>
         public static void SimulateMiddleMouseClick()

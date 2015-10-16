@@ -63,6 +63,8 @@ namespace ACAT.Lib.Core.WidgetManagement
     /// <summary>
     /// Helper class to find widgets within a parent widget. Supports
     /// different ways of searching- by name, by the .NET class type etc.
+    /// Does a recursive depth search for the widget through all the
+    /// children of the parent widget
     /// </summary>
     public class WidgetFinder
     {

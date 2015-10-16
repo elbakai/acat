@@ -288,7 +288,8 @@ namespace ACAT.Lib.Core.AgentManagement
             TextChangedNotifications.EvtUnlocked += TextChangedNotifications_EvtUnlocked;
 
             _panelChangeNotifications = new TriggerLock();
-            _panelChangeNotifications.EvtUnlocked += PanelChangeNotifications_EvtUnlocked;
+
+            EnableAppAgentContextSwitch = true;
         }
 
         /// <summary>
@@ -338,6 +339,19 @@ namespace ACAT.Lib.Core.AgentManagement
         }
 
         /// <summary>
+        /// If context switches are disabled, which agent to use
+        /// as the default agent
+        /// </summary>
+        public IApplicationAgent DefaultAgentForContextSwitchDisable { get; set; }
+
+        /// <summary>
+        /// Get/sets whether to enable context switch for application
+        /// agents.  If disabled, it will only use the generic app
+        /// agent.
+        /// </summary>
+        public bool EnableAppAgentContextSwitch { get; set; }
+
+        /// <summary>
         /// Gets or sets the flag that controls whether the
         /// menu agent should be automatically displayed when
         /// a menu is activated on the desktop
@@ -352,12 +366,31 @@ namespace ACAT.Lib.Core.AgentManagement
         public bool EnableContextualMenusForMenus { get; set; }
 
         /// <summary>
+        /// Gets the generic app agent
+        /// </summary>
+        public IApplicationAgent GenericAppAgent
+        {
+            get { return _genericAppAgent; }
+        }
+
+        /// <summary>
         /// Gets the Keyboard object that can be used to
         /// send keys to the keyboard buffer
         /// </summary>
         public IKeyboard Keyboard
         {
             get { return _textControlAgent.Keyboard; }
+        }
+
+        /// <summary>
+        /// Gets the null app agent
+        /// </summary>
+        public IApplicationAgent NullAgent
+        {
+            get
+            {
+                return _nullAgent;
+            }
         }
 
         /// <summary>
@@ -432,7 +465,8 @@ namespace ACAT.Lib.Core.AgentManagement
             }
             else if (exitCode == CompletionCode.ContextSwitch)
             {
-                Context.AppPanelManager.CloseCurrentPanel();
+                //Context.AppPanelManager.CloseCurrentPanel();
+                Context.AppPanelManager.ClearStack();
                 EnumWindows.RestoreFocusToTopWindow();
                 WindowActivityMonitor.GetActiveWindow();
             }
@@ -465,7 +499,7 @@ namespace ACAT.Lib.Core.AgentManagement
         /// The AgentContext can be used to check if the context
         /// change during a call.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>ActiveContext object</returns>
         public AgentContext ActiveContext()
         {
             return new AgentContext(_textControlAgent);
@@ -478,16 +512,23 @@ namespace ACAT.Lib.Core.AgentManagement
         /// Adds an ad-hoc agent for the specified window. Whenever
         /// this window becomes active, the agent is activated.
         /// </summary>
-        /// <param name="handle"></param>
-        /// <param name="agent"></param>
-        /// <returns></returns>
-        public bool AddAgent(IntPtr handle, IApplicationAgent agent)
+        /// <param name="handle">window handle</param>
+        /// <param name="agent">agent to add</param>
+        public void AddAgent(IntPtr handle, IApplicationAgent agent)
         {
             Log.Debug("hwnd: " + handle + ", " + agent.Name);
 
             agent.EvtPanelRequest += agent_EvtPanelRequest;
             _agentsCache.AddAgent(handle, agent);
-            return true;
+
+            var fgWindow = User32Interop.GetForegroundWindow();
+            if (fgWindow != IntPtr.Zero)
+            {
+                if (fgWindow == handle)
+                {
+                    WindowActivityMonitor.GetActiveWindowAsync();
+                }
+            }
         }
 
         /// <summary>
@@ -572,9 +613,7 @@ namespace ACAT.Lib.Core.AgentManagement
 
                 WindowActivityMonitor.EvtFocusChanged += WindowActivityMonitor_EvtFocusChanged;
 
-                getKeyboardActuator();
-
-                WindowActivityMonitor.GetActiveWindow();
+                //WindowActivityMonitor.GetActiveWindow();
             }
 
             return true;
@@ -605,6 +644,18 @@ namespace ACAT.Lib.Core.AgentManagement
         public void PausePanelChangeRequests()
         {
             _panelChangeNotifications.Hold();
+        }
+
+        /// <summary>
+        /// During initialization of the application, call this
+        /// after calling Init()
+        /// </summary>
+        /// <returns>true always</returns>
+        public bool PostInit()
+        {
+            getKeyboardActuator();
+
+            return true;
         }
 
         /// <summary>
@@ -659,7 +710,8 @@ namespace ACAT.Lib.Core.AgentManagement
         }
 
         /// <summary>
-        /// Runs the command with the specified argument
+        /// Runs the command with the specified argument by passing it
+        /// to the current agent to handle the command
         /// </summary>
         /// <param name="command">command to run</param>
         /// <param name="arg">argument for the command</param>
@@ -675,7 +727,7 @@ namespace ACAT.Lib.Core.AgentManagement
         }
 
         /// <summary>
-        /// Request to display the contextual menu
+        /// Requests to display the contextual menu
         /// </summary>
         [EnvironmentPermissionAttribute(SecurityAction.LinkDemand, Unrestricted = true)]
         public void ShowContextMenu()
@@ -738,28 +790,35 @@ namespace ACAT.Lib.Core.AgentManagement
         /// <returns></returns>
         private async Task activateAgent(IFunctionalAgent agent)
         {
+            if (!(agent is FunctionalAgentBase))
+            {
+                return;
+            }
+
             var form = new Form { WindowState = FormWindowState.Minimized, Visible = false, ShowInTaskbar = false };
             form.Load += form_Load;
             form.Show();
 
-            if (agent is FunctionalAgentBase)
+            var funcAgent = (FunctionalAgentBase)agent;
+            Task task = Task.Factory.StartNew(() =>
             {
-                var funcAgent = (FunctionalAgentBase)agent;
-                Task t = Task.Factory.StartNew(() =>
-                {
-                    Log.Debug("Calling funcAgent.activate: " + agent.Name);
-                    funcAgent.IsClosing = false;
-                    funcAgent.ExitCommand = null;
-                    form.Invoke(new MethodInvoker(() => funcAgent.Activate()));
+                Log.Debug("Calling funcAgent.activate: " + agent.Name);
+                funcAgent.IsClosing = false;
+                funcAgent.ExitCommand = null;
 
-                    // This event is triggered by the functional agent when
-                    // it exits
-                    Log.Debug("Waiting on CloseEvent...: " + agent.Name);
-                    funcAgent.CloseEvent.WaitOne();
-                    Log.Debug("Returned from CloseEvent: " + agent.Name);
-                });
-                await t;
-            }
+                form.Invoke(new MethodInvoker(delegate()
+                {
+                    Context.AppPanelManager.NewStack();
+                    funcAgent.Activate();
+                    Context.AppPanelManager.CloseStack();
+                }));
+
+                // This event is triggered by the functional agent when it exits
+                Log.Debug("Waiting on CloseEvent...: " + agent.Name);
+                funcAgent.CloseEvent.WaitOne();
+                Log.Debug("Returned from CloseEvent: " + agent.Name);
+            });
+            await task;
 
             Windows.CloseForm(form);
         }
@@ -826,10 +885,14 @@ namespace ACAT.Lib.Core.AgentManagement
                             Log.Debug("Fg window is a menu.  Setting agent to menu agent");
                             agent = _menuControlAgent;
                         }
+                        else if (Windows.IsMinimized(monitorInfo.FgHwnd))
+                        {
+                            Log.Debug("Window is minimized. Use generic agent");
+                            agent = _genericAppAgent;
+                        }
                         else
                         {
-                            // check if there is a dedicated agent for
-                            // this process
+                            // check if there is a dedicated agent for this process
                             Log.Debug("Getting agent for " + processName);
                             agent = _agentsCache.GetAgent(monitorInfo.FgProcess);
                         }
@@ -972,6 +1035,57 @@ namespace ACAT.Lib.Core.AgentManagement
         }
 
         /// <summary>
+        /// Don't context switch to the app agent that
+        /// handles the foreground process other than the agent for the current
+        /// assembly.  Either use the agent  responsible for the executing assembly or use
+        /// the null agent.
+        /// </summary>
+        /// <param name="monitorInfo">fg process info</param>
+        private void disallowContextSwitch(WindowActivityMonitorInfo monitorInfo)
+        {
+            bool handled = false;
+
+            // check if there is an adhoc agent for the current window
+            // if not, check if there is an agent for the current process
+            var agent = _agentsCache.GetAgent(monitorInfo.FgHwnd);
+            if (agent == null)
+            {
+                if (String.Compare(monitorInfo.FgProcess.ProcessName, _currentProcessName, true) == 0)
+                {
+                    agent = _agentsCache.GetAgent(_currentProcessName) ?? DefaultAgentForContextSwitchDisable;
+                }
+            }
+
+            if (agent == null)
+            {
+                agent = DefaultAgentForContextSwitchDisable;
+            }
+
+            if (agent == null)
+            {
+                agent = _genericAppAgent;
+            }
+
+            Log.Debug("agent : " + agent.Name);
+
+            if (_getContextMenu)
+            {
+                _getContextMenu = false;
+
+                agent.OnContextMenuRequest(monitorInfo);
+                return;
+            }
+
+            if (agent != _currentAgent && _currentAgent != null)
+            {
+                _currentAgent.OnFocusLost();
+            }
+
+            _currentAgent = agent;
+            agent.OnFocusChanged(monitorInfo, ref handled);
+        }
+
+        /// <summary>
         /// Disposes and releases resources
         /// </summary>
         /// <param name="disposing">disposed before?</param>
@@ -1059,6 +1173,7 @@ namespace ACAT.Lib.Core.AgentManagement
                 var windowPattern = objPattern as WindowPattern;
                 retVal = (!windowPattern.Current.CanMinimize && !windowPattern.Current.CanMaximize) || windowPattern.Current.IsModal;
                 Log.Debug("CanMinimize: " + windowPattern.Current.CanMinimize + ", isModal: " + windowPattern.Current.IsModal);
+                retVal = retVal && !Windows.IsMinimized(monitorInfo.FgHwnd);
             }
 
             Log.Debug("returning " + retVal);
@@ -1231,7 +1346,14 @@ namespace ACAT.Lib.Core.AgentManagement
             }
             else
             {
-                activateAppAgent(monitorInfo);
+                if (EnableAppAgentContextSwitch)
+                {
+                    activateAppAgent(monitorInfo);
+                }
+                else
+                {
+                    disallowContextSwitch(monitorInfo);
+                }
             }
 
             if (_currentAgent != null)
@@ -1247,14 +1369,6 @@ namespace ACAT.Lib.Core.AgentManagement
             {
                 Log.Debug("EVTFocusChanged is null!");
             }
-        }
-
-        /// <summary>
-        /// The semaphore for panel change notifications was released
-        /// </summary>
-        private void PanelChangeNotifications_EvtUnlocked()
-        {
-            ////WindowActivityMonitor.GetActiveWindowAsync();
         }
 
         /// <summary>

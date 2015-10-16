@@ -83,19 +83,16 @@ namespace ACAT.Lib.Core.Utility
         public int FirstRepeatTime = 1000;
         public int SteppingTime = 1000;
         public int HesitateTime = 250;
-        public bool ScanClick = false;
-        public bool SelectClick = true;
+        public bool SelectClick = false;
         public float ScannerScaleFactor = 10.0f;
         public String FontName = "Arial";
         public int FontSize = 18;
-        public String Skin = "BlackYellow";
+        public String Skin = "Default";
         public bool AutoSaveScannerLastPosition = false;
+        public bool AutoSaveScannerScaleFactor = true;
         public bool ScanDisabledElements = true;
-        public Windows.WindowPosition ScannerPosition = Windows.WindowPosition.TopRight;
-        public bool ScannerShowBorder = true;
-        public bool ScannerShowTitleBar = true;
-        public String PreferredPanelConfigNames = "MenusWithText";
-        //public bool ScannerRoundedCorners = false;
+        public Windows.WindowPosition ScannerPosition = Windows.WindowPosition.MiddleRight;
+        public String PreferredPanelConfigNames = "AlphabetQwerty;Default";
 
         //Actuator settings
         public int AcceptTime = 50;
@@ -198,6 +195,10 @@ namespace ACAT.Lib.Core.Utility
             switch (variableName)
             {
                 case "@AcceptTime":
+                    retVal = AcceptTime;
+                    break;
+
+                case "@MinActuationHoldTime":
                     retVal = AcceptTime;
                     break;
 

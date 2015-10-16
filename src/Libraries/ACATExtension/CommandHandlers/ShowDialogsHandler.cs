@@ -65,7 +65,8 @@ namespace ACAT.Lib.Extension.CommandHandlers
 {
     /// <summary>
     /// Shows the various settings dialogs such as General,
-    /// Scan, Voice etc.
+    /// Scan, Text-to-speech, Mouse etc.  These dialogs enable
+    /// the user to configure ACAT.
     /// </summary>
     public class ShowDialogsHandler : RunCommandHandler
     {
@@ -103,20 +104,16 @@ namespace ACAT.Lib.Extension.CommandHandlers
                     showDialog("WordPredictionSettingsForm");
                     break;
 
-                case "CmdShowMouseRadarSettings":
-                    showDialog("MouseRadarSettingsForm");
-                    break;
-
                 case "CmdShowMouseGridSettings":
                     showDialog("MouseGridSettingsForm");
                     break;
 
                 case "CmdShowVoiceSettings":
-                    showDialog("VoiceSettingsForm");
+                    showDialog("TextToSpeechSettingsForm");
                     break;
 
                 case "CmdShowMuteScreenSettings":
-                    showDialog("MuteScreenSettingsForm");
+                    showDialog("ScreenLockSettingsForm");
                     break;
 
                 case "CmdShowDesignSettings":

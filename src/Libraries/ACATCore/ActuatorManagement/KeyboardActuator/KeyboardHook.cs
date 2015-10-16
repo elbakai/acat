@@ -25,6 +25,7 @@ using System.Windows.Forms;
 using ACAT.Lib.Core.Utility;
 
 #region SupressStyleCopWarnings
+
 [module: SuppressMessage(
         "StyleCop.CSharp.ReadabilityRules",
         "SA1126:PrefixCallsCorrectly",
@@ -55,12 +56,13 @@ using ACAT.Lib.Core.Utility;
         "SA1300:ElementMustBeginWithUpperCaseLetter",
         Scope = "namespace",
         Justification = "ACAT guidelines. Private/Protected methods begin with lowercase")]
-#endregion
+
+#endregion SupressStyleCopWarnings
 
 namespace ACAT.Lib.Core.InputActuators
 {
     /// <summary>
-    /// Manages windows low level keyboard hooks to capture global 
+    /// Manages windows low level keyboard hooks to capture global
     /// keyboard events
     /// </summary>
     internal class KeyboardHook
@@ -74,6 +76,7 @@ namespace ACAT.Lib.Core.InputActuators
         /// Windows constant
         /// </summary>
         private const byte VK_SHIFT = 0x10;
+
         /// <summary>
         /// Hook proc handle
         /// </summary>
@@ -98,6 +101,10 @@ namespace ACAT.Lib.Core.InputActuators
         /// Raised on a key up
         /// </summary>
         public event KeyEventHandler EvtKeyUp;
+
+        /// <summary>
+        /// Windows constants for the wParam parameter
+        /// </summary>
         internal enum KeyboardWParam
         {
             WM_KEYDOWN = 0x0100,
@@ -113,7 +120,7 @@ namespace ACAT.Lib.Core.InputActuators
         }
 
         /// <summary>
-        /// Low level hook func that is invoked by windows whenever there is a 
+        /// Low level hook func that is invoked by windows whenever there is a
         /// global keyboard event
         /// </summary>
         /// <param name="nCode">the code</param>
@@ -135,7 +142,7 @@ namespace ACAT.Lib.Core.InputActuators
         }
 
         /// <summary>
-        /// Removes the keyboard hook 
+        /// Removes the keyboard hook
         /// </summary>
         /// <returns>true on success</returns>
         public bool RemoveHook()
@@ -168,6 +175,7 @@ namespace ACAT.Lib.Core.InputActuators
                                     0);
             return _hookHandle != IntPtr.Zero;
         }
+
         /// <summary>
         /// Notifies event subscribers of a keyboard event
         /// </summary>
@@ -176,7 +184,7 @@ namespace ACAT.Lib.Core.InputActuators
         /// <param name="handled">was the event handled?  set to true if so</param>
         private void notifyEvent(KeyboardWParam wParam, KBDLLHOOKSTRUCT hookStruct, ref bool handled)
         {
-            var args = new KeyEventArgs((Keys)hookStruct.vkCode) {Handled = false};
+            var args = new KeyEventArgs((Keys)hookStruct.vkCode) { Handled = false };
             switch (wParam)
             {
                 case KeyboardWParam.WM_SYSKEYDOWN:
@@ -232,7 +240,7 @@ namespace ACAT.Lib.Core.InputActuators
         }
 
         /// <summary>
-        /// The structure contains information about a low-level keyboard input event. 
+        /// The structure contains information about a low-level keyboard input event.
         /// </summary>
         [StructLayout(LayoutKind.Sequential)]
         internal struct KBDLLHOOKSTRUCT

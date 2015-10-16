@@ -21,6 +21,7 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using ACAT.Lib.Core.PanelManagement;
 using ACAT.Lib.Core.PanelManagement.CommandDispatcher;
 using ACAT.Lib.Core.Utility;
 using ACAT.Lib.Extension;
@@ -60,15 +61,16 @@ using ACAT.Lib.Extension;
 
 #endregion SupressStyleCopWarnings
 
-namespace ACAT.Extensions.Hawking.FunctionalAgents.FileBrowser
+namespace ACAT.Extensions.Default.FunctionalAgents.FileBrowserAgent
 {
     /// <summary>
     /// Displays a menu with options to confirm whether the
     /// user should open the file or delete it
     /// </summary>
-    [DescriptorAttribute("472AA253-2FB4-4FFC-A763-42C1717D5DF4", "FileOperationConfirmScanner",
+    [DescriptorAttribute("472AA253-2FB4-4FFC-A763-42C1717D5DF4",
+                        "FileOperationConfirmScanner",
                         "File Browser Operation Confirm Scanner")]
-    public partial class FileOperationConfirmScanner : ContextualMenu
+    public partial class FileOperationConfirmScanner : MenuPanel
     {
         /// <summary>
         /// Initializes a new instance of the class.
@@ -106,7 +108,8 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.FileBrowser
         {
             if (FInfo != null)
             {
-                if (!DialogUtils.ConfirmScanner("Delete " + FInfo.Name + "?"))
+                if (!DialogUtils.ConfirmScanner(PanelManager.Instance.GetCurrentForm(),
+                                                "Delete " + FInfo.Name + "?"))
                 {
                     return;
                 }
@@ -124,7 +127,8 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.FileBrowser
         {
             if (FInfo != null)
             {
-                if (!DialogUtils.ConfirmScanner("Open " + FInfo.Name + "?"))
+                if (!DialogUtils.ConfirmScanner(PanelManager.Instance.GetCurrentForm(),
+                                                "Open " + FInfo.Name + "?"))
                 {
                     return;
                 }

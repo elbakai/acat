@@ -22,11 +22,13 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Xml;
 using ACAT.Lib.Core.Utility;
 
 #region SupressStyleCopWarnings
+
 [module: SuppressMessage(
         "StyleCop.CSharp.ReadabilityRules",
         "SA1126:PrefixCallsCorrectly",
@@ -57,7 +59,8 @@ using ACAT.Lib.Core.Utility;
         "SA1300:ElementMustBeginWithUpperCaseLetter",
         Scope = "namespace",
         Justification = "ACAT guidelines. Private/Protected methods begin with lowercase")]
-#endregion
+
+#endregion SupressStyleCopWarnings
 
 namespace ACAT.Lib.Core.ActuatorManagement
 {
@@ -70,15 +73,20 @@ namespace ACAT.Lib.Core.ActuatorManagement
     public class Actuators : IDisposable
     {
         /// <summary>
-        /// A map of the guid and the type of the actuator.  The Type will
-        /// be used to create an instance of the actuator
+        /// A list of actuators
         /// </summary>
-        private readonly Dictionary<Guid, Type> _actuatorsTypeCache;
+        private readonly List<IActuator> _actuators;
 
         /// <summary>
         /// A list of actuators
         /// </summary>
-        private readonly List<IActuator> _actuators;
+        private readonly List<ActuatorEx> _actuatorsEx;
+
+        /// <summary>
+        /// A map of the guid and the type of the actuator.  The Type will
+        /// be used to create an instance of the actuator
+        /// </summary>
+        private readonly Dictionary<Guid, Type> _actuatorsTypeCache;
 
         /// <summary>
         /// Has this object been disposed
@@ -91,17 +99,26 @@ namespace ACAT.Lib.Core.ActuatorManagement
         public Actuators()
         {
             _actuatorsTypeCache = new Dictionary<Guid, Type>();
+            _actuatorsEx = new List<ActuatorEx>();
             _actuators = new List<IActuator>();
+        }
+
+        public IEnumerable<IActuator> ActuatorList
+        {
+            get
+            {
+                return _actuators;
+            }
         }
 
         /// <summary>
         /// Gets the list of actuators
         /// </summary>
-        public IEnumerable<IActuator> Collection
+        internal IEnumerable<ActuatorEx> Collection
         {
             get
             {
-                return _actuators;
+                return _actuatorsEx;
             }
         }
 
@@ -118,8 +135,28 @@ namespace ACAT.Lib.Core.ActuatorManagement
         }
 
         /// <summary>
-        /// Parse the "Actuators" root element in the XML file and 
-        /// create a list of actuators. Also loads the attributes for 
+        /// Returns an actutator object of the specified type
+        /// </summary>
+        /// <param name="actuatorType">Type of the object</param>
+        /// <returns>The object </returns>
+        public IActuator Find(Type actuatorType)
+        {
+            foreach (var actuatorEx in _actuatorsEx)
+            {
+                if (actuatorType.FullName == actuatorEx.SourceActuator.GetType().FullName)
+                {
+                    Log.Debug("Found actuator of type " + actuatorType.Name);
+                    return actuatorEx.SourceActuator;
+                }
+            }
+
+            Log.Debug("Could not find actuator of type " + actuatorType.Name);
+            return null;
+        }
+
+        /// <summary>
+        /// Parses the "Actuators" root element in the XML file and
+        /// create a list of actuators. Also loads the attributes for
         /// each actuator
         /// </summary>
         /// <param name="configFile">Name of the XML config file</param>
@@ -171,11 +208,13 @@ namespace ACAT.Lib.Core.ActuatorManagement
                                 {
                                     // allow the actuator to load its info from the XML file
                                     var assembly = Assembly.LoadFrom(type.Assembly.Location);
-                                    var actuator = (IActuator) assembly.CreateInstance(type.FullName);
+                                    var actuator = (IActuator)assembly.CreateInstance(type.FullName);
                                     if (actuator != null)
                                     {
                                         actuator.Load(node);
                                         actuator.Name = name;
+                                        var actuatorEx = new ActuatorEx(actuator);
+                                        _actuatorsEx.Add(actuatorEx);
                                         _actuators.Add(actuator);
                                     }
                                 }
@@ -192,24 +231,9 @@ namespace ACAT.Lib.Core.ActuatorManagement
             return true;
         }
 
-        /// <summary>
-        /// Returns an actutator object of the specified type
-        /// </summary>
-        /// <param name="actuatorType">Type of the object</param>
-        /// <returns>The object </returns>
-        public IActuator Find(Type actuatorType)
+        internal ActuatorEx find(IActuator actuator)
         {
-            foreach (var actuator in _actuators)
-            {
-                if (actuatorType.FullName == actuator.GetType().FullName)
-                {
-                    Log.Debug("Found actuator of type " + actuatorType.Name);
-                    return actuator;
-                }
-            }
-
-            Log.Debug("Could not find actuator of type " + actuatorType.Name);
-            return null;
+            return _actuatorsEx.FirstOrDefault(ac => ac.SourceActuator == actuator);
         }
 
         /// <summary>
@@ -225,19 +249,36 @@ namespace ACAT.Lib.Core.ActuatorManagement
 
                 if (disposing)
                 {
-                    foreach (var actuator in _actuators)
+                    foreach (var actuator in _actuatorsEx)
                     {
-                        actuator.Dispose();
+                        actuator.SourceActuator.Dispose();
                     }
 
                     _actuatorsTypeCache.Clear();
-                    _actuators.Clear();
+                    _actuatorsEx.Clear();
                 }
 
-                // Release unmanaged resources. 
+                // Release unmanaged resources.
             }
 
             _disposed = true;
+        }
+
+        /// <summary>
+        /// Adds the actuator with the GUID and type to the cache
+        /// </summary>
+        /// <param name="guid">GUID of the actuator</param>
+        /// <param name="type">Type of the actuato</param>
+        private void addActuatorToCache(Guid guid, Type type)
+        {
+            if (_actuatorsTypeCache.ContainsKey(guid))
+            {
+                Log.Debug("Actuator " + type.FullName + ", guid " + guid + " is already added");
+                return;
+            }
+
+            Log.Debug("Adding Actuator " + type.FullName + ", guid " + guid + " to cache");
+            _actuatorsTypeCache.Add(guid, type);
         }
 
         /// <summary>
@@ -254,7 +295,7 @@ namespace ACAT.Lib.Core.ActuatorManagement
         }
 
         /// <summary>
-        /// Recursively descends into the directory and loads all the 
+        /// Recursively descends into the directory and loads all the
         /// actuator types in each of the actuator DLLs
         /// </summary>
         /// <param name="dir">Directory to descend into/param>
@@ -291,23 +332,6 @@ namespace ACAT.Lib.Core.ActuatorManagement
             {
                 Log.Debug("Could not get types from assembly " + dllName + ". Exception : " + ex.ToString());
             }
-        }
-
-        /// <summary>
-        /// Adds the actuator with the GUID and type to the cache
-        /// </summary>
-        /// <param name="guid">GUID of the actuator</param>
-        /// <param name="type">Type of the actuato</param>
-        private void addActuatorToCache(Guid guid, Type type)
-        {
-            if (_actuatorsTypeCache.ContainsKey(guid))
-            {
-                Log.Debug("Actuator " + type.FullName + ", guid " + guid + " is already added");
-                return;
-            }
-
-            Log.Debug("Adding Actuator " + type.FullName + ", guid " + guid + " to cache");
-            _actuatorsTypeCache.Add(guid, type);
         }
     }
 }

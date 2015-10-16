@@ -64,7 +64,9 @@ namespace ACAT.Lib.Core.Extensions.Base.AppAgents.NotepadAgent
     /// Base class does all the heavy-lifting.  Override functions
     /// as required customize
     /// </summary>
-    [DescriptorAttribute("A9CB65E6-C63B-4C47-B1DB-2010955FFD17", "Notepad Agent", "Agent for Notepad")]
+    [DescriptorAttribute("A9CB65E6-C63B-4C47-B1DB-2010955FFD17", 
+                            "Notepad Agent", 
+                            "Agent for Notepad")]
     internal class NotepadAgent : NotepadAgentBase
     {
     }

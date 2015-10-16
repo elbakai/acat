@@ -2,7 +2,7 @@
 
 <ACAT>
   <WidgetAttributes>
-    <WidgetAttribute name="buttonOK" label="OK" value="ok" fontsize="14" bold="false" mouseClickActuate="true"/>
+    <WidgetAttribute name="buttonOK" label="OK" value="ok" fontsize="14" bold="false" />
   </WidgetAttributes>
 
   <Layout>

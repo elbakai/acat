@@ -228,7 +228,7 @@ namespace ACAT.Lib.Core.Interpreter
         }
 
         /// <summary>
-        /// Executes the action for the specificed action verb. It
+        /// Executes the action for the specified action verb. It
         /// contains one function with arguments
         /// </summary>
         /// <param name="actionVerb">action to perform</param>
@@ -259,7 +259,7 @@ namespace ACAT.Lib.Core.Interpreter
         }
 
         /// <summary>
-        /// Load scripts from the XML file
+        /// Loads scripts from the XML file
         /// </summary>
         /// <param name="configFile">Name of the xml file</param>
         /// <returns>true on success</returns>
@@ -285,7 +285,7 @@ namespace ACAT.Lib.Core.Interpreter
         }
 
         /// <summary>
-        /// Play a beep sound
+        /// Plays a beep sound
         /// </summary>
         /// <param name="args">argument list</param>
         /// <returns>true on success</returns>
@@ -356,7 +356,7 @@ namespace ACAT.Lib.Core.Interpreter
         }
 
         /// <summary>
-        /// Run scripts through the "run" command.  Each element
+        /// Runs scripts through the "run" command.  Each element
         /// in the args list is a reference to either a script name
         /// or the command itself.  If an arg begins with the '@' symbol,
         /// it is the name of a scirpt otherwise, it;s a command
@@ -412,7 +412,7 @@ namespace ACAT.Lib.Core.Interpreter
         }
 
         /// <summary>
-        /// Stop animation
+        /// Stops animation
         /// </summary>
         /// <returns>true on success</returns>
         private bool stop(List<String> args)

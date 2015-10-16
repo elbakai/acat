@@ -61,20 +61,38 @@ using ACAT.Lib.Core.Utility;
 
 namespace ACAT.Lib.Extension.AppAgents.Firefox
 {
+    /// <summary>
+    /// Text control agent for the FireFox browser. Disable expansion of
+    /// abbreviations and auto-correct
+    /// </summary>
     public class FireFoxTextControlAgent
         : EditTextControlAgent
     {
+        /// <summary>
+        /// Initializes an instance of the class
+        /// </summary>
+        /// <param name="handle">Handle to the focused control</param>
+        /// <param name="editControlElement">The automation element</param>
+        /// <param name="handled">true if handled</param>
         public FireFoxTextControlAgent(IntPtr handle, AutomationElement editControlElement, ref bool handled)
             : base(handle, editControlElement, ref handled)
         {
             Log.Debug();
         }
 
+        /// <summary>
+        /// Disables expansion of abbreviations
+        /// </summary>
+        /// <returns>false</returns>
         public override bool ExpandAbbreviations()
         {
             return false;
         }
 
+        /// <summary>
+        /// Disables spellcheck/autocorrect
+        /// </summary>
+        /// <returns>true</returns>
         public override bool SupportsSpellCheck()
         {
             return true;

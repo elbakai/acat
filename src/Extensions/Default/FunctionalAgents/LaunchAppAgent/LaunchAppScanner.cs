@@ -21,6 +21,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
 using System.Linq;
 using System.Security.Permissions;
 using System.Windows.Forms;
@@ -70,21 +71,20 @@ using ACAT.Lib.Extension;
 
 #endregion SupressStyleCopWarnings
 
-namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
+namespace ACAT.Extensions.Default.FunctionalAgents.LaunchAppAgent
 {
     /// <summary>
-    /// Displays a list of apps. User selets an app and the
+    /// Displays a list of apps. The list of apps is read from an
+    /// external XML file which includes the path to the executable,
+    /// optional command line arguments and a friendly name.  The
+    /// friendly name is displayed in the list.  User selets an app and the
     /// agent launches the app
     /// </summary>
-    [DescriptorAttribute("D946E1D6-5D67-40E6-B27F-F8D062DE5450", "LaunchAppScanner", "Launch Applications Scanner")]
+    [DescriptorAttribute("D946E1D6-5D67-40E6-B27F-F8D062DE5450",
+                        "LaunchAppScanner",
+                        "Launch Applications Scanner")]
     public partial class LaunchAppScanner : Form, IScannerPanel, IExtension
     {
-        /// <summary>
-        /// Max length of the title. If the len is greater than
-        /// this number, ellipses are appended.
-        /// </summary>
-        private const int MaxWindowTitleLength = 60;
-
         /// <summary>
         /// Command dispatcher
         /// </summary>
@@ -99,6 +99,16 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
         /// The keyboard actuator object
         /// </summary>
         private readonly KeyboardActuator _keyboardActuator;
+
+        /// <summary>
+        /// Status bar for the scanner form
+        /// </summary>
+        private readonly StatusBar _statusBar = new StatusBar();
+
+        /// <summary>
+        /// Displays the state of the Alt key
+        /// </summary>
+        private readonly StatusBarPanel _statusBarPanelSort = new StatusBarPanel();
 
         /// <summary>
         /// List of all apps
@@ -147,6 +157,11 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
         private ScannerCommon _scannerCommon;
 
         /// <summary>
+        /// Widget that the user clicks to resort
+        /// </summary>
+        private Widget _sortButton;
+
+        /// <summary>
         /// Holds the current sort order
         /// </summary>
         private SortOrder _sortOrder = SortOrder.Ascending;
@@ -180,10 +195,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
             _invoker = new ExtensionInvoker(this);
             KeyPreview = true;
 
-            FormClosing += LaunchAppScanner_FormClosing;
-            Shown += LaunchAppScanner_Shown;
-            KeyDown += LaunchAppScanner_KeyDown;
-            LocationChanged += LaunchAppScanner_LocationChanged;
+            subscribeToEvents();
 
             var actuator = ActuatorManager.Instance.GetActuator(typeof(KeyboardActuator));
             if (actuator is KeyboardActuator)
@@ -193,6 +205,8 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
             }
 
             _dispatcher = new RunCommandDispatcher(this);
+
+            createStatusBar();
         }
 
         /// <summary>
@@ -213,6 +227,11 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
         /// For the event to quit
         /// </summary>
         public event QuitEventDelegate EvtQuit;
+
+        /// <summary>
+        /// Event raised to display the alphabet scanner
+        /// </summary>
+        public event EventHandler EvtShowScanner;
 
         /// <summary>
         /// Raised when the user wants to launch the app
@@ -299,12 +318,50 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
         }
 
         /// <summary>
-        /// Not used
+        /// Sets the states of the buttons in the button bar
+        /// and in the companion scanner (if any) depending
+        /// on the current state.
         /// </summary>
-        /// <param name="arg">not used</param>
-        /// <returns>not used</returns>
+        /// <param name="arg">widget information</param>
+        /// <returns>true on success</returns>
         public bool CheckWidgetEnabled(CheckEnabledArgs arg)
         {
+            arg.Handled = true;
+
+            switch (arg.Widget.SubClass)
+            {
+                case "PreviousPage":
+                    arg.Enabled = (_pageNumber != 0);
+                    break;
+
+                case "NextPage":
+                    arg.Enabled = (_numPages != 0 && (_pageNumber + 1) != _numPages);
+                    break;
+
+                case "Back":
+                case "DeletePreviousWord":
+                case "ClearFilter":
+                    arg.Handled = true;
+                    arg.Enabled = !IsFilterEmpty();
+                    break;
+
+                case "Sort":
+                case "Search":
+                    arg.Handled = true;
+                    arg.Enabled = (_appsList != null && _appsList.Any());
+                    break;
+
+                case "PrevChar":
+                case "NextChar":
+                    arg.Handled = true;
+                    arg.Enabled = true;
+                    break;
+
+                default:
+                    arg.Handled = false;
+                    break;
+            }
+
             return false;
         }
 
@@ -323,6 +380,23 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
         }
 
         /// <summary>
+        /// Creates a status bar for the scanner
+        /// </summary>
+        public void createStatusBar()
+        {
+            _statusBarPanelSort.BorderStyle = StatusBarPanelBorderStyle.None;
+            _statusBarPanelSort.AutoSize = StatusBarPanelAutoSize.Contents;
+            _statusBar.Panels.Add(_statusBarPanelSort);
+
+            _statusBar.SizingGrip = false;
+            _statusBar.ShowPanels = true;
+            _statusBar.Height = 30;
+            _statusBar.Margin = new Padding(4, 4, 4, 4);
+            _statusBar.Font = new Font("Arial", 16.0f);
+            Controls.Add(_statusBar);
+        }
+
+        /// <summary>
         /// Returns the extension invoker object
         /// </summary>
         /// <returns>invoker object</returns>
@@ -338,7 +412,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
         /// <returns>true on success</returns>
         public bool Initialize(StartupArg startupArg)
         {
-            _scannerCommon = new ScannerCommon(this) { PositionSizeController = { AutoPosition = false } };
+            _scannerCommon = new ScannerCommon(this) { PositionSizeController = { AutoPosition = true } };
 
             if (!_scannerCommon.Initialize(startupArg))
             {
@@ -347,6 +421,8 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
             }
 
             PanelManager.Instance.EvtScannerShow += Instance_EvtScannerShow;
+            PanelManager.Instance.EvtScannerClosed += Instance_EvtScannerClosed;
+
             return true;
         }
 
@@ -377,6 +453,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
         /// </summary>
         public void OnPause()
         {
+            _scannerCommon.GetAnimationManager().Pause();
         }
 
         /// <summary>
@@ -394,29 +471,16 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
         /// </summary>
         public void OnResume()
         {
+            _scannerCommon.GetAnimationManager().Resume();
         }
 
         /// <summary>
-        /// Runs the specified command
+        /// not used
         /// </summary>
-        /// <param name="command">the command to execute</param>
-        /// <param name="handled">true if it was handled</param>
+        /// <param name="command"></param>
+        /// <param name="handled"></param>
         public void OnRunCommand(string command, ref bool handled)
         {
-            if (command.StartsWith("highlight", StringComparison.InvariantCultureIgnoreCase))
-            {
-                handleHighlight(command);
-            }
-
-            if (command.StartsWith("select", StringComparison.InvariantCultureIgnoreCase))
-            {
-                handleSelect(command);
-            }
-            else
-            {
-                Log.Debug("unlandled command " + command);
-                handled = false;
-            }
         }
 
         /// <summary>
@@ -426,10 +490,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
         /// <param name="handled">are we handling it?</param>
         public void OnWidgetActuated(Widget widget, ref bool handled)
         {
-            if (widget is TabStopScannerButton)
-            {
-                handled = true;
-            }
+            actuateWidget(widget, ref handled);
         }
 
         /// <summary>
@@ -442,15 +503,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
         }
 
         /// <summary>
-        /// Invoked when there is a request to run a command. This
-        /// could as a result of the user activating a button on the
-        /// scanner and there is a command associated with the button
-        /// in the animation file
-        /// </summary>
-        /// <param name="command">command to run</param>
-        /// <param name="handled">was this handled?</param>
-        /// <summary>
-        /// Release resources
+        /// Invoked when the form is closing
         /// </summary>
         /// <param name="e">event args</param>
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -459,6 +512,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
             removeWatchdogs();
 
             PanelManager.Instance.EvtScannerShow -= Instance_EvtScannerShow;
+            PanelManager.Instance.EvtScannerClosed -= Instance_EvtScannerClosed;
 
             _keyboardActuator.EvtKeyPress -= _keyboardActuator_EvtKeyPress;
             base.OnFormClosing(e);
@@ -471,12 +525,20 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
         [EnvironmentPermissionAttribute(SecurityAction.LinkDemand, Unrestricted = true)]
         protected override void WndProc(ref Message m)
         {
-            _scannerCommon.HandleWndProc(m);
+            if (_scannerCommon != null)
+            {
+                if (_scannerCommon.HandleWndProc(m))
+                {
+                    return;
+                }
+            }
+
             base.WndProc(ref m);
         }
 
         /// <summary>
-        /// Key press event handler
+        /// Key press event handler.  Process the ESC
+        /// key and quit if it is pressed
         /// </summary>
         /// <param name="sender">event sender</param>
         /// <param name="e">event args</param>
@@ -493,22 +555,13 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
         }
 
         /// <summary>
-        /// Actuate the widget
+        /// Find the widget that was actuated and act on it
         /// </summary>
-        /// <param name="widgetName">which one?</param>
-        private void actuateWidget(String widgetName)
+        /// <param name="widgetName">name of the widget</param>
+        private void actuateWidget(Widget widget, ref bool handled)
         {
-            var widget = _scannerCommon.GetRootWidget().Finder.FindChild(widgetName);
-            if (widget != null)
-            {
-                object obj = widget.UserData;
-                if (obj is ItemTag)
-                {
-                    handleSelect((ItemTag)obj);
-                }
-
-                highlightOff();
-            }
+            handleWidgetSelection(widget, ref handled);
+            highlightOff();
         }
 
         /// <summary>
@@ -543,9 +596,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
         /// <returns>matching list</returns>
         private List<AppInfo> filterApps(List<AppInfo> list, String filter)
         {
-            String trimFilter = filter.Trim();
-
-            return list.Where(f => f.Name.StartsWith(filter, StringComparison.InvariantCultureIgnoreCase)).ToList();
+            return list.Where(f => f.Name.StartsWith(filter.Trim(), StringComparison.InvariantCultureIgnoreCase)).ToList();
         }
 
         /// <summary>
@@ -556,6 +607,56 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
         private List<AppInfo> getAppList(SortOrder order)
         {
             return sortFiles(LaunchAppAgent.Settings.Applications.ToList(), order);
+        }
+
+        /// <summary>
+        /// Returns string that graphically fits into the specified width.  If it
+        /// doesn't, curtails the string and adds ellipses
+        /// </summary>
+        /// <param name="graphics">Graphics object used to mesaure width of string</param>
+        /// <param name="font">font to use</param>
+        /// <param name="width">width to fit in</param>
+        /// <param name="inputString">input string</param>
+        /// <returns>output string that fits</returns>
+        private String getMeasuredString(Graphics graphics, Font font, int width, String inputString)
+        {
+            int chop = 5;
+
+            var str = inputString;
+
+            try
+            {
+                while (true)
+                {
+                    SizeF sf = graphics.MeasureString(str, font);
+
+                    if (sf.Width > width * ScannerCommon.PositionSizeController.ScaleFactor)
+                    {
+                        str = inputString.Substring(0, inputString.Length - chop) + "...";
+                        chop += 5;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+            catch
+            {
+                str = inputString;
+            }
+
+            return str;
+        }
+
+        /// <summary>
+        /// Stores widget objects from the form
+        /// </summary>
+        private void getWidgets()
+        {
+            _sortOrderWidget = _scannerCommon.GetRootWidget().Finder.FindChild("SortOrderIcon");
+            _pageNumberWidget = _scannerCommon.GetRootWidget().Finder.FindChild("PageNumber");
+            _sortButton = _scannerCommon.GetRootWidget().Finder.FindChild("ButtonSort");
         }
 
         /// <summary>
@@ -570,7 +671,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
                 {
                     _pageStartIndex += _entriesPerPage;
                     _pageNumber++;
-                    refreshWindowList();
+                    refreshAppList();
                 }
             }
         }
@@ -590,41 +691,24 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
 
                 _pageStartIndex = index;
                 _pageNumber--;
-                refreshWindowList();
+                refreshAppList();
             }
         }
 
         /// <summary>
-        /// Highlight command to highlight a list item
+        /// Confirms if the user wants to launch the selected
+        /// app. If so, triggers an event to indicate that the user
+        /// wants to launch the app.
         /// </summary>
-        /// <param name="cmd">which one to highlight?</param>
-        private void handleHighlight(String cmd)
+        /// <param name="appInfo"></param>
+        private void handleAppSelect(AppInfo appInfo)
         {
-            if (cmd.Equals("highlight_off", StringComparison.InvariantCultureIgnoreCase))
+            if (DialogUtils.ConfirmScanner("Launch " + appInfo.Name + "?"))
             {
-                highlightOff();
-            }
-            else
-            {
-                int index = cmd.LastIndexOf('_');
-                if (index >= 0 && index < cmd.Length - 1)
+                if (EvtLaunchApp != null)
                 {
-                    var widgetName = "Item" + cmd.Substring(index + 1);
-                    highlight(widgetName);
+                    EvtLaunchApp.BeginInvoke(this, appInfo, null, null);
                 }
-            }
-        }
-
-        /// <summary>
-        /// User made a selection. Handle it
-        /// </summary>
-        /// <param name="cmd">index of the widget selected</param>
-        private void handleSelect(String cmd)
-        {
-            int index = cmd.LastIndexOf('_');
-            if (index >= 0 && index < cmd.Length - 1)
-            {
-                actuateWidget("Item" + cmd.Substring(index + 1));
             }
         }
 
@@ -632,59 +716,79 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
         /// Handle the selection - navigate, launch app etc
         /// </summary>
         /// <param name="itemTag">item tag of selected item</param>
-        private void handleSelect(ItemTag itemTag)
+        private void handleWidgetSelection(Widget widget, ref bool handled)
         {
-            switch (itemTag.DataType)
+            if (widget.UserData is AppInfo)
             {
-                case ItemTag.ItemType.NextPage:
-                    gotoNextPage();
-                    break;
-
-                case ItemTag.ItemType.PreviousPage:
-                    gotoPreviousPage();
-                    break;
-
-                case ItemTag.ItemType.OrderBy:
-                    switchSortOrder();
-                    break;
-
-                case ItemTag.ItemType.App:
-                    if (itemTag.ApplicationInfo != null)
-                    {
-                        if (DialogUtils.ConfirmScanner("Launch " + itemTag.ApplicationInfo.Name + "?"))
+                handleAppSelect((AppInfo)widget.UserData);
+                handled = true;
+            }
+            else
+            {
+                handled = true;
+                switch (widget.Value)
+                {
+                    case "@Quit":
+                        if (EvtQuit != null)
                         {
-                            if (EvtLaunchApp != null)
-                            {
-                                EvtLaunchApp.BeginInvoke(this, itemTag.ApplicationInfo, null, null);
-                                return;
-                            }
+                            EvtQuit.BeginInvoke(null, null, null, null);
                         }
-                    }
+                        break;
 
-                    break;
+                    case "@AppListSort":
+                        switchSortOrder();
+                        break;
+
+                    case "@AppListNextPage":
+                        gotoNextPage();
+                        break;
+
+                    case "@AppListPrevPage":
+                        gotoPreviousPage();
+                        break;
+
+                    case "@AppListSearch":
+                        if (EvtShowScanner != null)
+                        {
+                            EvtShowScanner.BeginInvoke(null, null, null, null);
+                        }
+                        break;
+
+                    case "@AppListClearFilter":
+                        ClearFilter();
+                        break;
+
+                    default:
+                        handled = false;
+                        break;
+                }
             }
         }
 
         /// <summary>
-        /// Highlight the specified widget
-        /// </summary>
-        /// <param name="widgetName">name of the widget</param>
-        private void highlight(String widgetName)
-        {
-            _scannerCommon.GetRootWidget().HighlightOff();
-            var widget = _scannerCommon.GetRootWidget().Finder.FindChild(widgetName);
-            if (widget != null)
-            {
-                widget.HighlightOn();
-            }
-        }
-
-        /// <summary>
-        /// Turn hilight off for all widgets
+        /// Turn highlight off for all widgets
         /// </summary>
         private void highlightOff()
         {
             _scannerCommon.GetRootWidget().HighlightOff();
+        }
+
+        /// <summary>
+        /// Event handler for when a scanner closes.  Reposition this scanner
+        /// to its default position
+        /// </summary>
+        /// <param name="sender">event sender</param>
+        /// <param name="arg">event args</param>
+        private void Instance_EvtScannerClosed(object sender, ScannerCloseEventArg arg)
+        {
+            if (arg.Scanner != this)
+            {
+                if (_dockedWithForm == arg.Scanner)
+                {
+                    _dockedWithForm = null;
+                }
+                _scannerCommon.PositionSizeController.AutoSetPosition();
+            }
         }
 
         /// <summary>
@@ -713,15 +817,9 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
             var list = new List<Widget>();
             _scannerCommon.GetRootWidget().Finder.FindChild(typeof(TabStopScannerButton), list);
 
-            foreach (var widget in list)
-            {
-                widget.EvtMouseClicked += new WidgetEventDelegate(widget_EvtMouseClicked);
-            }
-
             _tabStopButtonCount = list.Count;
 
-            _sortOrderWidget = _scannerCommon.GetRootWidget().Finder.FindChild("SortOrderIcon");
-            _pageNumberWidget = _scannerCommon.GetRootWidget().Finder.FindChild("PageNumber");
+            getWidgets();
 
             SearchFilter.TextChanged += SearchFilter_TextChanged;
             SortOrderIcon.Click += SortOrderIcon_Click;
@@ -735,6 +833,8 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
             {
                 dockToScanner(panel as Form);
             }
+
+            _scannerCommon.GetAnimationManager().Start(_scannerCommon.GetRootWidget());
         }
 
         /// <summary>
@@ -788,8 +888,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
         }
 
         /// <summary>
-        /// Loads a list of apps to launch and refreshes
-        /// the UI
+        /// Loads a list of apps to launch and refreshes the UI
         /// </summary>
         private void loadAppsList()
         {
@@ -799,100 +898,70 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
             if (_tabStopButtonCount >= 3)
             {
                 _entriesPerPage = _tabStopButtonCount - 2;
-                refreshWindowList();
+                refreshAppList();
             }
         }
 
         /// <summary>
         /// Refreshes the window list with a list of apps
         /// </summary>
-        private void refreshWindowList()
+        private void refreshAppList()
         {
             var list = new List<Widget>();
             _scannerCommon.GetRootWidget().Finder.FindChild(typeof(TabStopScannerButton), list);
 
             int count = list.Count();
-            if (count >= 3)
+            if (count == 0)
             {
-                foreach (var button in list)
-                {
-                    button.UserData = null;
-                    button.SetText(String.Empty);
-                }
-
-                _entriesPerPage = count - 2;
-                _numPages = _appsList.Count() / _entriesPerPage;
-
-                if ((_appsList.Count() % _entriesPerPage) != 0)
-                {
-                    _numPages++;
-                }
-
-                updateStatusBar();
-
-                if (!_appsList.Any())
-                {
-                    (list[0] as TabStopScannerButton).SetTabStops(0.0f, new float[] { 25 });
-                    list[0].SetText("------------- APPS LIST IS EMPTY -------------");
-                    return;
-                }
-
-                int ii = 0;
-
-                int displayIndex = (ii + 1) % 10;
-
-                (list[ii] as TabStopScannerButton).SetTabStops(0.0f, new float[] { 25 });
-                if (_pageNumber == 0)
-                {
-                    list[ii].UserData = new ItemTag(ItemTag.ItemType.OrderBy);
-                    if (_sortOrder == SortOrder.Ascending)
-                    {
-                        list[ii].SetText(displayIndex + ".\t------------- SORT Z-A -------------");
-                    }
-                    else
-                    {
-                        list[ii].SetText(displayIndex + ".\t------------- SORT A-Z -------------");
-                    }
-                }
-                else
-                {
-                    list[ii].UserData = new ItemTag(ItemTag.ItemType.PreviousPage);
-                    list[ii].SetText(displayIndex + ".\t------------- PREVIOUS PAGE  -------------");
-                }
-
-                ii++;
-
-                for (int jj = _pageStartIndex; jj < _appsList.Count && ii < count - 1; ii++, jj++)
-                {
-                    displayIndex = (ii + 1) % 10;
-                    (list[ii] as TabStopScannerButton).SetTabStops(0.0f, new float[] { 25, 400 });
-                    list[ii].UserData = new ItemTag(_appsList[jj]);
-                    String title = _appsList[jj].Name;
-                    if (title.Length > MaxWindowTitleLength)
-                    {
-                        title = title.Substring(0, MaxWindowTitleLength) + "...";
-                    }
-
-                    list[ii].SetText(displayIndex + ".\t" + title);
-                }
-
-                Log.Debug("_pageNumber: " + _pageNumber + ", _numPages: " + _numPages);
-
-                if (_pageNumber < _numPages - 1)
-                {
-                    displayIndex = (ii + 1) % 10;
-                    (list[ii] as TabStopScannerButton).SetTabStops(0.0f, new float[] { 25, 400 });
-                    list[ii].UserData = new ItemTag(ItemTag.ItemType.NextPage);
-                    list[ii].SetText(displayIndex + ".\t------------- NEXT PAGE  -------------");
-                    ii++;
-                }
-
-                for (; ii < count; ii++)
-                {
-                    list[ii].SetText(String.Empty);
-                    list[ii].UserData = null;
-                }
+                return;
             }
+
+            foreach (var button in list)
+            {
+                button.UserData = null;
+                button.SetText(String.Empty);
+            }
+
+            _entriesPerPage = count;
+            _numPages = _appsList.Count() / _entriesPerPage;
+
+            if ((_appsList.Count() % _entriesPerPage) != 0)
+            {
+                _numPages++;
+            }
+
+            updateButtonBar();
+
+            updateStatusBar();
+
+            if (!_appsList.Any())
+            {
+                (list[0] as TabStopScannerButton).SetTabStops(0.0f, new float[] { 100 });
+                list[0].SetText("\t------------- APPS LIST IS EMPTY -------------");
+                return;
+            }
+
+            int ii = 0;
+            var image = new Bitmap(1, 1);
+            var graphics = Graphics.FromImage(image);
+
+            for (int jj = _pageStartIndex; jj < _appsList.Count && ii < count; ii++, jj++)
+            {
+                var tabStopScannerButton = list[ii] as TabStopScannerButton;
+
+                tabStopScannerButton.SetTabStops(0.0f, new float[] { 0 });
+
+                list[ii].UserData = _appsList[jj];
+
+                var title = _appsList[jj].Name;
+
+                var str = getMeasuredString(graphics, tabStopScannerButton.UIControl.Font, ClientSize.Width - 30, title);
+
+                list[ii].SetText(str);
+            }
+
+            image.Dispose();
+            graphics.Dispose();
         }
 
         /// <summary>
@@ -917,7 +986,7 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
             _pageNumber = 0;
             _pageStartIndex = 0;
             _appsList = filterApps(_allAppsList, Windows.GetText(SearchFilter));
-            refreshWindowList();
+            refreshAppList();
         }
 
         /// <summary>
@@ -963,6 +1032,17 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
         }
 
         /// <summary>
+        /// Subscribes to the various events
+        /// </summary>
+        private void subscribeToEvents()
+        {
+            FormClosing += LaunchAppScanner_FormClosing;
+            Shown += LaunchAppScanner_Shown;
+            KeyDown += LaunchAppScanner_KeyDown;
+            LocationChanged += LaunchAppScanner_LocationChanged;
+        }
+
+        /// <summary>
         /// Switch the sort order and reload the list
         /// </summary>
         private void switchSortOrder()
@@ -973,96 +1053,74 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.LaunchApp
             _pageStartIndex = 0;
             loadAppsList();
             _appsList = filterApps(_allAppsList, Windows.GetText(SearchFilter));
-            refreshWindowList();
+            refreshAppList();
         }
 
         /// <summary>
-        /// Updates the status bar with the page number info
+        /// Updates the buttons on the button bar depending on the
+        /// current state
         /// </summary>
-        private void updateStatusBar()
+        private void updateButtonBar()
         {
+            String text;
+            var sortButtonText = "A-Z";
+            if (!_appsList.Any())
+            {
+                text = String.Empty;
+            }
+            else if (_sortOrder == SortOrder.Ascending)
+            {
+                text = "\u003A";
+                sortButtonText = "A-Z";
+            }
+            else
+            {
+                text = "\u003B";
+                sortButtonText = "Z-A";
+            }
+
             if (_sortOrderWidget != null)
             {
-                var text = String.Empty;
-                if (!_appsList.Any())
-                {
-                    text = String.Empty;
-                }
-                else if (_sortOrder == SortOrder.Ascending)
-                {
-                    text = "\u003A";
-                }
-                else
-                {
-                    text = "\u003B";
-                }
-
                 _sortOrderWidget.SetText(text);
+            }
+
+            if (_sortButton != null)
+            {
+                _sortButton.SetText(sortButtonText);
             }
 
             if (_pageNumberWidget != null)
             {
-                String text = _appsList.Any() ? "Page " + (_pageNumber + 1) + " of " + _numPages : String.Empty;
+                text = _appsList.Any() ? "Page " + (_pageNumber + 1) + " of " + _numPages : String.Empty;
                 _pageNumberWidget.SetText(text);
             }
         }
 
         /// <summary>
-        /// User clicked on a widget with the mouse
+        /// Updates the status bar with sort order info
         /// </summary>
-        /// <param name="sender">event sender</param>
-        /// <param name="e">event args</param>
-        private void widget_EvtMouseClicked(object sender, WidgetEventArgs e)
+        private void updateStatusBar()
         {
-            actuateWidget(e.SourceWidget.Name);
-        }
+            var text = String.Empty;
 
-        /// <summary>
-        /// Keeps track of meta data associated with
-        /// each list item.
-        /// </summary>
-        private class ItemTag
-        {
-            /// <summary>
-            /// Initializes a new instance of the class.
-            /// </summary>
-            /// <param name="type">Type of the data</param>
-            public ItemTag(ItemType type)
+            if (!_appsList.Any())
             {
-                DataType = type;
-                ApplicationInfo = null;
+                _statusBarPanelSort.Text = String.Empty;
+                return;
             }
 
-            /// <summary>
-            /// Initializes a new instance of the class.
-            /// </summary>
-            /// <param name="info">application info</param>
-            public ItemTag(AppInfo info)
+            switch (_sortOrder)
             {
-                DataType = ItemType.App;
-                ApplicationInfo = info;
+                case SortOrder.Ascending:
+                    text = "Sort Order:  ALPHABETICAL";
+                    break;
+
+                case SortOrder.Descending:
+                    text = "Sort Order:  REVERSE ALPHABETICAL";
+                    break;
             }
 
-            /// <summary>
-            /// which type of item does this represent?
-            /// </summary>
-            public enum ItemType
-            {
-                OrderBy,
-                PreviousPage,
-                NextPage,
-                App
-            }
-
-            /// <summary>
-            /// Gets the app info associated with this item
-            /// </summary>
-            public AppInfo ApplicationInfo { get; private set; }
-
-            /// <summary>
-            /// Gets the type of item
-            /// </summary>
-            public ItemType DataType { get; private set; }
+            _statusBarPanelSort.Text = text;
         }
     }
 }

@@ -90,14 +90,16 @@ namespace ACAT.Lib.Core.PanelManagement
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
-        /// <param name="panelClass">The scanner to be activted</param>
+        /// <param name="panelClass">The scanner to be activated</param>
         /// <param name="panelTitle">Title of the scanner </param>
         /// <param name="monitorInfo">Contextual info about app window</param>
-        public PanelRequestEventArgs(String panelClass, String panelTitle, WindowActivityMonitorInfo monitorInfo)
+        /// <param name="useCurrentScreenAsParent">Set to true to use the current panel as the parent</param>
+        public PanelRequestEventArgs(String panelClass, String panelTitle, WindowActivityMonitorInfo monitorInfo, bool useCurrentScreenAsParent = false)
             : this(panelClass, monitorInfo)
         {
             Title = panelTitle;
             TargetPanel = null;
+            UseCurrentScreenAsParent = useCurrentScreenAsParent;
         }
 
         /// <summary>

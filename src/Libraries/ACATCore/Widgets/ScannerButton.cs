@@ -20,6 +20,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Windows.Forms;
+using ACAT.Lib.Core.ThemeManagement;
 
 #region SupressStyleCopWarnings
 
@@ -70,6 +71,10 @@ namespace ACAT.Lib.Core.Widgets
         public ScannerButton(Control uiControl)
             : base(uiControl)
         {
+            if (ThemeManager.Instance.ActiveTheme.Colors.Exists("ScannerButton"))
+            {
+                Colors = ThemeManager.Instance.ActiveTheme.Colors.GetColorScheme("ScannerButton");
+            }
         }
     }
 }

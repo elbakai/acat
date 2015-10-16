@@ -62,13 +62,13 @@ using ACAT.Lib.Core.Utility;
 
 #endregion SupressStyleCopWarnings
 
-namespace ACAT.Extensions.Hawking.FunctionalAgents.NewFile
+namespace ACAT.Extensions.Default.FunctionalAgents.NewFile
 {
     /// <summary>
     /// Form that lets the user enter a file name for a new
     /// file. As the user is entering characters, it checks
-    /// if the file exists and visually indicates that the
-    /// file exists.
+    /// if the file exists and visually indicates whether the
+    /// file exists or not.
     /// </summary>
     public partial class NewFileNameForm : Form
     {
@@ -167,7 +167,9 @@ namespace ACAT.Extensions.Hawking.FunctionalAgents.NewFile
         {
             try
             {
-                var fileName = (!String.IsNullOrEmpty(FileToCreate)) ? Path.GetFileName(FileToCreate) : String.Empty;
+                var fileName = (!String.IsNullOrEmpty(FileToCreate)) ?
+                                    Path.GetFileName(FileToCreate) :
+                                    String.Empty;
 
                 return _isValid &&
                         !String.IsNullOrEmpty(FileToCreate) &&

@@ -61,7 +61,11 @@ namespace ACAT.Lib.Core.Interpreter
 {
     /// <summary>
     /// An action verb consists of a function name and arguments.
-    /// This class encapsulates the attributes of an action verb
+    /// This class encapsulates the attributes of an action verb.
+    /// E.g. if the action verb is "transition(TopLevelRotation)",
+    /// action name would be "transition" and the argument would be
+    /// "TopLevelRotation"
+
     /// </summary>
     public class ActionVerb
     {

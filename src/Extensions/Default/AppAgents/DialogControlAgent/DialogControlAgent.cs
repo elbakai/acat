@@ -19,6 +19,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 using System.Diagnostics.CodeAnalysis;
+using ACAT.Lib.Core.UserManagement;
 using ACAT.Lib.Core.Utility;
 using ACAT.Lib.Extension.AppAgents.DialogControlAgent;
 
@@ -60,13 +61,37 @@ using ACAT.Lib.Extension.AppAgents.DialogControlAgent;
 namespace ACAT.Extensions.Default.AppAgents.DialogControlAgent
 {
     /// <summary>
-    /// This is the application agent to handle dialogs.  Allows
-    /// the user to navigate the dialog, activate buttons etc.
+    /// This is the application agent to handle application dialogs.
+    /// For instance, the "Find" dialog in Notepad, or confirmation
+    /// dialog when the user quits Word without saving the file.
+    /// Allows the user to navigate the dialog, activate buttons etc.
     /// Base class does all the heavy-lifting.  Override functions
     /// as required customize
     /// </summary>
-    [DescriptorAttribute("71175780-0766-4491-AD23-22F0EEF87988", "Dialog Control Agent", "Agent for Dialogs")]
+    [DescriptorAttribute("71175780-0766-4491-AD23-22F0EEF87988",
+                            "Dialog Control Agent",
+                            "Agent for Dialogs")]
     internal class DialogControlAgent : DialogControlAgentBase
     {
+        /// <summary>
+        /// Settings for this agent
+        /// </summary>
+        internal static DialogControlAgentSettings Settings;
+
+        /// <summary>
+        /// Name of the settings file
+        /// </summary>
+        private const string SettingsFileName = "DialogControlAgentSettings.xml";
+
+        /// <summary>
+        /// Initializes an instance of the class
+        /// </summary>
+        public DialogControlAgent()
+        {
+            DialogControlAgentSettings.PreferencesFilePath = UserManager.GetFullPath(SettingsFileName);
+            Settings = DialogControlAgentSettings.Load();
+
+            autoSwitchScanners = Settings.AutoSwitchScannerEnable;
+        }
     }
 }

@@ -2,11 +2,11 @@
 
 <ACAT>
   <WidgetAttributes>
-    <WidgetAttribute name="lblBack" label="(" value="goBack"  fontname="ACAT Icon" fontsize="14" mouseClickActuate="true" toolTip="Exit"/>
-    <WidgetAttribute name="lblIncrease" label="$" value="ScannerZoomIn"  fontsize="14"  fontname="ACAT Icon" mouseClickActuate="true" toolTip="Zoom In"/>
-    <WidgetAttribute name="lblDecrease" label="#" value="ScannerZoomOut"  fontsize="14" fontname="ACAT Icon" mouseClickActuate="true" toolTip="Zoom Out"/>
-    <WidgetAttribute name="lblMove" label="[" value="ScannerMove"  fontsize="14"  fontname="ACAT Icon" mouseClickActuate="true" toolTip="Reposition"/>
-    <WidgetAttribute name="lblDefault" label="C" value="ScannerRestoreDefaults"  fontsize="14"  fontname="ACAT Icon" mouseClickActuate="true" toolTip="Restore Defaults"/>
+    <WidgetAttribute name="lblBack" label="&#x75;" value="goBack"  fontname="ACAT Icon" fontsize="22"  toolTip="Exit" bold="false"/>
+    <WidgetAttribute name="lblIncrease" label="$" value="ScannerZoomIn"  fontsize="22"  fontname="ACAT Icon"  toolTip="Zoom In" bold="false"/>
+    <WidgetAttribute name="lblDecrease" label="#" value="ScannerZoomOut"  fontsize="22" fontname="ACAT Icon"  toolTip="Zoom Out" bold="false"/>
+    <WidgetAttribute name="lblMove" label="[" value="ScannerMove"  fontsize="22"  fontname="ACAT Icon"  toolTip="Reposition" bold="false"/>
+    <WidgetAttribute name="lblDefault" label="C" value="ScannerRestoreDefaults"  fontsize="22"  fontname="ACAT Icon"  toolTip="Restore Defaults" bold="false"/>
   </WidgetAttributes>
 
   <Layout>

@@ -66,9 +66,12 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -79,6 +82,7 @@
     <Reference Include="UIAutomationClient" />
     <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbbreviationsManagement\Abbreviation.cs" />
@@ -86,6 +90,7 @@
     <Compile Include="AbbreviationsManagement\Abbreviations.cs" />
     <Compile Include="AbbreviationsManagement\AbbreviationTTSEventArgs.cs" />
     <Compile Include="ActuatorManagement\ActuatorBase.cs" />
+    <Compile Include="ActuatorManagement\ActuatorEx.cs" />
     <Compile Include="ActuatorManagement\ActuatorManager.cs" />
     <Compile Include="ActuatorManagement\Actuators.cs" />
     <Compile Include="ActuatorManagement\ActuatorSwitchBase.cs" />
@@ -102,6 +107,18 @@
     <Compile Include="ActuatorManagement\SwitchMap\SwitchElement.cs" />
     <Compile Include="ActuatorManagement\SwitchMap\SwitchMap.cs" />
     <Compile Include="ActuatorManagement\SwitchMap\SwitchMapActuator.cs" />
+    <Compile Include="ActuatorManagement\UI\ActuatorErrorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActuatorManagement\UI\ActuatorErrorForm.designer.cs">
+      <DependentUpon>ActuatorErrorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActuatorManagement\UI\CalibrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActuatorManagement\UI\CalibrationForm.designer.cs">
+      <DependentUpon>CalibrationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ActuatorManagement\USBHidInterface\DllImports.cs" />
     <Compile Include="ActuatorManagement\USBHidInterface\USBDevice.cs" />
     <Compile Include="ActuatorManagement\USBHidInterface\USBInterop.cs" />
@@ -166,20 +183,15 @@
     <Compile Include="Interpreter\PCode.cs" />
     <Compile Include="Interpreter\Scripts.cs" />
     <Compile Include="Interpreter\Variables.cs" />
+    <Compile Include="PanelManagement\Common\ScannerCloseEventArg.cs" />
+    <Compile Include="PanelManagement\PanelStack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PanelManagement\CommandDispatcher\RunCommands.cs" />
-    <Compile Include="PanelManagement\UI\ContextMenuMinimalBase.cs">
+    <Compile Include="PanelManagement\UI\MenuPanelBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PanelManagement\UI\ContextMenuMinimalBase.designer.cs">
-      <DependentUpon>ContextMenuMinimalBase.cs</DependentUpon>
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-    </Compile>
-    <Compile Include="PanelManagement\UI\ContextualMenuBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PanelManagement\UI\ContextualMenuBase.designer.cs">
-      <DependentUpon>ContextualMenuBase.cs</DependentUpon>
+    <Compile Include="PanelManagement\UI\MenuPanelBase.designer.cs">
+      <DependentUpon>MenuPanelBase.cs</DependentUpon>
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="PanelManagement\UI\Glass.cs">
@@ -239,6 +251,11 @@
     <Compile Include="PanelManagement\Utils\DockScanner.cs" />
     <Compile Include="PanelManagement\Utils\WindowHighlight.cs" />
     <Compile Include="PanelManagement\Utils\WindowOverlapWatchdog.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SpellCheckManagement\Interfaces\ISpellChecker.cs" />
     <Compile Include="SpellCheckManagement\Interfaces\ISpellCheckerSettingsDialog.cs" />
     <Compile Include="SpellCheckManagement\NullSpellChecker.cs" />
@@ -263,7 +280,7 @@
     <Compile Include="TTSManagement\Pronunciations.cs" />
     <Compile Include="TTSManagement\TTSBookmarkReachedEventArgs.cs" />
     <Compile Include="TTSManagement\TTSEngines.cs" />
-    <Compile Include="TTSManagement\TTSEngines\NullEngine\NullEngine.cs" />
+    <Compile Include="TTSManagement\TTSEngines\NullEngine\NullTTSEngine.cs" />
     <Compile Include="TTSManagement\TTSManager.cs" />
     <Compile Include="TTSManagement\TTSStatusChangedEventArgs.cs" />
     <Compile Include="TTSManagement\TTSValue.cs" />
@@ -278,7 +295,7 @@
     <Compile Include="Audit\AuditEventSwitchActuate.cs" />
     <Compile Include="Audit\AuditEventFocusChanged.cs" />
     <Compile Include="Audit\AuditEventMouseMover.cs" />
-    <Compile Include="Audit\AuditEventMuteScreen.cs" />
+    <Compile Include="Audit\AuditEventScreenLock.cs" />
     <Compile Include="Audit\AuditEventScannerActivity.cs" />
     <Compile Include="Audit\AuditEventUISwitchDetect.cs" />
     <Compile Include="Audit\AuditEventTalkWindow.cs" />
@@ -287,11 +304,15 @@
     <Compile Include="UserManagement\UserManager.cs" />
     <Compile Include="Utility\Attributions.cs" />
     <Compile Include="Utility\AutomationEventManager.cs" />
+    <Compile Include="Utility\BlockingQueue.cs" />
+    <Compile Include="Utility\Kernel32Interop.cs" />
     <Compile Include="Utility\CoreGlobals.cs" />
     <Compile Include="Utility\KeyToChar.cs" />
-    <Compile Include="Utility\Mouse\BresenhamLine.cs" />
+    <Compile Include="Utility\Mouse\GridMouseMover.cs" />
+    <Compile Include="Utility\Mouse\MouseGridScanWindow.xaml.cs">
+      <DependentUpon>MouseGridScanWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utility\XmlUtils.cs" />
-    <Compile Include="Utility\Mouse\Bresenham.cs" />
     <Compile Include="Utility\DescriptorAttribute.cs" />
     <Compile Include="Utility\DirectoryWalker.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
@@ -299,12 +320,10 @@
     <Compile Include="Utility\FileUtils.cs" />
     <Compile Include="Utility\FocusChangedEventArgs.cs" />
     <Compile Include="Utility\GlobalPreferences.cs" />
-    <Compile Include="Utility\Mouse\GridMouseMover.cs" />
     <Compile Include="Utility\ImageUtils.cs" />
     <Compile Include="Utility\Interfaces\IDescriptor.cs" />
     <Compile Include="Utility\KeyStateTracker.cs" />
     <Compile Include="Utility\Log.cs" />
-    <Compile Include="Utility\Mouse\MouseMoverStateChangedEventArgs.cs" />
     <Compile Include="Utility\Mouse\MouseUtils.cs" />
     <Compile Include="PanelManagement\Common\PanelClasses.cs" />
     <Compile Include="PanelManagement\Common\PanelRequestEventArgs.cs">
@@ -312,8 +331,7 @@
     </Compile>
     <Compile Include="Utility\Preferences.cs" />
     <Compile Include="Utility\PreferencesBase.cs" />
-    <Compile Include="Utility\Mouse\RadarMouseMover.cs" />
-    <Compile Include="Utility\RoundedCornerRectangle.cs" />
+    <Compile Include="Utility\RoundedCornerControl.cs" />
     <Compile Include="Utility\SmartPath.cs" />
     <Compile Include="Utility\SyncLock.cs" />
     <Compile Include="Utility\TextUtils.cs" />
@@ -345,7 +363,6 @@
     <Compile Include="WidgetManagement\WidgetEventArg.cs" />
     <Compile Include="WidgetManagement\WidgetFinder.cs" />
     <Compile Include="WidgetManagement\WidgetManager.cs" />
-    <Compile Include="Widgets\PictureBoxWidget.cs" />
     <Compile Include="Widgets\BoxWidget.cs" />
     <Compile Include="Widgets\ButtonControlWidget.cs" />
     <Compile Include="Widgets\ButtonWidgetBase.cs" />
@@ -354,7 +371,7 @@
     <Compile Include="Widgets\CurrentWordWidget.cs" />
     <Compile Include="Widgets\ImageWidget.cs" />
     <Compile Include="Widgets\LabelWidget.cs" />
-    <Compile Include="Widgets\PictureBoxWidgetBase.cs" />
+    <Compile Include="Widgets\ImageWidgetBase.cs" />
     <Compile Include="Widgets\RowWidget.cs" />
     <Compile Include="Widgets\ScannerButton.cs" />
     <Compile Include="Widgets\ScannerButtonBase.cs" />
@@ -362,7 +379,6 @@
     <Compile Include="Widgets\TabStopScannerButton.cs" />
     <Compile Include="Widgets\TextBoxWidget.cs" />
     <Compile Include="Widgets\CheckBoxWidget.cs" />
-    <Compile Include="Widgets\WidgetUtils.cs" />
     <Compile Include="Widgets\WinControlWidget.cs" />
     <Compile Include="Widgets\WordListWidget.cs" />
     <Compile Include="Widgets\WordListItemWidget.cs" />
@@ -385,11 +401,8 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="PanelManagement\UI\ContextMenuMinimalBase.resx">
-      <DependentUpon>ContextMenuMinimalBase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PanelManagement\UI\ContextualMenuBase.resx">
-      <DependentUpon>ContextualMenuBase.cs</DependentUpon>
+    <EmbeddedResource Include="PanelManagement\UI\MenuPanelBase.resx">
+      <DependentUpon>MenuPanelBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PanelManagement\UI\Glass.resx">
       <DependentUpon>Glass.cs</DependentUpon>
@@ -401,6 +414,30 @@
       <DependentUpon>TimedMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PanelManagement\UI\ToastForm.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Utility\Mouse\MouseGridScanWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MouseCursor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PanelManagement\UI\Images\SplashScreenBg.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="PanelManagement\UI\Images\Splash1.png" />
+    <Content Include="PanelManagement\UI\Images\Splash2.png" />
+    <Content Include="PanelManagement\UI\Images\Splash3.png" />
+    <Content Include="PanelManagement\UI\Images\Splash4.png" />
+    <Content Include="PanelManagement\UI\Images\Splash5.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

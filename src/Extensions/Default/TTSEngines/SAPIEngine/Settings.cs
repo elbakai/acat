@@ -1,5 +1,5 @@
 ﻿////////////////////////////////////////////////////////////////////////////
-// <copyright file="InternetExplorerAgent.cs" company="Intel Corporation">
+// <copyright file="Settings.cs" company="Intel Corporation">
 //
 // Copyright (c) 2013-2015 Intel Corporation 
 //
@@ -83,7 +83,7 @@ namespace ACAT.Extensions.Default.TTSEngines
         public SAPISettings()
         {
             Volume = 100;
-            Rate = 0;
+            Rate = -2;
             UseAlternatePronunciations = true;
         }
 

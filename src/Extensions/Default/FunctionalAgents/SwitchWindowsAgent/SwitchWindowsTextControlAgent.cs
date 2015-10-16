@@ -59,7 +59,7 @@ using ACAT.Lib.Core.Utility;
 
 #endregion SupressStyleCopWarnings
 
-namespace ACAT.Extensions.Hawking.FunctionalAgents.SwitchWindows
+namespace ACAT.Extensions.Default.FunctionalAgents.SwitchWindowsAgent
 {
     /// <summary>
     /// Text control agent class for the switch windows agent. Disable

@@ -68,6 +68,8 @@ namespace ACAT.Lib.Core.Utility
     /// Walks a specified directory recursively, looks for files that
     /// match a specified wildcard and invokes a callback
     /// function for every matching file it finds.
+    /// This class can be used to discover DLL's, font files, image files
+    /// etc.
     /// </summary>
     public class DirectoryWalker
     {

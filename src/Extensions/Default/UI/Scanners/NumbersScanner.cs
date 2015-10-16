@@ -70,7 +70,9 @@ namespace ACAT.Extensions.Default.UI.Scanners
     /// <summary>
     /// Scanner that allows entry of numbers
     /// </summary>
-    [DescriptorAttribute("EABAEEA7-EABF-4499-B571-2D8F29ABFF09", "NumbersScanner", "Numbers Scanner")]
+    [DescriptorAttribute("A2FAC295-9A8F-4214-B55C-BB611F09B252",
+                        "NumbersScanner",
+                        "Enter numbers 0-9")]
     public partial class NumbersScanner : Form, IScannerPanel, ISupportsStatusBar
     {
         /// <summary>
@@ -89,17 +91,12 @@ namespace ACAT.Extensions.Default.UI.Scanners
         private ScannerHelper _scannerHelper;
 
         /// <summary>
-        /// The StatusBar for this scanner
-        /// </summary>
-        private ScannerStatusBar _statusBar;
-
-        /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
         public NumbersScanner()
         {
             InitializeComponent();
-            createStatusBar();
+
             Load += NumbersScanner_Load;
             FormClosing += NumbersScanner_FormClosing;
             PanelClass = PanelClasses.Number;
@@ -148,7 +145,7 @@ namespace ACAT.Extensions.Default.UI.Scanners
         /// </summary>
         public ScannerStatusBar ScannerStatusBar
         {
-            get { return _statusBar; }
+            get { return ScannerCommon.StatusBar; }
         }
 
         /// <summary>
@@ -205,6 +202,8 @@ namespace ACAT.Extensions.Default.UI.Scanners
                 Log.Debug("Could not initialize form " + Name);
                 return false;
             }
+
+            _scannerCommon.CreateStatusBar();
 
             return true;
         }
@@ -293,26 +292,15 @@ namespace ACAT.Extensions.Default.UI.Scanners
         [EnvironmentPermissionAttribute(SecurityAction.LinkDemand, Unrestricted = true)]
         protected override void WndProc(ref Message m)
         {
-            _scannerCommon.HandleWndProc(m);
-            base.WndProc(ref m);
-        }
-
-        /// <summary>
-        /// Creates the statusbar object for this scanner
-        /// </summary>
-        private void createStatusBar()
-        {
-            if (_statusBar == null)
+            if (_scannerCommon != null)
             {
-                _statusBar = new ScannerStatusBar
+                if (_scannerCommon.HandleWndProc(m))
                 {
-                    AltStatus = BAltStatus,
-                    CtrlStatus = BCtrlStatus,
-                    FuncStatus = BFuncStatus,
-                    ShiftStatus = BShiftStatus,
-                    LockStatus = BLockStatus
-                };
+                    return;
+                }
             }
+
+            base.WndProc(ref m);
         }
 
         /// <summary>
@@ -322,7 +310,6 @@ namespace ACAT.Extensions.Default.UI.Scanners
         /// <param name="e">event arg</param>
         private void NumbersScanner_FormClosing(object sender, FormClosingEventArgs e)
         {
-            KeyStateTracker.FuncOff();
             _scannerCommon.OnClosing();
             _scannerCommon.Dispose();
         }

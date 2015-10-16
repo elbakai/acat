@@ -91,10 +91,8 @@ namespace ACAT.Lib.Core.WidgetManagement
             Name = String.Empty;
             Label = String.Empty;
             Value = String.Empty;
-            Offset1 = -999;
-            Offset2 = -999;
             Modifiers = null;
-            MouseClickActuate = false;
+            MouseClickActuate = true;
             OnMouseClick = new PCode();
         }
 
@@ -124,7 +122,7 @@ namespace ACAT.Lib.Core.WidgetManagement
         public bool IsVirtualKey { get; private set; }
 
         /// <summary>
-        /// What to display on the screen
+        /// What to display on the control in the form
         /// </summary>
         public String Label { get; set; }
 
@@ -145,20 +143,6 @@ namespace ACAT.Lib.Core.WidgetManagement
         public String Name { get; set; }
 
         /// <summary>
-        /// If this is a two letter text that's displayed,
-        /// offset of the 1st letter from the left margin of the bounding
-        /// rectangle
-        /// </summary>
-        public int Offset1 { get; set; }
-
-        /// <summary>
-        /// If this is a two letter text that's displayed,
-        /// offset of the 2nd letter from the left margin of the bounding
-        /// rectangle
-        /// </summary>
-        public int Offset2 { get; set; }
-
-        /// <summary>
         /// Tooltip help string
         /// </summary>
         public String ToolTip { get; set; }
@@ -171,7 +155,7 @@ namespace ACAT.Lib.Core.WidgetManagement
         /// <summary>
         /// Class factory to create a WidgetAttribute object from
         /// the xml node.  The xml fragment (e.g.) is as follows
-        ///   <WidgetAttribute name="B44" label="&lt;w" value="@unknown" fontname="Arial Narrow" fontsize="24"  offset2="16"/>
+        ///   <WidgetAttribute name="B44" label="&lt;w" value="@CmdMainMenu" fontname="Arial Narrow" fontsize="24"/>
         /// </summary>
         /// <param name="node">the xml node</param>
         /// <returns>button attribute object</returns>
@@ -226,13 +210,11 @@ namespace ACAT.Lib.Core.WidgetManagement
             Label = XmlUtils.GetXMLAttrString(node, "label");
             Value = XmlUtils.GetXMLAttrString(node, "value");
             FontSize = XmlUtils.GetXMLAttrInt(node, "fontsize", FontSize);
-            Offset1 = XmlUtils.GetXMLAttrInt(node, "offset1", Offset1);
-            Offset2 = XmlUtils.GetXMLAttrInt(node, "offset2", Offset1);
             FontName = XmlUtils.GetXMLAttrString(node, "fontname", FontName);
             FontBold = XmlUtils.GetXMLAttrBool(node, "bold", FontBold);
             IsVirtualKey = XmlUtils.GetXMLAttrBool(node, "virtualkey", false);
             ToolTip = XmlUtils.GetXMLAttrString(node, "toolTip", String.Empty);
-            MouseClickActuate = XmlUtils.GetXMLAttrBool(node, "mouseClickActuate", false);
+            MouseClickActuate = XmlUtils.GetXMLAttrBool(node, "mouseClickActuate", true);
             String onMouseClick = XmlUtils.GetXMLAttrString(node, "onMouseClick");
             if (!String.IsNullOrEmpty(onMouseClick))
             {

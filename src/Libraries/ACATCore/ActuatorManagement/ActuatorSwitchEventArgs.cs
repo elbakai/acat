@@ -22,6 +22,7 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 
 #region SupressStyleCopWarnings
+
 [module: SuppressMessage(
         "StyleCop.CSharp.ReadabilityRules",
         "SA1126:PrefixCallsCorrectly",
@@ -52,14 +53,15 @@ using System.Diagnostics.CodeAnalysis;
         "SA1300:ElementMustBeginWithUpperCaseLetter",
         Scope = "namespace",
         Justification = "ACAT guidelines. Private/Protected methods begin with lowercase")]
-#endregion
+
+#endregion SupressStyleCopWarnings
 
 namespace ACAT.Lib.Core.ActuatorManagement
 {
     /// <summary>
     /// Event argument for switch trigger events
     /// </summary>
-    public class ActuatorSwitchEventArgs : EventArgs 
+    public class ActuatorSwitchEventArgs : EventArgs
     {
         /// <summary>
         /// Initializes a new instance of the ActuatorSwitchEventArgs class
@@ -73,6 +75,6 @@ namespace ACAT.Lib.Core.ActuatorManagement
         /// <summary>
         /// Gets the actuator switch object
         /// </summary>
-        public IActuatorSwitch SwitchObj  { get; private set; } 
+        public IActuatorSwitch SwitchObj { get; private set; }
     }
 }

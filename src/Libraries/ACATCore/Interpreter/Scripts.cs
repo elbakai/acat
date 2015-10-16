@@ -83,7 +83,7 @@ namespace ACAT.Lib.Core.Interpreter
         }
 
         /// <summary>
-        /// Load scripts from the config file (node ACAT/Scripts/Script)
+        /// Loads scripts from the config file (node ACAT/Scripts/Script)
         /// </summary>
         /// <param name="configFile">Name of the config file</param>
         /// <returns>true onf success</returns>

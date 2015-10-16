@@ -62,7 +62,8 @@ using ACAT.Lib.Core.PanelManagement.CommandDispatcher;
 namespace ACAT.Lib.Extension.CommandHandlers
 {
     /// <summary>
-    /// Shows the contextual menu
+    /// Shows the contextual menu by invoking the currently
+    /// active application agent.
     /// </summary>
     public class ContextMenuHandler : RunCommandHandler
     {

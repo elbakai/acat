@@ -63,7 +63,8 @@ namespace ACAT.Lib.Core.TalkWindowManagement
     /// <summary>
     /// Interface for the talk window.  The Talk Window allows
     /// the user to communicate by typing text and converting the
-    /// text to speech
+    /// text to speech.  The Talk window class MUST implement this
+    /// interface.
     /// </summary>
     public interface ITalkWindow : IPanel
     {
@@ -102,7 +103,7 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         Control TalkWindowTextBox { get; }
 
         /// <summary>
-        /// Centers the talk window wrt to the screen
+        /// Centers the talk window wrt to the display
         /// </summary>
         void Center();
 

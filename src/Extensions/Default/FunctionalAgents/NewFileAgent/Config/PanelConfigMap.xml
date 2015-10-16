@@ -2,6 +2,6 @@
 
 <ACAT>
   <ConfigMapEntries>
-    <ConfigMapEntry panelClass="NewFileContextMenu" configName="NewFileContextMenu" formId="6307D870-D90E-45ED-8A7E-43A3BA97D868" configFile="NewFileContextMenu.xml"/>
+    <ConfigMapEntry panelClass="FileChoiceMenu" configName="FileChoiceMenu" formId="52BDBBA8-A855-42A1-AC3C-03945DAD3686" configFile="FileChoiceMenu.xml"/>
   </ConfigMapEntries>
 </ACAT>

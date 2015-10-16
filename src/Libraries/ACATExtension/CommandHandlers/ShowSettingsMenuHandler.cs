@@ -84,14 +84,10 @@ namespace ACAT.Lib.Extension.CommandHandlers
         {
             handled = true;
 
-            Form form = Dispatcher.Scanner.Form;
-            if (DialogUtils.ConfirmScanner(form as IPanel, "Launch Settings Menu?"))
+            Form settingsMenuForm = Context.AppPanelManager.CreatePanel("SettingsMenu");
+            if (settingsMenuForm != null)
             {
-                Form settingsMenuForm = Context.AppPanelManager.CreatePanel("SettingsMenu");
-                if (settingsMenuForm != null)
-                {
-                    Context.AppPanelManager.ShowDialog(settingsMenuForm as IPanel);
-                }
+                Context.AppPanelManager.ShowDialog(settingsMenuForm as IPanel);
             }
 
             return true;

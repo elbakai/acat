@@ -66,7 +66,9 @@ namespace ACAT.Extensions.Hawking.Actuators.Camera
     /// window on connect and shuts it down on exit. All the heavy
     /// lifting is done by the base class.
     /// </summary>
-    [DescriptorAttribute("A5B9BFF9-0A35-41AC-8989-69A3D60F4435", "Camera Actuator - Winsock Client", "Activate switches over TCP/IP. ACAT is the TCP client")]
+    [DescriptorAttribute("A5B9BFF9-0A35-41AC-8989-69A3D60F4435",
+                            "Camera Actuator - Winsock Client",
+                            "Send facical gesture triggers over TCP/IP.")]
     public class CameraActuator : WinsockClientActuatorBase
     {
         /// <summary>
@@ -93,7 +95,7 @@ namespace ACAT.Extensions.Hawking.Actuators.Camera
         }
 
         /// <summary>
-        /// Perform initialization. Hides vision software windows
+        /// Performs initialization. Hides vision software windows
         /// </summary>
         /// <returns>true on success</returns>
         public override bool Init()
@@ -110,7 +112,11 @@ namespace ACAT.Extensions.Hawking.Actuators.Camera
                 Windows.MinimizeWindow(handle);
             }
 
-            return base.Init();
+            bool retVal = base.Init();
+
+            OnInitDone();
+
+            return retVal;
         }
 
         /// <summary>

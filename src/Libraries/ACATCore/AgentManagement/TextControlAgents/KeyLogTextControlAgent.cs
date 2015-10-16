@@ -296,7 +296,7 @@ namespace ACAT.Lib.Core.AgentManagement.TextInterface
         }
 
         /// <summary>
-        /// Resume making text changes
+        /// Resumes making text changes
         /// </summary>
         public override void Resume()
         {

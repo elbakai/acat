@@ -88,9 +88,9 @@ namespace ACAT.Lib.Core.ActuatorManagement
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// Gets or sets the scanner name to which this switch map belongs
+        /// Gets or sets the panel name to which this switch map belongs
         /// </summary>
-        public String Screen { get; set; }
+        public String Panel { get; set; }
 
         /// <summary>
         /// Gets a collection of SwtichMapActuator objects
@@ -122,7 +122,7 @@ namespace ACAT.Lib.Core.ActuatorManagement
         /// <returns>true on success</returns>
         public bool Load(XmlNode node)
         {
-            Screen = XmlUtils.GetXMLAttrString(node, "screen");
+            Panel = XmlUtils.GetXMLAttrString(node, "screen");
             Enabled = XmlUtils.GetXMLAttrBool(node, "enabled", true);
 
             XmlNodeList actuatorNodes = node.SelectNodes("Actuators/Actuator");

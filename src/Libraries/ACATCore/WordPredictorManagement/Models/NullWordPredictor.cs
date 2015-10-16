@@ -1,5 +1,5 @@
 ﻿////////////////////////////////////////////////////////////////////////////
-// <copyright file="IWordPredictorSettingsDialog.cs" company="Intel Corporation">
+// <copyright file="NullWordPredictor.cs" company="Intel Corporation">
 //
 // Copyright (c) 2013-2015 Intel Corporation 
 //
@@ -64,7 +64,9 @@ namespace ACAT.Lib.Core.WordPredictionManagement
     /// The null word predictor basically does nothing.  It is used
     /// where no word predictor is currently valid.
     /// </summary>
-    [DescriptorAttribute("3EF5A318-6357-467D-BF45-9C925CF72FF4", "Null Word Predictor", "Word prediction Disabled.")]
+    [DescriptorAttribute("3EF5A318-6357-467D-BF45-9C925CF72FF4", 
+                            "Null Word Predictor", 
+                            "Word prediction Disabled.")]
     public class NullWordPredictor : IWordPredictor
     {
         private int _contextHandle = 1;

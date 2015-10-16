@@ -60,7 +60,7 @@ using ACAT.Lib.Core.Utility;
 
 #endregion SupressStyleCopWarnings
 
-namespace ACAT.Extensions.Hawking.FunctionalAgents.LectureManager
+namespace ACAT.Extensions.Default.FunctionalAgents.LectureManager
 {
     /// <summary>
     /// Represents the text control object for the lecture manager.

@@ -66,8 +66,9 @@ namespace ACAT.Lib.Core.AgentManagement
     /// default agent used by the Agent Manager if it can't find an agent
     /// that supports the current foreground process.
     /// </summary>
-    [DescriptorAttribute("B23F799A-2A08-4387-BF5D-D4F80F79951A", "Unsupported App Agent",
-                        "App Agent unsupported applications")]
+    [DescriptorAttribute("B23F799A-2A08-4387-BF5D-D4F80F79951A",
+                        "Unsupported App Agent",
+                        "Application Agent for unsupported applications")]
     public class UnsupportedAppAgent : GenericAppAgentBase
     {
         /// <summary>

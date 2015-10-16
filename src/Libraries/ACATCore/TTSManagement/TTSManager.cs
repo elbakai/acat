@@ -62,13 +62,16 @@ namespace ACAT.Lib.Core.TTSManagement
 {
     /// <summary>
     /// Manages text to speech (TTS) engines.  There are a variety
-    /// of methods to convert TTS.  Some are hardware solutions (SpeechPlus)
-    /// and some are software (SAPI).  ACAT supports a
-    /// variety of TTS engine to be used through the ITTSEngine interface.
-    /// The specifics of doing the conversion is up to the developer of the
+    /// of methods to convert TTS.  Some are hardware solutions where
+    /// the speech conversion is done by external hardware.
+    /// and some are software (such as the Microsof Speech Engine).
+    /// ACAT supports a variety of TTS engine to be used through the
+    /// ITTSEngine interface. The specifics of doing the conversion is up
+    /// to the developer of the
     /// engine.
     /// The TTS manager holds a list of engines that it finds and also
     /// tracks the currently active TTS engine
+    ///
     /// This class is a singleton.
     /// </summary>
     public class TTSManager : IDisposable
@@ -116,7 +119,7 @@ namespace ACAT.Lib.Core.TTSManagement
         /// </summary>
         private TTSManager()
         {
-            _nullEngine = new Core.TTSEngines.NullEngine();
+            _nullEngine = new Core.TTSEngines.NullTTSEngine();
             ActiveEngine = _nullEngine;
             ActiveEngine.Init();
         }
@@ -187,7 +190,7 @@ namespace ACAT.Lib.Core.TTSManagement
         /// extension dirs parameter contains the root directory under
         /// which to search for TTSEngine DLL files.  The directories
         /// are specified in a comma delimited fashion.
-        /// E.g.  Base, Hawking
+        /// E.g.  Default, MyCustomACATDir
         /// These are relative to the application execution directory or
         /// to the directory where ACAT has been installed.
         /// It recusrively walks the directories and looks for TTS Engine

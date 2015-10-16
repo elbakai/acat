@@ -68,8 +68,14 @@ namespace ACAT.Lib.Core.Utility
     [Serializable]
     public abstract class PreferencesBase
     {
+        /// <summary>
+        /// For the event that notifies that preferences changed
+        /// </summary>
         public delegate void PreferencesChangedDelegate();
 
+        /// <summary>
+        /// Event that is raised when any of the preferecnes change.
+        /// </summary>
         public event PreferencesChangedDelegate EvtPreferencesChanged;
 
         /// <summary>
@@ -111,6 +117,12 @@ namespace ACAT.Lib.Core.Utility
             return preferences;
         }
 
+        /// <summary>
+        /// Creates a new instance of the class (which has the 
+        /// default settings)
+        /// </summary>
+        /// <typeparam name="T">Class</typeparam>
+        /// <returns>created object</returns>
         public static T LoadDefaults<T>() where T : new()
         {
             return new T();
@@ -161,7 +173,7 @@ namespace ACAT.Lib.Core.Utility
 
         /// <summary>
         /// Returns a string representation of the settings
-        /// </summary>
+        /// </summary>*.
         public virtual String toString()
         {
             StringBuilder sb = new StringBuilder();

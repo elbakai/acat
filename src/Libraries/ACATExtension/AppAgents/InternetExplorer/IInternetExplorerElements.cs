@@ -59,8 +59,9 @@ using System.Windows.Automation;
 namespace ACAT.Lib.Extension.AppAgents.InternetExplorer
 {
     /// <summary>
-    /// Base class to determines which control in the IE Browser currently has focus
-    /// Derive a class from this for each specific version of the browser
+    /// Interface to determine which control in the IE Browser currently has focus -
+    /// address bar?  search box?  favorites window?
+    /// Implement this interface for each specific version of IE
     /// </summary>
     public interface IInternetExplorerElements
     {

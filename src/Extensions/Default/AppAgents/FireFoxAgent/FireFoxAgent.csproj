@@ -82,6 +82,7 @@
     <Reference Include="UIAutomationTypes" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FireFoxAgentSettings.cs" />
     <Compile Include="FirefoxTextControlAgent.cs" />
     <Compile Include="FireFoxAgent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,10 +90,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\FireFoxBrowserContextMenu.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Config\FireFoxBrowserContextMenuIconsOnly.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -29,11 +29,19 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Extension.AppAgents.MenuControlAgent
 {
     /// <summary>
-    /// Base class for the Agent that handles menus.  Provides
-    /// functionality to navigate menus and make selections
+    /// Base class for the Agent that handles application menus.
+    /// Provides functionality to navigate menus and make selections
     /// </summary>
     public class MenuControlAgentBase : GenericAppAgentBase
     {
+        /// <summary>
+        /// If set to true, the agent will autoswitch the
+        /// scanners depending on which element has focus.
+        /// Eg: Alphabet scanner if an edit text window has focus,
+        /// the contextual menu if the main document has focus
+        /// </summary>
+        protected bool autoSwitchScanners = true;
+
         /// <summary>
         /// Has the scanner for handling menus been shown already?
         /// </summary>
@@ -71,7 +79,7 @@ namespace ACAT.Lib.Extension.AppAgents.MenuControlAgent
         }
 
         /// <summary>
-        /// Invoked when the foreground window focus changes.  Display the
+        /// Invoked when the foreground window focus changes.  Displays the
         /// contextual menus for dialogs
         /// </summary>
         /// <param name="monitorInfo">Foreground window info</param>
@@ -86,11 +94,12 @@ namespace ACAT.Lib.Extension.AppAgents.MenuControlAgent
                 return;
             }
 
-            if (!scannerShown)
+            if (!scannerShown && autoSwitchScanners)
             {
                 base.OnFocusChanged(monitorInfo, ref handled);
                 showMenuContextMenu(monitorInfo);
             }
+
             handled = true;
         }
 
@@ -104,7 +113,7 @@ namespace ACAT.Lib.Extension.AppAgents.MenuControlAgent
         }
 
         /// <summary>
-        /// Invoked to run a command
+        /// Executes the specified command
         /// </summary>
         /// <param name="command">The command to execute</param>
         /// <param name="commandArg">Optional arguments for the command</param>
@@ -136,13 +145,7 @@ namespace ACAT.Lib.Extension.AppAgents.MenuControlAgent
         /// <param name="monitorInfo">Foreground menu window information</param>
         private void showMenuContextMenu(WindowActivityMonitorInfo monitorInfo)
         {
-            var args = new PanelRequestEventArgs(PanelClasses.MenuContextMenu, monitorInfo)
-            {
-                UseCurrentScreenAsParent = true,
-                Title = "Menu"
-            };
-
-            showPanel(this, args);
+            showPanel(this, new PanelRequestEventArgs(PanelClasses.MenuContextMenu, "Menu", monitorInfo, true));
             scannerShown = true;
         }
     }

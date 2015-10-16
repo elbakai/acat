@@ -65,8 +65,15 @@ namespace ACAT.Lib.Core.Widgets
     /// </summary>
     public class ButtonWidgetBase : Widget, IButtonWidget
     {
+        /// <summary>
+        /// The widgetAttribute object that encapsulates all
+        /// the attributes for this widget
+        /// </summary>
         protected WidgetAttribute widgetAttribute;
 
+        /// <summary>
+        /// Has this been disposed off yet?
+        /// </summary>
         private bool _disposed;
 
         /// <summary>
@@ -82,6 +89,10 @@ namespace ACAT.Lib.Core.Widgets
             uiControl.Paint += UIControl_Paint;
         }
 
+        /// <summary>
+        /// Returns the widgetAttributes object for this widget
+        /// </summary>
+        /// <returns>the object</returns>
         public WidgetAttribute GetWidgetAttribute()
         {
             return widgetAttribute;
@@ -100,7 +111,7 @@ namespace ACAT.Lib.Core.Widgets
         }
 
         /// <summary>
-        /// Dispose resources
+        /// Disposes resources
         /// </summary>
         /// <param name="disposing">true to dispose managed resources</param>
         protected override void Dispose(bool disposing)
@@ -139,7 +150,7 @@ namespace ACAT.Lib.Core.Widgets
         }
 
         /// <summary>
-        /// Release resources
+        /// Releases resources
         /// </summary>
         private void unInit()
         {

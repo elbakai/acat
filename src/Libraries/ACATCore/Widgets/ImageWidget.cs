@@ -64,12 +64,15 @@ using ACAT.Lib.Core.WidgetManagement;
 namespace ACAT.Lib.Core.Widgets
 {
     /// <summary>
-    /// A button that displays an image.  The image can
-    /// be cropped to fit into the rectangle. All crop
+    /// A PictureBox or a Button control that displays an image.
+    /// The image can be cropped to fit into the rectangle. All crop
     /// parameters are configurable through the xml file
-    /// for the scanner
+    /// for the scanner.  The "Label" attribute in the scanner
+    /// config file WidgetAttribute node should contain the
+    /// name of the image file.  The image file should reside
+    /// in the Images directory under the ACAT Assets folder.
     /// </summary>
-    public class ImageWidget : PictureBoxWidgetBase
+    public class ImageWidget : ImageWidgetBase
     {
         /// <summary>
         /// Height of the cropped image
@@ -180,7 +183,7 @@ namespace ACAT.Lib.Core.Widgets
         }
 
         /// <summary>
-        /// Render the image onto the screen
+        /// Render the image onto the control
         /// </summary>
         /// <param name="sender">event sender</param>
         /// <param name="e">eventargs</param>

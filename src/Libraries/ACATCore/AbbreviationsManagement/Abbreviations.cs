@@ -112,8 +112,10 @@ namespace ACAT.Lib.Core.AbbreviationsManagement
         /// <returns>true on success</returns>
         public bool Add(Abbreviation abbreviation)
         {
-            if (String.IsNullOrEmpty(abbreviation.Mnemonic) || String.IsNullOrWhiteSpace(abbreviation.Mnemonic) ||
-                String.IsNullOrWhiteSpace(abbreviation.Expansion) || String.IsNullOrEmpty(abbreviation.Expansion))
+            if (String.IsNullOrEmpty(abbreviation.Mnemonic) ||
+                String.IsNullOrWhiteSpace(abbreviation.Mnemonic) ||
+                String.IsNullOrWhiteSpace(abbreviation.Expansion) ||
+                String.IsNullOrEmpty(abbreviation.Expansion))
             {
                 return false;
             }
@@ -153,7 +155,7 @@ namespace ACAT.Lib.Core.AbbreviationsManagement
         }
 
         /// <summary>
-        /// Load abbreviations from the specified file.  If filename
+        /// Loads abbreviations from the specified file.  If filename
         /// is null, loads from the default file.  Parses the XML file
         /// and populates the sorted list
         /// </summary>
@@ -283,7 +285,7 @@ namespace ACAT.Lib.Core.AbbreviationsManagement
         }
 
         /// <summary>
-        /// Update an existing abbreviation object.
+        /// Updates an existing abbreviation object.
         /// </summary>
         /// <param name="abbreviation">Abbreviation to update</param>
         /// <returns>true if updated successfully</returns>

@@ -1,5 +1,5 @@
 ﻿////////////////////////////////////////////////////////////////////////////
-// <copyright file="ExtensionEventARgs.cs" company="Intel Corporation">
+// <copyright file="ExtensionEventArgs.cs" company="Intel Corporation">
 //
 // Copyright (c) 2013-2015 Intel Corporation 
 //

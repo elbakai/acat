@@ -114,7 +114,7 @@ namespace ACAT.Lib.Core.InputActuators
         }
 
         /// <summary>
-        /// Perform initialization - allocate socket server, subscribe
+        /// Performs initialization - allocate socket server, subscribe
         /// to events
         /// </summary>
         /// <returns>true on success</returns>
@@ -205,7 +205,7 @@ namespace ACAT.Lib.Core.InputActuators
         }
 
         /// <summary>
-        /// Depending on the action, invokes events
+        /// Depending on the switch trigger action, invokes events
         /// </summary>
         /// <param name="switchObj">The object that raised the event</param>
         protected void triggerEvent(IActuatorSwitch switchObj)

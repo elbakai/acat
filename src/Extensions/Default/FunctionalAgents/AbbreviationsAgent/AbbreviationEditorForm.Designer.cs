@@ -1,5 +1,4 @@
-﻿namespace ACAT.Extensions.Hawking.FunctionalAgents.Abbreviations
-
+﻿namespace ACAT.Extensions.Default.FunctionalAgents.AbbreviationsAgent
 {
     // TODO see if we should make a base class to encapsulate these three inherited classes/interfaces
     partial class AbbreviationEditorForm
@@ -52,7 +51,7 @@
             // 
             this.lblExpansion.AutoSize = true;
             this.lblExpansion.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpansion.Location = new System.Drawing.Point(239, 37);
+            this.lblExpansion.Location = new System.Drawing.Point(41, 133);
             this.lblExpansion.Name = "lblExpansion";
             this.lblExpansion.Size = new System.Drawing.Size(117, 24);
             this.lblExpansion.TabIndex = 96;
@@ -60,17 +59,18 @@
             // 
             // tbExpansion
             // 
-            this.tbExpansion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbExpansion.Location = new System.Drawing.Point(243, 64);
+            this.tbExpansion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbExpansion.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbExpansion.Location = new System.Drawing.Point(45, 160);
             this.tbExpansion.Multiline = true;
             this.tbExpansion.Name = "tbExpansion";
-            this.tbExpansion.Size = new System.Drawing.Size(476, 185);
+            this.tbExpansion.Size = new System.Drawing.Size(476, 119);
             this.tbExpansion.TabIndex = 93;
             // 
             // lblSpoken
             // 
             this.lblSpoken.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSpoken.Location = new System.Drawing.Point(69, 46);
+            this.lblSpoken.Location = new System.Drawing.Point(40, 8);
             this.lblSpoken.Name = "lblSpoken";
             this.lblSpoken.Size = new System.Drawing.Size(94, 29);
             this.lblSpoken.TabIndex = 2;
@@ -79,7 +79,7 @@
             // 
             // lblFinished
             // 
-            this.lblFinished.Location = new System.Drawing.Point(355, 266);
+            this.lblFinished.Location = new System.Drawing.Point(159, 418);
             this.lblFinished.Name = "lblFinished";
             this.lblFinished.Size = new System.Drawing.Size(114, 47);
             this.lblFinished.TabIndex = 88;
@@ -91,7 +91,7 @@
             // 
             this.lblAbbreviation.AutoSize = true;
             this.lblAbbreviation.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAbbreviation.Location = new System.Drawing.Point(52, 57);
+            this.lblAbbreviation.Location = new System.Drawing.Point(39, 44);
             this.lblAbbreviation.Name = "lblAbbreviation";
             this.lblAbbreviation.Size = new System.Drawing.Size(139, 24);
             this.lblAbbreviation.TabIndex = 91;
@@ -104,15 +104,15 @@
             this.boxType.Controls.Add(this.lblWritten);
             this.boxType.Controls.Add(this.pbTypeSpoken);
             this.boxType.Controls.Add(this.pbTypeWritten);
-            this.boxType.Location = new System.Drawing.Point(44, 162);
+            this.boxType.Location = new System.Drawing.Point(47, 338);
             this.boxType.Name = "boxType";
-            this.boxType.Size = new System.Drawing.Size(183, 85);
+            this.boxType.Size = new System.Drawing.Size(474, 49);
             this.boxType.TabIndex = 95;
             // 
             // lblWritten
             // 
             this.lblWritten.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWritten.Location = new System.Drawing.Point(69, 9);
+            this.lblWritten.Location = new System.Drawing.Point(236, 9);
             this.lblWritten.Name = "lblWritten";
             this.lblWritten.Size = new System.Drawing.Size(94, 29);
             this.lblWritten.TabIndex = 1;
@@ -122,7 +122,7 @@
             // pbTypeSpoken
             // 
             this.pbTypeSpoken.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pbTypeSpoken.Location = new System.Drawing.Point(9, 46);
+            this.pbTypeSpoken.Location = new System.Drawing.Point(2, 10);
             this.pbTypeSpoken.Name = "pbTypeSpoken";
             this.pbTypeSpoken.Size = new System.Drawing.Size(39, 29);
             this.pbTypeSpoken.TabIndex = 67;
@@ -132,7 +132,7 @@
             // pbTypeWritten
             // 
             this.pbTypeWritten.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pbTypeWritten.Location = new System.Drawing.Point(9, 10);
+            this.pbTypeWritten.Location = new System.Drawing.Point(199, 10);
             this.pbTypeWritten.Name = "pbTypeWritten";
             this.pbTypeWritten.Size = new System.Drawing.Size(39, 29);
             this.pbTypeWritten.TabIndex = 66;
@@ -143,7 +143,7 @@
             // 
             this.lblType.AutoSize = true;
             this.lblType.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblType.Location = new System.Drawing.Point(40, 133);
+            this.lblType.Location = new System.Drawing.Point(43, 308);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(65, 24);
             this.lblType.TabIndex = 94;
@@ -151,15 +151,16 @@
             // 
             // tbAbbreviation
             // 
-            this.tbAbbreviation.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAbbreviation.Location = new System.Drawing.Point(56, 84);
+            this.tbAbbreviation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbAbbreviation.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAbbreviation.Location = new System.Drawing.Point(43, 71);
             this.tbAbbreviation.Name = "tbAbbreviation";
-            this.tbAbbreviation.Size = new System.Drawing.Size(183, 26);
+            this.tbAbbreviation.Size = new System.Drawing.Size(183, 32);
             this.tbAbbreviation.TabIndex = 92;
             // 
             // lblCancel
             // 
-            this.lblCancel.Location = new System.Drawing.Point(503, 266);
+            this.lblCancel.Location = new System.Drawing.Point(306, 418);
             this.lblCancel.Name = "lblCancel";
             this.lblCancel.Size = new System.Drawing.Size(114, 47);
             this.lblCancel.TabIndex = 90;
@@ -172,23 +173,25 @@
             this.labelTitle.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.Location = new System.Drawing.Point(14, -2);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(226, 24);
+            this.labelTitle.Size = new System.Drawing.Size(240, 24);
             this.labelTitle.TabIndex = 161;
             this.labelTitle.Text = "Edit / Add Abbreviation";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblAbbreviation);
             this.groupBox1.Controls.Add(this.lblType);
+            this.groupBox1.Controls.Add(this.tbAbbreviation);
             this.groupBox1.Controls.Add(this.boxType);
             this.groupBox1.Controls.Add(this.tbExpansion);
             this.groupBox1.Controls.Add(this.lblExpansion);
             this.groupBox1.Controls.Add(this.lblFinished);
             this.groupBox1.Controls.Add(this.lblCancel);
             this.groupBox1.Controls.Add(this.labelTitle);
-            this.groupBox1.Location = new System.Drawing.Point(9, 18);
+            this.groupBox1.Location = new System.Drawing.Point(10, 18);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(739, 336);
+            this.groupBox1.Size = new System.Drawing.Size(536, 484);
             this.groupBox1.TabIndex = 172;
             this.groupBox1.TabStop = false;
             // 
@@ -196,9 +199,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(759, 360);
-            this.Controls.Add(this.lblAbbreviation);
-            this.Controls.Add(this.tbAbbreviation);
+            this.ClientSize = new System.Drawing.Size(553, 514);
             this.Controls.Add(this.groupBox1);
             this.Name = "AbbreviationEditorForm";
             this.Text = "Abbreviations Editor";
@@ -206,7 +207,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

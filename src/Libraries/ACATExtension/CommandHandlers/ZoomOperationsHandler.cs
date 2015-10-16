@@ -63,7 +63,8 @@ namespace ACAT.Lib.Extension.CommandHandlers
     /// <summary>
     /// Executes zoom operations such as zoom-in/zoom-out.
     /// The command is passed on to the application agent which
-    /// actually executes it.
+    /// actually executes it.  Applicable for instance to the
+    /// Internet Browser, Acrobat reader etc.
     /// </summary>
     public class ZoomOperationsHandler : RunCommandHandler
     {

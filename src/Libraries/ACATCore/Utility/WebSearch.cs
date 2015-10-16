@@ -63,8 +63,9 @@ namespace ACAT.Lib.Core.Utility
 {
     /// <summary>
     /// Performs a google or a wiki search on a search
-    /// string.  Launchesthe preferred browser and shows the
-    /// result of the search
+    /// string.  Launches the preferred browser and shows the
+    /// result of the search. If no browser is specified,
+    /// Internet Explorer is assumed as the default
     /// </summary>
     public class WebSearch
     {

@@ -63,8 +63,9 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Core.WidgetManagement
 {
     /// <summary>
-    /// Represents a collection of WidgetAttribute objects.  This
-    /// contains attributes for the button key elements
+    /// Represents a collection of WidgetAttribute objects.   
+    /// The attributes are read from the <WidgetAttributes> section
+    /// of the scanner config file
     /// </summary>
     public class WidgetAttributes : IDisposable
     {
@@ -87,7 +88,7 @@ namespace ACAT.Lib.Core.WidgetManagement
         }
 
         /// <summary>
-        /// Gets the collection of button attributes
+        /// Gets the collection of widget attributes
         /// </summary>
         public ICollection<WidgetAttribute> Attributes
         {
@@ -95,7 +96,7 @@ namespace ACAT.Lib.Core.WidgetManagement
         }
 
         /// <summary>
-        /// Retrieves the WidgetAttribute object for the button
+        /// Retrieves the WidgetAttribute object for the widget
         /// with the specified name
         /// </summary>
         /// <param name="name">name of the button</param>
@@ -110,6 +111,12 @@ namespace ACAT.Lib.Core.WidgetManagement
             }
         }
 
+        /// <summary>
+        /// Checks if  the widget attribute for the specified
+        /// widget name exists.
+        /// </summary>
+        /// <param name="name">name of the widget</param>
+        /// <returns>true if it does</returns>
         public bool Contains(String name)
         {
             return this[name] != null;
@@ -128,7 +135,7 @@ namespace ACAT.Lib.Core.WidgetManagement
         }
 
         /// <summary>
-        /// Load button attribute collection from the XML file. The
+        /// Loads widget attribute collection from the XML file. The
         /// xml fragment that represents this collection is:
         /// <WidgetAttributes>
         ///  <WidgetAttribute name="B1" label="-" value="@CmdSuffix"/>

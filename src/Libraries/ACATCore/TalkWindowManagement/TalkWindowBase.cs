@@ -62,7 +62,15 @@ using ACAT.Lib.Core.Utility;
 
 namespace ACAT.Lib.Core.TalkWindowManagement
 {
-    [DescriptorAttribute("97D0FFE5-88C1-4185-9DF4-8BAE3F905BAF", "TalkWindowBase", "Base class for Talk Window")]
+    /// <summary>
+    /// This is the base class for the Talk Window. Implements
+    /// the ITalkWindow interface and handles functions such as
+    /// zoomin, zoomout, getting the talk window text, clearing the
+    /// talk window, clipboard operations etc.
+    /// </summary>
+    [DescriptorAttribute("97D0FFE5-88C1-4185-9DF4-8BAE3F905BAF",
+                        "TalkWindowBase",
+                        "Base class for Talk Window")]
     public class TalkWindowBase : Form, ITalkWindow
     {
         /// <summary>
@@ -134,7 +142,6 @@ namespace ACAT.Lib.Core.TalkWindowManagement
             _syncObj = new SyncLock();
 
             Load += TalkWindowBase_Load;
-            FormClosing += TalkWindowBase_FormClosing;
         }
 
         /// <summary>
@@ -237,14 +244,7 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         }
 
         /// <summary>
-        /// Gets or sets the control (typically a Label) that
-        /// displays the current date/time.  Return null if
-        /// the talk window does not have one.
-        /// </summary>
-        protected Control dateTimeControl { get; set; }
-
-        /// <summary>
-        ///  Centers the talk window in the screen
+        ///  Centers the talk window in the display
         /// </summary>
         public virtual void Center()
         {
@@ -291,7 +291,7 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         }
 
         /// <summary>
-        /// Pause the talk window
+        /// Pauses the talk window
         /// </summary>
         public virtual void OnPause()
         {
@@ -305,7 +305,7 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         }
 
         /// <summary>
-        /// Resume the talk window
+        /// Resumes the talk window
         /// </summary>
         public virtual void OnResume()
         {
@@ -393,6 +393,14 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         }
 
         /// <summary>
+        /// Override this to displays the date and time on the talk window
+        /// </summary>
+        /// <param name="text"></param>
+        protected virtual void displayDateTime(String text)
+        {
+        }
+
+        /// <summary>
         /// Raises event that font has changed
         /// </summary>
         protected virtual void notifyFontChanged()
@@ -448,6 +456,8 @@ namespace ACAT.Lib.Core.TalkWindowManagement
             Log.Debug();
 
             base.OnShown(e);
+            User32Interop.SetForegroundWindow(this.Handle);
+
             if (_talkWindowTextBox != null)
             {
                 ActiveControl = _talkWindowTextBox;
@@ -497,11 +507,6 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         /// </summary>
         protected virtual void updateDateTime(String dateFormat, string timeFormat)
         {
-            if (dateTimeControl == null)
-            {
-                return;
-            }
-
             var dateTime = String.Empty;
             try
             {
@@ -539,7 +544,7 @@ namespace ACAT.Lib.Core.TalkWindowManagement
 
             if (!String.IsNullOrEmpty(dateTime))
             {
-                Windows.SetText(dateTimeControl, dateTime);
+                displayDateTime(dateTime);
             }
         }
 
@@ -579,15 +584,6 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         }
 
         /// <summary>
-        /// Form is closing.
-        /// </summary>
-        /// <param name="sender">event sender</param>
-        /// <param name="e">event args</param>
-        private void TalkWindowBase_FormClosing(object sender, FormClosingEventArgs e)
-        {
-        }
-
-        /// <summary>
         /// Perform initialization
         /// </summary>
         /// <param name="sender">event sender</param>
@@ -602,7 +598,7 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         }
 
         /// <summary>
-        /// Handle shortcuts.
+        /// Handles shortcuts.
         /// </summary>
         /// <param name="sender">event sender</param>
         /// <param name="e">event args</param>

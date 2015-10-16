@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////
-// <copyright file="AnimationWidget.cs" company="Intel Corporation">
+// <copyright file="AuditLog.cs" company="Intel Corporation">
 //
 // Copyright (c) 2013-2015 Intel Corporation 
 //

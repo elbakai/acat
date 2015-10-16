@@ -65,6 +65,7 @@ namespace ACAT.Lib.Core.WordPredictionManagement
     /// the next word using the previous n-words as context.  Some word predictors
     /// also support learning where the engine tunes its internal model for
     /// more accurate predictions based on the user.
+    /// All WordPredictors should implement this interface.
     /// </summary>
     public interface IWordPredictor : IDisposable
     {

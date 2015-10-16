@@ -57,7 +57,10 @@ namespace ACAT.Lib.Core.AbbreviationsManagement
 {
     /// <summary>
     /// Represents an abbreviation.  The abbreviation has a mnemonic,
-    /// the expansion and the mode of expansion - text or speech
+    /// the expansion and the mode of expansion - "Write" or "Speak".
+    /// In the first case, the abbreviation is expanded to its full form
+    /// in the textual form.  In the second case, the expansion is converted
+    /// to speech.
     /// </summary>
     public class Abbreviation : IDisposable
     {

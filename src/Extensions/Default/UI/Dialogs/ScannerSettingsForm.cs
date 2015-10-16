@@ -70,8 +70,9 @@ namespace ACAT.Extensions.Default.UI.Dialogs
     /// Sets the scanner settings such as the various timings,
     /// number of iterations for scanning etc.
     /// </summary>
-    [DescriptorAttribute("3BC26865-9D90-4DFD-BFAB-D7E69DDFA789", "ScannerSettingsForm",
-                            "Mute Settings Dialog")]
+    [DescriptorAttribute("3BC26865-9D90-4DFD-BFAB-D7E69DDFA789",
+                        "ScannerSettingsForm",
+                        "Mute Settings Dialog")]
     public partial class ScannerSettingsForm : Form, IDialogPanel
     {
         /// <summary>
@@ -218,26 +219,28 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Get the values from the form and update the settings
+        /// Gets the values from the form and updates the settings. Returns
+        /// the preferences object with the new settings
         /// </summary>
+        /// <returns>The </returns>
         private ACATPreferences getSettingsFromUI()
         {
             var rootWidget = _dialogCommon.GetRootWidget();
             var prefs = ACATPreferences.Load();
 
-            prefs.SelectClick = Common.AppPreferences.SelectClick = WidgetUtils.GetCheckBoxWidgetState(rootWidget, pbSelectingClick.Name);
+            prefs.SelectClick = Common.AppPreferences.SelectClick = (rootWidget.Finder.FindChild(pbSelectingClick.Name) as CheckBoxWidget).GetState();
 
-            prefs.HalfScanIterations = Common.AppPreferences.HalfScanIterations = WidgetUtils.GetSliderState(rootWidget, tbEveryHalf.Name, WidgetUtils.SliderUnitsOnes);
-            prefs.RowScanIterations = Common.AppPreferences.RowScanIterations = WidgetUtils.GetSliderState(rootWidget, tbEveryRow.Name, WidgetUtils.SliderUnitsOnes);
-            prefs.ColumnScanIterations = Common.AppPreferences.ColumnScanIterations = WidgetUtils.GetSliderState(rootWidget, tbEveryColumn.Name, WidgetUtils.SliderUnitsOnes);
-            prefs.WordPredictionScanIterations = Common.AppPreferences.WordPredictionScanIterations = WidgetUtils.GetSliderState(rootWidget, tbWordPrediction.Name, WidgetUtils.SliderUnitsOnes);
+            prefs.HalfScanIterations = Common.AppPreferences.HalfScanIterations = (rootWidget.Finder.FindChild(tbEveryHalf.Name) as SliderWidget).GetState(SliderWidget.SliderUnitsOnes);
+            prefs.RowScanIterations = Common.AppPreferences.RowScanIterations = (rootWidget.Finder.FindChild(tbEveryRow.Name) as SliderWidget).GetState(SliderWidget.SliderUnitsOnes);
+            prefs.ColumnScanIterations = Common.AppPreferences.ColumnScanIterations = (rootWidget.Finder.FindChild(tbEveryColumn.Name) as SliderWidget).GetState(SliderWidget.SliderUnitsOnes);
+            prefs.WordPredictionScanIterations = Common.AppPreferences.WordPredictionScanIterations = (rootWidget.Finder.FindChild(tbWordPrediction.Name) as SliderWidget).GetState(SliderWidget.SliderUnitsOnes);
 
-            prefs.AcceptTime = Common.AppPreferences.AcceptTime = WidgetUtils.GetSliderState(rootWidget, tbAcceptTime.Name, WidgetUtils.SliderUnitsThousandths);
-            prefs.SteppingTime = Common.AppPreferences.SteppingTime = WidgetUtils.GetSliderState(rootWidget, tbSteppingTime.Name, WidgetUtils.SliderUnitsThousandths);
-            prefs.HesitateTime = Common.AppPreferences.HesitateTime = WidgetUtils.GetSliderState(rootWidget, tbHesitateTime.Name, WidgetUtils.SliderUnitsThousandths);
-            prefs.WordPredictionHesitateTime = Common.AppPreferences.WordPredictionHesitateTime = WidgetUtils.GetSliderState(rootWidget, tbWordListHesitateTime.Name, WidgetUtils.SliderUnitsThousandths);
-            prefs.TabScanTime = Common.AppPreferences.TabScanTime = WidgetUtils.GetSliderState(rootWidget, tbTabScanTime.Name, WidgetUtils.SliderUnitsThousandths);
-            prefs.FirstRepeatTime = Common.AppPreferences.FirstRepeatTime = WidgetUtils.GetSliderState(rootWidget, tbFirstRepeatTime.Name, WidgetUtils.SliderUnitsThousandths);
+            prefs.AcceptTime = Common.AppPreferences.AcceptTime = (rootWidget.Finder.FindChild(tbAcceptTime.Name) as SliderWidget).GetState(SliderWidget.SliderUnitsThousandths);
+            prefs.SteppingTime = Common.AppPreferences.SteppingTime = (rootWidget.Finder.FindChild(tbSteppingTime.Name) as SliderWidget).GetState(SliderWidget.SliderUnitsThousandths);
+            prefs.HesitateTime = Common.AppPreferences.HesitateTime = (rootWidget.Finder.FindChild(tbHesitateTime.Name) as SliderWidget).GetState(SliderWidget.SliderUnitsThousandths);
+            prefs.WordPredictionHesitateTime = Common.AppPreferences.WordPredictionHesitateTime = (rootWidget.Finder.FindChild(tbWordListHesitateTime.Name) as SliderWidget).GetState(SliderWidget.SliderUnitsThousandths);
+            prefs.TabScanTime = Common.AppPreferences.TabScanTime = (rootWidget.Finder.FindChild(tbTabScanTime.Name) as SliderWidget).GetState(SliderWidget.SliderUnitsThousandths);
+            prefs.FirstRepeatTime = Common.AppPreferences.FirstRepeatTime = (rootWidget.Finder.FindChild(tbFirstRepeatTime.Name) as SliderWidget).GetState(SliderWidget.SliderUnitsThousandths);
 
             return prefs;
         }
@@ -252,19 +255,19 @@ namespace ACAT.Extensions.Default.UI.Dialogs
             // TOGGLE IMAGE BUTTON KEYS USED FOR BOTTOM-LEFT PANEL
             var rootWidget = _dialogCommon.GetRootWidget();
 
-            WidgetUtils.SetCheckBoxWidgetState(rootWidget, pbSelectingClick.Name, prefs.SelectClick);
+            (rootWidget.Finder.FindChild(pbSelectingClick.Name) as CheckBoxWidget).SetState(prefs.SelectClick);
 
-            WidgetUtils.SetSliderState(rootWidget, tbEveryHalf.Name, prefs.HalfScanIterations, WidgetUtils.SliderUnitsOnes);
-            WidgetUtils.SetSliderState(rootWidget, tbEveryRow.Name, prefs.RowScanIterations, WidgetUtils.SliderUnitsOnes);
-            WidgetUtils.SetSliderState(rootWidget, tbEveryColumn.Name, prefs.ColumnScanIterations, WidgetUtils.SliderUnitsOnes);
-            WidgetUtils.SetSliderState(rootWidget, tbWordPrediction.Name, prefs.WordPredictionScanIterations, WidgetUtils.SliderUnitsOnes);
+            (rootWidget.Finder.FindChild(tbEveryHalf.Name) as SliderWidget).SetState(prefs.HalfScanIterations, SliderWidget.SliderUnitsOnes);
+            (rootWidget.Finder.FindChild(tbEveryRow.Name) as SliderWidget).SetState(prefs.RowScanIterations, SliderWidget.SliderUnitsOnes);
+            (rootWidget.Finder.FindChild(tbEveryColumn.Name) as SliderWidget).SetState(prefs.ColumnScanIterations, SliderWidget.SliderUnitsOnes);
+            (rootWidget.Finder.FindChild(tbWordPrediction.Name) as SliderWidget).SetState(prefs.WordPredictionScanIterations, SliderWidget.SliderUnitsOnes);
 
-            WidgetUtils.SetSliderState(rootWidget, tbAcceptTime.Name, prefs.AcceptTime, WidgetUtils.SliderUnitsThousandths);
-            WidgetUtils.SetSliderState(rootWidget, tbSteppingTime.Name, prefs.SteppingTime, WidgetUtils.SliderUnitsThousandths);
-            WidgetUtils.SetSliderState(rootWidget, tbHesitateTime.Name, prefs.HesitateTime, WidgetUtils.SliderUnitsThousandths);
-            WidgetUtils.SetSliderState(rootWidget, tbWordListHesitateTime.Name, prefs.WordPredictionHesitateTime, WidgetUtils.SliderUnitsThousandths);
-            WidgetUtils.SetSliderState(rootWidget, tbTabScanTime.Name, prefs.TabScanTime, WidgetUtils.SliderUnitsThousandths);
-            WidgetUtils.SetSliderState(rootWidget, tbFirstRepeatTime.Name, prefs.FirstRepeatTime, WidgetUtils.SliderUnitsThousandths);
+            (rootWidget.Finder.FindChild(tbAcceptTime.Name) as SliderWidget).SetState(prefs.AcceptTime, SliderWidget.SliderUnitsThousandths);
+            (rootWidget.Finder.FindChild(tbSteppingTime.Name) as SliderWidget).SetState(prefs.SteppingTime, SliderWidget.SliderUnitsThousandths);
+            (rootWidget.Finder.FindChild(tbHesitateTime.Name) as SliderWidget).SetState(prefs.HesitateTime, SliderWidget.SliderUnitsThousandths);
+            (rootWidget.Finder.FindChild(tbWordListHesitateTime.Name) as SliderWidget).SetState(prefs.WordPredictionHesitateTime, SliderWidget.SliderUnitsThousandths);
+            (rootWidget.Finder.FindChild(tbTabScanTime.Name) as SliderWidget).SetState(prefs.TabScanTime, SliderWidget.SliderUnitsThousandths);
+            (rootWidget.Finder.FindChild(tbFirstRepeatTime.Name) as SliderWidget).SetState(prefs.FirstRepeatTime, SliderWidget.SliderUnitsThousandths);
         }
 
         /// <summary>
@@ -281,7 +284,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Confirm with the user and quit the dialog
+        /// Confirms with the user and quits the dialog
         /// </summary>
         private void quit()
         {
@@ -318,7 +321,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
-        /// Form is closing. Release resources
+        /// Form is closing. Releases resources
         /// </summary>
         private void ScannerSettingsForm_FormClosing(object sender, FormClosingEventArgs e)
         {

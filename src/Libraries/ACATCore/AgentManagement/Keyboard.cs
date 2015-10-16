@@ -65,7 +65,8 @@ using ACAT.Lib.Core.Utility;
 namespace ACAT.Lib.Core.AgentManagement
 {
     /// <summary>
-    /// Sends keystokes to the active window.
+    /// Sends keystokes to the active window by inserting them
+    /// into the Windows keyboard buffer
     /// </summary>
     public class Keyboard : IKeyboard
     {

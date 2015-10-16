@@ -211,7 +211,7 @@ namespace ACAT.Lib.Core.AgentManagement
         }
 
         /// <summary>
-        /// Dispose currently active text control agent
+        /// Disposes currently active text control agent
         /// </summary>
         private void disposeTextInterface()
         {

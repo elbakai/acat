@@ -67,8 +67,8 @@ namespace ACAT.Lib.Extension.CommandHandlers
     /// <summary>
     /// Activates the agent that lets the user switch
     /// between windows of the active process. For instance
-    /// if there are multiple notepad windows, or multiple
-    /// word documents open.
+    /// if there are multiple notepad windows, only displays all
+    /// the active notepad windows
     /// </summary>
     public class SwitchWindowsHandler : RunCommandHandler
     {

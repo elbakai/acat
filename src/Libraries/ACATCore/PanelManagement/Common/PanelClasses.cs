@@ -1,5 +1,5 @@
 ﻿////////////////////////////////////////////////////////////////////////////
-// <copyright file="PanelClass.cs" company="Intel Corporation">
+// <copyright file="PanelClasses.cs" company="Intel Corporation">
 //
 // Copyright (c) 2013-2015 Intel Corporation 
 //
@@ -59,26 +59,65 @@ using System.Diagnostics.CodeAnalysis;
 namespace ACAT.Lib.Core.PanelManagement
 {
     /// <summary>
-    /// Represents types of common scanner classes
+    /// Represents types of common scanner types
     /// </summary>
     public class PanelClasses
     {
+        /// <summary>
+        /// The main Alphabet scanner
+        /// </summary>
         public const String Alphabet = "Alphabet";
-        public const String AlphabetMinimal = "AlphabetMinimal";
-        public const String Cursor = "Cursor";
-        public const String DialogContextMenu = "DialogContextMenu";
-        public const String DialogDockContextMenu = "DialogDockContextMenu";
-        public const String FileMenu = "FileMenu";
-        public const String MenuContextMenu = "MenuContextMenu";
-        public const String Mouse = "Mouse";
-        public const String None = "None";
-        public const String Number = "Number";
-        public const String Punctuation = "Punctuation";
-        public const String Unknown = "Unknown";
-        public const String UnsupportedAppContextMenu = "UnsupportedAppContextMenu";
 
         /// <summary>
-        /// The type of scanner
+        /// The alphabet scanner without word prediction
+        /// </summary>
+        public const String AlphabetMinimal = "AlphabetMinimal";
+
+        /// <summary>
+        /// The Cursor navigation scanner
+        /// </summary>
+        public const String Cursor = "Cursor";
+
+        /// <summary>
+        /// Contexutal menus to interact with application dialogs. E.g. the
+        /// Find dialog box when the user presses Ctrl-F in Notepad
+        /// </summary>
+        public const String DialogContextMenu = "DialogContextMenu";
+
+        /// <summary>
+        /// Scanner for function keys F1 through F12
+        /// </summary>
+        public const String FunctionKey = "FunctionKey";
+
+        /// <summary>
+        /// Contexutal menu to interact with application menus (E.g user right
+        /// clicks in an application window and Windows displays a
+        /// menu.
+        /// </summary>
+        public const String MenuContextMenu = "MenuContextMenu";
+
+        /// <summary>
+        /// The Mouse navigation scanner
+        /// </summary>
+        public const String Mouse = "Mouse";
+
+        /// <summary>
+        /// For uninitialized panels
+        /// </summary>
+        public const String None = "None";
+
+        /// <summary>
+        /// The Numbers scanner (equivalent to the numeric keypad)
+        /// </summary>
+        public const String Number = "Number";
+
+        /// <summary>
+        /// Scanner to enter Punctuations.
+        /// </summary>
+        public const String Punctuation = "Punctuation";
+
+        /// <summary>
+        /// The category of scanner
         /// </summary>
         public enum PanelCategory
         {

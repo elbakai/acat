@@ -69,10 +69,12 @@ namespace ACAT.Extensions.Default.UI.Scanners
 {
     /// <summary>
     /// This is the text cursor navigation scanner. It can
-    /// be used to browse a document. It has arrow keys,
-    /// page up page down, home end, and clipboard operations.
+    /// be used to browse or navigate through a document.  It has
+    /// arrow keys, page up page down, home end, and clipboard operations.
     /// </summary>
-    [DescriptorAttribute("78DA9448-096B-4FE1-940B-08B964E9DDDD", "CursorNavigationScanner", "Cursor Navigation Scanner")]
+    [DescriptorAttribute("E2FAC808-D05A-435B-84DA-5F9A7B65A94C",
+                        "CursorNavigationScanner",
+                        "Cursor Navigation Scanner")]
     public partial class CursorNavigationScanner : Form, IScannerPanel, ISupportsStatusBar
     {
         /// <summary>
@@ -91,19 +93,14 @@ namespace ACAT.Extensions.Default.UI.Scanners
         private ScannerHelper _scannerHelper;
 
         /// <summary>
-        /// The status bar object for this scanner
-        /// </summary>
-        private ScannerStatusBar _statusBar;
-
-        /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
         public CursorNavigationScanner()
         {
             InitializeComponent();
-            createStatusBar();
-            Load += CursorScanner_Load;
-            FormClosing += CursorScanner_FormClosing;
+
+            Load += CursorNavigationScanner_Load;
+            FormClosing += CursorNavigationScanner_FormClosing;
             PanelClass = PanelClasses.Cursor;
             _defaultCommandDispatcher = new DefaultCommandDispatcher(this);
         }
@@ -150,7 +147,7 @@ namespace ACAT.Extensions.Default.UI.Scanners
         /// </summary>
         public ScannerStatusBar ScannerStatusBar
         {
-            get { return _statusBar; }
+            get { return ScannerCommon.StatusBar; }
         }
 
         /// <summary>
@@ -206,6 +203,8 @@ namespace ACAT.Extensions.Default.UI.Scanners
                 Log.Debug("Could not initialize form " + Name);
                 return false;
             }
+
+            _scannerCommon.CreateStatusBar();
 
             return true;
         }
@@ -295,28 +294,15 @@ namespace ACAT.Extensions.Default.UI.Scanners
         [EnvironmentPermissionAttribute(SecurityAction.LinkDemand, Unrestricted = true)]
         protected override void WndProc(ref Message m)
         {
-            _scannerCommon.HandleWndProc(m);
-            base.WndProc(ref m);
-        }
-
-        /// <summary>
-        /// Creates the status bar for this scanner
-        /// </summary>
-        private void createStatusBar()
-        {
-            if (_statusBar != null)
+            if (_scannerCommon != null)
             {
-                return;
+                if (_scannerCommon.HandleWndProc(m))
+                {
+                    return;
+                }
             }
 
-            _statusBar = new ScannerStatusBar
-            {
-                AltStatus = BAltStatus,
-                CtrlStatus = BCtrlStatus,
-                FuncStatus = BFuncStatus,
-                ShiftStatus = BShiftStatus,
-                LockStatus = BLockStatus
-            };
+            base.WndProc(ref m);
         }
 
         /// <summary>
@@ -324,20 +310,22 @@ namespace ACAT.Extensions.Default.UI.Scanners
         /// </summary>
         /// <param name="sender">event sender</param>
         /// <param name="e">event args</param>
-        private void CursorScanner_FormClosing(object sender, FormClosingEventArgs e)
+        private void CursorNavigationScanner_FormClosing(object sender, FormClosingEventArgs e)
         {
+            KeyStateTracker.EvtKeyStateChanged -= KeyStateTracker_EvtKeyStateChanged;
+
             _scannerCommon.OnClosing();
             _scannerCommon.Dispose();
         }
 
         /// <summary>
-        /// Scanner is loading. Initialize
+        /// Scanner is loading. Initializes the form
         /// </summary>
         /// <param name="sender">event sender</param>
         /// <param name="e">event args</param>
-        private void CursorScanner_Load(object sender, EventArgs e)
+        private void CursorNavigationScanner_Load(object sender, EventArgs e)
         {
-            KeyStateTracker.EvtKeyStateChanged += new KeyStateTracker.KeyStateChanged(KeyStateTracker_EvtKeyStateChanged);
+            KeyStateTracker.EvtKeyStateChanged += KeyStateTracker_EvtKeyStateChanged;
 
             _scannerCommon.OnLoad();
 

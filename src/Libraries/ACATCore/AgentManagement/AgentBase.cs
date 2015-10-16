@@ -163,23 +163,28 @@ namespace ACAT.Lib.Core.AgentManagement
             get { return _textInterface ?? _nullTextInterface; }
         }
 
+        /// <summary>
+        /// Gets the list of processes supported by this agent.
+        /// Override this function.
+        /// </summary>
         public virtual IEnumerable<AgentProcessInfo> ProcessesSupported
         {
             get { return new AgentProcessInfo[] { }; }
         }
 
         /// <summary>
-        /// Invoked when the agent is de-activated.  Occurs for e.g. when the active window changes
-        /// focus and the agent manager switches agents.
+        /// Invoked when the agent is de-activated.  Occurs for e.g. when 
+        /// the active window changes focus and the agent manager switches agents.
         /// </summary>
         public virtual void OnFocusLost()
         {
         }
 
         /// <summary>
-        /// Invoked whenever focus changes in the target application window - either
-        /// when the active window changes or when the focus within a window changes from
-        /// one control to another. eg, use tabs between edit fields
+        /// Invoked whenever focus changes in the target application 
+        /// window - either when the active window changes or when the 
+        /// focus within a window changes from one control to another. 
+        /// eg, use tabs between edit fields
         /// </summary>
         /// <param name="monitorInfo">Contains all the info about the control in focus</param>
         /// <param name="handled">Set this to true if the agent handled it.</param>
